@@ -1,0 +1,158 @@
+# Frequently Asked Questions
+
+<!-- This page summarizes situations that may arise and their suggested solutions. -->
+
+## Common administrative tasks
+
+### Where are the logs?
+
+The application logs are located at `/opt/gluu/jetty/cred-manager/logs`. By default, Credential Manager uses INFO level for messages. You can change the log level at will using the app's admin UI.
+
+<!--
+**Note: check the logs**
+
+To work properly, Credential Manager requires stable dependent components (filesystem, ldap, oxd, oxauth, servlet container, etc). Thus, it's important to determine if all expected services are working properly. 
+
+At startup, the app gathers a good amount of information from its environment. If something is missing or went wrong, messages will be shown in the log. Some messages may warn you about parameters not supplied that were simply inferred for you. 
+
+During normal use, the app will show feedback to users if operations were successful or failed. In the latter case, the log is also worth to look at to diagnose the anomalies.
+-->
+
+
+### How do I restart the application?
+
+To restart Credential Manager, just issue
+
+```
+$ service cred-manager restart
+```
+
+from within the Gluu Server chroot container.
+
+### How do I custom brand Credential Manager?
+
+We have a dedicated page covering the topic of custom branding [here](custom-branding.md).
+
+### What ports are used by the application?
+
+Credential Manager uses port `8091`. One way to see if the app is up and running is by checking whether this port is open by issuing a command like `netstat -nltp`.
+
+### How to reset a user's preferred method of authentication?
+
+If a user has locked out for any reason (e.g. lost devices), you can reset his preferred method by entering to the admin console and choosing the menu item labelled "Reset users preference".  Type the username (or part of) in the text field and then press search. Once you locate the user in the result grid, click the corresponding row and then hit "Change to password". The row will become disabled, and you'll see a success message.
+
+If you have followed the steps as described above, next time he/she enters, **password** will be his new preference and he won't be asked to present additional credentials to enter.
+
+## Errors shown in the UI
+
+### A page with a "Service Temporarily Unavailable" message appears when accessing the application
+This is the 503 HTTP error. There is an Apache server in front of the application (as with oxAuth/oxTrust) and this means the reverse proxy couldn't establish a communication internally with the app. This usually happens when Credential Manager hasn't started completely, so it's usually a matter of waiting a few seconds.
+
+For instance, when you restart the `gluu-server` service, it may take some time for Credential Manager and oxd to become available even when the prompt is back in the console terminal. See also this [question](#what-ports-are-used-by-the-application).
+
+### An "incorrect email or password" error is shown when pressing the login button in the SSO form
+
+This reveals a problem in oxAuth, not Credential Manager itself. It might be a problem with a *credmanager* custom interception script. Check if `oxauth_script.log` is showing an error related to the authentication method in question.
+
+If you cannot diagnose the issue, please use the [support forum](https://support.gluu.org) to ask for help. 
+
+### An "Unauthorized access" error is shown when accessing the application
+
+This is caused by an unauthorized access attempt (e.g. users requesting URLs without ever logging in).
+
+### "An error occurred during authorization step" is shown when accessing the application
+
+This is shown when it is not possible to initiate a "conversation" with the authorization server. Check that the oxd server is up and running and that the oxd settings are properly configured. Find them at the administration console or in the configuration file.
+
+### "An error occurred: Credential manager did not start properly" is shown when accessing the application
+
+This occurs whenever the application failed to start successfully and may be caused by a syntax problem in the configuration file or an inconsistent configuration supplied. Check the log to diagnose the problem. Try to find a message like "WEBAPP INITIALIZATION FAILED" and see the traces above it. Often, errors messages are self-explanatory.
+
+Once fixed, please restart the application. You will have to see a "WEBAPP INITIALIZED SUCCESSFULLY" message to know that it's working.
+
+### An error is shown in the admin UI when specifying oxd server with HTTPS extension
+
+Ensure the host provided is accessible from the server where Credential Manager is installed. Check the port corresponding to the HTTPS port you have set in the `oxd-https.yml`. The SSL certificate used to "secure" the extension extension must be issued by a CA. If it is a self-signed one, you **have** to import it to the Java *cacerts* keystore of the Credential Manager server.
+
+## oxd
+
+### Adding a license manually
+If an oxd license was not added during installation, it can be added post installation by editing the `oxd-config.json` file. To do so, navigate to the directory where oxd is installed (if oxd was installed by the setup script, it is located in `/opt/oxd-server` of Gluu chroot).
+
+Open the file `conf/oxd-conf.json` and add the following license details (which are available from the oxd dashboard after signup):
+
+- license_id   
+- public_key   
+- public_password   
+- license_password   
+
+After saving the file, restart oxd (by issuing for instance `service oxd-server restart`). To confirm oxd is working properly, check the oxd log file located at `/var/log/oxd-server.log` for a message like: 
+
+```
+TRACE [...] License is validated successfully.
+TRACE [...] License data: LicenseMetadata{creationDate=..., expirationDate=...}
+INFO  [...] Server socket is bound to port: 8099, with timeout: 0 seconds. Start listening for notifications.
+```
+
+To proceed, [restart Credential Manager](faq.md#How-to-restart-the-application).
+
+### In case of lockout
+
+If for any reason an update results in lockout, do the following:
+
+* Navigate to `/etc/gluu/conf`
+* Edit the config file of the application `cred-manager.json`. Provide the oxd details in under the "oxd_config" section. If you are not sure of what to provide for the "client" section, you can remove it entirely
+* Save the file and [restart Credential Manager](faq.md#How-to-restart-the-application)
+* [Check the logs](#check-the-logs) and there should be a successful message regarding oxd registration
+* Login to the application
+
+
+## Miscellanenous
+
+### Troubleshooting interception scripts
+
+In order to ensure authentication scripts are properly configured in Gluu, it is advisable to:
+
+* Check the contents of the `oxauth_script.log` file (found at `/opt/gluu/jetty/oxauth/logs`). There should be no errors; only successful initialization messages. Every time a new script is enabled, give the server a minute to pick up the changes.
+
+* Scripts included in the default Gluu Server distribution will provide basic working functionality. To see a script in action, enable a script in `Configuration` > `Manage custom scripts`, then set it as the default oxTrust acr in `Manage authentication` > `Default authentication method` > `oxTrust acr`. Open an incognito browser and login to your oxTrust dashboard. By default, your 2FA credential will be enrolled during the first authentication attempt. 
+
+!!! Note
+    Learn more about how the Gluu Server handles authentication in the [user authentication intro](https://www.gluu.org/docs/ce/authn-guide/intro). In addition, to learn more about how custom interception scripts work, review the [custom script tutorial](https://www.gluu.org/docs/ce/admin-guide/custom-script).
+ 
+
+### U2F keys enrolling not working from within Credential Manager
+
+To be able to enroll U2F keys, ensure all of the following are met:
+
+* You are accessing the application via https (this a requirement by design of fido standard)
+* Ensure the IDP URL matches the same host under which Credential Manager is being served. Both FQDNs should match. 
+* Ensure you are using Chrome, Opera (version greater than 40), or Firefox (with the proper [u2f add-on](https://addons.mozilla.org/en-US/firefox/addon/u2f-support-add-on/) installed) and javascript enabled. These are the only browsers supporting the FIDO U2F technology. Currently Credential Manager does not support adding U2F devices from mobile browsers.
+* Ensure plugging the security key before pressing the "ready" button: the enrolling process has a timeout period. Ensure you are pressing the key's button when your browser indicates to do so or when the key's button is blinking.
+
+### The user interface is not showing any means to enroll credentials
+
+Ensure the following are met:
+
+* You have enabled custom scripts as needed. For instance, if you want to offer users the ability to authenticate using Google Authenticator, you have to enable the script "HOTP/TOPT authentication module". Whenever you enable or disable scripts, please wait a couple of minutes for oxAuth to pick the changes.
+
+* You specified a correct value for *"enabled-methods"* in `cred-manager.json`. Leave it empty or null to pick all enabled methods already supported by your Gluu Server. Alternatively, in the administration console you can see which methods are already enabled in the server, and modify those you want to offer.
+
+### The user interface is not showing means to enroll certain types credentials
+
+Ensure you specified a correct value for *"enabled-methods"* in `cred-manager.json`. Leave it empty or null to pick all enabled methods already supported by your Gluu Server. The administration console is also useful to diagnose the problem.
+
+### The preferred method for authentication is set to password and user cannot change it
+
+To choose a strong method for authentication, the user has to have enrolled at least a certain number of credentials through the app. Only after this is met, he will be able to set his preferred method. 
+
+In the administration console (or directly in `cred-manager.json`) you can specify the minimum number of enrolled credentials needed to enable second factor authentication for users.
+
+
+### The log shows an error related to *Obtaining "acr_values_supported" from server*
+
+Upon startup, the application needs to query the OpenID metadata URL of oxAuth to build the list of available authentication mechanisms.  This warning is shown when the URL is not yet accessible or the list hasn't loaded fully. However, the application does several (around 15) evenly timed attempts in order to gather the required info. These messages are not a sign of a malfunction.
+
+## My problem is not listed here
+
+Feel free to open a [support](https://support.gluu.org) ticket.
