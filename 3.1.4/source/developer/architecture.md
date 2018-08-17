@@ -53,25 +53,25 @@ Gluu casa has some few key external dependencies to work properly
 
 ### Authorization server
 
-The oxAuth component of your Gluu Server installation is the most relevant. Despite Gluu Casa leverages (oxd)[#oxd-server] to simplify the authorization process, some endpoints of oxAuth are being consumed directly to support credential enrollment functionalities or gathering certain configuration parameters. 
+The oxAuth component of your Gluu Server installation is the most relevant. Despite Casa leverages (oxd)[#oxd-server] to simplify the authorization process, some endpoints of oxAuth are being consumed directly to support credential enrollment functionalities or gathering certain configuration parameters. 
 
 More importantly, the workflow exhibited by the authorization server when an authentication attempt is made by the application depends on a set of interception scripts and custom pages which were built specifically for this application. 
 
 ### oxd server
 
-oxd server (and the oxd-https-extension if used) acts as a mediator to simplify the authorization process (which follows the OpenID connect code flow). This is a required component whose location is supplied during Gluu Casa installation (in case administrators don't have an oxd server available, they can make use of the option to install and configure on instance).
+oxd server (and the oxd-https-extension if used) acts as a mediator to simplify the authorization process (which follows the OpenID connect code flow). This is a required component whose location is supplied during Casa installation (in case administrators don't have an oxd server available, they can make use of the option to install and configure on instance).
 
 ### Geolocation service
 
-Gluu casa uses the "ip-api" geolocation service for two purposes: gathering basic location information in the moment of the login itself and when enrollments take place for super gluu devices. The latter being available only if the administrator has added supergluu as one of its [enabled methods](../administration/#enabled-methods) previously.
+Casa uses the "ip-api" geolocation service for two purposes: gathering basic location information in the moment of the login itself and when enrollments take place for super gluu devices. The latter being available only if the administrator has added supergluu as one of its [enabled methods](../administration/#enabled-methods) previously.
 
-Gluu casa supports free and pro service of ip-api.
+Casa supports free and pro service of ip-api.
 
 ## Data storage
 
 ### LDAP
 
-Gluu casa uses the same lightweight directory (LDAP) of your Gluu Server to store users data such as [enrolled credentials](../administration/credentials-stored.md), preferred authentication method, users' trusted devices information, and so on. 
+Casa uses the same lightweight directory (LDAP) of your Gluu Server to store users data such as [enrolled credentials](../administration/credentials-stored.md), preferred authentication method, users' trusted devices information, and so on. 
 
 It is recommended that developers writing plugins leverage the existing directory to save their data. Nonetheless, any other alternative mechanism can be embraced (e.g. a database); it is up to administrators and developers to agree on how to incorporate this to the current stack.
 
@@ -89,12 +89,12 @@ Jar files of all [plugins](#plugin-framework) (started/stopped) reside in filesy
 
 ## Runtime environment
 
-These are key facts for potential Gluu Casa developers:
+These are key facts for potential Casa developers:
 
 * Underlying operating system: The linux distro where your Gluu Server is running. For plugin development, there is no restriction on operating system.
 
-* Java SE version: Gluu Server comes with JDK 1.8 installed in chroot container, that is, the war file of Gluu Casa uses a JVM in such version.  For plugin development, JDK 1.8 is recommended as well.
+* Java SE version: Gluu Server comes with JDK 1.8 installed in chroot container, that is, the war file of Casa uses a JVM in such version.  For plugin development, JDK 1.8 is recommended as well.
 
-* Application container: Gluu Casa runs in a Jetty 9.4 instance (which is setup upon installation of Casa). Plugin writers don't need to use an application container since they only produce jar files.
+* Application container: Casa runs in a Jetty 9.4 instance (which is setup upon installation of Casa). Plugin writers don't need to use an application container since they only produce jar files.
 
 * Build tool: To write plugins the usage of Maven 3 is recommended, however any build system which allows to create fat (Uber) jars will suffice.
