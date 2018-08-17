@@ -24,5 +24,8 @@ pages:
     - 'Custom branding' : 'administration/custom-branding.md'
     - 'URL path customization': 'administration/change-context-path.md'
     - 'FAQ' : 'administration/faq.md'
+- Developer Guide:
+    - 'Architectural details' : 'developer/architecture.md'
+    - 'Introduction to plugin development' : 'developer/intro-plugin.md'
+    - 'Writing your first plugin' : 'developer/writing-first.md'
 - User Guide: 'user-guide.md'
-- Developer Guide: 'developer-guide.md'
