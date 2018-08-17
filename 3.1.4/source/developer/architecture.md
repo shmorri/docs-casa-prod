@@ -2,7 +2,7 @@
 
 ## Application
 
-Gluu Casa is a web application (more specifically, a Java EE 7 web module).
+Gluu Casa ("Casa") is a web application (more specifically, a Java EE 7 web module).
 
 ### UI aspects
 
@@ -10,7 +10,7 @@ To generate HTML content this application uses the [ZK Community Edition](https:
 
 ZK helps developers write highly interactive interfaces in a fast paced manner still using similar dialects of other Java-based UI frameworks. Additionally, despite it does a lot of Ajax in the browser, no knowledge about Javascript is required.
 
-There is a handful of approaches for ZK development, particularly in Gluu Casa the MVVM pattern is used. This pattern has 3 roles: View, Model, and ViewModel which allow to achieve a separation of data and logic from presentation. For more information see [ZK MVVM Reference](http://books.zkoss.org/zk-mvvm-book/8.0/).
+There is a handful of approaches for ZK development, particularly in Casa the MVVM pattern is used. This pattern has 3 roles: View, Model, and ViewModel which allow to achieve a separation of data and logic from presentation. For more information see [ZK MVVM Reference](http://books.zkoss.org/zk-mvvm-book/8.0/).
 
 Plugin developers are encouraged to use MVVM development style of ZK, however any other approach is pluggable and should supported.
 
@@ -20,28 +20,28 @@ From the server-side perspective, the following summarizes the most relevant asp
 
 - Contexts and Dependency Injection (CDI)
 
-Gluu Casa uses Weld 3.0 (JSR-365 aka CDI 2.0) for managed beans. The most important aspects of business logic are implemented through a set of beans found in Java package `org.gluu.credmanager.core`.
+Casa uses Weld 3.0 (JSR-365 aka CDI 2.0) for managed beans. The most important aspects of business logic are implemented through a set of beans found in Java package `org.gluu.credmanager.core`.
 
 Managed beans are injected in UI controller classes (ZK ViewModels) by means of custom ZK annotations. ZK pages can access bean properties via EL expressions when they are annotated `javax.inject.Named`.
 
 - Logging
 
-Gluu Casa uses "Simple Logging Facade for Java" (SLF4J) with the Log4j2 binding. Log files are located in `/opt/gluu/jetty/casa/logs` of Gluu Server chroot container. To get more information on loggers and appenders, check the `log4j2.xml` file found in `/WEB-INF/classes` of the application war. Alternatively, you can check the file online in [github](https://github.com/GluuFederation/casa/blob/version_3.1.3/app/src/main/resources/log4j2.xml) (point to the branch that corresponds to your Casa version).
+Casa uses "Simple Logging Facade for Java" (SLF4J) with the Log4j2 binding. Log files are located in `/opt/gluu/jetty/casa/logs` of Gluu Server chroot container. To get more information on loggers and appenders, check the `log4j2.xml` file found in `/WEB-INF/classes` of the application war. Alternatively, you can check the file online in [github](https://github.com/GluuFederation/casa/blob/version_3.1.3/app/src/main/resources/log4j2.xml) (point to the branch that corresponds to your Casa version).
 
 - Async timers
 
-Gluu casa currently employs two asynchronous jobs to periodically clean users trusted devices list if any, and to detect changes in relevant custom interception scripts and notify plugin handlers of this event. For this task, the Quartz 2 library is used.
+Casa currently employs two asynchronous jobs to periodically clean users trusted devices list if any, and to detect changes in relevant custom interception scripts and notify plugin handlers of this event. For this task, the Quartz 2 library is used.
 
 - Plugin framework
 
-The "Plugin Framework for Java" ([PF4J](http://www.pf4j.org)) is the mechanism Gluu Casa supports for plugin management. Plugins are artifacts intended to extend and under certain circumstances, override application functionalities.
+The "Plugin Framework for Java" ([PF4J](http://www.pf4j.org)) is the mechanism Casa supports for plugin management. Plugins are artifacts intended to extend and under certain circumstances, override application functionalities.
 
-Plugins are added at runtime, which, requires no restart of Gluu Casa. Additionally, plugins can be temporarily stopped or permanently removed.
+Plugins are added at runtime, which, requires no restart of Casa. Additionally, plugins can be temporarily stopped or permanently removed.
 To add a plugin, a jar file must be uploaded via the admin dashboard. 
 
 - LDAP persistence
 
-As expected, access to LDAP is key in Gluu Casa. To cover this need, the "UnboundID Persistence Framework" was employed. This is a small framework (part of the more general "UnboundID LDAP SDK") which allows to easily establish a mapping between Java objects (POJOs) and LDAP entries facilitating CRUD operations a lot. Plugins leverage some of the persistence framework tools as well as some functionalities exposed directly by the application which makes access to LDAP fairly easy to understand and highly productive at the same time. 
+As expected, access to LDAP is key in Casa. To cover this need, the "UnboundID Persistence Framework" was employed. This is a small framework (part of the more general "UnboundID LDAP SDK") which allows to easily establish a mapping between Java objects (POJOs) and LDAP entries facilitating CRUD operations a lot. Plugins leverage some of the persistence framework tools as well as some functionalities exposed directly by the application which makes access to LDAP fairly easy to understand and highly productive at the same time. 
 
 - Rest services
 
