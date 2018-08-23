@@ -329,7 +329,6 @@ PF4J supports zip-based, jar-based, and directory-based plugins (the last one in
 
 PF4J allows a plugin to depend on other plugins. This feature is not supported in Gluu Casa yet.
 
-
 ## Development lifecycle
 
 If you reached this part of the document, you already have the background required to start. Congratulations!. 
@@ -339,7 +338,7 @@ The following is a generic suggested flow for developing plugins once the [requi
 1. Create a simple project in your development environment. Include `casa-shared` dependency (this will give you access to UI and plugin framework as well as other utilities). Create an empty resource bundle (labels file).
 
 !!! Note:
-    You can leverage the [maven archetype](???) to bootstrap the creation your project
+    You can leverage the [maven archetype](./tips-development.md#bootstrap-a-plugin-using-an-archetype) to bootstrap the creation your project
     
 1. Create a plugin class and write your plugin metadata (i.e. all descriptive elements that will appear in the plugin's manifest file).
 
@@ -359,7 +358,7 @@ The following is a generic suggested flow for developing plugins once the [requi
 
 1. Click the button that adds (starts) the plugin. Check the log once more.
 
-1. In a browser hit the page(s) you want to visualize in order to test your achievement so far. For the first attempts there is good likelihood of errors appearing. These are normally due to some misreference in URLs, class names, or label names. Some errors can be fixed without even regenerating and reuploading your plugins while others many need you to get back to your IDE. See this [page](???) for more information.
+1. In a browser hit the page(s) you want to visualize in order to test your achievement so far. For the first attempts there is good likelihood of errors appearing. These are normally due to some misreference in URLs, class names, or label names. Some errors can be fixed without even regenerating and reuploading your plugins while others many need you to get back to your IDE. See this [page](./tips-development#skipping-package-and-deployment-phases) for more information.
 
 1. Apply error fixing as per the previous step if needed. If a new jar file needs to be built, before uploading it, stop and delete the current running plugin via the admin dashboard of Gluu Casa.
 

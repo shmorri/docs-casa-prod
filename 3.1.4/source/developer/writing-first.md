@@ -194,7 +194,7 @@ Follow this steps:
 
 ### Check the log
 
-Do a quick check of the logs. This is not needed in real production setting, but it makes sense developers familiarize with the internal steps   Casa performs to onboard plugins. This may also help troubleshooting for future work.
+Do a quick check of the logs. This is not needed in real production setting, but it makes sense developers familiarize with the [internal](./plugin-management-internals#resource-extraction-and-registration) steps Casa performs to onboard plugins. This may also help troubleshooting for future work.
 
 ### Access plugin page
 
