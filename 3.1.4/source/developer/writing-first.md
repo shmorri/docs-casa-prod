@@ -1,6 +1,6 @@
 # Writing your first plugin
 
-In this page we will disect the "Hello world" plugin project, apply editions on its code, do the packaging, deploy, and testing on a Gluu Casa installation.
+In this page we will disect the "Hello world" plugin project, apply editions on the code, do the packaging, deploy, and testing on a Gluu Casa installation.
 
 ## Requirements
 
@@ -14,7 +14,7 @@ Hello world is minimalistic plugin that showcases very basic aspects of plugin d
 
 ### Download project
 
-Let's start by downloading the code. Hello World plugin is found inside the Gluu Casa project itself. This way you can easily check the underlying APIs and real world UI pages, particularly, the [`casa-shared` module](intro-plugin.md#casa-shared-module) being of great interest.
+Let's start by downloading the code. Hello World plugin is found inside the Gluu Casa project itself. This way you can easily check the underlying APIs and real world UI pages, particularly, the [`casa-shared` module](intro-plugin.md#casa-shared-module) being of remarkable interest.
 
 If you have `git` installed in your machine, issue the following command. Replace the content in the angle brackets with your Gluu Casa version (e.g. "version_3.1.3"):
 
@@ -23,7 +23,240 @@ $ git clone https://github.com/GluuFederation/casa.git
 $ git checkout <branch>
 ```
 
-Alternatively you can download a zipped version of the project from github. Visit this [page](https://github.com/GluuFederation/casa), then ...
+Alternatively you can download a zipped version of the project from github:
+
+- Visit this [page](https://github.com/GluuFederation/casa) and pick from the dropdown the branch matching your Casa version
+- Click on the "Clone or download" button, then on "download ZIP"
+- Extract the contents of the file to a convenient location
+
+### Generate javadocs
+
+It is very useful to have some apidocs at hand. Please `cd` to the directory where you extracted or cloned the repo and do:
+
+```
+$ mvn javadoc:javadoc -pl shared
+$ cd plugins/helloworld
+$ mvn javadoc:javadoc
+```
+
+It is assumed `mvn` (maven executable) is in your path.
+
+## Anatomy
+
+Plugin directory is found in `plugins/helloworld` folder. As you can see, this is a [standard maven project](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html). All filesystem paths given in this section are relative to `plugins/helloworld`.
+
+### POM
+
+ Let's start by disecting the build descriptor (`pom.xml`):
+
+- Identifiers and versions: At the top of the file variables `plugin.id` and `plugin.version` are defined. These are key to our plugin's metadata. Also we reuse those to name the artifact to be produced: note the `artifactId` and `version` tags; this means the name of the generated jar will follow the pattern: `{plugin.id}-{plugin.version}`.
+
+- Assembly: We leverage the `maven-assembly-plugin` that allow us to generate a jar with dependencies and a suitable manifest file (see ["anatomy of a plugin"](./intro-plugin.md#anatomy-of-a-plugin)). Note the `<archive>` section of `pom.xml` reuses the ID and version defined previously and also supplies extra info, being `<Plugin-Class>` one the most relevant.
+
+- Dependencies: This simple plugin just accounts for one dependency, namely the [`casa-shared`](./intro-plugin.md#casa-shared-module) module. This dependency is obtained from Gluu repository (see `<repositories>` section).
+
+### Plugin's class
+
+In the build descriptor, `<Plugin-Class>` element points us to class `org.gluu.casa.plugins.helloworld.HelloWorldPlugin`. This class extends `org.pf4j.Plugin` which is a requirement of our [plugin framework](./intro#plugin-framework). A plugin project should bundle only one class of this kind.
+
+Plugin classes can override methods of `org.pf4j.Plugin` (e.g. `start` and/or `stop`) if they need to do some processing upon plugin start or stop. For HelloWorld we don't need so we simply call the constructor of the superclass.
+
+### Extension
+
+In the same package of plugin class, that is, `org.gluu.casa.plugins.helloworld` we can find `HelloWorldMenu`, this is the only extension this plugin contributes. Recall from the intro page [concepts](#plugin-framework) that extensions are classes that implement extension points (interfaces annotated with `org.pf4j.ExtensionPoint` that define a set of methods of interest).
+
+`HelloWorldMenu` is a class annotated with `org.pf4j.Extension` that implements extension point `org.gluu.credmanager.extension.navigation.NavigationMenu`. `NavigationMenu` defines a couple of methods that allow implementing classes to add items (more generally, content) to menus. Check the javadocs (in folder `shared/target/site/apidocs`) for a thorough description. Note that `menuType` is a default interface method. If it weren't present in `HelloWorldMenu` the same effect would be achieved.
+
+Method `getContentsUrl` references a path to a page that can contain markup of any kind. It will get added to the overall menu markup you are targetting (user, admin, or auxiliary), see `org.gluu.credmanager.extension.navigation.MenuType`. Markup is added in order of priority (see `getPriority` method), the higher the value, the upper position in the menu.
+
+!!! Note:
+    All "extra" menu items are added after Casa defaults. For example, if you are targetting user menus, the 2FA menu and password reset will be shown first, those dynamically added come afterwards.
+
+In this particular case, `NavigationMenu` returns the String `"menu.zul"` which you can find in `src/main/resources/assets`. Once your plugin is loaded and started in Casa, this file (and any other in the `assets`) will be accessible under the URL `https://hostname/casa/pl/hello-world-plugin/`. Later, we will explain more in detail how the [filesystem to URL mapping](#assets-folder-to-url-mapping) works.
+
+### Resource bundle
+
+As described in [Anatomy of a plugin](./intro-plugin.md#anatomy-of-a-plugin), plugins may declare one resource bundle with internationalization labels. This is a neat approach to decouples UI pages from actual text content. In folder `src/main/resources/labels` we find the resource bundle which consists of a single file, `zk-label.properties`. This contains just a couple of entries that are referenced by UI pages.
+
+### UI pages
+
+HelloWorld bundles a couple ZK files in `src/main/resources/assets`:
+
+- `menu.zul` consists of a single [`A` ZK component](http://www.zkoss.org/javadoc/latest/zk/org/zkoss/zul/A.html), which is mostly an `a` HTML  tag. It is used to render a simple hyperlink that navigates to `index.zul`. Note the link text used is referencing an entry in the resource bundle (`zk-label.properties`). The `base` variable will passed to this template once it is rendered in Casa and will have `/casa/pl/hello-world-plugin` as value.
+
+- `index.zul` is a ZK document composed by a number of tags of different nature:
+
+   - `variable-resolver`: this is an XML processing instruction that allows the page to include EL expressions pulling data from managed beans (like `sessionContext`).
+   
+   - `page`: an XML processing instruction useful for setting the title of the page (`title` HTML tag)
+   
+   - TODO: markup will change a lot when incorporating new design...
+   
+In `index.zul` please note that:
+
+- The class `org.gluu.casa.plugins.helloworld.HelloWorldVM` is employed as this page [ViewModel](./intro-plugin#key-concepts).
+
+- A salutation is displayed: the expression to compose the actual message is `${labels.hello.user_message} ${sessionContext.user.userName}` (a concatenation of an entry in the resource bundle and a value in a managed bean).
+
+- There is a binding of the text entered in a textbox with the class field `message` of the ViewModel (`HelloWorldVM`). This means that if text changes in the UI, `message` is synced with the value, and if `message` is changed in the Java backend, the UI will update with the proper value.
+
+- When the button of this page is clicked, it triggers a call to method `loadOrgName` in the ViewModel. This method is annotated with `@Command` in that Java class and changes the value of class field `organizationName`.
+
+- There is a one-way binding ("load") with regard to ViewModel's field `organizationName`. This means that its value can be used in the page (e.g. for display), but no syncing takes place from page to server.
+
+### ViewModel
+
+Some key facts about class `org.gluu.casa.plugins.helloworld.HelloWorldVM` (the [ViewModel](./intro-plugin#key-concepts) for `index.zul`):
+
+- It has getter/setter for the field where 2-way binding is required (i.e. `message`). The getter is called when the page loads the first time (resulting in the text field with empty text), and the setter is called when text is typed in the textbox by the user.
+
+- It has getter for the field which is displayed only (organizationName). The getter is called upon page loading as well after server side processing occurs (like when pushing the button). This allows the value salutation be shown.
+
+- Every time the page is loaded, method `init` is called (due to the presence of annotation `org.zkoss.bind.annotation.Init`). In this method some initialization takes place: we obtain a reference to a managed bean using `Utils.managedBean`.
 
 
-### Anatomy
+which is interpreted in Casa as the content reachable at URL `https://hostname/casa/pl/hello-world-plugin/menu.zul`. All files in folder `assets` of plugin's jar file will be mapped to `https://hostname/casa/pl/<plugin-ID>`.
+
+Also, by convention in maven, if you have files under `src/main/resources`, they will be copied to the root of the jar file.
+
+### Logging
+
+Being able to log statements is key for any project whether big or small nowadays. Casa plugins are not an exception. You can obtain an instance of `org.slf4j.Logger` using `getLogger` method of `org.slf4j.LoggerFactory` (as in `HelloWorldVM`). `slf4j` is available when you include `casa-shared` in your project dependencies.
+
+Here `Logger-Name` entry of your plugin manifest plays a key role (see file `pom.xml`): in your plugin any `Logger` associated with a class whose name is prefixed by the value of such entry will be effectively logged in [Casa log file](../administration/faq.md#where-are-the-logs). Statements are logged using the same level as the global logging level of the application. This can be configured in the [admin dashboard](../administration/admin-console.md#logging).
+
+As an example, if a plugin you are writing has all its classes under `com.mycompany.plugins.MyPlugin` hierarchy and you obtain `Logger` instances using `LoggerFactory.getLogger(getClass())`, a good choice for `Logger-Name` would be `com.mycompany.plugins.MyPlugin` or `com.mycompany.plugins`. Statements won't be logged for a class `com.mycompany.MyClass` if `Logger-Name` is `com.mycompany.plugins`.
+
+<!--
+Every time a plugin is onboarded in Casa, a new logger is created using the value provided in this entry (it is created only if there is no previously existing logger with that name). The logger is assigned the same level as the global logging level of the application (this can be configured in the [admin dashboard](../admin-console.md#logging)).
+-->
+
+## Packaging
+
+Let's do our first attempt to generate the jar for HelloWorld. In a command line `cd` to plugin directory (i.e. `plugins/helloworld` of Casa repo you cloned) and issue:
+
+```
+$ mvn clean package
+```
+
+This will produce a file named `hello-world-plugin-0.1-jar-with-dependencies.jar`. Note it follows the pattern `{plugin.id}-{plugin.version}` we mentioned [earlier](#pom). Open the file in a compression (zip) utility to inspect its composition:
+
+```
+jar
+¦
++-- assets 
++------ index.zul
++------ menu.zul
++-- labels
+¦   +-- zk-label.properties
++-- META-INF
+¦   +-- extensions.idx
+¦   +-- MANIFEST.MF
++-- org
+    +-- gluu
+        +-- casa
+            +-- plugins
+                +-- helloworld
+                    +-- HelloWorldMenu.class
+                    +-- HelloWorldPlugin.class
+                    +-- HelloWorldVM.class
+```
+
+This resembles what we had already described in the intro page with regard to the [plugin anatomy](#anatomy-of-a-plugin). If you have been reading in detail, no file is a stranger. Note how `extensions.idx` lists our single plugin extension:
+
+```
+# Generated by PF4J
+org.gluu.casa.plugins.helloworld.HelloWorldMenu
+```
+
+
+### Assets folder to URL mapping
+
+In the following section we will start playing around with our plugin. This is a good moment to mention that all files you place in the `asssets` directory of your plugin will be web accessible at URL `https://hostname/casa/pl/hello-world-plugin/`, this means that once deployed, if you hit `https://hostname/casa/pl/hello-world-plugin/index.zul` or `https://hostname/casa/pl/hello-world-plugin/menu.zul` in a browser you will see those ZK documents rendered as HTML content.
+
+You can include an arbitrary structure of folders and files in `assets` directory and they would accessible. This is a perfect place to add javascript, images, stylesheets, etc.
+
+## Testing
+
+!!! Note:
+    Ensure your environment is aligned with respect to the [requirements](#requirements) beforehand.
+    
+### Loading HelloWorld
+
+Follow this steps:
+
+1. Login to Gluu Casa using administrator credentials: `https://hostname/casa`.
+1. Access the admin dashboard and select "Logging". Set the severity to `TRACE`
+1. Select the "Plugins" option and click on the "Add a plugin..." button
+1. Browse for the jar file generated [here](#packaging). After uploading completes, a page showing your plugin metadata should be shown. 
+1. Click on the the "Add" button. If the operation succeeds, your plugin is considered "started". Learn more about plugin states [here](./intro-plugin.md#casa-plugins-lifecycle).
+1. The plugin will be added to the list showing basic details, including a summary of extensions detected.
+
+### Check the log
+
+Do a quick check of the logs. This is not needed in real production setting, but it makes sense developers familiarize with the internal steps   Casa performs to onboard plugins. This may also help troubleshooting for future work.
+
+### Access plugin page
+
+Access the home page of Casa, you will be able to see a new link was added on the user menu (on the left, labelled "Hello world!"). After clicking on it a separate page (`https://hostname/casa/pl/hello-world-plugin/index.zul`) is shown. We will make it look more "integrated" to the app by showing the header and menus later.
+
+Check the app log, you will see a statement like "Hello World ViewModel inited" this is added by method `init` of `HelloWorldVM`.
+
+The page is showing a message that includes your current user name inviting you to type something in the text box. Type anything and press the button. This will end up in the execution of `loadOrgName` method of `HelloWorldVM`. This adds a new log statement and sets the value of class member `organizationName`. This value is obtained after an LDAP query!.
+
+After execution of this method, the UI is refreshed, which causes a new message to appear in the UI. 
+
+### Unload the plugin
+
+1. Access the admin dashboard and select the "Plugins" option.
+1. Press the "stop" button for the HelloWorld plugin, and then press "delete".
+1. Try hitting again `https://hostname/casa/pl/hello-world-plugin/index.zul`, you should see the "NOT FOUND" error.
+
+## Apply editions
+
+You have now a good sense of how plugins work. Now let's alter the project a bit...
+
+1. Edit the file `src/main/resources/assets/index.zul`. Remove the comments surrounding the first line.
+
+1. Move the commented code that looks like `self="@define(content)"` inside the element containing the `viewModel` attribute. In other words, we are adding a `self` attribute for such tag. 
+
+   These editions will make `index.zul` reuse the ZK template `general.zul` (you can see this file in Casa repo at directory `app/src/main/webapp`). Most pages of Casa use this template that surrounds the actual content with the header and a menu on the left.
+   
+   For more information on templates, check "Templating" in ZK developers reference. Note that template injection (using `<template>` and `<apply> tags) don't work since this requires ZK EE.
+
+1. Edit `HelloWorldVM` in the following way:
+
+    Remove the line `ldapService = ...` in `init` method, then edit `ldapService` member by adding a `WireVariable` annotation like this:
+
+    ```
+    @WireVariable
+    private ILdapService ldapService;
+    ```
+    
+    `WireVariable` is an annotation of package `org.zkoss.zk.ui.select.annotation` which is a sort of equivalent for `javax.inject.Inject`. It allows us to reference an instance of `ILdapService` (see `casa-shared` javadocs). Usage of `WireVariable` has a disadvantage though: you need to know the EL name of the bean you are trying to inject. 
+    
+    Specifically the injection above is equivalent to this one:
+    
+    <!-- , which can give us information about the current user's session.
+    
+    Add a getter method for `myGivenName` following the usual Java bean conventions.
+    
+    In method `init` add the following: `myGivenName = sessionContext.getLoggedUser().getGivenName();`. -->
+
+    ```
+    @WireVariable("ldapService")
+    private ILdapService ldapService;
+    ```
+    
+    if the field name were `myLdapService` instead of `ldapService`, you are forced to supply the parameter in the annotation. This parameter should match the EL name of the bean you are injecting, that is, the managed bean in Casa that implements the interface `ILdapService` is annotated this way: `javax.inject.Named("ldapService")`. If the bean didn't have a `Named` annotation, `WireVariable` injection would give you a null reference.
+    
+    For the reasons above, `Utils.managedBean` is a safer way to go.
+    
+1. Save changes, and [package](#packaging) the project once more.
+
+1. Deploy again an verify all is working as expected.
+
+
+## Troubleshooting and testing tips
+
+The life cycle for plugin development isn't tedious, but you can boost your performance by following the [Tips for plugin development](./tips-development.md)
