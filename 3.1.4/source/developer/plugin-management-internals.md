@@ -30,7 +30,7 @@ When a plugin is stopped, the analog steps are performed to de-register all elem
 
 Casa uses the PF4J concept of [default/system extensions](https://pf4j.org/doc/defaultsystem-extension.html) to implement the authentication mechanisms supported out of the box. Basically these are extensions that are not tied to a plugin. This approach was employed for developers to have examples to follow when adding authentication mechanisms in their plugins.
 
-Currently, Casa has the following system extensions are:
+Currently, Casa has the following system extensions:
 - `org.gluu.credmanager.plugins.authnmethod.OTPSmsExtension` for OTP backed by SMS (using twilio service)
 - `org.gluu.credmanager.plugins.authnmethod.SecurityKeyExtension` for U2F security keys
 - `org.gluu.credmanager.plugins.authnmethod.OTPExtension` for OTP tokens (hard and soft)

@@ -1,5 +1,6 @@
 # Developer Guide
 
+The basics:
 - [Architectural details](./architecture.md)
 - [Introduction to plugin development](./intro-plugin.md)
 - [Writing your first plugin](./writing-first.md)
