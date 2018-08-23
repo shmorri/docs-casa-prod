@@ -23,17 +23,17 @@ The design is driven by a few images and CSS stylesheets. These are inside the a
 	$ jar -xf cred-manager.war styles
 ``` 
 
-* Now you should see two new directories. Move those to a location of your choosing. A recommended location would be `/opt/gluu/jetty/cred-manager/custom`, so the *logs*, *webapps*, and *custom* directories are at the same level. The following is an example to move `images` and `styles`:
+* Now you should see two new directories. Move those to `/opt/gluu/jetty/cred-manager/static`. The following is an example to move `images` and `styles`:
 
 ```
-	$ mv images /opt/gluu/jetty/cred-manager/custom/images
-	$ mv styles /opt/gluu/jetty/cred-manager/custom/styles
+	$ mv images /opt/gluu/jetty/cred-manager/static/images
+	$ mv styles /opt/gluu/jetty/cred-manager/static/styles
 ```
 
 * Ensure the operating system user that runs Jetty has read permissions on the files added. You may do the following to solve it:
 
 ```
-$ chown -R jetty:jetty /opt/gluu/jetty/cred-manager/custom/
+$ chown -R jetty:jetty /opt/gluu/jetty/cred-manager/static/
 ```
 
 Glance at the contents of both directories (`images` and `styles`). If you think that editing those CSS files and replacing some images will customize the look and feel, you are on the line.
@@ -44,7 +44,7 @@ Look through the `images` and `styles` directories to see the current contents. 
 
 For Credential Manager to read images and styles from the custom directory, you need to supply its location:
 
-* With your admin credentials, log into the app. In the admin dashboard, click on "Branding" and choose "Provide a custom assets path". Enter the location in the text field (e.g. `/opt/gluu/jetty/cred-manager/custom/`) and click on "Save".
+* With your admin credentials, log into the app. In the admin dashboard, click on "Branding" and choose "Use external assets directory".
 
 * Do a subtle edition of a file to test if things are going well. For instance, open the file `styles/common.css`, locate the CSS selector for *header* and change the background color to red, like this:
 
@@ -61,7 +61,7 @@ For Credential Manager to read images and styles from the custom directory, you 
 * Open a private browsing session. Log in, and you will see a beautiful red header!. Private browsing is convenient for testing, otherwise, you'd have to clear your recent browser history constantly after every change.
 
 !!! Note: 
-    The URL `https://<host-name>/cred-manager/custom` maps to the directory where you have placed the `images` and `styles` folder, regardless of its name. In other words, if you chose a name for that directory other than "custom", the URL ending in `/custom` still works.
+    The URL `https://<host-name>/cred-manager/custom` maps to the directory where you have placed the `images` and `styles` folder.
     
 ## Applying your Customizations
 
