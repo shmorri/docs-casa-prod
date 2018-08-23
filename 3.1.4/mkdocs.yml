@@ -25,7 +25,12 @@ pages:
     - 'URL path customization': 'administration/change-context-path.md'
     - 'FAQ' : 'administration/faq.md'
 - Developer Guide:
-    - 'Architectural details' : 'developer/architecture.md'
-    - 'Introduction to plugin development' : 'developer/intro-plugin.md'
-    - 'Writing your first plugin' : 'developer/writing-first.md'
+    - 'Intro': 'developer/index.md
+    - 'The basics':
+        - 'Architectural details' : 'developer/architecture.md'
+        - 'Introduction to plugin development' : 'developer/intro-plugin.md'
+        - 'Writing your first plugin' : 'developer/writing-first.md'
+    - 'Other topics':
+        - 'Plugin development tips': 'developer/tips-development.md'
+        - 'Plugin management internals': 'developer/plugin-management-internals'
 - User Guide: 'user-guide.md'
