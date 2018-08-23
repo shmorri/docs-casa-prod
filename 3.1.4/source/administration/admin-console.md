@@ -56,7 +56,7 @@ To make each person's 2FA preference in Credential Manager the default authentic
     
 ### Configure Cred Manager
 
-Once the applicable interception scripts are enabled in Gluu, a Credential Manager admin can enable 2FA mechanisms in the `Enable methods` interface. Check the box for each type of authentication method users should be able to self-service in Credential Manager.
+Once the applicable interception scripts are enabled in Gluu, a Credential Manager admin can enable 2FA mechanisms in the `Enable methods` interface. Check the box for each type of authentication method users should be able to self-service in Credential Manager. You can assign the handler plugin for each method. Choose "System" to user the default implementation provided by the application.
 
 ![enabled-2fa-methods](../img/admin-console/enabled-2FA-methods.png)
 
