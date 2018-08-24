@@ -25,7 +25,7 @@ pages:
     - 'URL path customization': 'administration/change-context-path.md'
     - 'FAQ' : 'administration/faq.md'
 - Developer Guide:
-    - 'Intro': 'developer/index.md'
+    - 'Intro': 'developer/index.md
     - 'The basics':
         - 'Architectural details' : 'developer/architecture.md'
         - 'Introduction to plugin development' : 'developer/intro-plugin.md'
