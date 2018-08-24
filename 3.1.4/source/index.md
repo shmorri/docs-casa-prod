@@ -1,4 +1,4 @@
-# Credential Manager 3.1.3 Documentation
+# Gluu Casa 3.1.4 Documentation
 
 ## Overview
 
