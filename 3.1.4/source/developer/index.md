@@ -9,7 +9,7 @@ Common tasks:
 
 - Working with menus
 - Adding UI pages
-- Manipulating LDAP data
+- [Manipulating LDAP data](./ldap-data.md)
 - Adding REST services
 - Adding/overriding authentication mechanisms
 
