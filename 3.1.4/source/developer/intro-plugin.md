@@ -176,7 +176,7 @@ Package `org.gluu.credmanager.service` of `casa-shared` provides a couple of int
 
 ##### BaseLdapPerson
 
-The class `org.gluu.credmanager.core.ldap.BaseLdapPerson` represents an entry in the *people* LDAP branch, that is, one with `objectClass=gluuPerson`. It only exposes LDAP attributes `inum` and `uid` so you might extend this class and add the attributes your plugin needs to handle. Note that field attributes, getters and setter methods may require annotations so that the framework automatically populates and/or persists values appropriately and also execute searches successfully.
+The class `org.gluu.credmanager.core.ldap.BaseLdapPerson` represents an entry in the *people* LDAP branch, that is, one with `objectClass=gluuPerson`. It only exposes LDAP attributes `inum` and `uid` so you might extend this class and add the attributes your plugin needs to handle. Note that field attributes, getter and setter methods may require annotations so that the framework automatically populates and/or persists values appropriately and also execute searches successfully.
 
 For an example on `BaseLdapPerson` derivation, check Gluu Casa [Person](https://github.com/GluuFederation/casa/tree/version_3.1.3/app/src/main/java/org/gluu/credmanager/core/ldap/Person.java) class which in addition to `BaseLdapPerson` fields, handles `givenName`, `sn`, and `memberOf` attributes. This class is not available in `casa-shared`.
 
