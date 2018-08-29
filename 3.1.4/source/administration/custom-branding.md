@@ -11,7 +11,7 @@ The design is driven by a few images and CSS stylesheets. These are inside the a
 * Make the Java bin directory available in your PATH. For example:
 
 ```
-	JAVA_HOME=/opt/gluu-server-3.1.3/opt/jdk1.8.0_162
+	JAVA_HOME=/opt/gluu-server-3.1.4/opt/jdk1.8.0_162
 	export JAVA_HOME
 	PATH=$PATH:$JAVA_HOME/bin
 ```

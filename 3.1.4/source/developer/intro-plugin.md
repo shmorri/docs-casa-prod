@@ -79,7 +79,7 @@ In ZK, you use ZUML (ZK User Interface Markup Language) which is an XML-formatte
 
 ZK provides many ready-to-use UI components, but it also allows to use pure HTML code which is universally known by designers and developers in the field of web applications.
 
-You can use any of the resources listed above to get an idea of how typical zul files look. Additionally you may check the code of [Gluu Casa project](https://github.com/GluuFederation/casa/tree/version_3.1.3/app/src/main/webapp) where you'll find many zul files. In the [Writing your first plugin](first-plugin.md) page you will have the opportunity to view and edit a .zul file your own.
+You can use any of the resources listed above to get an idea of how typical zul files look. Additionally you may check the code of [Gluu Casa project](https://github.com/GluuFederation/casa/tree/version_3.1.4/app/src/main/webapp) where you'll find many zul files. In the [Writing your first plugin](first-plugin.md) page you will have the opportunity to view and edit a .zul file your own.
 
 Particularly in Gluu Casa code, the amount of zul components used is very small to favor plain HTML5 tags. This allows to reduce the time it takes to incorporate a UI design handed by a third party into a project. Additionally it helps reducing the time to learn ZK by focusing only on the relevant components that make the interaction with the backend possible.
 
@@ -178,7 +178,7 @@ Package `org.gluu.credmanager.service` of `casa-shared` provides a couple of int
 
 The class `org.gluu.credmanager.core.ldap.BaseLdapPerson` represents an entry in the *people* LDAP branch, that is, one with `objectClass=gluuPerson`. It only exposes LDAP attributes `inum` and `uid` so you might extend this class and add the attributes your plugin needs to handle. Note that field attributes, getter and setter methods may require annotations so that the framework automatically populates and/or persists values appropriately and also execute searches successfully.
 
-For an example on `BaseLdapPerson` derivation, check Gluu Casa [Person](https://github.com/GluuFederation/casa/tree/version_3.1.3/app/src/main/java/org/gluu/credmanager/core/ldap/Person.java) class which in addition to `BaseLdapPerson` fields, handles `givenName`, `sn`, and `memberOf` attributes. This class is not available in `casa-shared`.
+For an example on `BaseLdapPerson` derivation, check Gluu Casa [Person](https://github.com/GluuFederation/casa/tree/version_3.1.4/app/src/main/java/org/gluu/credmanager/core/ldap/Person.java) class which in addition to `BaseLdapPerson` fields, handles `givenName`, `sn`, and `memberOf` attributes. This class is not available in `casa-shared`.
 
 ##### oxCustomScript
 
@@ -248,7 +248,7 @@ To know about the dependencies already available at runtime, you can to do the f
 
 1. clone Gluu casa (`git clone https://github.com/GluuFederation/casa.git`)
 
-1. swith to a proper branch (e.g. `git checkout version_3.1.3`)
+1. swith to a proper branch (e.g. `git checkout version_3.1.4`)
 
 1. cd to application's project (`cd app`)
 

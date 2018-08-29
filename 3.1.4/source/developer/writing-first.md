@@ -16,7 +16,7 @@ Hello world is minimalistic plugin that showcases very basic aspects of plugin d
 
 Let's start by downloading the code. Hello World plugin is found inside the Gluu Casa project itself. This way you can easily check the underlying APIs and real world UI pages, particularly, the [`casa-shared` module](intro-plugin.md#casa-shared-module) being of remarkable interest.
 
-If you have `git` installed in your machine, issue the following command. Replace the content in the angle brackets with your Gluu Casa version (e.g. "version_3.1.3"):
+If you have `git` installed in your machine, issue the following command. Replace the content in the angle brackets with your Gluu Casa version (e.g. "version_3.1.4"):
 
 ```
 $ git clone https://github.com/GluuFederation/casa.git

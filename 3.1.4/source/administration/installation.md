@@ -2,14 +2,14 @@
 
 ## Requirements
     
-1. A working Gluu Server installation (version 3.1.3 or higher), with at least the following components installed: Apache, LDAP, oxAuth, and oxTrust. [Install Gluu](https://gluu.org/docs/ce/installation-guide/).  
+1. A working Gluu Server installation (version 3.1.4), with at least the following components installed: Apache, LDAP, oxAuth, and oxTrust. [Install Gluu](https://gluu.org/docs/ce/installation-guide/).  
 
 1. An active [oxd](https://gluu.org/docs/oxd) installation, version 3.1.2 or higher. If you don't already have an oxd server available, the interactive setup script will prompt you to install oxd inside your Gluu Server container. 
 
 1. Credential Manager must be installed in the same host as your Gluu Server
 
 !!! Note
-    If your Gluu Server 3.1.3 was upgraded from 2.4.4, ensure the `uma_protection` scope is allowed for dynamic registration in oxTrust.
+    If your Gluu Server 3.1.4 was upgraded from 2.4.4, ensure the `uma_protection` scope is allowed for dynamic registration in oxTrust.
     
 ## Installation via Linux Packages 
 
@@ -25,7 +25,7 @@ Credential Manager is distributed as part of the Gluu Server extensions bundle. 
 | Add Gluu Repository | `# echo "deb https://repo.gluu.org/ubuntu/ trusty main" > /etc/apt/sources.list.d/gluu-repo.list` |
 | Add Gluu GPG Key                      | `# curl https://repo.gluu.org/ubuntu/gluu-apt.key | apt-key add -` |
 | Update/Clean Repo                     | `# apt-get update`                    |
-| Install Gluu Server extension pack    | `# apt-get install gluu-server-ext-3.1.3` |
+| Install Gluu Server extension pack    | `# apt-get install gluu-server-ext-3.1.4` |
  
 ### Ubuntu 16.04 (xenial)
       
@@ -34,7 +34,7 @@ Credential Manager is distributed as part of the Gluu Server extensions bundle. 
 | Add Gluu Repository     | `# echo "deb https://repo.gluu.org/ubuntu/ xenial main" > /etc/apt/sources.list.d/gluu-repo.list` |
 | Add Gluu GPG Key        | `# curl https://repo.gluu.org/ubuntu/gluu-apt.key | apt-key add -` |
 | Update/Clean Repo       | `# apt-get update`                         |
-| Install Gluu Server extension pack     | `# apt-get install gluu-server-ext-3.1.3`      |
+| Install Gluu Server extension pack     | `# apt-get install gluu-server-ext-3.1.4`      |
  
 ### CentOS 6
       
@@ -44,7 +44,7 @@ Credential Manager is distributed as part of the Gluu Server extensions bundle. 
 | Add Gluu GPG Key        | `# wget https://repo.gluu.org/centos/RPM-GPG-KEY-GLUU -O /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU`|
 | Import GPG Key          | `# rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU`|
 | Update/Clean Repo       | `# yum clean all`                          |
-| Install Gluu Server extension pack    | `# yum install gluu-server-ext-3.1.3`          |
+| Install Gluu Server extension pack    | `# yum install gluu-server-ext-3.1.4`          |
 
 ### CentOS 7
      
@@ -54,7 +54,7 @@ Credential Manager is distributed as part of the Gluu Server extensions bundle. 
 | Add Gluu GPG Key        | `# wget https://repo.gluu.org/centos/RPM-GPG-KEY-GLUU -O /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU`|
 | Import GPG Key          | `# rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU` |
 | Update/Clean Repo       | `# yum clean all`                          |
-| Install Gluu Server extension pack     | `# yum install gluu-server-ext-3.1.3`          |
+| Install Gluu Server extension pack     | `# yum install gluu-server-ext-3.1.4`          |
 
 ### RHEL 6
      
@@ -64,7 +64,7 @@ Credential Manager is distributed as part of the Gluu Server extensions bundle. 
 | Add Gluu GPG Key        | `# wget https://repo.gluu.org/centos/RPM-GPG-KEY-GLUU -O /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU`|
 | Import GPG Key          | `# rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU` |
 | Update/Clean Repo       | `# yum clean all`                          |
-| Install Gluu Server extension pack     | `# yum install gluu-server-ext-3.1.3`          |
+| Install Gluu Server extension pack     | `# yum install gluu-server-ext-3.1.4`          |
 
 ### RHEL 7
      
@@ -74,7 +74,7 @@ Credential Manager is distributed as part of the Gluu Server extensions bundle. 
 | Add Gluu GPG Key        | `# wget https://repo.gluu.org/rhel/RPM-GPG-KEY-GLUU -O /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU`|
 | Import GPG Key          | `# rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU` |
 | Update/Clean Repo       | `# yum clean all`                          |
-| Install Gluu Server extension pack     | `# yum install gluu-server-ext-3.1.3`          |
+| Install Gluu Server extension pack     | `# yum install gluu-server-ext-3.1.4`          |
 
 ### Debian 8 (Jessie)
 
@@ -83,43 +83,16 @@ Credential Manager is distributed as part of the Gluu Server extensions bundle. 
 | Add Gluu Repository     | `# echo "deb https://repo.gluu.org/debian/ stable main" > /etc/apt/sources.list.d/gluu-repo.list`|
 | Add Gluu GPG Key        | `# curl https://repo.gluu.org/debian/gluu-apt.key | apt-key add -` |
 | Update/Clean Repo       | `# apt-get update`                         |
-| Install Gluu Server extension pack     | `# apt-get install gluu-server-ext-3.1.3`      |
+| Install Gluu Server extension pack     | `# apt-get install gluu-server-ext-3.1.4`      |
 
     
-## oxd preparation
-
-Gluu's OpenID Connect client software, [oxd](https://oxd.gluu.org), is used to facilitate single sign-on (SSO) between Credential Manager and its corresponding Gluu Server. Credential Manager can use an existing oxd deployment, or a new instance of oxd can be deployed during Credential Manager installation. 
-
-If you plan to install the oxd server bundled with the installer, edit the file `/etc/init.d/gluu-server-3.1.3` in the following manner (this file is outside Gluu Server chroot):
-
-!!! Note 
-    Some Gluu Server CE distributions may already have this patch
-
-1. Locate routine `stopGenericService` (around line 150) and replace occurrences of `grep -i gluu` with `grep -i -E '(gluu|oxd)'`. For example: 
-
-    ```
-    if [ "`ps aux | grep $serviceName | grep -v grep | grep -i gluu`"  != "" ]; then 
-    ```
-          
-    will become:       
-        
-    ```
-    if [ "`ps aux | grep $serviceName | grep -v grep | grep -i -E '(gluu|oxd)'`"  != "" ]; then   
-    ```
-       
-    This will make oxd launch automatically when the machine starts up.    
-   
-1. Locate routine `stop` (around line 190) and replace `stopGenericService oxd` with `stopGenericService oxd-server`. 
-
-    This will allow oxd be stopped when the Gluu Server stops.
-
 ## Run the Setup Script
 
 The cred-manager setup script, `setup_cred_mgr.py`, adds the application to Gluu Server, imports required data to LDAP, and applies a number of required configurations in Gluu Server chroot.
 
 Log in to the Gluu Server chroot, as follows:
 
-`$ service gluu-server-3.1.3 login`
+`$ service gluu-server-3.1.4 login`
 
 Then `cd` to the setup scripts directory and run `setup_cred_mgr.py`: 
 

@@ -2,7 +2,7 @@
 
 To publish the application at a location other than `/cred-manager`, do the following:
 
-1. Log into the Gluu Server chroot (e.g. `service gluu-server-3.1.3 login`)       
+1. Log into the Gluu Server chroot (e.g. `service gluu-server-3.1.4 login`)       
       
 1. Rename Credential Manager's war file with the new path you want to use. Suppose your choice was `/creds`, in that case you would do:    
    
