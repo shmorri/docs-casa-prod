@@ -21,7 +21,7 @@ For a more general approach follow [these](https://gluu.org/docs/ce/user-managem
 
 ## Know your LDAP
 
-It is important to get some acquaintance with the structure of the directory. One you connect you will see two branches, `ou=applicances` and `o=...`. The former contains mostly configuration of the server itself, the latter holds more interesting stuff for developers such as:
+It is important to get some acquaintance with the structure of the directory. One you connect you will see two branches, `ou=appliances` and `o=...`. The former contains mostly configuration of the server itself, the latter holds more interesting stuff for developers such as:
 - Users and groups data
 - OpenID clients and scopes
 - Custom scripts
@@ -31,10 +31,40 @@ Traverse the tree. Use your LDAP client to inspect schema, that way you can fami
 ### Adding attributes to directory schema
 
 While Gluu schema exhibits lots of attribute types, there are cases where you need to add your own attributes to cope with particular needs, for instance, storing user's age.
+
+This [page](https://gluu.org/docs/ce/admin-guide/attribute#custom-attributes) is a reference doc demonstrating how an attribute can be added to directory schema. In this case an attribute is added to `gluuCustomPerson` object class, but you can use any other or even create your own. Basically you need to:
+
+1. Choose a name and a description for the attribute.
+1. Assign a syntax (e.g. string, boolean, etc.). For more information check RFC 4517 or search "LDAP syntax definitions" in the web.
+1. Assign the attribute to one or more object classes.
+1. Save the editions in the (plain text) schema file of your LDAP server.
+1. Restart the LDAP service. Normally this service will not start if the supplied changes don't have the correct format expected by the LDAP implementation bundled in your Gluu Server.
+
+For plugin development there is no need to register the attribute in oxTrust unless you know you'll need to inspect the attribute, for instance, in a user profile via oxTrust.
+
+### Branches DNs
+
+Instances of `org.gluu.casa.service.ILdapService` interface provide some `get*` methods to easily obtain distinguished names for the most relevant branches in the directory. Accessing DNs allow plugin developers to specify proper locations for searches or updates.
+
+### POJOs for reuse
+
+`casa-shared` provides a few [persistence-framework compatible POJOs](./intro-plugin.md#ldap-ped-pojos) you can reuse or extend when developing. Plugin requirements are varied so we decided not to provide ready-to-use classes for the majority of existing LDAP object classes. This would result in classes with several dozens of fields (plus associated getters and setters) that are not as meaningful as having small tailored classes focused on modeling the problem at hand. Additionally, writing your own classes will allow you to understand how modeling works and do troubleshooting if problems arise.
+
+## Working with a persistence-aware class
+
+If you have ever used the Java Persistence API (JPA), the term "object/relational mapping" may result familiar to you. It consists of a series of rules and annotations to facilitate managing relational data in Java applications. The LDAP persistence framework is aimed at solving a similar problem in LDAP domain, however, this is not a standard itself but a facility available in Ping Identity LDAP SDK for Java. 
+
+The framework allows to express (via annotations) the logical rules to store a Java object into LDAP, and the conversion (retrieval) of an entry into a Java object.
+
+!!! Note: 
+    We highly encourage to visit the persistence framework [docs](https://docs.ldap.com/ldap-sdk/docs/persist/index.html) now. The framework is    very small so it's a short reading. Emphasize on the example(s) shown.
+    
+Now that you have the grasp of the framework, let's proceed with an example. Here, we will generate a POJO with the tool for this purpose, minimize it to fit a particular need, and put it to work on real data.
+
 <!--
+Suppose your boss ask you to write 
+
 ----------
-`casa-shared` already provides some persistence-framework compatible POJOs that you can reuse or extend when writing plugins: []
-(./intro-plugin.md#ldap-ped-pojos)
 
 unboundid-ldapsdk-4.0.4\tools\generate-source-from-schema.bat --hostname <hostname> --port 1636 --bindDN "cn=directory manager,o=gluu" --bindPassword "<password>" --structuralClass <object-class> --rdnAttribute <rdn-attribute> --packageName <java-package> --className <java-class-name> --terse
 -->
