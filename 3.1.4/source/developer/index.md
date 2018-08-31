@@ -4,7 +4,7 @@
 
 ### What are plugins?
 
-A plugin is an artifact packaged in a Java ARchive (<i>jar</i>) file that augments the functionalities available in your default Gluu Casa installation. Under certain circumstances, plugins can override existing application functionalities.
+A plugin is an artifact packaged in a Java ARchive (<i>jar</i> file) that augments the functionalities available in your default Gluu Casa installation. Under certain circumstances, plugins can override existing application functionalities.
 
 Plugins are mostly written in the Java programming language, but Kotlin can also be used.
 
@@ -19,7 +19,7 @@ Plugins are very versatile, the following is by no means an extensive list of th
 - Add or override authentication mechanisms to be supported by the application
 
 In addition to the above:
-- Any plugin can have easy access to the underlying LDAP of the Gluu Server where casa was installed.
+- Any plugin can have easy access to the underlying LDAP of the Gluu Server where casa was installed
 - Plugins can onboard their own libraries (jar files) and classes
 
 #### What cannot you do?
