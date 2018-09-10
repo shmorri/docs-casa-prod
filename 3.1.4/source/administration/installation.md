@@ -88,17 +88,17 @@ Casa is distributed as part of the Gluu Server extensions bundle. Follow the ins
     
 ## Run the Setup Script
 
-The Casa setup script, `setup_cred_mgr.py`, adds the application to Gluu Server, imports required data to LDAP, and applies a number of required configurations in Gluu Server chroot.
+The Casa setup script, `setup_casa.py`, adds the application to Gluu Server, imports required data to LDAP, and applies a number of required configurations in Gluu Server chroot.
 
 Log in to the Gluu Server chroot, as follows:
 
 `$ service gluu-server-3.1.4 login`
 
-Then `cd` to the setup scripts directory and run `setup_cred_mgr.py`: 
+Then `cd` to the setup scripts directory and run `setup_casa.py`: 
 
 ```
 # cd /install/community-edition-setup
-# ./setup_cred_mgr.py
+# ./setup_casa.py
 ```
 
 Answer the setup questions as prompted. Hit Enter to accept the default value specified in square brackets, if appropriate. 
@@ -112,8 +112,8 @@ Casa can use an existing oxd installation, or a new installation can be deployed
 ### Finish setup
 After answering the setup script questions, the selections will be displayed with a prompt to finish installation. If everything looks good, hit Y to finish.
 
-Upon successful installation, a confirmation message will appear that says: "Credential Manager installation successful! Point your browser to `https://<host>/cred-manager`".
+Upon successful installation, a confirmation message will appear that says: "Casa installation successful! Point your browser to `https://<host>/casa`".
 
 Wait for some 30 seconds, then visit the URL and authenticate against Gluu to access Casa. If oxd license details were not added during setup, follow the instructions to [manually add an oxd license](./faq.md#adding-license-manually).
 
-By default the application is accesible at URL path `/cred-manager`. If you want Casa to use a different context path please follow the steps listed [here](change-context-path.md). It is advisable to apply this customization before any credential enrollments take place.
+By default the application is accesible at URL path `/casa`. If you want Casa to use a different context path please follow the steps listed [here](change-context-path.md). It is advisable to apply this customization before any credential enrollments take place.
