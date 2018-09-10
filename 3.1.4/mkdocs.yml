@@ -19,10 +19,10 @@ pages:
 # - Whats new in 3.1.x: '3.1.x-intro.md'      
 - Administration Guide: 
     - 'Installation' : 'administration/installation.md'
-    - 'Admin console' :  'administration/admin-console.md'   
+    - 'Admin console' : 'administration/admin-console.md'   
     - 'Credentials storage' : 'administration/credentials-stored.md'
     - 'Custom branding' : 'administration/custom-branding.md'
-    - 'URL path customization': 'administration/change-context-path.md'
+    - 'URL path customization' : 'administration/change-context-path.md'
     - 'FAQ' : 'administration/faq.md'
 - Developer Guide:
     - 'Intro': 'developer/index.md'
@@ -33,6 +33,6 @@ pages:
     - 'Common tasks':
         - 'Manipulating LDAP data' : 'developer/ldap-data.md'
     - 'Other topics':
-        - 'Plugin development tips': 'developer/tips-development.md'
-        - 'Plugin management internals': 'developer/plugin-management-internals'
-- User Guide: 'user-guide.md'
+        - 'Plugin development tips' : 'developer/tips-development.md'
+        - 'Plugin management internals' : 'developer/plugin-management-internals'
+- 'User Guide' : 'user-guide.md'
