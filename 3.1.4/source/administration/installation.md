@@ -4,16 +4,16 @@
     
 1. A working Gluu Server installation (version 3.1.4), with at least the following components installed: Apache, LDAP, oxAuth, and oxTrust. [Install Gluu](https://gluu.org/docs/ce/installation-guide/).  
 
-1. An active [oxd](https://gluu.org/docs/oxd) installation, version 3.1.2 or higher. If you don't already have an oxd server available, the interactive setup script will prompt you to install oxd inside your Gluu Server container. 
+1. An active [oxd](https://gluu.org/docs/oxd) installation (version 3.1.4). If you don't already have an oxd server available, the interactive setup script will prompt you to install oxd inside your Gluu Server container. 
 
-1. Credential Manager must be installed in the same host as your Gluu Server
+1. Casa must be installed in the same host as your Gluu Server
 
 !!! Note
     If your Gluu Server 3.1.4 was upgraded from 2.4.4, ensure the `uma_protection` scope is allowed for dynamic registration in oxTrust.
     
 ## Installation via Linux Packages 
 
-Credential Manager is distributed as part of the Gluu Server extensions bundle. Follow the instructions according to your underlying OS.
+Casa is distributed as part of the Gluu Server extensions bundle. Follow the instructions according to your underlying OS.
 
 !!! Warning 
     If you have logged into the Gluu chroot in any console terminal, log out before proceeding.
@@ -88,7 +88,7 @@ Credential Manager is distributed as part of the Gluu Server extensions bundle. 
     
 ## Run the Setup Script
 
-The cred-manager setup script, `setup_cred_mgr.py`, adds the application to Gluu Server, imports required data to LDAP, and applies a number of required configurations in Gluu Server chroot.
+The Casa setup script, `setup_cred_mgr.py`, adds the application to Gluu Server, imports required data to LDAP, and applies a number of required configurations in Gluu Server chroot.
 
 Log in to the Gluu Server chroot, as follows:
 
@@ -104,7 +104,7 @@ Then `cd` to the setup scripts directory and run `setup_cred_mgr.py`:
 Answer the setup questions as prompted. Hit Enter to accept the default value specified in square brackets, if appropriate. 
 
 ### oxd Installation 
-Credential Manager can use an existing oxd installation, or a new installation can be deployed during the interactive setup. If oxd is installed during setup, upon starting it will try to connect to Gluu's license server to validate the license info. Ensure the host has Internet connectivity at least for the first time oxd is started. 
+Casa can use an existing oxd installation, or a new installation can be deployed during the interactive setup. If oxd is installed during setup, upon starting it will try to connect to Gluu's license server to validate the license info. Ensure the host has Internet connectivity at least for the first time oxd is started. 
 
 !!! Note
     oxd is commercial software and requires a license to operate. Get a free license at [https://oxd.gluu.org](https://oxd.gluu.org).
@@ -114,6 +114,6 @@ After answering the setup script questions, the selections will be displayed wit
 
 Upon successful installation, a confirmation message will appear that says: "Credential Manager installation successful! Point your browser to `https://<host>/cred-manager`".
 
-Wait for some 30 seconds, then visit the URL and authenticate against Gluu to access Credential Manager. If oxd license details were not added during setup, follow the instructions to [manually add an oxd license](./faq.md#adding-license-manually).
+Wait for some 30 seconds, then visit the URL and authenticate against Gluu to access Casa. If oxd license details were not added during setup, follow the instructions to [manually add an oxd license](./faq.md#adding-license-manually).
 
-By default the application is accesible at URL path `/cred-manager`. If you want Credential Manager to use a different context path please follow the steps listed [here](change-context-path.md). It is advisable to apply this customization before any credential enrollments take place.
+By default the application is accesible at URL path `/cred-manager`. If you want Casa to use a different context path please follow the steps listed [here](change-context-path.md). It is advisable to apply this customization before any credential enrollments take place.
