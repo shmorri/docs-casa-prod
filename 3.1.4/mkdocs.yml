@@ -1,5 +1,5 @@
-site_name: Credential Manager Docs
-site_description: Documentation for Gluu 2FA Credential Manager
+site_name: Gluu Casa Docs
+site_description: Documentation for Gluu Casa
 site_favicon: 'favicon.ico'
 copyright: Copyright &copy; 2018, Gluu, Inc.
 docs_dir: source
