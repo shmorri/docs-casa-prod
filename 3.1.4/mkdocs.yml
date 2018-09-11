@@ -34,5 +34,5 @@ pages:
         - 'Manipulating LDAP data' : 'developer/ldap-data.md'
     - 'Other topics':
         - 'Plugin development tips' : 'developer/tips-development.md'
-        - 'Plugin management internals' : 'developer/plugin-management-internals'
+        - 'Plugin management internals' : 'developer/plugin-management-internals.md'
 - User Guide : 'user-guide.md'
