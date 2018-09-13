@@ -13,10 +13,7 @@ markdown_extensions:
 - toc:
      permalink: '#'
 pages:
-- Home: 'index.md'
-# - Release Notes: 'release-notes/index.md'
-# - Whats new in 3.x: '3.x-intro.md'
-# - Whats new in 3.1.x: '3.1.x-intro.md'      
+- Home: 'index.md'    
 - Administration Guide: 
     - 'Installation': 'administration/installation.md'
     - 'Admin console': 'administration/admin-console.md'   
@@ -27,6 +24,7 @@ pages:
 - Developer Guide:
     - 'Intro': 'developer/index.md'
     - 'Architectural details': 'developer/architecture.md'
+    - 'Intro to plugin development': 'developer/intro-plugin.md'
     - 'Writing your first plugin': 'developer/writing-first.md'
     - 'Manipulating LDAP data': 'developer/ldap-data.md'
     - 'Plugin development tips': 'developer/tips-development.md'
