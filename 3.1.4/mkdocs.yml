@@ -27,9 +27,8 @@ pages:
 - Developer Guide:
     - 'Intro': 'developer/index.md'
     - 'Architectural details': 'developer/architecture.md'
-    - 'Intro to plugin development': 'developer/intro-plugin.md'
-    - 'Manipulating LDAP data': 'developer/ldap-data.md'
     - 'Writing your first plugin': 'developer/writing-first.md'
+    - 'Manipulating LDAP data': 'developer/ldap-data.md'
     - 'Plugin development tips': 'developer/tips-development.md'
     - 'Plugin management internals': 'developer/plugin-management-internals.md'
 - User Guide : 'user-guide.md'
