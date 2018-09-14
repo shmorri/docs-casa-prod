@@ -192,16 +192,16 @@ A Gluu Casa valid plugin is a jar-packaged PF4J plugin resembling the following 
 
 ```
 plugin.jar
-¦
+
 +-- assets 
 +-- labels
-¦   +-- zk-label.properties
-¦   +-- zk-label_en.properties
-¦   +-- zk-label_de.properties
-¦   +-- ...
+|   +-- zk-label.properties
+|   +-- zk-label_en.properties
+|   +-- zk-label_de.properties
+|   +-- ...
 +-- META-INF
-¦   +-- extensions.idx
-¦   +-- MANIFEST.MF
+|   +-- extensions.idx
+|   +-- MANIFEST.MF
 +-- com
     +-- mycompany
         +-- MyClass.class
