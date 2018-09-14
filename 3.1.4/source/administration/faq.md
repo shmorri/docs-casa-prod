@@ -6,12 +6,12 @@
 
 ### Where are the logs?
 
-The application logs are located at `/opt/gluu/jetty/cred-manager/logs`. By default, Credential Manager uses INFO level for messages. You can change the log level at will using the app's admin UI.
+The application logs are located at `/opt/gluu/jetty/casa/logs`. By default, Casa uses INFO level for messages. You can change the log level at will using the app's admin UI.
 
 <!--
 **Note: check the logs**
 
-To work properly, Credential Manager requires stable dependent components (filesystem, ldap, oxd, oxauth, servlet container, etc). Thus, it's important to determine if all expected services are working properly. 
+To work properly, Casa requires stable dependent components (filesystem, ldap, oxd, oxauth, servlet container, etc). Thus, it's important to determine if all expected services are working properly. 
 
 At startup, the app gathers a good amount of information from its environment. If something is missing or went wrong, messages will be shown in the log. Some messages may warn you about parameters not supplied that were simply inferred for you. 
 
@@ -21,21 +21,21 @@ During normal use, the app will show feedback to users if operations were succes
 
 ### How do I restart the application?
 
-To restart Credential Manager, just issue
+To restart Casa, just issue
 
 ```
-$ service cred-manager restart
+$ service casa restart
 ```
 
 from within the Gluu Server chroot container.
 
-### How do I custom brand Credential Manager?
+### How do I custom brand Casa?
 
 We have a dedicated page covering the topic of custom branding [here](custom-branding.md).
 
 ### What ports are used by the application?
 
-Credential Manager uses port `8091`. One way to see if the app is up and running is by checking whether this port is open by issuing a command like `netstat -nltp`.
+Casa uses port `8091`. One way to see if the app is up and running is by checking whether this port is open by issuing a command like `netstat -nltp`.
 
 ### How to reset a user's preferred method of authentication?
 
@@ -46,13 +46,13 @@ If you have followed the steps as described above, next time he/she enters, **pa
 ## Errors shown in the UI
 
 ### A page with a "Service Temporarily Unavailable" message appears when accessing the application
-This is the 503 HTTP error. There is an Apache server in front of the application (as with oxAuth/oxTrust) and this means the reverse proxy couldn't establish a communication internally with the app. This usually happens when Credential Manager hasn't started completely, so it's usually a matter of waiting a few seconds.
+This is the 503 HTTP error. There is an Apache server in front of the application (as with oxAuth/oxTrust) and this means the reverse proxy couldn't establish a communication internally with the app. This usually happens when Casa hasn't started completely, so it's usually a matter of waiting a few seconds.
 
-For instance, when you restart the `gluu-server` service, it may take some time for Credential Manager and oxd to become available even when the prompt is back in the console terminal. See also this [question](#what-ports-are-used-by-the-application).
+For instance, when you restart the `gluu-server` service, it may take some time for Casa and oxd to become available even when the prompt is back in the console terminal. See also this [question](#what-ports-are-used-by-the-application).
 
 ### An "incorrect email or password" error is shown when pressing the login button in the SSO form
 
-This reveals a problem in oxAuth, not Credential Manager itself. It might be a problem with a *credmanager* custom interception script. Check if `oxauth_script.log` is showing an error related to the authentication method in question.
+This reveals a problem in oxAuth, not Casa itself. It might be a problem with a *casa* custom interception script. Check if `oxauth_script.log` is showing an error related to the authentication method in question.
 
 If you cannot diagnose the issue, please use the [support forum](https://support.gluu.org) to ask for help. 
 
@@ -64,7 +64,7 @@ This is caused by an unauthorized access attempt (e.g. users requesting URLs wit
 
 This is shown when it is not possible to initiate a "conversation" with the authorization server. Check that the oxd server is up and running and that the oxd settings are properly configured. Find them at the administration console or in the configuration file.
 
-### "An error occurred: Credential manager did not start properly" is shown when accessing the application
+### "An error occurred: Casa did not start properly" is shown when accessing the application
 
 This occurs whenever the application failed to start successfully and may be caused by a syntax problem in the configuration file or an inconsistent configuration supplied. Check the log to diagnose the problem. Try to find a message like "WEBAPP INITIALIZATION FAILED" and see the traces above it. Often, errors messages are self-explanatory.
 
@@ -72,7 +72,7 @@ Once fixed, please restart the application. You will have to see a "WEBAPP INITI
 
 ### An error is shown in the admin UI when specifying oxd server with HTTPS extension
 
-Ensure the host provided is accessible from the server where Credential Manager is installed. Check the port corresponding to the HTTPS port you have set in the `oxd-https.yml`. The SSL certificate used to "secure" the extension extension must be issued by a CA. If it is a self-signed one, you **have** to import it to the Java *cacerts* keystore of the Credential Manager server.
+Ensure the host provided is accessible from the server where Casa is installed. Check the port corresponding to the HTTPS port you have set in the `oxd-https.yml`. The SSL certificate used to "secure" the extension extension must be issued by a CA. If it is a self-signed one, you **have** to import it to the Java *cacerts* keystore of the Casa server.
 
 ## oxd
 
@@ -94,15 +94,15 @@ TRACE [...] License data: LicenseMetadata{creationDate=..., expirationDate=...}
 INFO  [...] Server socket is bound to port: 8099, with timeout: 0 seconds. Start listening for notifications.
 ```
 
-To proceed, [restart Credential Manager](faq.md#How-to-restart-the-application).
+To proceed, [restart Casa](faq.md#How-to-restart-the-application).
 
 ### In case of lockout
 
 If for any reason an update results in lockout, do the following:
 
 * Navigate to `/etc/gluu/conf`
-* Edit the config file of the application `cred-manager.json`. Provide the oxd details in under the "oxd_config" section. If you are not sure of what to provide for the "client" section, you can remove it entirely
-* Save the file and [restart Credential Manager](faq.md#How-to-restart-the-application)
+* Edit the config file of the application `casa.json`. Provide the oxd details in under the "oxd_config" section. If you are not sure of what to provide for the "client" section, you can remove it entirely
+* Save the file and [restart Casa](faq.md#How-to-restart-the-application)
 * [Check the logs](#check-the-logs) and there should be a successful message regarding oxd registration
 * Login to the application
 
@@ -121,13 +121,13 @@ In order to ensure authentication scripts are properly configured in Gluu, it is
     Learn more about how the Gluu Server handles authentication in the [user authentication intro](https://www.gluu.org/docs/ce/authn-guide/intro). In addition, to learn more about how custom interception scripts work, review the [custom script tutorial](https://www.gluu.org/docs/ce/admin-guide/custom-script).
  
 
-### U2F keys enrolling not working from within Credential Manager
+### U2F keys enrolling not working from within Casa
 
 To be able to enroll U2F keys, ensure all of the following are met:
 
-* You are accessing the application via https (this a requirement by design of fido standard)
-* Ensure the IDP URL matches the same host under which Credential Manager is being served. Both FQDNs should match. 
-* Ensure you are using Chrome, Opera (version greater than 40), or Firefox (with the proper [u2f add-on](https://addons.mozilla.org/en-US/firefox/addon/u2f-support-add-on/) installed) and javascript enabled. These are the only browsers supporting the FIDO U2F technology. Currently Credential Manager does not support adding U2F devices from mobile browsers.
+* You are accessing the application via https (this a requirement by design of FIDO standard)
+* Ensure the IDP URL matches the same host under which Casa is being served. Both FQDNs should match. 
+* Ensure you are using Chrome, Opera (version greater than 40), or Firefox (with the proper [u2f add-on](https://addons.mozilla.org/en-US/firefox/addon/u2f-support-add-on/) installed) and javascript enabled. These are the only browsers supporting the FIDO U2F technology. Currently Casa does not support adding U2F devices from mobile browsers.
 * Ensure plugging the security key before pressing the "ready" button: the enrolling process has a timeout period. Ensure you are pressing the key's button when your browser indicates to do so or when the key's button is blinking.
 
 ### The user interface is not showing any means to enroll credentials
@@ -136,17 +136,17 @@ Ensure the following are met:
 
 * You have enabled custom scripts as needed. For instance, if you want to offer users the ability to authenticate using Google Authenticator, you have to enable the script "HOTP/TOPT authentication module". Whenever you enable or disable scripts, please wait a couple of minutes for oxAuth to pick the changes.
 
-* You specified a correct value for *"enabled-methods"* in `cred-manager.json`. Leave it empty or null to pick all enabled methods already supported by your Gluu Server. Alternatively, in the administration console you can see which methods are already enabled in the server, and modify those you want to offer.
+* You specified a correct value for *"enabled-methods"* in `casa.json`. Leave it empty or null to pick all enabled methods already supported by your Gluu Server. Alternatively, in the administration console you can see which methods are already enabled in the server, and modify those you want to offer.
 
-### The user interface is not showing means to enroll certain types credentials
+### The user interface is not showing means to enroll certain types of credentials
 
-Ensure you specified a correct value for *"enabled-methods"* in `cred-manager.json`. Leave it empty or null to pick all enabled methods already supported by your Gluu Server. The administration console is also useful to diagnose the problem.
+Ensure you specified a correct value for *"enabled-methods"* in `casa.json`. Leave it empty or null to pick all enabled methods already supported by your Gluu Server. The administration console is also useful to diagnose the problem.
 
 ### The preferred method for authentication is set to password and user cannot change it
 
 To choose a strong method for authentication, the user has to have enrolled at least a certain number of credentials through the app. Only after this is met, he will be able to set his preferred method. 
 
-In the administration console (or directly in `cred-manager.json`) you can specify the minimum number of enrolled credentials needed to enable second factor authentication for users.
+In the administration console (or directly in `casa.json`) you can specify the minimum number of enrolled credentials needed to enable second factor authentication for users.
 
 
 ### The log shows an error related to *Obtaining "acr_values_supported" from server*
