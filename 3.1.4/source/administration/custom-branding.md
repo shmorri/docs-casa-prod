@@ -1,12 +1,12 @@
 # Custom branding
 
-Credential Manager allows administrators to alter the application's appearance to match their organization's look and feel. Intermediate-level knowledge of CSS is required for this task.
+Casa allows administrators to alter the application's appearance to match their organization's look and feel. Intermediate-level knowledge of CSS is required for this task.
 
 ## Getting Default Theme Files
 
 The design is driven by a few images and CSS stylesheets. These are inside the app's war file, so let's extract those to a separate location:
 
-* `cd` to the app's war file directory. For instance `/opt/gluu/jetty/cred-manager/webapps`
+* `cd` to the app's war file directory. For instance `/opt/gluu/jetty/casa/webapps`
 
 * Make the Java bin directory available in your PATH. For example:
 
@@ -19,30 +19,30 @@ The design is driven by a few images and CSS stylesheets. These are inside the a
 * Run the following:
 
 ```
-	$ jar -xf cred-manager.war images
-	$ jar -xf cred-manager.war styles
+	$ jar -xf casa.war images
+	$ jar -xf casa.war styles
 ``` 
 
-* Now you should see two new directories. Move those to `/opt/gluu/jetty/cred-manager/static`. The following is an example to move `images` and `styles`:
+* Now you should see two new directories. Move those to `/opt/gluu/jetty/casa/static`. The following is an example to move `images` and `styles`:
 
 ```
-	$ mv images /opt/gluu/jetty/cred-manager/static/images
-	$ mv styles /opt/gluu/jetty/cred-manager/static/styles
+	$ mv images /opt/gluu/jetty/casa/static/images
+	$ mv styles /opt/gluu/jetty/casa/static/styles
 ```
 
 * Ensure the operating system user that runs Jetty has read permissions on the files added. You may do the following to solve it:
 
 ```
-$ chown -R jetty:jetty /opt/gluu/jetty/cred-manager/static/
+$ chown -R jetty:jetty /opt/gluu/jetty/casa/static/
 ```
 
 Glance at the contents of both directories (`images` and `styles`). If you think that editing those CSS files and replacing some images will customize the look and feel, you are on the line.
 
-Look through the `images` and `styles` directories to see the current contents. By editing those CSS files and replacing some images, the Credential Manager's look and feel can be customized.
+Look through the `images` and `styles` directories to see the current contents. By editing those CSS files and replacing some images, Casa's look and feel can be customized.
 
 ## Enable Customizations
 
-For Credential Manager to read images and styles from the custom directory, you need to supply its location:
+For Casa to read images and styles from the custom directory, you need to supply its location:
 
 * With your admin credentials, log into the app. In the admin dashboard, click on "Branding" and choose "Use external assets directory".
 
@@ -58,10 +58,10 @@ For Credential Manager to read images and styles from the custom directory, you 
 
 * Save `common.css`
 
-* Open a private browsing session. Log in, and you will see a beautiful red header!. Private browsing is convenient for testing, otherwise, you'd have to clear your recent browser history constantly after every change.
+* Open a private browsing session. Log in, and you will see a beautiful red header! Private browsing is convenient for testing, otherwise, you'd have to clear your recent browser history constantly after every change.
 
 !!! Note: 
-    The URL `https://<host-name>/cred-manager/custom` maps to the directory where you have placed the `images` and `styles` folder.
+    The URL `https://<host-name>/casa/custom` maps to the directory where you have placed the `images` and `styles` folder.
     
 ## Applying your Customizations
 
@@ -77,7 +77,7 @@ Here are some tips to take into account to match your company design:
 
 * Ignore the `jquery-ui-1.12.1.min` file. You may even erase the file.
 
-* If you are modifying files/images and not seeing the changes, try hitting the resource URL directly in a new browser tab. For example, to load the `common.css` file in your browser, you should visit `https://<host-name>/cred-manager/custom/styles/common.css`. That way, you can determine if your changes are there; if they are not, refresh with **`F5`**. If you still get the same content, you are not deleting your cache properly. Close all tabs, empty the recent cache and try again.
+* If you are modifying files/images and not seeing the changes, try hitting the resource URL directly in a new browser tab. For example, to load the `common.css` file in your browser, you should visit `https://<host-name>/casa/custom/styles/common.css`. That way, you can determine if your changes are there; if they are not, refresh with **`F5`**. If you still get the same content, you are not deleting your cache properly. Close all tabs, empty the recent cache and try again.
 
 ## Reverting to Default Theme
 
@@ -133,4 +133,4 @@ Edit `desktop.css` file and change *mainDiv* by setting a different value for *w
 	}
 ```
 
-Now Credential Manager should neatly accomodate the updated width.
+Now Casa should neatly accomodate the updated width.
