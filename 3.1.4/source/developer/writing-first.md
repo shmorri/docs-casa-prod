@@ -143,15 +143,15 @@ This will produce a file named `hello-world-plugin-0.1-jar-with-dependencies.jar
 
 ```
 jar
-¦
+|
 +-- assets 
 +------ index.zul
 +------ menu.zul
 +-- labels
-¦   +-- zk-label.properties
+|   +-- zk-label.properties
 +-- META-INF
-¦   +-- extensions.idx
-¦   +-- MANIFEST.MF
+|   +-- extensions.idx
+|   +-- MANIFEST.MF
 +-- org
     +-- gluu
         +-- casa
