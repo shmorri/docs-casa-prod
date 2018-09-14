@@ -6,10 +6,10 @@ Gluu LDAP directory is key in Gluu Casa [architecture](./architecture.md#backend
 
 Before proceding ensure you have:
 
-- [Basic grasp of LDAP](./intro-plugin.md#ldap-notions)
-- Downloaded the [UnboundID LDAP SDK](https://github.com/pingidentity/ldapsdk/releases] (version 4.0.0 is OK). 
-- Skim through the persistence framework [doc page](https://docs.ldap.com/ldap-sdk/docs/persist/index.html) (also found in the SDK zip file). It will help you to start very quickly. Bookmarks in your browser pointing to that page and the API docs would be helpful.
-- Means to connect to Gluu lightweight directory, as mentioned [here](./intro-plugin.md#a-running-gluu-casa-installation). Normally, you'll use the `o=gluu` base branch DN.
+- [a basic grasp of LDAP](./intro-plugin.md#ldap-notions)
+- downloaded the [UnboundID LDAP SDK](https://github.com/pingidentity/ldapsdk/releases] (version 4.0.0 is OK). 
+- skimmed through the persistence framework [doc page](https://docs.ldap.com/ldap-sdk/docs/persist/index.html) (also found in the SDK zip file). It will help you to start very quickly. Bookmarks in your browser pointing to that page and the API docs would be helpful.
+- the means to connect to Gluu lightweight directory, as mentioned [here](./intro-plugin.md#a-running-gluu-casa-installation). Normally, you'll use the `o=gluu` base branch DN.
 
 As an example, if your Gluu Server is backed by OpenLDAP, you can:
 
