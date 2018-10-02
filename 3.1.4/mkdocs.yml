@@ -16,6 +16,7 @@ pages:
 - Home: 'index.md'    
 - Administration Guide: 
     - 'Installation': 'administration/installation.md'
+    - 'About two-factor authentication': 'administration/2fa-basics.md'
     - 'Admin console': 'administration/admin-console.md'   
     - 'Credentials storage': 'administration/credentials-stored.md'
     - 'Custom branding': 'administration/custom-branding.md'

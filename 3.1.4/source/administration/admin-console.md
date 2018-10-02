@@ -1,6 +1,8 @@
 # Admin Console
+
 The sections below document the admin console that is available to Gluu Casa administrators after installation. Many of the settings are configured during initial setup. Once Casa and Gluu are properly configured, follow the [enable methods section below](#enabled-methods) to "turn on" Casa. 
 
+All configuration changes applied via the admin console take effect immediately with no additional actions required such as restarts.
 
 ## LDAP 
 
