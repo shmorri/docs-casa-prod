@@ -58,7 +58,7 @@ To make each person's 2FA preference in Casa the default authentication mechanis
     
 ### Configure Casa
 
-Once the applicable interception scripts are enabled in Gluu, a Casa admin can enable 2FA mechanisms in the `Enable methods` interface. Check the box for each type of authentication method users should be able to self-service in Casa. You can assign the handler plugin for each method. Choose "System" to user the default implementation provided by the application.
+Once the applicable interception scripts are enabled in Gluu, a Casa admin can enable 2FA mechanisms in the `Enable methods` interface. Check the box for each type of authentication method users should be able to self-service in Casa. You can assign the handler [plugin](#plugins) for each method. Choose "System" to use the default implementation provided by the application.
 
 ![enabled-2fa-methods](../img/admin-console/enabled-2FA-methods.png)
 
@@ -110,3 +110,13 @@ If a user is locked out for any reason (e.g. lost device, etc.), an admin can na
 
 ![reset-user-to-pw](../img/admin-console/reset-user-to-pw.png)
 
+
+## Plugins
+
+Plugins are vehicles to augment the functionalities available by default in Gluu Casa. To learn more about plugins, visit the [developer guide](..\developer\index.md#plugins).
+
+In this section of the console, the current list of active and dormant plugins is shown. Once an element in the list is selected, a summary of relevant plugin's metadata is visualized. You can manage the state of plugins as well as remove them.
+
+Click on the "Add a plugin..." button to select a file in your local hard drive that you wish to onboard as a new plugin into your Gluu Casa installation. Account that plugin files must have a specific format and structure as explained [here](../developer/intro-plugin.md#anatomy-of-a-plugin).
+
+![plugin detail](../img/admin-console/plugin-detail.png)
