@@ -55,6 +55,12 @@ jar -xf ../webapps/casa.war images styles/gluu/style.css
 
 This will copy the files you can edit later (these are the original versions provided out of the box in Casa).
 
+If you were to include additional files into this directory, ensure ownership is correct, for instance you can do:
+
+```
+$ chown -R jetty:jetty /opt/gluu/jetty/casa/static/
+```
+
 ### Enable and apply your customizations
 
 In the admin console, click on `Custom branding`, and choose `Use Casa external assets directory`. From that point on, your installation is reading relevant files from the `static` directory.
@@ -94,6 +100,14 @@ Here are some tips to account when applying your customizations:
 ![Hints custom classes](../img/admin-console/branding/hint-cust-classes-2.png)
 
 * Refrain from using `!important` unless you have no other alternative.
+
+### Viewing your changes
+
+There is no need to restart the application to visualize changes. However, most static files are cached by browsers, so you will need to clear the browser beforehand. The `shift+Ctrl+del` combination does the job in most cases. Leave the cookies option unchecked, so there is no need to log in after every refresh.
+
+Alternatively, you can use a private browsing session.
+
+If you tried the above and still not seeing changes, try hitting the resource URL directly in a new browser tab. For example, to load the `style.css` file in your browser, visit `https://<host-name>/casa/custom/styles/gluu/style.css`. That way, you can determine if your changes are there; if they are not, refresh with **`F5`**. If you still get the same content, you are not flushing cache properly. Close all tabs, empty the recent cache and try again.
 
 ### Reverting to Default Theme
 
