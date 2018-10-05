@@ -2,7 +2,7 @@
 
 ## Requirements
     
-1. A working Gluu Server installation (version 3.1.4), with at least the following components installed: Apache, LDAP, oxAuth, and oxTrust. [Install Gluu](https://gluu.org/docs/ce/installation-guide/).  
+1. A working Gluu Server installation (version 3.1.4), with at least the following components installed: Apache, LDAP, oxAuth, and oxTrust. Account for 1GB of additional RAM with respect to [Gluu system requirements](https://gluu.org/docs/ce/3.1.4/installation-guide/).  
 
 1. An active [oxd](https://gluu.org/docs/oxd) installation (version 3.1.4). If you don't already have an oxd server available, the interactive setup script will prompt you to install oxd inside your Gluu Server container. 
 
