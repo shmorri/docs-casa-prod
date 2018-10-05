@@ -34,6 +34,8 @@ By default .zul templates are cached for a very long period, however, for develo
     ```
 1. Restart casa (`service casa restart`)
 
+The above guarantees changes in .zul files are picked very often (5 seconds is default ZK cache refresh time).
+
 Ensure you can use a GUI client in order to connect to your LDAP. While all sort of operations on the directory can be achieved with the tools already bundled in the Gluu Server chroot container, the only means to have an agile development experience is leveraging a point-and-click tool. 
 
 Two graphical clients worth mentioning are [LDAP Admin](http://www.ldapadmin.org/) and [Apache DS](https://directory.apache.org/studio/downloads.html). Ask your administrator how to setup a connection from the client running on your desktop to Gluu container's LDAP.
