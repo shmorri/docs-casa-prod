@@ -17,7 +17,22 @@ Ensure you have credentials for a user with administrator privileges in your Glu
 
 ### A running Gluu Casa installation
 
-Once you are up and running with a Gluu Server VM proceed to [install Gluu Casa](../administration/installation.md). Note Casa requires a valid oxd license: you can get one for free at [oxd website](https://oxd.gluu.org) or obtain it from your administrator if your organization is already using that product.
+Once you are up and running with a Gluu Server VM proceed to [install Gluu Casa](../administration/installation.md). Ensure you can login to casa when finished.
+
+By default .zul templates are cached for a very long period, however, for development we need to change this. Do the following:
+
+1. Connect to your VM and login to gluu chroot (e.g. `service gluu-server-3.1.4` login)
+1. Extract ZK descriptor: 
+    ```
+    # cd /opt/gluu/jetty/casa/webapps
+    # jar -xf casa.war WEB-INF/zk.xml
+    ```    
+1. Locate XML tag `file-check-period` and remove it including its surrounding parent `desktop-config`
+1. Save the file and patch application war:
+    ```
+    # jar -uf casa.war WEB-INF/zk.xml
+    ```
+1. Restart casa (`service casa restart`)
 
 Ensure you can use a GUI client in order to connect to your LDAP. While all sort of operations on the directory can be achieved with the tools already bundled in the Gluu Server chroot container, the only means to have an agile development experience is leveraging a point-and-click tool. 
 
