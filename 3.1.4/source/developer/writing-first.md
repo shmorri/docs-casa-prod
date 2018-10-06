@@ -82,17 +82,42 @@ As described in [Anatomy of a plugin](./intro-plugin.md#anatomy-of-a-plugin), pl
 
 HelloWorld bundles a couple ZK files in `src/main/resources/assets`:
 
-- `menu.zul` consists of a single [`A` ZK component](http://www.zkoss.org/javadoc/latest/zk/org/zkoss/zul/A.html), which is mostly an `a` HTML  tag. It is used to render a simple hyperlink that navigates to `index.zul`. Note the link text used is referencing an entry in the resource bundle (`zk-label.properties`). The `base` variable will passed to this template once it is rendered in Casa and will have `/casa/pl/hello-world-plugin` as value.
+#### menu.zul
 
-- `index.zul` is a ZK document composed by a number of tags of different nature:
+It contains the markup required to render this plugin menu item. Important facts about this page are:
 
-   - `variable-resolver`: this is an XML processing instruction that allows the page to include EL expressions pulling data from managed beans (like `sessionContext`).
+- Default XML namespace (`xmlns`) is associated to `native` (this is shortcut for namespace `https://www.zkoss.org/2005/zk/native`). This ZK namespace is used to specify native HTML tags. This kind of elements have no components associated in the server side, thus, having the highest performance. The big majority of casa pages markup is built by using only native components.
+
+- `z` prefix is associated to the zul namespace (`http://www.zkoss.org/2005/zul`). This is comprised by most of standard ZK components. In examples you find in the Internet about ZK, you'll see this is used as the default namespace (no prefix). We don't follow this practice here because native namespace is the most common in Casa.
+
+- Expressions of the form `${...}` are known as EL expressions and are useful to access data held in objects living in the server side (Java) or parameter values.
+
+- The `css` object is a Java map that contains reusable styles, `menuItem` being one of those. Once the key (i.e. `menuItem`) is looked up in the map, a set of primitive styles are obtained. These primitives are usually Tachyons rules you can find in the stylesheet at `https://host/casa/styles/tachyons.min.css`.
+
+- `zkService` is a managed bean of type `org.gluu.casa.core.ZKService`. It exposes two useful properties for writing zul templates, `contextPath` and `appName`.  When writing links (`a` tag) in native dialect is useful to know what the root path of the application is (aka the context path). This is the preferred method instead of simply hardcoding `/casa` in your pages.
+
+- `base` is a parameter your page can read and contains the relative path associated to the plugin, in this case `/pl/hello-world-plugin`. Ultimately, the `href` attribute of the `a` tag is pointing to this plugin `index.zul` file.
+
+- `labels` is a Java map which can be used to access the labels defined in all resource bundles the application uses (including this plugin's).
+
+- The markup in this file resembles a lot how the already existing menu items of Casa were created. You are not required to build your markup this way, however it keeps it visually and functionally consistent with the rest of the application. For instance, usage of rule `collapsible-menu-item` allows the inner `span` to be hidden when the hamburguer icon on the top is pressed.
+
+#### index.zul
+
+It has the contents of the page where the user is taken after clicking on this plugin's menu item. We highlight the following facts:
+
+- The `page` processing instruction sets the language to use when this page is interpreted by the rendering engine. ZK supports several languages being `xul/html` and `xhtml` the most prominent. In this case we use `xhtml` since the root template all Casa pages reuse is based on this language.
+
+- The `init` processing instruction tells the rendering engine to use the file at `/general.zul` as the template for the content to produce. This file can be found under `app/src/main/webapp`. `general.zul` is the base skeleton for most of application pages, and is based at the same time on `basic.zul`. The effect produced is that it surrounds the actual content with the header, left menu, and footer.
    
-   - `page`: an XML processing instruction useful for setting the title of the page (`title` HTML tag)
-   
-   - TODO: markup will change a lot when incorporating new design...
-   
-In `index.zul` please note that:
+!!! Note:
+    For more information on templates, check "Templating" in ZK developers reference. Note that template injection (using `<template>` and `<apply> tags) don't work since this requires ZK EE.
+
+- `index.zul` defines two named contents, `title` and `maincontent`. The former contains markup that ends up being added to the `HEAD` section of the markup generated, the latter has the markup that will be included in the main content area of the page. You can see this happens at the `@insert` directive found in `general.zul` file.
+
+<!-- TODO image sections main-content-structure.png -->
+
+In addition to the above, the following are functional aspects worth to mention:
 
 - The class `org.gluu.casa.plugins.helloworld.HelloWorldVM` is employed as this page [ViewModel](./intro-plugin#key-concepts).
 
@@ -100,7 +125,7 @@ In `index.zul` please note that:
 
 - There is a binding of the text entered in a textbox with the class field `message` of the ViewModel (`HelloWorldVM`). This means that if text changes in the UI, `message` is synced with the value, and if `message` is changed in the Java backend, the UI will update with the proper value.
 
-- When the button of this page is clicked, it triggers a call to method `loadOrgName` in the ViewModel. This method is annotated with `@Command` in that Java class and changes the value of class field `organizationName`.
+- When the button of this page is clicked, it triggers a call to method `loadOrgName` in the ViewModel. This method is annotated with `@Command` in that Java class and changes the value of class field `organizationName`. The same call is triggered when enter is pressed in the textbox (see `onOK` attribute).
 
 - There is a one-way binding ("load") with regard to ViewModel's field `organizationName`. This means that its value can be used in the page (e.g. for display), but no syncing takes place from page to server.
 
@@ -198,7 +223,7 @@ Do a quick check of the logs. This is not needed in real production setting, but
 
 ### Access plugin page
 
-Access the home page of Casa, you will be able to see a new link was added on the user menu (on the left, labelled "Hello world!"). After clicking on it a separate page (`https://hostname/casa/pl/hello-world-plugin/index.zul`) is shown. We will make it look more "integrated" to the app by showing the header and menus later.
+Access the home page of Casa, you will be able to see a new link was added to user menu on the left (it's labelled "Hello world!" and has a neat accompanying icon). After clicking on it a separate page (`https://hostname/casa/pl/hello-world-plugin/index.zul`) is shown.
 
 Check the app log, you will see a statement like "Hello World ViewModel inited" this is added by method `init` of `HelloWorldVM`.
 
@@ -216,13 +241,11 @@ After execution of this method, the UI is refreshed, which causes a new message 
 
 You have now a good sense of how plugins work. Now let's alter the project a bit...
 
-1. Edit the file `src/main/resources/assets/index.zul`. Remove the comments surrounding the first line.
+1. Edit the file `src/main/resources/assets/index.zul`. Remove `pt3` rule from `class` attribute of the sections wrapper. What does `pt3` mean?
 
-1. Move the commented code that looks like `self="@define(content)"` inside the element containing the `viewModel` attribute. In other words, we are adding a `self` attribute for such tag. 
+1. Just **before** this tag, add `<z:include src="/back-home.zul" />`. This will make the contents of `back-home.zul` (at directory `app/src/main/webapp`) be included. Inspect the file, what does it do?
 
-   These editions will make `index.zul` reuse the ZK template `general.zul` (you can see this file in Casa repo at directory `app/src/main/webapp`). Most pages of Casa use this template that surrounds the actual content with the header and a menu on the left.
-   
-   For more information on templates, check "Templating" in ZK developers reference. Note that template injection (using `<template>` and `<apply> tags) don't work since this requires ZK EE.
+1. Alter the EL expressions in `label` tag so that the user's lastname is shown instead of username. 
 
 1. Edit `HelloWorldVM` in the following way:
 

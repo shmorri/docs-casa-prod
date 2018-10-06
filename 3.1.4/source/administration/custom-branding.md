@@ -37,12 +37,6 @@ UI design is driven by one CSS stylesheet and a few images. Specifically, Casa l
 
 Particularly, ZK default theme CSS file was disabled to offer a higher degree of flexibility in design. This enables bootstrap and tachyons to claim control over style rules applied to HTML markup.
 
-In addition to those above, certain pages may employ additional CSS files such as:
-
-* [IntTelInput (International Telephone Input)](https://github.com/jackocnr/intl-tel-input)
-* [Spectrum color picker] (https://github.com/bgrins/spectrum)
-* [Jquery UI](http://jqueryui.com)
-
 ### External assets directory
 
 In folder `/opt/gluu/jetty/casa/static` you can place your own version of the main stylesheet and images Casa uses. No other stylesheet should be overriden.

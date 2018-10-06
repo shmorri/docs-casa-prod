@@ -28,6 +28,12 @@ To bring Casa users the best UI experience, we followed an approach to style the
 
 As consequence of the above, a small number of CSS rules had to be manually created. The main stylesheet of this project is just 3KB (after gzip).
 
+In addition, certain pages may employ additional CSS files such as:
+
+* [IntTelInput (International Telephone Input)](https://github.com/jackocnr/intl-tel-input)
+* [Spectrum color picker] (https://github.com/bgrins/spectrum)
+* [Jquery UI](http://jqueryui.com)
+
 ### Backend
 
 From the server-side perspective, the following summarizes the most relevant aspects:
