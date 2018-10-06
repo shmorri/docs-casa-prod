@@ -33,6 +33,7 @@ UI design is driven by one CSS stylesheet and a few images. Specifically, Casa l
 * [ZK 8.5](http://books.zkoss.org/zk-mvvm-book/8.0/)
 * [Bootstrap 4.1](https://getbootstrap.com/docs/4.0/getting-started/introduction/#quick-start)
 * [Tachyons 4.11](http://tachyons.io)
+* [Font awesome 5.2](https://fontawesome.com)
 
 Particularly, ZK default theme CSS file was disabled to offer a higher degree of flexibility in design. This enables bootstrap and tachyons to claim control over style rules applied to HTML markup.
 

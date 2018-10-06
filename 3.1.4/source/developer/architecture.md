@@ -14,6 +14,20 @@ There is a handful of approaches for ZK development, particularly in Casa the MV
 
 Plugin developers are encouraged to use MVVM development style of ZK, however any other approach is pluggable and should supported.
 
+#### CSS frameworks
+
+To bring Casa users the best UI experience, we followed an approach to style the application different from a typical ZK application. The following summarizes this aspects:
+
+- ZK theme was disabled. This helped us to have total control over how styling of components was made
+
+- A functional CSS approach was taken. [Here](https://www.smashingmagazine.com/2013/10/challenging-css-best-practices-atomic-approach/), [here](https://css-tricks.com/lets-define-exactly-atomic-css/), and [here](https://johnpolacek.github.io/the-case-for-atomic-css/) you can find useful introductory material in this regard. The framework chosen was [Tachyons](http://tachyons.io).
+
+- To avoid redefining common UI elements, such as alerts, tooltips, etc., bootstrap was employed. Despite this, Casa cannot be considered a full bootstrap-based app since few of its components are leveraged.
+
+- [Font awesome](https://fontawesome.com) project was used for icon management. We encourage to reuse those in your plugins instead of adding your own images.
+
+As consequence of the above, a small number of CSS rules had to be manually created. The main stylesheet of this project is just 3KB (after gzip).
+
 ### Backend
 
 From the server-side perspective, the following summarizes the most relevant aspects:
