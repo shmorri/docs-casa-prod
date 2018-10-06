@@ -37,7 +37,7 @@ In addition to the above:
 
 ### Common tasks
 
-- Working with menus
+- [Working with menus](./menus.md)
 - Adding UI pages
 - [Manipulating LDAP data](./ldap-data.md)
 - Adding REST services
