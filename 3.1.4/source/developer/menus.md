@@ -1,7 +1,7 @@
 # Working with menus
 
 !!! Note
-    It is highly recommended you follow the [Writing your first plugin](writing-first.md) guide before reading this page contents.
+    It is highly recommended you follow the [Writing your first plugin](writing-first.md) guide before reading this contents.
     
 In introductory pages we mentioned developers can customize three types of menus: user, admin, and drop down. This can be achieved by implementing extension point `org.gluu.credmanager.extension.navigation.NavigationMenu`.
 

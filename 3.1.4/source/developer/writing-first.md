@@ -6,15 +6,15 @@ In this page we will disect the "Hello world" plugin project, apply editions on 
 
 Requirements for this task are the same as those listed in the [introductory page](intro-plugin.md#requirements-and-tools) except for LDAP-related stuff which is not needed. Additionally, maven will be used as build tool. If you don't want to use maven you'll need to investigate how to perform the tasks in the tool of your preference. 
 
-If you skipped ["Introduction to plugin development"](intro-plugin.md) we strongly encourage you to glance at it now.
+If you skipped ["Introduction to plugin development"](intro-plugin.md) we strongly encourage you to check it now.
 
 ## Hello?
 
-Hello world is minimalistic plugin that showcases very basic aspects of plugin development. This plugin will simply add a menu item to Casa users menu that takes to a separate page showing a salutation. In this page you can enter some text, execute server-side logic and update the UI back accordingly.
+Hello world is minimalistic plugin that showcases very basic aspects of plugin development. This plugin will simply add an item to Casa users menu which in turn takes users to a separate page showing a salutation. In this page you can enter some text, execute server-side logic and update the UI back accordingly.
 
 ### Download project
 
-Let's start by downloading the code. Hello World plugin is found inside the Gluu Casa project itself. This way you can easily check the underlying APIs and real world UI pages, particularly, the [`casa-shared` module](intro-plugin.md#casa-shared-module) being of remarkable interest.
+Let's start by downloading the code. Hello World plugin is found inside the Gluu Casa project itself. This way you can easily check the underlying APIs and real world UI pages, particularly, the [`casa-shared`](intro-plugin.md#casa-shared-module) module being of remarkable interest.
 
 If you have `git` installed in your machine, issue the following command. Replace the content in the angle brackets with your Gluu Casa version (e.g. "version_3.1.4"):
 
@@ -43,13 +43,13 @@ It is assumed `mvn` (maven executable) is in your path.
 
 ## Anatomy
 
-Plugin directory is found in `plugins/helloworld` folder. As you can see, this is a [standard maven project](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html). All filesystem paths given in this section are relative to `plugins/helloworld`.
+Plugin directory is found in `plugins/helloworld` folder. As you can see, this is a [standard maven project](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html).
 
 ### POM
 
  Let's start by disecting the build descriptor (`pom.xml`):
 
-- Identifiers and versions: At the top of the file variables `plugin.id` and `plugin.version` are defined. These are key to our plugin's metadata. Also we reuse those to name the artifact to be produced: note the `artifactId` and `version` tags; this means the name of the generated jar will follow the pattern: `{plugin.id}-{plugin.version}`.
+- Identifiers and versions: At the top of the file variables `plugin.id` and `plugin.version` are defined. These are key for plugin's metadata. Also we reuse those to name the artifact to be produced: note the `artifactId` and `version` tags; this means the name of the generated jar will follow the pattern: `{plugin.id}-{plugin.version}`.
 
 - Assembly: We leverage the `maven-assembly-plugin` that allow us to generate a jar with dependencies and a suitable manifest file (see ["anatomy of a plugin"](./intro-plugin.md#anatomy-of-a-plugin)). Note the `<archive>` section of `pom.xml` reuses the ID and version defined previously and also supplies extra info, being `<Plugin-Class>` one the most relevant.
 
@@ -72,11 +72,11 @@ Method `getContentsUrl` references a path to a page that can contain markup of a
 !!! Note:
     All "extra" menu items are added after Casa defaults. For example, if you are targetting user menus, the 2FA menu and password reset will be shown first, those dynamically added come afterwards.
 
-In this particular case, `NavigationMenu` returns the String `"menu.zul"` which you can find in `src/main/resources/assets`. Once your plugin is loaded and started in Casa, this file (and any other in the `assets`) will be accessible under the URL `https://hostname/casa/pl/hello-world-plugin/`. Later, we will explain more in detail how the [filesystem to URL mapping](#assets-folder-to-url-mapping) works.
+In this particular case, `NavigationMenu` returns the String `"menu.zul"` which you can find in HelloWorld dir `src/main/resources/assets`. Once your plugin is loaded and started in Casa, this file (and any other in `assets`) will be accessible under the URL `https://hostname/casa/pl/hello-world-plugin/`. Later, we will explain more in detail how the [filesystem to URL mapping](#assets-folder-to-url-mapping) works.
 
 ### Resource bundle
 
-As described in [Anatomy of a plugin](./intro-plugin.md#anatomy-of-a-plugin), plugins may declare one resource bundle with internationalization labels. This is a neat approach to decouples UI pages from actual text content. In folder `src/main/resources/labels` we find the resource bundle which consists of a single file, `zk-label.properties`. This contains just a couple of entries that are referenced by UI pages.
+As described in [Anatomy of a plugin](./intro-plugin.md#anatomy-of-a-plugin), plugins may declare one resource bundle with internationalization labels. This is a neat approach to decouple UI pages from actual text content. In folder `src/main/resources/labels` of plugin we find the resource bundle which consists of a single file, `zk-label.properties`. This contains just a couple of entries that are referenced by UI pages.
 
 ### UI pages
 
@@ -117,7 +117,7 @@ It has the contents of the page where the user is taken after clicking on this p
 
 - In general **all** pages are structured as in the figure below: a content heading area appearing just under the header. Below it a wrapper consisting of one or more sections. Every section can contain one or more panels whose structure depends on the specific need to cope. In your plugins try to adhere to this standard: new pages will fit neatly in current Casa design.
 
-[!general structure](../img/developer/sections main-content-structure.png]
+[!general structure](../img/developer/sections main-content-structure.png)
 
 !!! Note:
     Use existing pages in Casa as a guide to write your own. Do not use as a first guide the actual markup generated by the browser but the .zul pages you can find under `app/src/main/webapp` and its subdirectories.
@@ -138,15 +138,15 @@ In addition to the above, the following are functional aspects worth to mention:
 
 Some key facts about class `org.gluu.casa.plugins.helloworld.HelloWorldVM` (the [ViewModel](./intro-plugin#key-concepts) for `index.zul`):
 
-- It has getter/setter for the field where 2-way binding is required (i.e. `message`). The getter is called when the page loads the first time (resulting in the text field with empty text), and the setter is called when text is typed in the textbox by the user.
+- It has a getter/setter for the field where 2-way binding is required (i.e. `message`). The getter is called when the page loads the first time (resulting in the text field with empty text), and the setter is called when text is typed in the textbox by the user.
 
-- It has getter for the field which is displayed only (organizationName). The getter is called upon page loading as well after server side processing occurs (like when pushing the button). This allows the value salutation be shown.
+- It has a getter for the field which is displayed only (organizationName). The getter is called upon page loading as well after server side processing occurs (like when pushing the button). This allows the value salutation be shown.
 
 - Every time the page is loaded, method `init` is called (due to the presence of annotation `org.zkoss.bind.annotation.Init`). In this method some initialization takes place: we obtain a reference to a managed bean using `Utils.managedBean`.
 
 ### Logging
 
-Being able to log statements is key for any project whether big or small. Casa plugins are not an exception. You can obtain an instance of `org.slf4j.Logger` using `getLogger` method of `org.slf4j.LoggerFactory` (as in `HelloWorldVM`). `slf4j` is available when you include `casa-shared` in your project dependencies.
+Being able to log statements is key for any project and Casa plugins are not an exception. You can obtain an instance of `org.slf4j.Logger` using `getLogger` method of `org.slf4j.LoggerFactory` (as in `HelloWorldVM`). `slf4j` is available when you include `casa-shared` in your project dependencies.
 
 Here `Logger-Name` entry of your plugin manifest plays a key role (see file `pom.xml`): in your plugin any `Logger` associated with a class whose name is prefixed by the value of such entry will be effectively logged in [Casa log file](../administration/faq.md#where-are-the-logs). Statements are logged using the same level as the global logging level of the application. This can be configured in the [admin dashboard](../administration/admin-console.md#logging).
 
@@ -158,7 +158,7 @@ Every time a plugin is onboarded in Casa, a new logger is created using the valu
 
 ## Packaging
 
-Let's do our first attempt to generate the jar for HelloWorld. In a command line `cd` to plugin directory (i.e. `plugins/helloworld` of Casa repo you cloned) and issue:
+Let's do our first attempt to generate a jar for HelloWorld. In a command line `cd` to plugin directory (i.e. `plugins/helloworld` of Casa repo you cloned) and issue:
 
 ```
 $ mvn clean package
@@ -229,7 +229,7 @@ Check the app log, you will see a statement like "Hello World ViewModel inited" 
 
 The page is showing a message that includes your current user name inviting you to type something in the text box. Type anything and press the button. This will end up in the execution of `loadOrgName` method of `HelloWorldVM`. This adds a new log statement and sets the value of class member `organizationName`. This value is obtained after an LDAP query!.
 
-After execution of this method, the UI is refreshed, which causes a new message to appear in the UI. 
+After execution of this method, the UI is partially refreshed, which causes a new message to appear in the UI. 
 
 ### Unload the plugin
 
@@ -259,12 +259,6 @@ You have now a good sense of how plugins work. Now let's alter the project a bit
     `WireVariable` is an annotation of package `org.zkoss.zk.ui.select.annotation` which is a sort of equivalent for `javax.inject.Inject`. It allows us to reference an instance of `ILdapService` (see `casa-shared` javadocs). Usage of `WireVariable` has a disadvantage though: you need to know the EL name of the bean you are trying to inject. 
     
     Specifically the injection above is equivalent to this one:
-    
-    <!-- , which can give us information about the current user's session.
-    
-    Add a getter method for `myGivenName` following the usual Java bean conventions.
-    
-    In method `init` add the following: `myGivenName = sessionContext.getLoggedUser().getGivenName();`. -->
 
     ```
     @WireVariable("ldapService")
