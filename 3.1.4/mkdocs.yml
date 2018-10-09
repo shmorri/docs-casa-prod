@@ -29,6 +29,8 @@ pages:
         - 'Intro to plugin development': 'developer/intro-plugin.md'
         - 'Writing your first plugin': 'developer/writing-first.md'
     - 'Common tasks':
+        - 'Working with menus': 'developer/menus.md'
+        - 'Adding UI pages': 'developer/ui-pages.md'
         - 'Manipulating LDAP data': 'developer/ldap-data.md'
     - 'Other topics':
         - 'Plugin development tips': 'developer/tips-development.md'
