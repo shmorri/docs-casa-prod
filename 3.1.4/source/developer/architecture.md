@@ -31,7 +31,7 @@ As a consequence of the above, a small number of CSS rules had to be manually cr
 In addition, certain pages may employ additional CSS files such as:
 
 * [IntTelInput (International Telephone Input)](https://github.com/jackocnr/intl-tel-input)
-* [Spectrum color picker] (https://github.com/bgrins/spectrum)
+* [Spectrum color picker](https://github.com/bgrins/spectrum)
 * [Jquery UI](http://jqueryui.com)
 
 ### Backend
