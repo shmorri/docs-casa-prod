@@ -2,9 +2,9 @@
 
 ## Requirements
     
-1. A working Gluu Server installation (version 3.1.4), with at least the following components installed: Apache, LDAP, oxAuth, and oxTrust. Account for 1GB of additional RAM with respect to [Gluu system requirements](https://gluu.org/docs/ce/3.1.4/installation-guide/).  
+1. A working Gluu Server 3.1.4 installation with at least the following components installed: Apache, LDAP, oxAuth, and oxTrust. Account for 1GB of additional RAM with respect to [Gluu system requirements](https://gluu.org/docs/ce/3.1.4/installation-guide/#system-requirements).  
 
-1. An active [oxd](https://gluu.org/docs/oxd) installation (version 3.1.4). If you don't already have an oxd server available, the interactive setup script will prompt you to install oxd inside your Gluu Server container. 
+1. An active [oxd 3.1.4](https://gluu.org/docs/oxd/3.1.4) installation. The interactive setup script will prompt you to install oxd in case you don't already have an instance available. 
 
 1. Casa must be installed in the same host as your Gluu Server
 
@@ -108,4 +108,7 @@ After answering the setup script questions, the selections will be displayed wit
 
 Upon successful installation, a confirmation message will appear that says: "Casa installation successful! Point your browser to `https://<host>/casa`".
 
-Wait for some 30 seconds, then visit the URL and authenticate against Gluu to access Casa. By default the application is accesible at URL path `/casa`. If you want Casa to use a different context path please follow the steps listed [here](change-context-path.md). It is advisable to apply this customization before any credential enrollments take place.
+Wait for 30-60 seconds, then visit the URL and authenticate against Gluu to access Casa. 
+
+!!! Note 
+    To change the default URL path for Casa follow the steps listed [here](change-context-path.md). However, it is advisable to apply this customization **before** credentials are enrolled. 
