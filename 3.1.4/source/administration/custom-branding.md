@@ -112,15 +112,15 @@ If for any reason you wish to restore the default theme, select "Use default (Gl
 
 Here are solutions for common use cases:
 
-### Use a different logo
+#### Use a different logo
 
 Just replace file at `images/logo.png` (relative to `static` directory) with your own image.
 
-### Use a Different Favicon
+#### Use a Different Favicon
 
 Replace `images/favicon.ico`.
 
-### Change the Font Used in Text
+#### Change the Font Used in Text
 
 The vast majority of text that appears in the application uses the same font. To set the default font, locate at the bottom of `style.css` a declaration like `@import url('https://fonts.googleapis.com...` and point to one of your choosing. Check this [page](https://developers.google.com/fonts/docs/getting_started) to learn more about Google fonts.
 
