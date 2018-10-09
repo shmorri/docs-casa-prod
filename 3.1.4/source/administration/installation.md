@@ -110,4 +110,5 @@ Upon successful installation, a confirmation message will appear that says: "Cas
 
 Wait for 30-60 seconds, then visit the URL and authenticate against Gluu to access Casa. 
 
-By default Casa will be accesible at `<hostname>/casa`. To change the path follow the steps listed [here](change-context-path.md). However, it is advisable to apply this customization **before** credentials are enrolled. 
+!!! Note 
+    To change the default URL path for Casa follow the steps listed [here](change-context-path.md). However, it is advisable to apply this customization **before** credentials are enrolled. 
