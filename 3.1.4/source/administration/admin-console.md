@@ -8,7 +8,7 @@ All configuration changes applied via the admin console take effect immediately 
 
 View the settings Casa uses in order to establish a connection to the underlying LDAP. These settings are made by the application installer and there is no need to apply any change afterwards. Update these settings only if the application needs to be tested against a different LDAP Server. 
 
-![ldap-settings](../img/admin-console/LDAP-settings.png)
+![local-ldap](../img/admin-console/LDAP-settings.png)
 
 ## oxd
 

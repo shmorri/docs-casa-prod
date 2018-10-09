@@ -6,7 +6,8 @@ Gluu Casa ("Casa") provides an interface for enrolling and managing a variety of
    
 - U2F security keys (like [Yubikeys](https://www.yubico.com/products/yubikey-hardware/), or any [U2F key on Amazon](https://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=u2f))   
 - Gluu's free and secure U2F mobile app, [Super Gluu](https://super.gluu.org)   
-- OTP mobile apps (like Google Authenticator, FreeOTP, etc.)    
+- OTP mobile apps (like Google Authenticator, FreeOTP, etc.)
+- Physical OTP tokens (keyfobs, OTP cards)
 - Mobile phone numbers that can receive OTPs via SMS
 
 !!! Note
@@ -20,18 +21,18 @@ The credential dashboard displays widgets for each type of supported 2FA credent
 
 Click the button to view additional details and enroll new credentials.   
 
-![cred-focused](./img/cred-manager-manage-highlighted.png)
+![cred-focused](./img/manage-highlighted.png)
 
 
 ## Turn 2FA on/off
 
 After the minimum number of credentials have been enrolled (as specified by the system admin), 2FA can be turned on by clicking the pencil icon in the preferred credential widget: 
 
-![preferred-2fa](./img/cred-mgr-preferred.png)
+![preferred-2fa](./img/preferred.png)
 
 Select the preferred type of 2FA and click `Update`:
 
-![select-2fa](./img/cred-manager-select-2fa.png)
+![select-2fa](./img/select-2fa.png)
 
 When prompted for 2FA, the preferred credential will be requested _first_. If the preferred credential is not available, any other previously enrolled 2FA credential can be used. 
 

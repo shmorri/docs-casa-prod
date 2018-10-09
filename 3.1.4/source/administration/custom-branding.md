@@ -13,7 +13,7 @@ Click on `Custom branding` in the admin console, and choose `Upload images and p
 * Choose the background color for page header
 * Choose buttons colors
 
-![quick design glance](../img/admin-console/branding/quick-method.png)
+![quick design glance](../img/admin-console/custom-branding.png)
 
 Once you supply your files and/or color values, click on Save and see the changes take immediately by navigating to a different page or opening a new browser tab. Repeat the process till you get the combination that best matches your organization's look and feel.
 
