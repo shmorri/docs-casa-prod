@@ -38,32 +38,32 @@ In addition, certain pages may employ additional CSS files such as:
 
 From the server-side perspective, the following summarizes the most relevant aspects:
 
-- Contexts and Dependency Injection (CDI)
+#### Contexts and Dependency Injection (CDI)
 
 Casa uses Weld 3.0 (JSR-365 aka CDI 2.0) for managed beans. The most important aspects of business logic are implemented through a set of beans found in Java package `org.gluu.credmanager.core`.
 
 Managed beans are injected into UI controller classes (ZK ViewModels) by means of custom ZK annotations. ZK pages can access bean properties via EL expressions when they are annotated `javax.inject.Named`.
 
-- Logging
+#### Logging
 
 Casa uses "Simple Logging Facade for Java" (SLF4J) with the Log4j2 binding. Log files are located in `/opt/gluu/jetty/casa/logs` of Gluu Server chroot container. To get more information on loggers and appenders, check the `log4j2.xml` file found in `/WEB-INF/classes` of the application war. Alternatively, you can check the file online in [Github](https://github.com/GluuFederation/casa/blob/version_3.1.4/app/src/main/resources/log4j2.xml) (point to the branch that corresponds to your Casa version).
 
-- Async timers
+#### Async timers
 
 Casa currently employs two asynchronous jobs to periodically clean users trusted devices list if any, and to detect changes in relevant custom interception scripts and notify plugin handlers of this event. For this task, the Quartz 2 library is used.
 
-- Plugin framework
+#### Plugin framework
 
 The "Plugin Framework for Java" ([PF4J](http://www.pf4j.org)) is the mechanism Casa supports for plugin management. Plugins are artifacts intended to extend and under certain circumstances, override application functionalities.
 
 Plugins are added at runtime, which, requires no restart of Casa. Additionally, plugins can be temporarily stopped or permanently removed.
 To add a plugin, a jar file must be uploaded via the admin dashboard. 
 
-- LDAP persistence
+#### LDAP persistence
 
 As expected, access to LDAP is key in Casa. To cover this need, the "UnboundID Persistence Framework" was employed. This is a small framework (part of the more general "UnboundID LDAP SDK") which allows to easily establish a mapping between Java objects (POJOs) and LDAP entries facilitating CRUD operations a lot. Plugins leverage some of the persistence framework tools, as well as some functionalities exposed directly by the application which makes access to LDAP fairly easy to understand and highly productive at the same time. 
 
-- Rest services
+#### Rest services
 
 Plugins can add RESTful web services dynamically. For this purpose, the well-known JBoss RESTEasy 3.0 libraries were included in this project. Additionally, in future releases Gluu Casa will expose some API endpoints that leverage these libraries. 
 
