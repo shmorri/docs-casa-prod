@@ -45,11 +45,11 @@ Use the following links to get started with Casa:
 
 ### User Guide
 
-- [Home](./user-guide.md)
+- [Home](../user-guide/index.md)
 
 ### Developer Guide
 
-- [Home](./developer-guide.md)
+- [Home](../developer-guide/index.md)
 
 ## License
 Gluu Casa is licensed under the free open source [MIT License](https://github.com/GluuFederation/casa/blob/master/LICENSE). 
