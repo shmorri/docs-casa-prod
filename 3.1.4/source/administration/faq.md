@@ -43,6 +43,14 @@ If a user has locked out for any reason (e.g. lost devices), you can reset his p
 
 If you have followed the steps as described above, next time he/she enters, **password** will be his new preference and he won't be asked to present additional credentials to enter.
 
+### How to adjust the issuer for OTP tokens
+
+When people enroll OTP mobile apps, the OTP will be added to their device and assoicated with an "issuer" so they are easily able to recognize where this OTP can be used. To make it easier to keep track of which OTPs are valid for which IDPs, the issuer property can be adjusted in the Gluu Server OTP script. For example, you might want to set the `issuer` property to `ACME Dev` on your dev server, and `ACME, Inc.` on your production server. 
+
+See the screenshot below to see where to edit this property in your Gluu Server IDP. 
+
+![adjust_issuer](https://user-images.githubusercontent.com/5271048/46755564-03bc6980-cc8b-11e8-9579-623c3d745bab.png)
+
 ## Errors shown in the UI
 
 ### A page with a "Service Temporarily Unavailable" message appears when accessing the application
