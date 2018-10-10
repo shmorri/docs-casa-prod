@@ -49,7 +49,7 @@ When people enroll OTP mobile apps, the OTP will be added to their device and as
 
 See the screenshot below to see where to edit this property in your Gluu Server IDP. 
 
-![adjust_issuer](https://user-images.githubusercontent.com/5271048/46755564-03bc6980-cc8b-11e8-9579-623c3d745bab.png)
+![adjust_issuer](https://user-images.githubusercontent.com/5271048/46755827-abd23280-cc8b-11e8-851b-8ffb09b835ae.png)
 
 ## Errors shown in the UI
 
