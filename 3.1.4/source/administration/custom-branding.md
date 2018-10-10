@@ -75,20 +75,20 @@ Here are some tips for applying your customizations:
 
 - In most circumstances, your work will just reduce to editing existing rules in `style.css`. HTML markup will show rules (in `class` attribute) prefixed with `cust-` that are apparently not defined anywhere. These rules are intended to give users the opportunity to add their design tastes. The following is a list of custom selectors you can add to `style.css`. Names are in general self-explanatory, the images below help clarify more.
 
-  - cust-menu-item
-  - cust-content-heading
-  - cust-sections-wrapper
-  - cust-section
-  - cust-panel
-  - cust-modal-window
-  - cust-edit-button
-  - cust-link-button
-  - cust-delete-button
-  - cust-primary-button
-  - cust-secondary-button
-  - cust-tertiary-button
-  - cust-text-input
-  - cust-progress-bar
+    - cust-menu-item  
+    - cust-content-heading  
+    - cust-sections-wrapper  
+    - cust-section  
+    - cust-panel  
+    - cust-modal-window  
+    - cust-edit-button  
+    - cust-link-button  
+    - cust-delete-button  
+    - cust-primary-button  
+    - cust-secondary-button  
+    - cust-tertiary-button  
+    - cust-text-input  
+    - cust-progress-bar  
    
 ![Hints custom classes](../img/admin-console/branding/hint-cust-classes-1.png)
 
