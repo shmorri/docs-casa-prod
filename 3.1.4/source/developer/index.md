@@ -19,6 +19,7 @@ Plugins are very versatile, the following is by no means an extensive list of th
 - Add or override authentication mechanisms to be supported by the application
 
 In addition to the above:
+
 - Any plugin can have easy access to the underlying LDAP of the Gluu Server where casa was installed
 - Plugins can onboard their own libraries (jar files) and classes
 
