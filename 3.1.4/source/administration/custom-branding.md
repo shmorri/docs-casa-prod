@@ -39,7 +39,7 @@ Particularly, ZK's default theme CSS file was disabled to offer a higher degree 
 
 ### External assets directory
 
-In the `/opt/gluu/jetty/casa/static` folder, you can place your own version of the main stylesheet and images Casa uses. No other stylesheet should be overriden.
+In folder `/opt/gluu/jetty/casa/static`, you can place your own version of the main stylesheet and images Casa uses. No other stylesheet should be overriden.
 
 To start, log into the chroot and do the following:
 
@@ -73,7 +73,7 @@ Here are some tips for applying your customizations:
 
 - Don't override rules that are already defined in Bootstrap or Tachyons CSSs. Conversely, ZK rules (which are prefixed with `z-`) are safe to be re-defined since ZK CSS isn't included (actually `style.css` redefines some). 
 
-- In most circumstances, your work will just reduce to editing existing rules in `style.css`. HTML markup will show rules (in `class` attribute) prefixed with `cust-` that are apparently not defined anywhere. These rules are intended to give users the opportunity to add their design tastes. The following is a list of custom selectors you can add to `style.css`. Names are in general self-explanatory, the images below help clarify more.
+- In most circumstances, your work will just reduce to editing existing rules in `style.css`. HTML markup will show rules (in `class` attribute) prefixed with `cust-` that are apparently not defined anywhere. These rules are intended to give admins the opportunity to add their design tastes. The following is a list of custom selectors you can add to `style.css`. Names are in general self-explanatory, the images below help clarify more.
 
     - cust-menu-item  
     - cust-content-heading  
