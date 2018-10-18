@@ -9,15 +9,7 @@ Before proceding ensure you have:
 - [a basic grasp of LDAP](./intro-plugin.md#ldap-notions)
 - downloaded the [UnboundID LDAP SDK](https://github.com/pingidentity/ldapsdk/releases] (version 4.0.0 is OK). 
 - skimmed through the persistence framework [doc page](https://docs.ldap.com/ldap-sdk/docs/persist/index.html) (also found in the SDK zip file). It will help you to start very quickly. Bookmarks in your browser pointing to that page and the API docs would be helpful.
-- the means to connect to Gluu lightweight directory, as mentioned [here](./intro-plugin.md#a-running-gluu-casa-installation). Normally, you'll use the `o=gluu` base branch DN.
-
-As an example, if your Gluu Server is backed by OpenLDAP, you can:
-
-- Edit `/opt/symas/etc/openldap/symas-openldap.conf` and change `HOST_LIST` with `ldaps://0.0.0.0:1636/`
-- Open port 1636 in your VM firewall
-- Restart OpenLDAP (`service solserver restart`)
-
-For a more general approach follow [these](https://gluu.org/docs/ce/user-management/local-user-management#manage-users-in-gluu-ldap) instructions.
+- the means to connect to Gluu lightweight directory, as mentioned [here](./intro-plugin.md#find-a-graphical-ldap-client). Normally, you'll use the `o=gluu` base branch DN.
 
 ## Know your LDAP
 

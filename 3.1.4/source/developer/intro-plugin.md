@@ -42,7 +42,23 @@ The above guarantees changes in .zul files are picked very often (5 seconds is d
 
 Ensure you can use a GUI client in order to connect to your LDAP. While all sort of operations on the directory can be achieved with the tools already bundled in the Gluu Server chroot container, the only means to have an agile development experience is leveraging a point-and-click tool. 
 
-Two graphical clients worth mentioning are [LDAP Admin](http://www.ldapadmin.org/) and [Apache DS](https://directory.apache.org/studio/downloads.html). Ask your administrator how to setup a connection from the client running on your desktop to Gluu container's LDAP.
+Two graphical clients worth mentioning are [LDAP Admin](http://www.ldapadmin.org/) and [Apache DS](https://directory.apache.org/studio/downloads.html). Ask your administrator how to setup a connection from the client running on your desktop to Gluu container's LDAP or 
+follow [these](https://gluu.org/docs/ce/user-management/local-user-management#manage-users-in-gluu-ldap) instructions.
+
+In case you cannot establish the tunnel mentioned in the docs you can do this:
+
+If your Gluu Server is backed by OpenLDAP:
+
+- Edit `/opt/symas/etc/openldap/symas-openldap.conf` and change `HOST_LIST` with `ldaps://0.0.0.0:1636/`
+- Open port 1636 in your VM firewall
+- Restart LDAP (`service solserver restart`)
+
+If your Gluu Server is backed by OpenDJ:
+
+- Run `/opt/opendj/bin/dsconfig -h localhost -p 4444 -D "cn=directory manager" -w PASSWORD -n set-connection-handler-prop --handler-name="LDAPS Connection Handler" --set listen-address:0.0.0.0 -X` in chroot
+- Open port 1636 in your VM firewall
+- Restart LDAP (`service opendj restart`)
+
 
 ### LDAP notions
 
