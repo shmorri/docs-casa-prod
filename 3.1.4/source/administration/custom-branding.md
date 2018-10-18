@@ -1,9 +1,11 @@
 # Custom branding
 
-Casa allows administrators to alter the application's appearance to match their organization's look and feel. There are two ways to tweak the appearance: a quick point-and-click set of changes that you can preview immediately, or a more low-level approach that enables the possibility to supply your own CSS file and images (this is known as external assets directory usage). 
+In Casa administrators can supply their own logo and favicon to better match the organization's look and feel. If you want to apply more advanced customizations, adding the custom branding plugin is the way to go (requires a valid license to operate).
 
 !!! Important:
-    This page covers all existing customizations. Depending on the actual edition of Casa you are using (e.g CE or EE), some features may not be available in your installation.
+    This page covers customizations available through the custom branding plugin. It is assumed you have already added it to your Casa installation and is in started state.
+
+The plugin allows administrators to easily alter application's appearance. There are two ways to tweak the design: a quick point-and-click set of changes that you can preview immediately, or a more low-level approach that enables the possibility to supply your own CSS file and images (this is known as external assets directory usage). 
 
 ## Quick design customization
 
@@ -12,10 +14,11 @@ Click on `Custom branding` in the admin console, and choose `Upload images and p
 * Supply your company logo and favicon
 * Choose the background color for page header
 * Choose buttons colors
+* Edit the text appearing in the footer
 
 ![quick design glance](../img/admin-console/custom-branding.png)
 
-Once you supply your files and/or color values, click on Save and see the changes take immediately by navigating to a different page or opening a new browser tab. Repeat the process till you get the combination that best matches your organization's look and feel.
+Once you supply your files, color values, and footer text, click on Save and see the changes take immediately by navigating to a different page or opening a new browser tab. Repeat the process till you get the combination that best matches your organization's look and feel.
 
 With "Primary buttons" we refer to the vast majority of buttons that trigger some action such as saving, updating or accepting - whether in the user pages or the admin UI itself.  "Tertiary" conveys the meaning of undo, close or cancel, and "Secondary" for anything that does not fit any of the previous usages. 
 

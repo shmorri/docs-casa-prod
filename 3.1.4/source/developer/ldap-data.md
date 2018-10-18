@@ -13,7 +13,7 @@ Before proceding ensure you have:
 
 As an example, if your Gluu Server is backed by OpenLDAP, you can:
 
-- Edit `/opt/symas/etc/openldap/symas-openldap.conf` and change `HOST_LIST` with `ldaps://127.0.0.1:1636/`
+- Edit `/opt/symas/etc/openldap/symas-openldap.conf` and change `HOST_LIST` with `ldaps://0.0.0.0:1636/`
 - Open port 1636 in your VM firewall
 - Restart OpenLDAP (`service solserver restart`)
 
