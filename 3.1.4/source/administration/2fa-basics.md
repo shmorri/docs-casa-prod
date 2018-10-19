@@ -6,8 +6,6 @@ By default, strong (two-factor) authentication will be available to users of Cas
 
 You can increase or even reduce this value at your discretion via the [admin console](admin-console.md#2fa-settings).
 
-To further reduce the likelihood of lockouts, Casa forces users to initially enroll one OTP credential before any other. OTP credentials are generally more accessible than their counterparts (like U2F) since they normally don't demand special conditions from the device used to access, like having a USB port.
-
 There is no limit to the number of credentials a user can enroll, and credentials do not need to be of the same type: any combination is valid as long as one is OTP. If a user attempts to delete their only available OTP credential, a prompt will appear warning that doing so will disable 2FA, that is, resorting to password authentication.
 
 ## Supported types of 2FA
@@ -22,3 +20,13 @@ Users will only be able to add credentials with a type matching one of the alrea
 ## Resetting a user's preferred method
 
 In the event a user loses access to his account, you can revert the preferred authentication method to "password only" by following the steps shown in the [troubleshooting guide](faq.md)
+
+## Forcing users to enroll a specific credential before 2FA is available
+
+To further reduce the likelihood of lockouts, you can force users to initially enroll, for instance, one OTP credential before any other. OTP credentials are generally more accessible than their counterparts (like U2F) since they normally don't demand special conditions from the device used to access, like having a USB port.
+
+To do so, just add a new configuration property named `2fa_requisite` to the custom interception script corresponding to the authentication method, and assign `true` as its value. It may take more than one minute for Casa to pick the changes. To add the property, open oxTrust web console and navigate to `Configuration` > `Manage custom scripts`, collapse the method you want to set as requisite for 2FA, and click on `Add new property`.
+
+You can flag more than one method as requisite. In this case users will be encouraged to enroll one credential associated to any of the flagged methods.
+
+In case you are using an authentication method you added your own, just ensure the corresponding plugin implements method `mayBe2faActivationRequisite`.
