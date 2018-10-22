@@ -6,14 +6,15 @@ Gluu LDAP directory is key in Gluu Casa [architecture](./architecture.md#backend
 
 Before proceding ensure you have:
 
-- [a basic grasp of LDAP](./intro-plugin.md#ldap-notions)
-- downloaded the [UnboundID LDAP SDK](https://github.com/pingidentity/ldapsdk/releases] (version 4.0.0 or newer is OK). 
-- skimmed through the persistence framework [doc page](https://docs.ldap.com/ldap-sdk/docs/persist/index.html) (also found in the SDK zip file). It will help you to start very quickly. Bookmarks in your browser pointing to that page and the API docs would be helpful.
-- the means to connect to Gluu lightweight directory, as mentioned [here](./intro-plugin.md#find-a-graphical-ldap-client). Normally, you'll use the `o=gluu` base branch DN.
+- [A basic grasp of LDAP](./intro-plugin.md#ldap-notions)
+- Downloaded the [UnboundID LDAP SDK](https://github.com/pingidentity/ldapsdk/releases) (version 4.0.0 or newer is OK). 
+- Skimmed through the persistence framework [doc page](https://docs.ldap.com/ldap-sdk/docs/persist/index.html) (also found in the SDK zip file). It will help you to start very quickly. Bookmarks in your browser pointing to that page and the API docs would be helpful.
+- The means to connect to Gluu lightweight directory, as mentioned [here](./intro-plugin.md#find-a-graphical-ldap-client). Normally, you'll use the `o=gluu` base branch DN.
 
 ## Know your LDAP
 
 It is important to get some acquaintance with the structure of the directory. One you connect you will see two branches, `ou=appliances` and `o=...`. The former contains mostly configuration of the server itself, the latter holds more interesting stuff for developers such as:
+
 - Users and groups data
 - OpenID clients and scopes
 - Custom scripts
@@ -32,7 +33,7 @@ This [page](https://gluu.org/docs/ce/admin-guide/attribute#custom-attributes) is
 1. Save the editions in the (plain text) schema file of your LDAP server.
 1. Restart the LDAP service. Normally this service will not start if the supplied changes don't have the correct format expected by the LDAP implementation bundled in your Gluu Server.
 
-For plugin development there is no need to register the attribute in oxTrust unless you know you'll need to inspect the attribute, for instance, in a user profile via oxTrust.
+For plugin development there is no need to register the attribute in oxTrust unless you know you'll need to inspect the attribute in oxTrust itself.
 
 ### Branches DNs
 
@@ -73,9 +74,9 @@ If you have some Gluu LDAP acquaintance, you already know clients are stored und
 
 After some LDAP inspection the following facts are worth noting:
 
-- There is an objectClass name `oxAuthClient` to which every client (entry) belongs to.
-- Associated to `oxAuthClient` there are around 60 LDAP attribute types in the schema
-- There is an attribute type `associatedPerson` that can server the purpose of storing the ownerships needed. This attribute has syntax `1.3.6.1.4.1.1466.115.121.1.12` also known as "distinguished name". In other words, `associatedPerson` can be used to reference DNs users (no their user names directly).
+- There is an objectClass named `oxAuthClient` to which every client (entry) belongs to.
+- Associated to `oxAuthClient` there are around 60 LDAP attribute types in the schema.
+- There is an attribute type `associatedPerson` that can serve the purpose of storing the ownerships needed. This attribute has syntax `1.3.6.1.4.1.1466.115.121.1.12` also known as "distinguished name". In other words, `associatedPerson` can be used to reference DNs users (no their user names directly).
 - Users are stored under `ou=people,o=...,o=gluu` branch, and subordinate entries belong to `gluuPerson` objectClass. There is an attribute `uid` where the user name is stored.
 
 ### Generating a persistence-aware POJO
@@ -103,7 +104,7 @@ Replace content between angle brackets properly:
 
 A few comments before you open the generated file:
 
-- Command line parameter `structuralClass` is the LDAP objectClass employed for representing OpenID clients
+- Command line parameter `structuralClass` is the LDAP objectClass employed for representing OpenID clients.
 - Parameter `rdnAttribute` is used to specify the RDN attribute of this objectClass. In this case, it is `inum`: note every client RDN has the form `inum=string` where `string` is the value of client's `inum` attribute. Check the `generate-source-from-schema` documentation to learn more about `rdnAttribute`.
 
 There should be a new Java file created in the directory where you issued the command (no directories are created to reflect the package hierarchy). It's a big templatic file despite `terse` param was supplied.
@@ -159,9 +160,9 @@ return ldapService.find(client, Client.class, ldapService.getClientsDn())
         .stream().findFirst().orElse(null);
 ```
 
-Pay special attention to line 3: it executes a search for `Client` instances that "look like" `client` variable. Search is performed in the subtree reference by `ldapService.getClientsDn()` (which is `ou=clients,o=...,o=gluu`). `client` has only set its `inum` only, so the underlying LDAP filter generated for the search will account for:
+Pay special attention to line 3: it executes a search for `Client` instances that "look like" `client` variable. Search is performed in the subtree referenced by `ldapService.getClientsDn()` (ie. `ou=clients,o=...,o=gluu`). `client` has only set its `inum`, so the underlying LDAP filter generated for the search will account for:
 
-- Entries with the right structural class (ie. `oxAuthClient` of LDAP schema)
+- Entries with the right structural class (`oxAuthClient` of LDAP schema)
 - Entries whose `inum` attribute matches the value of `id` variable
 
 Since `find` method returns a `List`, in line 4 we try to retrieve just the first item: Due to this search being performed using the client's unique identifier, the list could have zero or one elements.
@@ -181,13 +182,13 @@ public List<DN> getAssociatedPersonAsList() {
 }
 ```
 
-Besides returning a more friendly data structure (`List`) if the underlying LDAP attribute is unassigned, you'll get an empty list - not a ` null` value.
+Besides returning a more friendly data structure (`List`) if the underlying LDAP attribute is unassigned, you'll get an empty list - not a ` null` value -.
 
 We are already done with point 2 of the [list](#key-facts-from-schema). Let's move onto the more interesting 3 (modifying).
 
 ### Setting the owners of a client
 
-Selecting owners for a client is out of the scope of this tutorial. This task only involves retrievals so you can easily extrapolate your current knowledge to the field of users. This time use as base branch `ldapService.getPeopleDn()` (ou=people,o=...,o=gluu) and as structural class `gluuPerson`.
+Selecting owners for a client is out of the scope of this tutorial. This task only involves retrievals so you can easily extrapolate your current knowledge to the field of users. This time use as base the branch `ldapService.getPeopleDn()` (ou=people,o=...,o=gluu) and `gluuPerson` as structural class.
 
 Actually, for our toy example you can write a class that resembles `org.gluu.casa.core.ldap.BaseLdapPerson` (found in `casa-shared` maven dependency). Ensure there is a setter for `uid`, and also a method `getDn` that returns `ldapEntry.getParsedDN()`. 
 
@@ -204,4 +205,4 @@ ldapService.modify(client, Client.class);
 
 `modify` takes charge of the underlying complexity of LDAP entry updates. Just ensure `client` was previously retrieved with a call to `find`. The return value here was ignored (a boolean value), in a real world example, you should add logic to process whether the update was successful or not.
 
-This basically covers the need. There are more useful methods found in `org.gluu.casa.service.ILdapService` to manipulate LDAP data. We encourage you to check the java docs of this interface.
+This basically covers the need. There are more useful methods found in `org.gluu.casa.service.ILdapService` to manipulate LDAP data. We encourage you to check this interface java docs.
