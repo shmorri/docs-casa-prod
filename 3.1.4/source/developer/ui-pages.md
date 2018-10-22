@@ -33,7 +33,7 @@ Ideally, plugin pages should leverage the existing look and feel of the applicat
 In addition, due to class `org.gluu.casa.core.navigation.PageInitiator` used by this template, an error page will be shown in case there is no user currently logged in or the session has expired.
 
 !!! Note:
-    If you want some plugin page to be accessed anonymously, you will have to create your own skeleton template based on general template.
+    If you want some plugin page to be accessed anonymously, you will have to create your own skeleton template.
 
 Particularly, the template allows page coders to define three named content fragments:
 
@@ -41,7 +41,7 @@ Particularly, the template allows page coders to define three named content frag
 
 - **maincontent**: Consists of all markup to be rendered in the main content area of your page (under the header and alongside the left menu)
 
-- **extra**: Markup to be added before the `body` HTML tag closes. This is useful to load javascript files or code once most of the page markup is ready.
+- **extra**: Markup to be added before the `body` HTML tag closes. This is useful to load javascript files or code once most of page markup is ready.
 
 All three fragments are optional, you can skip any or even all of them in your pages.
 
@@ -54,13 +54,13 @@ Reuse small pieces of markup until you get acquaintance with the tags, namespace
 
 The [UI pages](./writing-first.md#ui-pages) section of "Writing your first plugin" offers an illustrative dissection of a real page with useful explanations.
 
-Also, investing some time to get the grasp of CSS frameworks involved pays a lot in the overall development effort. [Here](./architecture.md#css-frameworks) you can find useful pointers.
+Also, investing some time to get the grasp of involved CSS frameworks pays a lot in the overall development effort. [Here](./architecture.md#css-frameworks) you can find useful pointers.
 
 ## Targetting pages to users
 
 Casa has two types of users, administrators and regular users. Every page added by a plugin is intended for a specific audience. By default, all pages leveraging the general template will be rendered with the regular user menu on the left. If you want your page to be shown as if it were an admin-targetted page, create a directory named `admin` just under the `assets` directory and place your zul file there.
 
-Note it is your responsability to ensure an admin page can only be accessed by an administrator since crafting a URL by hand following the pattern `/casa/pl/<plugin-id>/admin/...` will just give access to anyone with a session. For this purpose, check the next subsection.
+Note **it is your responsability** to ensure an admin page can only be accessed by an administrator since crafting a URL by hand following the pattern `/casa/pl/<plugin-id>/admin/...` will just give access to anyone with a session. For this purpose, keep reading.
 
 ## Securing pages
 
@@ -74,7 +74,7 @@ To do so, ensure the ZK tag you are using to pass the `maincontent` has an `if` 
 </z:div>
 ```
 
-The template also ensures that despite your page has a URL like `/casa/pl/<plugin-id>/admin/...`, the admin menu itmes on the left will not be displayed. 
+The template also ensures that despite your page has a URL like `/casa/pl/<plugin-id>/admin/...`, the admin menu items on the left will not be displayed. 
 
 ## Displaying feedback to end-users
 
@@ -88,6 +88,6 @@ Message boxes are powerful because they also allow prompting users for their con
 
 ### Bootstrap alerts
 
-When the message you want to communicate is easy to get (e.g. operation successful), a simple [alert](https://getbootstrap.com/docs/4.0/components/alerts/) should suffice. For this, you can use `showMessageUI` of class `org.gluu.casa.ui.UIUtils`. Account you have to previously create the proper `div` element to hold the alert in your page markup and ensure javascript variable `alertRef` points to the DOM element of the `div`. 
+When the message you want to communicate is easy to get (e.g. operation successful), a simple [alert](https://getbootstrap.com/docs/4.0/components/alerts/) should suffice. For this, you can use `showMessageUI` of class `org.gluu.casa.ui.UIUtils`. Account you have to previously create the proper `div` element to hold the alert in your markup and ensure javascript variable `alertRef` points to the DOM element of the `div`. 
 
-You can find examples of how to do so everywhere in Casa code. A good minimalistic example is in the `/admin/logging.zul` page of Casa project; this is the page where administrators can set the logging level of the app.
+You can find examples of how to do so everywhere in Casa code. A good minimalistic example is in `/admin/logging.zul` page of Casa project; this is the page where administrators can set the logging level of the app.
