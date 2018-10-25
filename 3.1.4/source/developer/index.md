@@ -30,6 +30,7 @@ In addition to the above:
 - Plug custom logic to intercept calls or listen events when they occur (e.g. trigger a notification when a user has enrolled a specific type of credential)
 - Alter the authentication flow. While this is not feasible via plugins, you can customize the flow by editing the Casa [interception script](https://gluu.org/docs/ce/admin-guide/custom-script) and its associated custom pages bundled with your Gluu Server installation 3.1.4 or higher.
 - Use Dependency Injection
+- Use Enterprise Beans (EJB)
 
 ### Plugin basics
 

@@ -1,8 +1,8 @@
 # REST Services
 
-Plugin developers can add RESTful web services to Casa easily. Simply create your resource classes and use JAX-RS annotations such as `@Path`, `@GET`, `@POST`, etc. so when a plugin is started all endpoints are dynamically added.
+Plugin developers can add RESTful web services to Casa easily. Simply create your resource classes and use JAX-RS 2.0 annotations such as `@Path`, `@GET`, `@POST`, etc. so when a plugin is started all endpoints are dynamically added.
 
-In summary, the following is required to add a RESTful service:
+There is no need to add extra dependencies to your project. Module `casa-shared` already includes most of what you'll need. In summary, the following is required to add a RESTful service:
 
 1. Create a class in your plugin (any package and file name is fine)
 1. Annotate the class with `javax.ws.rs.Path` and supply a value for the annotation
@@ -31,3 +31,7 @@ The following HTTP status codes can be arise when using protected methods:
 - FORBIDDEN (403): This will arise when access was attempted to a protected endpoint but no token was passed.
 
 - UNAUTHORIZED (401): The token passed was invalid (it has expired for instance). To handle this, clients of the service should re-request an access token (e.g. with a refresh token), and retry accessing the endpoint.
+
+## JSON support
+
+Casa uses the RESTEasy 3.0 library (an implementation of JAX-RS 2.0 specification) internally. Developers are subject to Jackson 2.0 for JSON content marshalling (classes with `com.fasterxml` annotations). The jettison (JAXB) and the Jackson 1.9.x providers are not supported.
