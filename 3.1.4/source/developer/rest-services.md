@@ -19,14 +19,14 @@ where `path` is the value supplied in step 2.
 
 ## Protection
 
-By default, all services are anonymously accessible. In case you want to protect your endpoints, Casa allows you to do so by means of an OAuth token, that is, clients of the service must pass in the Authorization header of HTTP requests a valid bearer token. Such token must be obtained via an OpenID client registered in the underlying Gluu Server.
+By default, all services are anonymously accessible. In case you want to protect your endpoints, Casa allows you to do so by means of an OAuth token, that is, clients of the service must pass in the Authorization header of HTTP requests a valid bearer token. It must be obtained via an OpenID client registered in the underlying Gluu Server.
 
 !!! Note:
     Registering OpenID clients and getting access tokens is out of the scope of this document, but you can check [this](https://tools.ietf.org/html/rfc6750) for a quick start.
 
 To make a method protected, simply add the annotation `org.gluu.casa.rest.ProtectedApi` to it.
 
-The following HTTP status codes can be arise when using protected methods:
+The following HTTP status codes could arise when using protected methods:
 
 - FORBIDDEN (403): This will arise when access was attempted to a protected endpoint but no token was passed.
 
