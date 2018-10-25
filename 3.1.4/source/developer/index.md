@@ -42,7 +42,7 @@ In addition to the above:
 - [Working with menus](./menus.md)
 - [Adding UI pages](./ui-pages.md)
 - [Manipulating LDAP data](./ldap-data.md)
-- Adding REST services
+- [Adding REST services](./rest-services.md)
 - Adding/overriding authentication mechanisms
 
 ### Other topics

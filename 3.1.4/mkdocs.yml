@@ -32,6 +32,7 @@ pages:
         - 'Working with menus': 'developer/menus.md'
         - 'Adding UI pages': 'developer/ui-pages.md'
         - 'Manipulating LDAP data': 'developer/ldap-data.md'
+        - 'Adding REST services': 'developer/rest-services.md'
     - 'Other topics':
         - 'Plugin development tips': 'developer/tips-development.md'
         - 'Plugin management internals': 'developer/plugin-management-internals.md'
