@@ -16,7 +16,7 @@ Custom scripts are mechanisms supported by the Gluu Server and are aimed at addi
     
 In Gluu Server it is very common that custom scripts contain both enrollment and authentication logic, that is, they normally allow users to add their own credentials, but also challenge users to present a valid credential in order to gain access to a protected resource. In the case of Casa, enrollment of credentials take place from within the application itself, thus requiring the custom script to implement only the authentication portion of the flow, ie ask a user to present a credential and determine whether it is valid or not.
 
-Another important distinction from regular custom scripts is that Casa expects scripts to meet certain conditions which are required for the overall Casa authentication flow to work properly. Normally they don't entail a big effort. We will get into this details [later](./coding-authn-logic.md).
+Another important distinction from regular custom scripts is that Casa expects scripts to meet certain conditions which are required for the overall Casa authentication flow to work properly. Normally they don't entail a big effort. We will get into this details [later](./authn-logic.md).
 
 ### Creating a plugin
 
@@ -25,12 +25,12 @@ The [index](../index.md) page of this guide describes what plugins are. It is im
 Plugins can be very powerful and depending on the actual need a mix of skills can be demanded, the following being the most relevant:
 
 - Java programming 
-- HTML/CSS
+- HTML/CSS/Javascript
 - LDAP
 
-The building blocks of plugins are called *extensions*. A plugin can bundle one or more extensions and they can be of different type. Every extension contributes ("adds") specific behavior. For the problem at hand, your plugin will just need one extension as well as one UI page (where credential enrollment will take place). Also you can include supporting Java classes or static files you may need.
+The building blocks of plugins are called **extensions**. A plugin can bundle one or more extensions and they can be of different type. Every extension contributes ("adds") specific behavior. For the problem at hand, your plugin will just need one extension as well as one UI page (where credential enrollment will take place). Also you can include supporting Java classes or static files you may need.
 
-A plugin that adds one (or more) authentication mechanisms will have a strong interaction with LDAP (the underlying Gluu lightweight directory) since that's the place where users' credential data will be stored. Also, all configurations (parameters) of the authentication method itself should be there in LDAP as well.
+A plugin that adds one (or more) authentication mechanisms will have a strong interaction with LDAP (the underlying Gluu lightweight directory) since that's the natural place where users' credential data will be stored. Also, all configurations (parameters) of the authentication method itself should be there in LDAP as well.
 
 ## What's next?
 
@@ -52,6 +52,7 @@ Now it's time to get into the details. You can proceed with the following links:
 
 - [Coding authentication logic](./authn-logic.md)
 - [Credentials management](./credentials-management.md)
+
 <!--
-- [Example: a dummy authentication method](./dummy-method.md)
+[Example: a dummy authentication method](./dummy-method.md)
 -->

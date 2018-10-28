@@ -6,19 +6,19 @@ This page summarizes key facts about how enrollment logic for an authentication 
 
 1. A widget that shows a summary of credentials contains elements such as a title, a descriptive text, a button to take users to the actual enrollment page, and optionally some extra text. You will have to supply all of this elements in the plugin you are coding.
 
-    [!enrollment page](../../img/developer/authn-methods/widgets.png)
+    ![enrollment page](../../img/developer/authn-methods/widgets.png)
     
 1. The enrollment page for a specific method normally consists of a heading with a title and a descriptive text, followed by a detailed list of credentials. Buttons for edition and removal are provided. Plugin developers have to craft all these elements in their UI pages (normally using already existing enrollment pages as a guide). It is recommended to follow a similar structure as in existing enrollment pages, however you may present information to your users in a way you consider convenient.
 
-    [!list of credentials](../../img/developer/authn-methods/credentials-detailed.png)
+    ![list of credentials](../../img/developer/authn-methods/credentials-detailed.png)
     
 1. Below the credentials list, all the elements for actual enrollment should be presented. This varies widely among methods: some require a few text boxes and buttons, while others are more involved. In most cases, they require using specialized libraries (client and/or server side libs). Keep in mind the user experience is key in this part of the process so it should be intuitive and pleasant.
 
-  [!enrollment page](../../img/developer/authn-methods/enrollment-page.png)
+    ![enrollment page](../../img/developer/authn-methods/enrollment-page.png)
 
 ## Create a plugin
   
-In the [introductory](../index.md#whats-next) page we highligthed the importance of some design points. Particularly in the enrollment logic, the following have to be very well-defined before any coding:
+In the [introductory](./index.md#whats-next) page we highligthed the importance of some design points. Particularly in the enrollment logic, the following have to be very well-defined before any coding:
 
 - How a credential will be represented in terms of data for LDAP?
 - What parameters of the authentication method have effect on the enrollment process itself?
@@ -34,18 +34,18 @@ From here on we assume you have:
 ```
 +-- pom.xml
 +-- src
-|   +-- main
-|       +-- java
-|       |   +-- com
-|       |       +--mycompany
-|       |          +-- casa
-|       |              +-- plugin
-|       |                  +-- MyAuthnMethodPlugin.java
-|       +-- resources
-|           +-- assets
-|           |   +-- index.zul
-|           +-- labels
-|               +-- zk-label.properties
+    +-- main
+        +-- java
+        |   +-- com
+        |       +--mycompany
+        |          +-- casa
+        |              +-- plugin
+        |                  +-- MyAuthnMethodPlugin.java
+        +-- resources
+            +-- assets
+            |   +-- index.zul
+            +-- labels
+                +-- zk-label.properties
 ```
 
 ## Maven descriptor
@@ -89,7 +89,7 @@ Please take a while to check the javadocs of `AuthnMethod`.
 
 These are a set of methods that map directly to what will be shown in the widget containing the summary of credentials for this type. Have the image below as a reference:
 
-    [!widget authn method](../../img/developer/authn-methods/widget-summary.png)
+![widget authn method](../../img/developer/authn-methods/widget-summary.png)
     
 - `getPanelTitleKey`: See box in gray
 - `getPanelTextKey`: Red box
@@ -166,7 +166,7 @@ The code above basically does a query in LDAP and then parses data. This [page](
 
 This [page](../ldap-data.md) contains some guidelines in order to manipulate LDAP data from your plugin's code. Take some time now to get the grasp of how LDAP access work in Casa.
 
-In the [introductory](../index.md#whats-next) page we mentioned about credential data modelling, so it's time to manually create some dummy entries to simulate the process of retrieval. Add all elements you consider relevant for your case, for instance: 
+In the [introductory](./index.md#whats-next) page we mentioned about credential data modelling, so it's time to manually create some dummy entries to simulate the process of retrieval. Add all elements you consider relevant for your case, for instance: 
 
 - Create your own object classes and attributes
 - Add attributes to `gluuCustomPerson` object Class
@@ -192,7 +192,7 @@ Once your plugin is started successfully, go to `Enabled authentication methods`
 
 Open a separate browsing session (if user admin is not the testing user), and access the home page. You have to see a new widget appeared for your authentication method. Check the title, description, etc. look as you are expecting. The following is an example for Security keys:
 
-[!widget authn method](../../img/developer/authn-methods/widget-summary.png)
+![widget authn method](../../img/developer/authn-methods/widget-summary.png)
 
 Make adjustments as needed. It is useful to drop some logging statements in your code, specially when starting, it can save you some time with continuous redeployments.
 

@@ -47,6 +47,6 @@ In addition to the above:
 
 ### Other topics
 
-- [Adding/overriding authentication mechanisms](./auth-methods/index.md)
+- [Adding/overriding authentication mechanisms](./authn-methods/index.md)
 - [Tips for plugin development](./tips-development.md)
 - [Internals of plugin management in Casa](./plugin-management-internals.md)
