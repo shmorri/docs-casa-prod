@@ -33,6 +33,10 @@ pages:
         - 'Adding UI pages': 'developer/ui-pages.md'
         - 'Manipulating LDAP data': 'developer/ldap-data.md'
         - 'Adding REST services': 'developer/rest-services.md'
+    - 'Adding authentication methods':
+        - 'Introduction': 'developer/authn-methods/index.md'
+        - 'Coding authentication logic' : 'developer/authn-methods/authn-logic.md'
+        - 'Coding enrollment logic': 'developer/authn-methods/credentials-management.md'
     - 'Other topics':
         - 'Plugin development tips': 'developer/tips-development.md'
         - 'Plugin management internals': 'developer/plugin-management-internals.md'

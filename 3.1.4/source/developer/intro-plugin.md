@@ -168,37 +168,37 @@ Note that "provided" scope is used due to the fact that classes of this library 
 
 `casa-shared` defines a couple of extension points that you may like your plugins to implement for your extension classes:
 
-- *Navigation menu* (`org.gluu.credmanager.extension.navigation.NavigationMenu`): Implementing an extension of this kind allows adding one or more menu items to a specific navigation menu found in Gluu Casa: user menu, admin dashboard menu, or drop down menu (the one shown on the top right of the app UI).
+- *Navigation menu* (`org.gluu.casa.extension.navigation.NavigationMenu`): Implementing an extension of this kind allows adding one or more menu items to a specific navigation menu found in Gluu Casa: user menu, admin dashboard menu, or drop down menu (the one shown on the top right of the app UI).
 
-- *Authentication method* (`org.gluu.credmanager.extension.AuthnMethod`): Implementing an extension of this kind allows adding (or overriding) and authentication mechanism used in Gluu Casa (with regards to enrolling capabilities only). Adding a method requires some planning. There is a dedicated doc [page](adding-or-overriding-authentication-mechanisms.md) around this.
+- *Authentication method* (`org.gluu.casa.extension.AuthnMethod`): Implementing an extension of this kind allows adding (or overriding) and authentication mechanism used in Gluu Casa (with regards to enrolling capabilities only). Adding a method requires some planning. There is a dedicated [section](./authn-methods/index.md) around this.
 
 The existence of this two extension points means that you can tweak menus or authentication method behaviors. These are core aspects of the application, specially the later. However, if your plugin is not related to any of those, you can pack your plugin with no extensions and still provide assets like UI pages, ViewModels, etc.
 
 #### Utility classes
 
-- `org.gluu.credmanager.ui.CustomDateConverter`: This is an instance of `org.zkoss.bind.Converter` very handful for date formatting in your .zul templates.
+- `org.gluu.casa.ui.CustomDateConverter`: This is an instance of `org.zkoss.bind.Converter` very handful for date formatting in your .zul templates.
 
-- `org.gluu.credmanager.ui.UIUtils`: A class containing static methods to show auto-dismiss notification success/error ZK notification boxes. You can call these methods from within your ViewModels.
+- `org.gluu.casa.ui.UIUtils`: A class containing static methods to show auto-dismiss notification success/error ZK notification boxes. You can call these methods from within your ViewModels.
 
-- `org.gluu.credmanager.misc.Utils`: A class containing a handful of static miscelaneous methods. There are good chances that you'll leverage some methods of `Utils` when writing plugins, specially `scriptConfigPropertiesAsMap` and `managedBean`.
+- `org.gluu.casa.misc.Utils`: A class containing a handful of static miscelaneous methods. There are good chances that you'll leverage some methods of `Utils` when writing plugins, specially `scriptConfigPropertiesAsMap` and `managedBean`.
 
-- `org.gluu.credmanager.misc.WebUtils`: Provides web-related utility methods. Most of them inspect the `javax.servlet.ServletRequest` under the hood. You may call these methods specially from within your ViewModels.
+- `org.gluu.casa.misc.WebUtils`: Provides web-related utility methods. Most of them inspect the `javax.servlet.ServletRequest` under the hood. You may call these methods specially from within your ViewModels.
 
 #### Data objects
 
 The following are some classes which help represent remarkable entities:
 
-- `org.gluu.credmanager.credential.BasicCredential`: A class that represents the basic info about an enrolled credential (authentication device). 
+- `org.gluu.casa.credential.BasicCredential`: A class that represents the basic info about an enrolled credential (authentication device). 
 
-- `org.gluu.credmanager.core.pojo.BrowserInfo`: A class that holds basic information about a user's browser.
+- `org.gluu.casa.core.pojo.BrowserInfo`: A class that holds basic information about a user's browser.
 
-- `org.gluu.credmanager.core.pojo.User`: Represents the current logged in user. It holds the most common attributes, e.g. given name, last name, etc.
+- `org.gluu.casa.core.pojo.User`: Represents the current logged in user. It holds the most common attributes, e.g. given name, last name, etc.
 
-Actual instances of `BrowserInfo` and `User` are obtained by interacting with an instance of `org.gluu.credmanager.service.ISessionContext`. See bellow.
+Actual instances of `BrowserInfo` and `User` are obtained by interacting with an instance of `org.gluu.casa.service.ISessionContext`. See bellow.
 
 #### Service objects
 
-Package `org.gluu.credmanager.service` of `casa-shared` provides a couple of interfaces that used in combination with method `Utils.managedBean` opens access to key features or information:
+Package `org.gluu.casa.service` of `casa-shared` provides a couple of interfaces that used in combination with method `Utils.managedBean` opens access to key features or information:
 
 - `ISessionContext`: It allows you to obtain information about the current user session: who the logged-in `User` is, and which their `BrowserInfo` settings are.
 
@@ -213,13 +213,13 @@ Package `org.gluu.credmanager.service` of `casa-shared` provides a couple of int
 
 ##### BaseLdapPerson
 
-The class `org.gluu.credmanager.core.ldap.BaseLdapPerson` represents an entry in the *people* LDAP branch, that is, one with `objectClass=gluuPerson`. It only exposes LDAP attributes `inum` and `uid` so you might extend this class and add the attributes your plugin needs to handle. Note that field attributes, getter and setter methods may require annotations so that the framework automatically populates and/or persists values appropriately and also execute searches successfully.
+The class `org.gluu.casa.core.ldap.BaseLdapPerson` represents an entry in the *people* LDAP branch, that is, one with `objectClass=gluuPerson`. It only exposes LDAP attributes `inum` and `uid` so you might extend this class and add the attributes your plugin needs to handle. Note that field attributes, getter and setter methods may require annotations so that the framework automatically populates and/or persists values appropriately and also execute searches successfully.
 
-For an example on `BaseLdapPerson` derivation, check Gluu Casa [Person](https://github.com/GluuFederation/casa/tree/version_3.1.4/app/src/main/java/org/gluu/credmanager/core/ldap/Person.java) class which in addition to `BaseLdapPerson` fields, handles `givenName`, `sn`, and `memberOf` attributes. This class is not available in `casa-shared`.
+For an example on `BaseLdapPerson` derivation, check Gluu Casa [Person](https://github.com/GluuFederation/casa/tree/version_3.1.4/app/src/main/java/org/gluu/casa/core/ldap/Person.java) class which in addition to `BaseLdapPerson` fields, handles `givenName`, `sn`, and `memberOf` attributes. This class is not available in `casa-shared`.
 
 ##### oxCustomScript
 
-The class `org.gluu.credmanager.core.ldap.oxCustomScript` models an entry in the *scripts* LDAP branch, in other words, a representation of a Gluu custom interception script. This class is useful for plugins working with authentication methods since those are parameterized via the configuration properties of scripts. You will find method `Utils.scriptConfigPropertiesAsMap` useful for easily reading a script properties set.
+The class `org.gluu.casa.core.ldap.oxCustomScript` models an entry in the *scripts* LDAP branch, in other words, a representation of a Gluu custom interception script. This class is useful for plugins working with authentication methods since those are parameterized via the configuration properties of scripts. You will find method `Utils.scriptConfigPropertiesAsMap` useful for easily reading a script properties set.
 
 ## Anatomy of a plugin
 

@@ -44,9 +44,9 @@ In addition to the above:
 - [Adding UI pages](./ui-pages.md)
 - [Manipulating LDAP data](./ldap-data.md)
 - [Adding REST services](./rest-services.md)
-- Adding/overriding authentication mechanisms
 
 ### Other topics
 
+- [Adding/overriding authentication mechanisms](./auth-methods/index.md)
 - [Tips for plugin development](./tips-development.md)
 - [Internals of plugin management in Casa](./plugin-management-internals.md)

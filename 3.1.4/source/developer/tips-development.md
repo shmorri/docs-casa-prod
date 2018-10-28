@@ -28,7 +28,6 @@ Being able to change files this way don't seem like a big advantange, however, e
 
 Actually, **you can write Java** without requiring compilation. In ZK pages you can include snippets of Java in `<zscript>` tags. See "zscript" in [ZUML Reference](./intro-plugin.md#reference-docs) and "Scripts in ZUML" in [ZK Developers' Reference](./intro-plugin.md#reference-docs). zscript can be used as a fast prototyping vehicle, however, refrain from using it in production artifacts.
 
-
 ## Write a good manifest!
 
 This won't make you more agile, but taking the time to write good license and description notes in your plugin manifest file will allow you to communicate more effectively to others about the features you are delivering with your artifacts. You can also use the description note to describe requisites your plugin may have (e.g. interacting with an external system, etc...).
