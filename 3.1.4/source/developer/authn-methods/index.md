@@ -1,7 +1,7 @@
 # Adding authentication mechanisms
 
-This page summarizes the steps to follow when there is need to add a new authentication method to your Gluu Casa instance, ie. a method not supported out of the box in the Gluu Server. 
-<!-- If you are interested in overriding how credential enrollment takes place for any of the default supported methods (e.g. Super gluu, U2F keys, OTP, etc.), check this [page](./override-method.md). -->
+This page summarizes the steps to follow when adding a new authentication method to a Gluu Casa instance, if a method isn't supported out-of-the-box in the Gluu Server for example. 
+<!-- If you are interested in overriding how credential enrollment takes place for any of the default supported methods (e.g. Super Gluu, U2F keys, OTP, etc.), check this [page](./override-method.md). -->
 
 ## Tasks
 
@@ -12,41 +12,41 @@ Supporting a new authentication method consists of two tasks: coding a custom in
     
 ### Coding custom interception scripts
 
-Custom scripts are mechanisms supported by the Gluu Server and are aimed at adding a degree of flexibility in server behavior. They allow administrators extend certain features and supply custom business logic. Particularly in the setting of strong authentication, they are instrumental in implementing authentication flows where a second factor should be presented once the usual username+password challenge is passed.
+Custom scripts are mechanisms supported by the Gluu Server to add a degree of flexibility to server behavior. They allow administrators to extend certain features and supply custom business logic. Particularly in the setting of strong authentication, they are instrumental in implementing authentication flows where a second factor should be presented once the usual username/password challenge is passed.
     
-In Gluu Server it is very common that custom scripts contain both enrollment and authentication logic, that is, they normally allow users to add their own credentials, but also challenge users to present a valid credential in order to gain access to a protected resource. In the case of Casa, enrollment of credentials take place from within the application itself, thus requiring the custom script to implement only the authentication portion of the flow, ie ask a user to present a credential and determine whether it is valid or not.
+In the Gluu Server, custom scripts commonly contain both enrollment and authentication logic, that is, they normally allow users to add their own credentials, but also challenge users to present a valid credential in order to gain access to a protected resource. In the case of Casa, enrollment of credentials take place from within the application itself, thus requiring the custom script to implement only the authentication portion of the flow, ie ask a user to present a credential and determine whether it is valid or not.
 
-Another important distinction from regular custom scripts is that Casa expects scripts to meet certain conditions which are required for the overall Casa authentication flow to work properly. Normally they don't entail a big effort. We will get into this details [later](./authn-logic.md).
+Another important distinction from regular custom scripts is that Casa expects scripts to meet certain conditions which are required for the overall Casa authentication flow to work properly. Normally they don't entail a big effort. More details on this are explored on [this page](./authn-logic.md).
 
 ### Creating a plugin
 
-The [index](../index.md) page of this guide describes what plugins are. It is important to familiarize yourself with how plugins work and how they are built before proceeding. [This](../intro-plugin.md) and [this](../writing-first) documents cover most of what you need to know. 
+The [index](../index.md) page of this guide describes what plugins are. It is important to familiarize yourself with how plugins work and how they are built before proceeding. [This document](../intro-plugin.md) and [this one](../writing-first)  cover most of what you need to know. 
 
-Plugins can be very powerful and depending on the actual need a mix of skills can be demanded, the following being the most relevant:
+Plugins can be very powerful and depending on the actual need, a mix of skills can be demanded. The following are the most relevant:
 
 - Java programming 
 - HTML/CSS/Javascript
 - LDAP
 
-The building blocks of plugins are called **extensions**. A plugin can bundle one or more extensions and they can be of different type. Every extension contributes ("adds") specific behavior. For the problem at hand, your plugin will just need one extension as well as one UI page (where credential enrollment will take place). Also you can include supporting Java classes or static files you may need.
+The building blocks of plugins are called **extensions**. A plugin can bundle one or more extensions and they can be of different typs. Every extension contributes ("adds") specific behavior. For the problem at hand, your plugin will just need one extension as well as one UI page (where credential enrollment will take place). Also you can include supporting Java classes or static files you may need.
 
 A plugin that adds one (or more) authentication mechanisms will have a strong interaction with LDAP (the underlying Gluu lightweight directory) since that's the natural place where users' credential data will be stored. Also, all configurations (parameters) of the authentication method itself should be there in LDAP as well.
 
 ## What's next?
 
-Now that you have a minimal grasp, we suggest not to proceed straight to coding but do some planning. Working on some design will save you some valuable time. The following are some things you may like figuring out now:
+Now that you have a minimal grasp, we suggest planning before coding. Working on the design first will save you some valuable time. The following are some things you should figure out now:
 
-- The `acr` value associated to your authentication method. This is a concept found often in [OpenID spec](http://openid.net/specs/openid-connect-core-1_0.html). In the case of Gluu Server, this is a short "nickname" you assign to your script and serves the purpose of uniquely identifying the authentication mechanism it represents. Make a good choice, changing it afterwards may force you to change your Java code somehow.
+- The `acr` value associated with your authentication method. This is a concept found often in [OpenID spec](http://openid.net/specs/openid-connect-core-1_0.html). In the case of the Gluu Server, this is a short "nickname" you assign to your script that serves the purpose of uniquely identifying the authentication mechanism it represents. Make a good choice, changing it afterwards may force you to change your Java code.
 
-- How to model and store credentials associated to the authentication method? As an example, if you were to add OTP tokens as authentication method, how do you represent such credential and what LDAP attributes will you use to store such in LDAP?. Will you have to add attribute types to LDAP schema? If so, what syntaxes will be used?.
+- How will you model and store credentials associated to the authentication method? As an example, if you were to add OTP tokens as the authentication method, how do you represent such credentials and what LDAP attributes will you use to store such in LDAP?. Will you have to add attribute types to LDAP schema? If so, what syntaxes will be used?.
 
-- Will you parameterize somehow your authentication method? Using again OTP as example, you may like for instance have the key length as a parameter, or maybe the number of digits that generated codes will have. Every possible authentication method in its own will have some characteristic you will prefer not to be hardcoded.
+- Will you parameterize your authentication method? Using OTP as an example, you may have the key length as a parameter, or the number of digits that generated codes will have. Every possible authentication method in its own will have some characteristic you will prefer not to be hardcoded.
 
-- What's the algorithm for authenticating users once they have supplied a valid username + password combination? Most probably it implies reading the user's stored credential from LDAP and do some crazy computation.
+- What's the algorithm for authenticating users once they have supplied a valid username/password combination? Most probably it implies reading the user's stored credential from LDAP and do some crazy computation.
 
 - Should this method be treated as a candidate requisite for 2FA to be enabled?. For more info check [here](../../administration/2fa-basics.md#forcing-users-to-enroll-a-specific-credential-before-2fa-is-available).
 
-- What should it happen when the plugin is removed from the system? Of course we don't want this to happen, but in case you were forced to do so, should enrolled credentials so far be removed, retained, backed-up?
+- What should it happen when the plugin is removed from the system? Of course we don't want this to happen, but in case you were forced to do so, should enrolled credentials so far be removed, retained, or backed-up?
 
 Now it's time to get into the details. You can proceed with the following links:
 
