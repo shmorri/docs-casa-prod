@@ -53,6 +53,10 @@ Now it's time to get into the details. You can proceed with the following links:
 - [Coding authentication logic](./authn-logic.md)
 - [Credentials management](./credentials-management.md)
 
+To be able to tackle credential management, you have to have a custom script that implements the authentication logic created. This does not mean it has to be fully functional, a dummy script should suffice.
 <!--
-[Example: a dummy authentication method](./dummy-method.md)
+
+- [Example: a dummy authentication method](./dummy-method.md)
+- [Troubleshooting](./troubleshooting.md)
+
 -->

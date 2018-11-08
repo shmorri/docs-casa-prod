@@ -4,13 +4,14 @@
     Acquaintance with [custom scripts](https://gluu.org/docs/ce/admin-guide/custom-script/) is required in order to handle new authentication methods in Casa. This demands Python and HTML skills. Knowledge of Java Server Faces is a plus.
 
 ## Casa workflow    
+
 The authentication workflow implemented in Casa consists of a main custom script that determines the currently enabled authentication methods, dynamically imports the relevant custom scripts and wraps calls to usual flow methods: `prepareForStep`, `authenticate`, `getExtraParametersForStep`, etc. In other words, Casa script orchestrates the general flow while delegating the specific implementation details to other custom scripts.
 
 Casa custom script enables a flow with backtracking capabilities, that is, if a user is asked to present a specific credential and he has not availability of such at the moment, he can choose to present an alternative credential by visiting a different page that corresponds to the authentication method of such credential. Users can backtrack any number of times.
 
 ## Integrating a new method in Casa flow
 
-As mentioned in the [introductory page](./index.md#coding-custom-interception-scripts), to include an authentication method of your own, you need a custom script for it. The flow implemented by it does not need to do perform credential enrollment, just focus on the authentication.
+As mentioned in the [introductory page](./index.md#coding-custom-interception-scripts), to include an authentication method of your own, you need a custom script for it. The flow implemented by it does not need to perform credential enrollment, just focus on the authentication.
 
 Once you have a working custom script, ensure the following preconditions are met so that it integrates seamlessly within Casa flow :
 
@@ -38,6 +39,19 @@ Finally, ensure that custom pages returned by `getPageForStep` for step 2 (or hi
 
 It will allow to make the alternative backtracking feasible. This footer includes a set of buttons for the user to navigate to alternative 2FA pages.
 
-## Troubleshooting
+## Enabling your method
 
-TODO
+Once your script is enabled in the oxTrust UI, you can test it for authentication purposes. Casa application is agnostic about the flow itself, so there is no extra work to try your script than creating an authentication request passing `casa` as acr value.
+
+Obviously, you may have to create by hand some entries simulating enrolled credentials (unless you have your plugin for credentials enrollment ready). Actually, to code the plugin you need [such simulated data](./credentials-management.md#credentials-retrieval) at a very early stage of the development.
+
+## Linking plugin and authentication method
+
+Despite the authentication method is enabled in the Gluu Server, it won't be shown in the "enabled methods" section of Gluu Casa [dashboard](../../administration/admin-console.md#enabled-methods). For it to appear there should be at least one plugin implementing enrollment logic for such method. Also, it may take a little while for the method to appear if it has been just enabled in the oxTrust UI.
+
+Once both the script is enabled and at least one plugin installed, a new row will appear in the enabled methods page of admin dashboard showing the respective ACR. Tick the row and select the plugin you created in the selection list and finally hit `Save`. This means you can have several candidate plugins to handle enrollment.
+
+Once you do that, a link for the enrollment page will appear under "2FA credentials" of user's menu:
+
+![menu item added](../../img/developer/authn-methods/menu-2fa.png)
+

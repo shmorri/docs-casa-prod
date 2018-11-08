@@ -122,7 +122,7 @@ These are methods related to settings of your authentication method:
 
 - `getAcr`: The acr you assigned this method when the custom script was created (display name in oxTrust GUI). This is normally a constant value.
 
-- `mayBe2faActivationRequisite`: Whether this method should be treated as a candidate requisite for 2FA to be enabled. More info [here](../../administration/2fa-basics.md#forcing-users-to-enroll-a-specific-credential-before-2fa-is-available). If you want to read this value from one property of your custom script read the section "[Reading configuration properties of a custom script](#reading-configuration-properties-of-a-custom-script)" below.
+- `mayBe2faActivationRequisite`: Whether this method should be treated as a candidate requisite for 2FA to be enabled (more info [here](../../administration/2fa-basics.md#forcing-users-to-enroll-a-specific-credential-before-2fa-is-available)). If you want to read this value from one property of your custom script read the section "[Reading configuration properties of a custom script](#reading-configuration-properties-of-a-custom-script)" below.
 
 - `reloadConfiguration`: A method invoked directly by Casa when there is a change in the underlying custom script (think of it as a listener of an *onChange* event). This allows for example to re-read configuration parameters of the script which may potentially drive the behaviour
 of the enrollment process of your plugin. Account this method is not called as soon as you change some property via oxTrust, it could take up to one minute for the call to be issued. Also, any change to the script (level, script contents, etc.) will trigger a call to `reloadConfiguration`.
