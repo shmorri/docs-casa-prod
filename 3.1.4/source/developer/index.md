@@ -1,5 +1,7 @@
 # Developer Guide
 
+This page introduces two relevant topics for developers: [writing plugins](#plugins) and writing applications for [credentials enrollment](#credentials-enrollment-in-your-applications).
+
 ## Plugins
 
 ### What are plugins?
@@ -50,3 +52,19 @@ In addition to the above:
 - [Adding/overriding authentication mechanisms](./authn-methods/index.md)
 - [Tips for plugin development](./tips-development.md)
 - [Internals of plugin management in Casa](./plugin-management-internals.md)
+
+## Credentials enrollment in your applications
+
+Despite Casa has enrolling capabilities built-in, a use case that may arise is the possibility of doing credential enrollment in a different place of your app ecosystem. Typically, this could be in a user's registration application, where users can be asked to supply strong authentication credentials just after creating an account.
+
+For this need, developers have access to a REST API which faciliates the process of enrolling. Currently, the following credentials can be enrolled through the API:
+
+- OTP by SMS
+- TOTP or HOTP for mobile applications
+- Super Gluu
+
+The [swagger](https://swagger.io/docs/specification/2-0/) definition document can be located at `https://host/casa/enrollment-api.yaml`. You can leverage [swagger-codegen](https://github.com/swagger-api/swagger-codegen) to bootstrap the process of creating a client application in order to consume the service in a bunch of programming languages. You can achieve similar effects by using [swagger hub](https://app.swaggerhub.com).
+
+Additionally, Casa github project contains a small [client-side application](https://github.com/GluuFederation/casa/tree/master/extras/enrollment-client/) that mimicks the process of enrolling credentials in Casa and does consumption of the REST API. 
+
+As the swagger yaml document states the API is protected by a bearer token, that is, developers have to pass a suitable value in the authorization header for requests. This means an OpenID Connect client must be previously registered in the underlying Gluu Server in order to interact with the server's token endpoint.

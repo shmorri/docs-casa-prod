@@ -35,3 +35,21 @@ The following HTTP status codes could arise when using protected methods:
 ## JSON support
 
 Casa uses the RESTEasy 3.0 library (an implementation of JAX-RS 2.0 specification) internally. Developers are subject to Jackson 2.0 for JSON content marshalling (classes with `com.fasterxml` annotations). The jettison (JAXB) and the Jackson 1.9.x providers are not supported.
+
+## Cross domain consumption of services
+
+When building client-side only applications (HTML+CSS), accessing services located in servers not in the same origin domain can be a big blocker. For this reasons, you can add your origin domain to the set of allowed origins of Casa to overcome the problem. For this, simply do the following:
+
+- Login to Gluu chroot
+- `cd` to /opt/gluu/jetty/casa`
+- `touch` file `casa-cors-domains`
+- Add the domains you want to grant access to, one per line, and then save. For example:
+
+``` 
+http://myapp.acme.com
+https://some.app.acme.com
+```
+
+Wait 1 minute for the change to take effect and try a request from your browser. You will see the preflight request (OPTIONS HTTP method) contains suitable response headers and the actual responses can be read from your javascript code.
+
+For more information on Cross-Origin Resource Sharing (CORS), visit this [page](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).

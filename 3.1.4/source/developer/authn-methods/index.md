@@ -28,7 +28,7 @@ Plugins can be very powerful and depending on the actual need, a mix of skills c
 - HTML/CSS/Javascript
 - LDAP
 
-The building blocks of plugins are called **extensions**. A plugin can bundle one or more extensions and they can be of different typs. Every extension contributes ("adds") specific behavior. For the problem at hand, your plugin will just need one extension as well as one UI page (where credential enrollment will take place). Also you can include supporting Java classes or static files you may need.
+The building blocks of plugins are called **extensions**. A plugin can bundle one or more extensions and they can be of different types. Every extension contributes ("adds") specific behavior. For the problem at hand, your plugin will just need one extension as well as one UI page (where credential enrollment will take place). Also you can include supporting Java classes or static files you may need.
 
 A plugin that adds one (or more) authentication mechanisms will have a strong interaction with LDAP (the underlying Gluu lightweight directory) since that's the natural place where users' credential data will be stored. Also, all configurations (parameters) of the authentication method itself should be there in LDAP as well.
 
