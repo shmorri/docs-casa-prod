@@ -62,6 +62,8 @@ Once the applicable interception scripts are enabled in Gluu, a Casa admin can e
 
 ![enabled-2fa-methods](../img/admin-console/enabled-2FA-methods.png)
 
+In their home page, users will see widgets for every available method. These widgets are listed in decreasing order of level, that is, the first method shown will be that with the highest level assigned in its corresponding interception script.
+
 ### Testing 
 
 A recommended practice is to enable one script in the Gluu Server (like U2F), then enable the associated method in Casa. Test and confirm that enrollment and authentication is working as expected, then continue adding other desired 2FA methods. In an incognito browser, employ a user other than `admin` to test enrollments each time a new method is added. This will prevent the `admin` user from being accidentally locked out.
