@@ -40,4 +40,5 @@ pages:
     - 'Other topics':
         - 'Plugin development tips': 'developer/tips-development.md'
         - 'Plugin management internals': 'developer/plugin-management-internals.md'
+        - 'FAQ': 'developer/faq.md'
 - User Guide : 'user-guide.md'

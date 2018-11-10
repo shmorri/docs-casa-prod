@@ -45,7 +45,7 @@ If you have followed the steps as described above, next time he/she enters, **pa
 
 ### How to adjust the issuer for OTP tokens
 
-When people enroll OTP mobile apps, the OTP will be added to their device and assoicated with an "issuer" so they are easily able to recognize where this OTP can be used. To make it easier to keep track of which OTPs are valid for which IDPs, the issuer property can be adjusted in the Gluu Server OTP script. For example, you might want to set the `issuer` property to `ACME Dev` on your dev server, and `ACME, Inc.` on your production server. 
+When people enroll OTP mobile apps, the OTP will be added to their device and associated with an "issuer" so they are easily able to recognize where this OTP can be used. To make it easier to keep track of which OTPs are valid for which IDPs, the issuer property can be adjusted in the Gluu Server OTP script. For example, you might want to set the `issuer` property to `ACME Dev` on your dev server, and `ACME, Inc.` on your production server. 
 
 See the screenshot below to see where to edit this property in your Gluu Server IDP. 
 
@@ -60,13 +60,13 @@ For instance, when you restart the `gluu-server` service, it may take some time 
 
 ### An "incorrect email or password" error is shown when pressing the login button in the SSO form
 
-This reveals a problem in oxAuth, not Casa itself. It might be a problem with a *casa* custom interception script. Check if `oxauth_script.log` is showing an error related to the authentication method in question.
+This reveals a problem in execution of *casa* custom script. Check if `oxauth_script.log` is showing an error related to the authentication method in question.
 
 If you cannot diagnose the issue, please use the [support forum](https://support.gluu.org) to ask for help. 
 
 ### An "Unauthorized access" error is shown when accessing the application
 
-This is caused by an unauthorized access attempt (e.g. users requesting URLs without ever logging in).
+This is caused by an unauthorized access attempt (e.g. users requesting URLs without ever logging in or after session has expired).
 
 ### "An error occurred during authorization step" is shown when accessing the application
 
@@ -84,29 +84,9 @@ Ensure the host provided is accessible from the server where Casa is installed. 
 
 ## oxd
 
-### Adding a license manually
-If an oxd license was not added during installation, it can be added post installation by editing the `oxd-config.json` file. To do so, navigate to the directory where oxd is installed (if oxd was installed by the setup script, it is located in `/opt/oxd-server` of Gluu chroot).
-
-Open the file `conf/oxd-conf.json` and add the following license details (which are available from the oxd dashboard after signup):
-
-- license_id   
-- public_key   
-- public_password   
-- license_password   
-
-After saving the file, restart oxd (by issuing for instance `service oxd-server restart`). To confirm oxd is working properly, check the oxd log file located at `/var/log/oxd-server.log` for a message like: 
-
-```
-TRACE [...] License is validated successfully.
-TRACE [...] License data: LicenseMetadata{creationDate=..., expirationDate=...}
-INFO  [...] Server socket is bound to port: 8099, with timeout: 0 seconds. Start listening for notifications.
-```
-
-To proceed, [restart Casa](faq.md#How-to-restart-the-application).
-
 ### In case of lockout
 
-If for any reason an update results in lockout, do the following:
+If for any reason an update to oxd settings results in lockout, do the following:
 
 * Navigate to `/etc/gluu/conf`
 * Edit the config file of the application `casa.json`. Provide the oxd details in under the "oxd_config" section. If you are not sure of what to provide for the "client" section, you can remove it entirely
@@ -144,18 +124,13 @@ Ensure the following are met:
 
 * You have enabled custom scripts as needed. For instance, if you want to offer users the ability to authenticate using Google Authenticator, you have to enable the script "HOTP/TOPT authentication module". Whenever you enable or disable scripts, please wait a couple of minutes for oxAuth to pick the changes.
 
-* You specified a correct value for *"enabled-methods"* in `casa.json`. Leave it empty or null to pick all enabled methods already supported by your Gluu Server. Alternatively, in the administration console you can see which methods are already enabled in the server, and modify those you want to offer.
-
-### The user interface is not showing means to enroll certain types of credentials
-
-Ensure you specified a correct value for *"enabled-methods"* in `casa.json`. Leave it empty or null to pick all enabled methods already supported by your Gluu Server. The administration console is also useful to diagnose the problem.
+* In the administration console you can see which methods are already enabled in the server, and modify those you want to offer.
 
 ### The preferred method for authentication is set to password and user cannot change it
 
 To choose a strong method for authentication, the user has to have enrolled at least a certain number of credentials through the app. Only after this is met, he will be able to set his preferred method. 
 
-In the administration console (or directly in `casa.json`) you can specify the minimum number of enrolled credentials needed to enable second factor authentication for users.
-
+In the administration console you can specify the minimum number of enrolled credentials needed to enable second factor authentication for users.
 
 ### The log shows an error related to *Obtaining "acr_values_supported" from server*
 

@@ -52,6 +52,7 @@ In addition to the above:
 - [Adding/overriding authentication mechanisms](./authn-methods/index.md)
 - [Tips for plugin development](./tips-development.md)
 - [Internals of plugin management in Casa](./plugin-management-internals.md)
+- [FAQ](./faq.md)
 
 ## Credentials enrollment in your applications
 
