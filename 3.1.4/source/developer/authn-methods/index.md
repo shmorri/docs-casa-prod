@@ -59,9 +59,9 @@ To be able to tackle credential management, you have to have a custom script tha
 
 If you are interested in overriding how credential enrollment takes place for any of the default supported methods (e.g. Super Gluu, U2F keys, OTP, etc.), follow these steps:
 
-- [Create a plugin](#creating-a-plugin) that contributes an authentication method extension point. This requires creating a class that implements interface `org.gluu.casa.extension.AuthnMethod`. Of particular importance is returning the proper value for `getAcr` method. It should match the value that identifies the already existing custom script for the method.
+- [Create a plugin](#creating-a-plugin) that contributes an authentication method extension point. This requires coding a class that implements interface `org.gluu.casa.extension.AuthnMethod`. Of particular importance is returning the proper value for `getAcr` method. It should match the value that identifies the already existing custom script for the method.
 
-- Associate the plugin to the authentication method: once the plugin is added to your Casa installation, visit the "enabled methods" section of Gluu Casa [dashboard](../../administration/admin-console.md#enabled-methods)](./authn-logic.md#linking-plugin-and-authentication-method). In the row corresponding to the acr of interest, change "System" in the selection list by the plugin ID you have just added.
+- Associate the plugin to the authentication method: once the plugin is added to your Casa installation, visit the "enabled methods" section of Gluu Casa [dashboard](../../administration/admin-console.md#enabled-methods). In the row corresponding to the acr of interest, change "System" in the selection list by the plugin ID you have just added.
 
 Next time you visit the home page, the default widget for that method will be replaced by one generated using the data supplied in your plugin extension.
 
