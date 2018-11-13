@@ -38,6 +38,25 @@ Yes. To be able to do any useful interaction, you have to pass in the authorizat
 
 From oxAuth's token endpoint. For this purpose, you have to register a client previously, say, by using oxTrust admin GUI. Ask your administrator for instructions on how to do so and how to pass a token in HTTP headers.
 
+### Do I need special setup before using the endpoints?
+
+Authentication methods are parameterized by configuration properties set in oxTrust (`Configuration` > `Manage custom scripts`). This normally requires providing some values to setup behavior, for example:
+
+- `twilio_sms`: The details of a Twilio account to be able to send SMS.
+- `otp`: A configuration file containing key length, algorithm, and number of OTP digits.
+- `super_gluu`: A credentials file that configures the underlying service to send mobile pushes for Android and iOS.
+
+Before attempting the endpoints, make sure the scripts are already running and well configured according to your organization needs. Ask your administrator.
+
+### How do enrollment process work?
+
+Enrolling a credential is not simply a matter of calling an endpoint supplying some data. Since enrollment requires the user to present some data or device standing at his browser, the process consists of several steps where some data must be partially supplied and validated until the operation is considered completed.
+
+The swagger document of the API and sample client illustrate what are the steps required for every type of credential (authentication method).
+
+### How can I visualize an enrollment?
+
+Every authentication method has at least one API endpoint that allows to *save* or *finalize* a credential enrollment. Once you receive a positive response from it, you can simply navigate to Casa (with the user you were doing enrollments on behalf): the enrollment will appear in the home page of the application.
 
 ## My problem is not listed here
 
