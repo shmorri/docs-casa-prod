@@ -69,3 +69,5 @@ The [swagger](https://swagger.io/docs/specification/2-0/) definition document ca
 Additionally, Casa github project contains a small [client-side application](https://github.com/GluuFederation/casa/tree/master/extras/enrollment-client/) that mimicks the process of enrolling credentials in Casa and does consumption of the REST API. 
 
 As the swagger yaml document states the API is protected by a bearer token, that is, developers have to pass a suitable value in the authorization header for requests. This means an OpenID Connect client must be previously registered in the underlying Gluu Server in order to interact with the server's token endpoint.
+
+Found more information about crendential enrollment in developer's [FAQ](./faq.md#enrollment-apis).

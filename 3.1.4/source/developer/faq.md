@@ -52,7 +52,7 @@ Before attempting the endpoints, make sure the scripts are already running and w
 
 Enrolling a credential is not simply a matter of calling an endpoint supplying some data. Since enrollment requires the user to present some data or device standing at his browser, the process consists of several steps where some data must be partially supplied and validated until the operation is considered completed.
 
-The swagger document of the API and sample client illustrate what are the steps required for every type of credential (authentication method).
+The swagger document of the API and the sample client found in [Casa repo](https://github.com/GluuFederation/casa/) illustrate the steps required for every type of credential (authentication method).
 
 ### How can I visualize an enrollment?
 
