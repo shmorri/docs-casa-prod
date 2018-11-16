@@ -4,6 +4,8 @@
     
 1. A working Gluu Server 3.1.4 installation with at least the following components installed: Apache, LDAP, oxAuth, and oxTrust. Account for 1GB of additional RAM with respect to [Gluu system requirements](https://gluu.org/docs/ce/3.1.4/installation-guide/#system-requirements).  
 
+1. Ensure dynamic client registration is enabled. In oxTrust go to `Configuration` > `JSON Configuration` > `oxAuth configuration`, property `dynamicRegistrationEnabled` should be set to true.
+
 1. An active [oxd 3.1.4](https://gluu.org/docs/oxd/3.1.4) installation. The interactive setup script will prompt you to install oxd in case you don't already have an instance available. 
 
 1. Casa must be installed in the same host as your Gluu Server
