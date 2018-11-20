@@ -54,7 +54,7 @@ In addition to the above:
 - [Internals of plugin management in Casa](./plugin-management-internals.md)
 - [FAQ](./faq.md)
 
-## Credentials enrollment in your applications
+## APIs for credential enrollment
 
 Despite Casa having enrollment capabilities built-in, a use case may arise where credential enrollment needs to happen elswhere in your app ecosystem. A typical scenario is in a user registration application, where users are asked to enroll strong authentication credentials during account creation.
 
