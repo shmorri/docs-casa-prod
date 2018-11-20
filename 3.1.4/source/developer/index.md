@@ -65,7 +65,7 @@ For this, developers have access to a REST API which faciliates the credential e
 - Super Gluu push authentication
 
 !!! Note
-    FIDO credentials can **not** be enrolled via APIs because they require a direct connection to the server. 
+    FIDO credentials can **not** be enrolled via APIs because the security model requires a direct connection to the server. 
 
 The [swagger](https://swagger.io/docs/specification/2-0/) definition document is located at `https://host/casa/enrollment-api.yaml`. You can leverage [swagger-codegen](https://github.com/swagger-api/swagger-codegen) to bootstrap the process of creating a client application in order to consume the service in a variety of programming languages. You can achieve similar effects by using [swagger hub](https://app.swaggerhub.com).
 
