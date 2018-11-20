@@ -2,7 +2,7 @@
 
 ## Requirements
     
-- A working Gluu Server 3.1.4 installation with at least the following components installed: Apache, LDAP, oxAuth, and oxTrust. Account for **1GB of additional RAM** with respect to [Gluu system requirements](https://gluu.org/docs/ce/3.1.4/installation-guide/#system-requirements).  
+- A working Gluu Server 3.1.4 installation with at least the following components installed: Apache, LDAP, oxAuth, and oxTrust. Add at least  **1GB of additional RAM** to the pre-existing [Gluu system requirements](https://gluu.org/docs/ce/3.1.4/installation-guide/#system-requirements).  
 
 - Ensure dynamic client registration is enabled. In oxTrust go to `Configuration` > `JSON Configuration` > `oxAuth configuration`, property `dynamicRegistrationEnabled` should be set to true.
 
