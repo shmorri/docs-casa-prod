@@ -2,13 +2,16 @@
 
 ## Requirements
     
-1. A working Gluu Server 3.1.4 installation with at least the following components installed: Apache, LDAP, oxAuth, and oxTrust. Account for 1GB of additional RAM with respect to [Gluu system requirements](https://gluu.org/docs/ce/3.1.4/installation-guide/#system-requirements).  
+- A working Gluu Server 3.1.4 installation with at least the following components installed: Apache, LDAP, oxAuth, and oxTrust. Account for **1GB of additional RAM** with respect to [Gluu system requirements](https://gluu.org/docs/ce/3.1.4/installation-guide/#system-requirements).  
 
-1. Ensure dynamic client registration is enabled. In oxTrust go to `Configuration` > `JSON Configuration` > `oxAuth configuration`, property `dynamicRegistrationEnabled` should be set to true.
+- Ensure dynamic client registration is enabled. In oxTrust go to `Configuration` > `JSON Configuration` > `oxAuth configuration`, property `dynamicRegistrationEnabled` should be set to true.
 
-1. An active [oxd 3.1.4](https://gluu.org/docs/oxd/3.1.4) installation. The interactive setup script will prompt you to install oxd in case you don't already have an instance available. 
+!!! Note  
+    You can turn dynamic enrollment off after Casa installation, as needed. 
 
-1. Casa must be installed in the same host as your Gluu Server
+- An active [oxd 3.1.4](https://gluu.org/docs/oxd/3.1.4) installation. The interactive setup script will prompt you to install oxd in case you don't already have an instance available. 
+
+- Casa must be installed in the same host as your Gluu Server
 
 !!! Note
     If your Gluu Server 3.1.4 was upgraded from 2.4.4, ensure the `uma_protection` scope is allowed for dynamic registration in oxTrust.
