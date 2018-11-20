@@ -119,11 +119,11 @@ Wait for one minute, then visit the URL and authenticate against Gluu to access 
     To change the default URL path for Casa follow the steps listed [here](change-context-path.md). However, it is advisable to apply this customization **before** credentials are enrolled. 
    
 1. This is a test section to see if SuperFences works properly
-  ```
-  This fenced area is here to test if SuperFences is working.
-       This is a tabbed area to test whitespace.
-         More whitespace.
-  ```
+    ```
+    This fenced area is here to test if SuperFences is working.
+         This is a tabbed area to test whitespace.
+           More whitespace.
+    ```
 1. Further testing
 1. Further testing
     ```
