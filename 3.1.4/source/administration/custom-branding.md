@@ -2,7 +2,7 @@
 
 In Casa administrators can supply their own logo and favicon to better match the organization's look and feel. If you want to apply more advanced customizations, adding the custom branding plugin is the way to go (requires a valid license to operate).
 
-!!! Important:
+!!! Note:
     This page covers customizations available through the custom branding plugin. It is assumed you have already added it to your Casa installation and is in started state.
 
 The plugin allows administrators to easily alter application's appearance. There are two ways to tweak the design: a quick point-and-click set of changes that you can preview immediately, or a more low-level approach that enables the possibility to supply your own CSS file and images (this is known as external assets directory usage). 

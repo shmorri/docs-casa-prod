@@ -82,7 +82,7 @@ public class MyAuthnMethod implements AuthnMethod {
 
 Please take a while to check the javadocs of `AuthnMethod`.
 
-!!! Important:
+!!! Note:
     Methods supported by default in Casa (u2f, otp, etc.) already follow the pattern of extensions. You can make direct analogies with the existing classes found in package `org.gluu.casa.plugins.authnmethod` and the one you are creating. The patterns to structure the code and do credential management can also be used as inspiration for you.
     
 ### UI-related methods
