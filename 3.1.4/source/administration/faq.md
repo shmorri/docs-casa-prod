@@ -6,7 +6,7 @@
 
 ### Where are the logs?
 
-The application logs are located at `/opt/gluu/jetty/casa/logs`. By default, Casa uses INFO level for messages. You can change the log level at will using the app's admin UI.
+The application logs are located at `/opt/gluu/jetty/casa/logs`. By default, Casa uses the INFO level for messages. You can change the log level at will using the app's admin UI.
 
 <!--
 **Note: check the logs**
@@ -37,15 +37,15 @@ We have a dedicated page covering the topic of custom branding [here](custom-bra
 
 Casa uses port `8091`. One way to see if the app is up and running is by checking whether this port is open by issuing a command like `netstat -nltp`.
 
-### How to reset a user's preferred method of authentication?
+### How to reset a user's preferred authentication method?
 
-If a user has locked out for any reason (e.g. lost devices), you can reset his preferred method by entering to the admin console and choosing the menu item labelled "Reset users preference".  Type the username (or part of) in the text field and then press search. Once you locate the user in the result grid, click the corresponding row and then hit "Change to password". The row will become disabled, and you'll see a success message.
+If a user has been locked out for any reason (e.g. lost devices), you can reset his preferred method by accessing the admin console and choosing the menu item labelled "Reset users preference".  Type the username (or part of) in the text field and then press search. Once you locate the user in the result grid, click the corresponding row and then hit "Change to password". The row will become disabled, and you'll see a success message.
 
-If you have followed the steps as described above, next time he/she enters, **password** will be his new preference and he won't be asked to present additional credentials to enter.
+If you've followed the steps as described above, next time he attempts to log in, **password** will be his new preference and he won't be asked to present additional credentials to enter.
 
 ### How to adjust the issuer for OTP tokens
 
-When people add OTP mobile apps, the enrollment appears in the device associated with an "issuer" so it is easy to recognize where the OTPs generated can be used. To keep track of which OTPs are valid for which IDPs, the issuer property can be adjusted in the Gluu Server OTP script. For example, you might want to set the `issuer` property to `ACME Dev` on your dev server, and `ACME, Inc.` on your production server. 
+When people add OTP mobile apps, the enrollment appears in the device associated with an "issuer", so it is easy to recognize where the OTPs generated can be used. To keep track of which OTPs are valid for which IDPs, the issuer property can be adjusted in the Gluu Server OTP script. For example, you might want to set the `issuer` property to `ACME Dev` on your dev server, and `ACME, Inc.` on your production server. 
 
 See the screenshot below to see where to edit this property in your Gluu Server IDP. 
 
@@ -74,7 +74,7 @@ This is shown when it is not possible to initiate a "conversation" with the auth
 
 ### "An error occurred: Casa did not start properly" is shown when accessing the application
 
-This occurs whenever the application failed to start successfully and may be caused by a syntax problem in the configuration file or an inconsistent configuration supplied. Check the log to diagnose the problem. Try to find a message like "WEBAPP INITIALIZATION FAILED" and see the traces above it. Often, errors messages are self-explanatory.
+This occurs whenever the application failed to start successfully and may be caused by a syntax problem in the configuration file or an inconsistent configuration supplied. Check the log to diagnose the problem. Try to find a message like "WEBAPP INITIALIZATION FAILED" and see the traces above it. Often, error messages are self-explanatory.
 
 Once fixed, please restart the application. You will have to see a "WEBAPP INITIALIZED SUCCESSFULLY" message to know that it's working.
 
@@ -92,8 +92,7 @@ If for any reason an update to oxd settings results in lockout, do the following
 * Edit the config file of the application `casa.json`. Provide the oxd details in under the "oxd_config" section. If you are not sure of what to provide for the "client" section, you can remove it entirely
 * Save the file and [restart Casa](faq.md#How-to-restart-the-application)
 * [Check the logs](#check-the-logs) and there should be a successful message regarding oxd registration
-* Login to the application
-
+* Log in to the application
 
 ## Miscellanenous
 
@@ -105,8 +104,8 @@ In order to ensure authentication scripts are properly configured in Gluu, it is
 
 * Scripts included in the default Gluu Server distribution will provide basic working functionality. To see a script in action, enable a script in `Configuration` > `Manage custom scripts`, then set it as the default oxTrust acr in `Manage authentication` > `Default authentication method` > `oxTrust acr`. Open an incognito browser and login to your oxTrust dashboard. By default, your 2FA credential will be enrolled during the first authentication attempt. 
 
-!!! Note
-    Learn more about how the Gluu Server handles authentication in the [user authentication intro](https://www.gluu.org/docs/ce/authn-guide/intro). In addition, to learn more about how custom interception scripts work, review the [custom script tutorial](https://www.gluu.org/docs/ce/admin-guide/custom-script).
+!!! Note  
+    Learn more about how the Gluu Server handles authentication in the [user authentication intro](https://www.gluu.org/docs/ce/authn-guide/intro). In addition, to learn more about how custom interception scripts work, review the [custom script tutorial](https://www.gluu.org/docs/ce/admin-guide/custom-script).  
  
 
 ### U2F keys enrolling not working from within Casa
@@ -115,8 +114,8 @@ To be able to enroll U2F keys, ensure all of the following are met:
 
 * You are accessing the application via https (this a requirement by design of FIDO standard)
 * Ensure the IDP URL matches the same host under which Casa is being served. Both FQDNs should match. 
-* Ensure you are using Chrome, Opera (version greater than 40), or Firefox (with the proper [u2f add-on](https://addons.mozilla.org/en-US/firefox/addon/u2f-support-add-on/) installed) and javascript enabled. These are the only browsers supporting the FIDO U2F technology. Currently Casa does not support adding U2F devices from mobile browsers.
-* Ensure plugging the security key before pressing the "ready" button: the enrolling process has a timeout period. Ensure you are pressing the key's button when your browser indicates to do so or when the key's button is blinking.
+* Ensure you are using Chrome, Opera (version greater than 40), or Firefox (with the proper [u2f add-on](https://addons.mozilla.org/en-US/firefox/addon/u2f-support-add-on/) installed) and Javascript enabled. These are the only browsers supporting the FIDO U2F technology. Currently Casa does not support adding U2F devices from mobile browsers.
+* Make sure to plug in the security key before pressing the "ready" button: the enrolling process has a timeout period. Ensure you are pressing the key's button when your browser indicates to do so or when the key's button is blinking.
 
 ### The user interface is not showing any means to enroll credentials
 
@@ -124,7 +123,7 @@ Ensure the following are met:
 
 * You have enabled custom scripts as needed. For instance, if you want to offer users the ability to authenticate using Google Authenticator, you have to enable the script "HOTP/TOPT authentication module". Whenever you enable or disable scripts, please wait a couple of minutes for oxAuth to pick the changes.
 
-* In the administration console you can see which methods are already enabled in the server, and modify those you want to offer.
+* In the administration console, you can see which methods are already enabled in the server, and modify those you want to offer.
 
 ### The preferred method for authentication is set to password and user cannot change it
 
