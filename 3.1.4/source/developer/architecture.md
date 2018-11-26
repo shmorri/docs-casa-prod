@@ -8,11 +8,11 @@ Gluu Casa ("Casa") is a web application (more specifically, a Java EE 7 web modu
 
 To generate HTML content, this application uses the [ZK Community Edition](https://www.zkoss.org) framework. Pages built with ZK are lightweight, still preserving a Java backend binding typical of JSF applications. The lifecycle of ZK pages and components is simpler than that of JSF, but at the same time shares many aspects such as interfaces defined in terms of XML tags and usage of EL expressions. 
 
-ZK helps developers write highly interactive interfaces in a fast paced manner still using similar dialects of other Java-based UI frameworks. Additionally, despite it does a lot of Ajax in the browser, no knowledge about Javascript is required.
+ZK helps developers write highly interactive interfaces in a fast-paced manner still using similar dialects of other Java-based UI frameworks. Additionally, although it uses a lot of Ajax in the browser, no knowledge about Javascript is required.
 
-There are a handful of approaches for ZK development, particularly in Casa the MVVM pattern is used. This pattern has 3 roles: View, Model, and ViewModel which allow to achieve a separation of data and logic from presentation. For more information see [ZK MVVM Reference](http://books.zkoss.org/zk-mvvm-book/8.0/).
+There are a handful of approaches for ZK development, particularly in Casa the MVVM pattern is used. This pattern has 3 roles: View, Model, and ViewModel which allow separation of data and logic from presentation. For more information see [ZK MVVM Reference](http://books.zkoss.org/zk-mvvm-book/8.0/).
 
-Plugin developers are encouraged to use MVVM development style of ZK, however any other approach is pluggable and should supported.
+Plugin developers are encouraged to use the MVVM development style of ZK, however any other approach is pluggable and should supported.
 
 #### CSS frameworks
 
@@ -97,9 +97,9 @@ It is recommended that developers writing plugins leverage the existing director
 
 For convenience, all configuration parameters are stored in a JSON-formatted file located at `/etc/gluu/conf/casa.json` of the Gluu Server chroot container. This file contains all aspects that allow to customize/parameterize the application behaviour, in other words, it stores all the settings accessible through the application's [admin dashboard](../administration/admin-console.md).
 
-Manipulating a plain-text file is a highly accessible alternative when, by means of some misconfiguration, administrators cannot login to access the dashboard. A more common use case is that of cloning an environment with subtle differences in configuration.
+Manipulating a plain-text file is a highly accessible alternative when, by means of some misconfiguration, administrators cannot log in to access the dashboard. A more common use case is that of cloning an environment with subtle differences in configuration.
 
-To force the application pick changes manually applied to this file, a [restart](../administration/faq.md#how-do-i-restart-the-application) is required.
+To force the application to pick up changes manually applied to this file, a [restart](../administration/faq.md#how-do-i-restart-the-application) is required.
 
 ### Plugins directory
 
@@ -109,7 +109,7 @@ Jar files of all [plugins](#plugin-framework) (started/stopped) reside in the fi
 
 These are key facts for potential Casa developers:
 
-* Underlying operating system: The Linux distro where your Gluu Server is running. For plugin development, there is no restriction on operating system.
+* Underlying operating system: The Linux distro where your Gluu Server is running. For plugin development, there is no restriction on the operating system.
 
 * Java SE version: Gluu Server comes with JDK 1.8 installed in the chroot container, that is, the war file of Casa uses a JVM in such version.  For plugin development, JDK 1.8 is recommended as well.
 
