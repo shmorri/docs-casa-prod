@@ -1,15 +1,15 @@
 # Uninstallation and clean up
 
-To remove Casa from your Gluu installation do the following:
+To remove Casa from your Gluu installation, do the following:
 
-1. Stop casa service, e.g: 
+1. Stop the Casa service, e.g: 
 
     ```
     service gluu-server-3.1.4 login
     service casa stop    
     ```
 
-1. Run the clean up utility. It will remove configurations added to your Gluu Server when Casa was installed as well as data not needed anylonger. In chroot run:
+1. Run the cleanup utility. It will remove configurations added to your Gluu Server when Casa was installed, as well as data no  longer needed. In the chroot run:
 
     For deb based systems:
     
@@ -29,7 +29,7 @@ To remove Casa from your Gluu installation do the following:
     # ./casa_cleanup.py
     ```
 
-1. Logout from chroot and remove package:
+1. Log out of chroot and remove the package:
 
     For deb based systems:
     
