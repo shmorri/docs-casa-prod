@@ -25,8 +25,8 @@ In the event a user loses access to his account, you can revert the preferred au
 
 To further reduce the likelihood of lockouts, you can force users to initially enroll, for instance, one OTP credential before any other. OTP credentials are generally more accessible than their counterparts (like U2F) since they normally don't demand special conditions from the device used to access, like having a USB port.
 
-To do so, just add a new configuration property named `2fa_requisite` to the custom interception script corresponding to the authentication method, and assign `true` as its value. It may take more than one minute for Casa to pick the changes. To add the property, open oxTrust web console and navigate to `Configuration` > `Manage custom scripts`, collapse the method you want to set as requisite for 2FA, and click on `Add new property`.
+To do so, just add a new configuration property named `2fa_requisite` to the custom interception script corresponding to the authentication method, and assign `true` as its value. It may take more than one minute for Casa to pick up the changes. To add the property, open oxTrust web console and navigate to `Configuration` > `Manage custom scripts`, collapse the method you want to set as requisite for 2FA, and click on `Add new property`.
 
 You can flag more than one method as requisite. In this case users will be encouraged to enroll one credential associated to any of the flagged methods.
 
-In case you are using an authentication method you added your own, just ensure the corresponding plugin implements method `mayBe2faActivationRequisite`.
+If you are using an authentication method you added your own, just ensure the corresponding plugin implements the `mayBe2faActivationRequisite` method.
