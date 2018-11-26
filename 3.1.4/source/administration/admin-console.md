@@ -2,11 +2,11 @@
 
 The sections below document the admin console that is available to Gluu Casa administrators after installation. Many of the settings are configured during initial setup. Once Casa and Gluu are properly configured, follow the [enable methods section below](#enabled-methods) to "turn on" Casa. 
 
-All configuration changes applied via the admin console take effect immediately with no additional actions required such as restarts.
+All configuration changes applied via the admin console take effect immediately with no restart or other actions required.
 
 ## LDAP 
 
-View the settings Casa uses in order to establish a connection to the underlying LDAP. These settings are made by the application installer and there is no need to apply any change afterwards. Update these settings only if the application needs to be tested against a different LDAP Server. 
+This header contains the settings Casa uses to establish a connection to the underlying LDAP. These settings are made by the application installer and there is no need to apply any change afterwards. Update these settings only if the application needs to be tested against a different LDAP Server. 
 
 ![local-ldap](../img/admin-console/LDAP-settings.png)
 
@@ -47,12 +47,12 @@ To enable authentication methods in Gluu, open oxTrust and navigate to  `Configu
 
 To confirm script functionality, or if issues arise, check the [troubleshooting doc](./faq.md#troubleshooting-interception-scripts) in the FAQ.
 
-It is advisable to refresh the interception script of Casa every time new methods are enabled. This will help the script parse configurations of the accompanying scripts. To do this you can for instance disable and re-enable Casa script, or do some harmless edition on the script contents, such as adding a new line or white space at the end. 
+It is advisable to refresh the interception script of Casa every time new methods are enabled. This will help the script parse configurations of the accompanying scripts. For instance, you can disable and re-enable Casa script, or do some harmless edit to the script contents, such as adding a new line or white space at the end. 
 
 ### Set Default Authentication Method (Gluu)
-With the Casa authentication script enabled in the Gluu Server, OpenID Connect clients can now request Casa authentication (i.e. each users 2FA preference) using the standard OpenID Connect `acr_value`. 
+With the Casa authentication script enabled in the Gluu Server, OpenID Connect clients can now request Casa authentication (i.e. each user's 2FA preference) using the standard OpenID Connect `acr_value`. 
 
-To make each person's 2FA preference in Casa the default authentication mechanism for all Gluu logins, navigate to `Configuration` > `Manage Authentication` > `Default Authentication method` and set `Default acr` and `oxTrust acr` to `casa`. Click update to save your changes. 
+To make each person's 2FA preference in Casa, the default authentication mechanism for all Gluu logins, navigate to `Configuration` > `Manage Authentication` > `Default Authentication method` and set `Default acr` and `oxTrust acr` to `casa`. Click update to save your changes. 
 
 ![oxtrust-enabled-scripts](../img/admin-console/oxTrust-auth-mechanisms.png)
     
@@ -70,8 +70,8 @@ A recommended practice is to enable one script in the Gluu Server (like U2F), th
 
 ## 2FA settings
 
-!!! Warning:
-    This feature is only available through the "Strong authentication settings" plugin (requires a valid license to operate).
+!!! Warning  
+    This feature is only available through the "Strong authentication settings" plugin (requires a valid license to operate).  
 
 In the 2FA settings, an admin can specify the minimum number of credentials a user **must** enroll before they are able to turn on 2FA, and choose from a few predefined policies for when 2FA should be prompted. 
 
@@ -90,7 +90,7 @@ The default policy is to enforce 2FA for every login attempt. If the admin opts 
 
 ## Pass reset config
 
-If passwords are being stored in the Gluu Server (and not at an external backend directory server like AD), an admin can give users the ability to reset their password from inside casa. To enable the password reset functionality, navigate to `Pass reset config` and click the toggle to `ON`.  
+If passwords are being stored in the Gluu Server (and not at an external backend directory server like AD), an admin can give users the ability to reset their password from inside Casa. To enable the password reset functionality, navigate to `Pass reset config` and click the toggle to `ON`.  
 
 ![pw-reset-settings](../img/admin-console/pw-reset-setting.png)
 
@@ -120,7 +120,7 @@ If a user is locked out for any reason (e.g. lost device, etc.), an admin can na
 
 Plugins are vehicles to augment the functionalities available by default in Gluu Casa. To learn more about plugins, visit the [developer guide](..\developer\index.md#plugins).
 
-In this section of the console, the current list of active and dormant plugins is shown. Once an element in the list is selected, a summary of relevant plugin's metadata is visualized. You can manage the state of plugins as well as remove them.
+In this section of the console, the current list of active and dormant plugins is shown. Once an element in the list is selected, a summary of the relevant plugin's metadata is visualized. You can manage the state of plugins as well as remove them.
 
 Click on the "Add a plugin..." button to select a file in your local hard drive that you wish to onboard as a new plugin into your Gluu Casa installation. Account that plugin files must have a specific format and structure as explained [here](../developer/intro-plugin.md#anatomy-of-a-plugin).
 
