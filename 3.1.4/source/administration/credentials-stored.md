@@ -5,14 +5,14 @@ The following provides a summary of where user credentials can be found in LDAP.
 ## U2F devices
 Information about U2F security keys and Super Gluu devices are stored under a `fido` branch for every user entry. The entries belong to the `oxDeviceRegistration` object class and contain information about each enrolled device. One way to differentiate between a U2F Security Key and a Super Gluu device is to inspect the `oxDeviceData` attribute. Super Gluu devices will include information here, while U2F Security Keys will not.
 
-!!! Note: 
-    We strongly recommend **not** modifying these attributes directly unless you have a good reason to do so. 
-
+!!! Note  
+    We strongly recommend **not** modifying these attributes directly unless you have a good reason to do so.  
+    
 ## TOTP / HOTP devices
 TOTP/HOTP device information is stored in the `oxExternalUid` attribute as well as in `oxOTPDevices`.
 
 ## Phone Numbers
-Verified mobile phone numbers are stored in the `mobile` attribute of the user entry. Associated information (date added, nickname of device, etc.) is stored in Json format in the `oxMobileDevices` attribute.
+Verified mobile phone numbers are stored in the `mobile` attribute of the user entry. Associated information (date added, nickname of device, etc.) is stored in JSON format in the `oxMobileDevices` attribute.
 
 ## Preferred 2FA Method
 The user's preferred method of authentication is stored in the `oxPreferredMethod` attribute as a plain ACR value string. If no value is present, it means the user has not turned on 2FA. 
