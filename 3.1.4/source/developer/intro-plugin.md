@@ -6,7 +6,7 @@ This page covers basic notions required for Gluu Casa plugin development. In pra
  
 ### A Gluu Server VM
 
-For development you need a virtual machine with Gluu Server installed as well as the client software that may allow you to run (play) the machine. Recall Gluu Server installation is constrained to a number of [linux distributions](https://gluu.org/docs/ce/installation-guide). The Gluu server version used should match that of the machines you are targetting for production environment.
+For development, you need a virtual machine with Gluu Server installed as well as the client software that may allow you to run (play) the machine. Recall Gluu Server installation is constrained to a number of [Linux distributions](https://gluu.org/docs/ce/installation-guide). The Gluu server version used should match that of the machines you are targetting for production environment.
 
 Ideally, you should populate your Gluu Server with data (e.g. users/groups) to somewhat resemble a testing or production server of your organization. Writing a plugin to be run on a server with no users other than admin will lead to very poor testing scenarios.
 
@@ -17,13 +17,13 @@ Ensure you have credentials for a user with administrator privileges in your Glu
 
 ### A running Gluu Casa installation
 
-Once you are up and running with a Gluu Server VM proceed to [install Gluu Casa](../administration/installation.md). Ensure you can login to casa when finished.
+Once you are up and running with a Gluu Server VM proceed to [install Gluu Casa](../administration/installation.md). Ensure you can log in to Casa when finished.
 
 #### Change file check period
 
 By default .zul templates are cached for a very long period, however, for development we need to change this. Do the following:
 
-1. Connect to your VM and login to gluu chroot (e.g. `service gluu-server-3.1.4` login)
+1. Connect to your VM and log in to Gluu chroot (e.g. `service gluu-server-3.1.4 login`)
 1. Extract ZK descriptor: 
     ```
     # cd /opt/gluu/jetty/casa/webapps
@@ -34,7 +34,7 @@ By default .zul templates are cached for a very long period, however, for develo
     ```
     # jar -uf casa.war WEB-INF/zk.xml
     ```
-1. Restart casa (`service casa restart`)
+1. Restart Casa (`service casa restart`)
 
 The above guarantees changes in .zul files are picked very often (5 seconds is default ZK cache refresh time).
 
@@ -76,7 +76,7 @@ Java coding skills are a must and basic-to-intermediate knowledge of web applica
 
 Alternatively, you can use [Kotlin](https://kotlinlang.org) as it provides full compatibility with Java. Both ZK and P4FJ demonstrates feasibility to work with Kotlin; check [here](https://dzone.com/articles/kotlin-zk) and [here](http://www.pf4j.org/doc/kotlin.html) as a reference.
 
-In theory, any other language supported in the JVM such as Scala or Groovy may work, however at Gluu we haven't experimented with those. Feel free to create a github project and share with us.
+In theory, any other language supported in the JVM such as Scala or Groovy may work, however at Gluu we haven't experimented with those. Feel free to create a Github project and share with us.
 
 ### IDE and building tools
 
@@ -84,11 +84,11 @@ You can use the tools of your choosing as long as you can produce fat (Uber) jar
 
 ### LDAP SDK For Java
 
-Plugins will likely require reading and writing data from and to the underlying Gluu Server lightweight directory. There is one java library (part of Gluu casa project) called `casa-shared` at developers disposal which abstracts and simplifies access to LDAP (basically CRUD operations). Manipulation of this abstraction requires you to create simple classes and POJOs that can be mapped to actual LDAP entries. 
+Plugins will likely require reading and writing data from and to the underlying Gluu Server lightweight directory. There is one Java library (part of Gluu casa project) called `casa-shared` at developers disposal which abstracts and simplifies access to LDAP (basically CRUD operations). Manipulation of this abstraction requires you to create simple classes and POJOs that can be mapped to actual LDAP entries. 
 
 For this purposes the UnboundID LDAP SDK [Persistence Framework](https://docs.ldap.com/ldap-sdk/docs/persist/index.html) is used. Of particular interest is the [`generate-source-from-schema`](https://docs.ldap.com/ldap-sdk/docs/persist/generate-source-from-schema.html) tool which allows you to automate generation of classes so that you don't have to write the mapping annotations manually.
 
-`generate-source-from-schema` and the persistence framework is bundled in the [UnboundID LDAP SDK](https://github.com/pingidentity/ldapsdk/releases). It is recommended to download the full release package which brings the automation tools, java libs (jar files), and plenty of documentation and examples. Internally, Gluu Casa uses version 4.0.4 of this project.
+`generate-source-from-schema` and the persistence framework is bundled in the [UnboundID LDAP SDK](https://github.com/pingidentity/ldapsdk/releases). It is recommended to download the full release package which brings the automation tools, Java libs (jar files), and plenty of documentation and examples. Internally, Gluu Casa uses version 4.0.4 of this project.
 
 For more background on these topics you may like checking this [website](https://www.ldap.com/unboundid-ldap-sdk-for-java).
 
@@ -130,8 +130,8 @@ The process of synchronizing data between the *View* and *ViewModel* is called b
 
 PF4J is a very extensible simple lightweight plugin framework for java. The project [site](http://pf4j.org), [repository](https://github.com/decebals/pf4j/) and [api-docs page](http://pf4j.org/ref/javadoc.html) contain all required info to get the grasp of the framework.
 
-!!! Note:
-    Gluu Casa only accepts plugins packaged in jar files. See the [constraints](#important-constraints) section for more information.
+!!! Note  
+    Gluu Casa only accepts plugins packaged in jar files. See the [constraints](#important-constraints) section for more information.  
     
 The following is a summary of relevant concepts (somewhat tailored to the particular case of Gluu Casa):
 
@@ -194,7 +194,7 @@ The following are some classes which help represent remarkable entities:
 
 - `org.gluu.casa.core.pojo.User`: Represents the current logged in user. It holds the most common attributes, e.g. given name, last name, etc.
 
-Actual instances of `BrowserInfo` and `User` are obtained by interacting with an instance of `org.gluu.casa.service.ISessionContext`. See bellow.
+Actual instances of `BrowserInfo` and `User` are obtained by interacting with an instance of `org.gluu.casa.service.ISessionContext`. See below.
 
 #### Service objects
 
@@ -204,8 +204,8 @@ Package `org.gluu.casa.service` of `casa-shared` provides a couple of interfaces
 
 - `ILdapService`: Obtain an instance of this class (via `managedBean` method) and you are ready to start performing CRUD operations in local LDAP!. Recall that objects and classes passed here are supposed to follow the rules of [persistence framework](#ldap-sdk-for-java). This interface also contains some methods that allows you to quickly obtain the DN (distinguished name) of the most important branches of Gluu's LDAP tree.
 
-!!! Note:
-    When obtaining your ILdapService reference there is no need to worry about connecting to LDAP. You are ready to go.
+!!! Note  
+    When obtaining your ILdapService reference there is no need to worry about connecting to LDAP. You are ready to go.  
 
 #### Ldap-ped POJOs 
 
@@ -285,7 +285,7 @@ To know about the dependencies already available at runtime, you can to do the f
 
 1. clone Gluu casa (`git clone https://github.com/GluuFederation/casa.git`)
 
-1. swith to a proper branch (e.g. `git checkout version_3.1.4`)
+1. switch to a proper branch (e.g. `git checkout version_3.1.4`)
 
 1. cd to application's project (`cd app`)
 
@@ -421,5 +421,5 @@ The following is a generic suggested flow for developing plugins once the [requi
 
 1. Test your plugin on a realistic Gluu Server instance (pre-production environment of your organization). Once approved give the plugin its final version (e.g. 1.0.0), generate the final jar file, and deploy in production.
 
-!!! Note:
-    Neither Gluu Casa nor Gluu Server requires to be **restarted** when you are developing plugins. In case you need to alter the directory schema, only the LDAP service needs a restart.
+!!! Note  
+    Neither Gluu Casa nor Gluu Server requires to be **restarted** when you are developing plugins. In case you need to alter the directory schema, only the LDAP service needs a restart.  
