@@ -1,33 +1,33 @@
 # Custom branding
 
-In Casa administrators can supply their own logo and favicon to better match the organization's look and feel. If you want to apply more advanced customizations, adding the custom branding plugin is the way to go (requires a valid license to operate).
+In Casa, administrators can supply their own logo and favicon to better match the organization's look and feel. If you want to apply more advanced customizations, adding the custom branding plugin is the way to go (requires a valid license to operate).
 
-!!! Note:
-    This page covers customizations available through the custom branding plugin. It is assumed you have already added it to your Casa installation and is in started state.
+!!! Note  
+    This page covers customizations available through the custom branding plugin. It is assumed you have already added it to your Casa installation and started it.  
 
-The plugin allows administrators to easily alter application's appearance. There are two ways to tweak the design: a quick point-and-click set of changes that you can preview immediately, or a more low-level approach that enables the possibility to supply your own CSS file and images (this is known as external assets directory usage). 
+The plugin allows administrators to easily alter the appearance of applications. There are two ways to tweak the design: a quick point-and-click set of changes that you can preview immediately, or a lower-level approach that allows you to supply your own CSS file and images (this is known as external assets directory usage). 
 
 ## Quick design customization
 
-Click on `Custom branding` in the admin console, and choose `Upload images and pick colors`. With this branding alternative you can apply a small but representative amount of visual changes effortlessly with zero CSS coding. You can:
+Click on `Custom branding` in the admin console, and choose `Upload images and pick colors`. With this branding alternative, you can apply some visual changes effortlessly with zero CSS coding. You can:
 
 * Supply your company logo and favicon
-* Choose the background color for page header
-* Choose buttons colors
-* Edit the text appearing in the footer
+* Choose the background color for the page header
+* Choose button colors
+* Edit the footer text
 
 ![quick design glance](../img/admin-console/custom-branding.png)
 
-Once you supply your files, color values, and footer text, click on Save and see the changes take immediately by navigating to a different page or opening a new browser tab. Repeat the process till you get the combination that best matches your organization's look and feel.
+Once you supply your files, color values, and footer text, click on `Save` and see the changes take immediately by navigating to a different page or opening a new browser tab. Repeat the process till you get the combination that best matches your organization's look and feel.
 
-With "Primary buttons" we refer to the vast majority of buttons that trigger some action such as saving, updating or accepting - whether in the user pages or the admin UI itself.  "Tertiary" conveys the meaning of undo, close or cancel, and "Secondary" for anything that does not fit any of the previous usages. 
+With "Primary buttons" we refer to the vast majority of buttons that trigger some action such as saving, updating or accepting - whether in the user pages or the admin UI itself.  "Tertiary" covers undo, close or cancel, and "Secondary" for anything that does not fit any of the previous usages. 
 
 You can choose "Use defaults" if you feel comfortable with the [Bootstrap-like](https://getbootstrap.com/docs/4.0/components/buttons/) colors offered in Gluu Casa.
 
 ## Using the external assets directory
 
-!!! Note:
-    Intermediate-level knowledge of CSS is required for this task.
+!!! Note  
+    Intermediate-level knowledge of CSS is required for this task.  
 
 ### Background
 
@@ -42,9 +42,9 @@ Particularly, ZK's default theme CSS file was disabled to offer a higher degree 
 
 ### External assets directory
 
-In folder `/opt/gluu/jetty/casa/static`, you can place your own version of the main stylesheet and images Casa uses. No other stylesheet should be overriden.
+In the `/opt/gluu/jetty/casa/static` folder, you can place your own version of the main stylesheet and images Casa uses. No other stylesheet should be overriden.
 
-To start, log into the chroot and do the following:
+To start, log in to the chroot and do the following:
 
 ```
 cd /opt/gluu/jetty/casa/static
@@ -53,7 +53,7 @@ jar -xf ../webapps/casa.war images styles/gluu/style.css
 
 This will copy the files you can edit later (these are the original versions provided out of the box in Casa).
 
-If you were to include additional files into this directory, ensure ownership is correct. For instance, you can:
+If you place additional files in this directory, ensure ownership is set to recursive. For instance, you can:
 
 ```
 $ chown -R jetty:jetty /opt/gluu/jetty/casa/static/
@@ -63,20 +63,20 @@ $ chown -R jetty:jetty /opt/gluu/jetty/casa/static/
 
 In the admin console, navigate to `Custom branding` > `Use Casa external assets directory`. From that point on, your installation is reading relevant files from the `static` directory.
 
-!!! Note:
-    In CSS, the rules' order of appearance is important. Keep in mind that for all Casa pages, Bootstrap is loaded first, then style.css, and finally tachyons.css. This means rules for Tachyons have higher prevalence overall unless `!important` is used, which is a discouraged practice.
+!!! Note  
+    In CSS, the rules' order of appearance is important. Keep in mind that for all Casa pages, Bootstrap is loaded first, then style.css, and finally tachyons.css. This means rules for Tachyons have higher priority overall unless `!important` is used, which is discouraged.  
     
 The main stylesheet (`style.css`) is located at `/opt/gluu/jetty/casa/static/styles/gluu` if you have followed the instructions above.
 
 Here are some tips for applying your customizations:
 
-- Get acquianted with functional CSS. This is the approach followed in Casa. [Here](https://www.smashingmagazine.com/2013/10/challenging-css-best-practices-atomic-approach/), [here](https://css-tricks.com/lets-define-exactly-atomic-css/), and [here](https://johnpolacek.github.io/the-case-for-atomic-css/) you can find useful introductory material.
+- Get acquainted with functional CSS. This is the approach followed in Casa. [Here](https://www.smashingmagazine.com/2013/10/challenging-css-best-practices-atomic-approach/), [here](https://css-tricks.com/lets-define-exactly-atomic-css/), and [here](https://johnpolacek.github.io/the-case-for-atomic-css/) you can find useful introductory material.
 
-- Inspect the DOM tree generated for application pages and determine the CSS selectors you need to edit or the kind of things your have to add in order to alter the appearance. Use your web browser's facilities to inspect web page composition: this is usually part of any browser's developer toolbar. Moreover, they allow you to change styles on the fly so you can play a lot before applying the real changes.
+- Inspect the DOM tree generated for application pages and determine the CSS selectors you need to edit or things you have to add in order to alter the appearance. Use your web browser's facilities to inspect web page composition: this is usually part of any browser's developer toolbar. Moreover, they allow you to change styles on the fly so you can play a lot before applying the real changes.
 
-- Don't override rules that are already defined in Bootstrap or Tachyons CSSs. Conversely, ZK rules (which are prefixed with `z-`) are safe to be re-defined since ZK CSS isn't included (actually `style.css` redefines some). 
+- Don't override rules that are already defined in Bootstrap or Tachyons CSS files. Conversely, ZK rules (which are prefixed with `z-`) are safe to be re-defined since ZK CSS isn't included (and `style.css` actually already redefines some). 
 
-- In most circumstances, your work will just reduce to editing existing rules in `style.css`. HTML markup will show rules (in `class` attribute) prefixed with `cust-` that are apparently not defined anywhere. These rules are intended to give admins the opportunity to add their design tastes. The following is a list of custom selectors you can add to `style.css`. Names are in general self-explanatory, the images below help clarify more.
+- In most circumstances, your work will come down to editing existing rules in `style.css`. HTML markup will show rules (in the `class` attribute) prefixed with `cust-` that are apparently not defined anywhere. These rules are intended to give admins the opportunity to add their design tastes. The following is a list of custom selectors you can add to `style.css`. Names are in general self-explanatory, the images below help clarify more.
 
     - cust-menu-item  
     - cust-content-heading  
@@ -101,7 +101,7 @@ Here are some tips for applying your customizations:
 
 ### Viewing your changes
 
-There is no need to restart the application for the changes to take effect. However, most static files are cached by browsers, so you will need to clear the browser beforehand. The `shift+ctrl+del` combination does the job in most cases. Leave the cookies option unchecked, so there is no need to log in after every refresh.
+There is no need to restart the application for the changes to take effect. However, most static files are cached by browsers, so you will need to clear the browser's cache beforehand. The `shift+ctrl+del` combination does the job in most cases. Leave the cookies option unchecked, so there is no need to log in after every refresh.
 
 Alternatively, you can use a private browsing session.
 
@@ -131,4 +131,4 @@ Then, scroll down and modify the `html` and `body` selectors appropriately with 
 
 If you want to use your own fonts instead of Google's, you can use `@font-face` for this purpose. Copy your `ttf`, `woff`, `svg` or `eot` files somewhere in the `static` directory and link them appropriately.
 
-To resort to the more classical fonts like "Helvetica", "Arial", etc., simply update `html` and `body` selectors passing the `font-family` name.
+To use the more classical fonts like "Helvetica", "Arial", etc., simply update `html` and `body` selectors passing the `font-family` name.
