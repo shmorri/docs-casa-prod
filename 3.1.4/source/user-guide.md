@@ -2,9 +2,6 @@
 
 ## Overview
 
-!!! Note "Test"  
-    This is block testing the admonition function.
-
 Gluu Casa ("Casa") provides an interface for enrolling and managing a variety of free or low-cost two-factor authentication (2FA) credentials, including:
    
 - U2F security keys (like [Yubikeys](https://www.yubico.com/products/yubikey-hardware/), or any [U2F key on Amazon](https://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=u2f))   
