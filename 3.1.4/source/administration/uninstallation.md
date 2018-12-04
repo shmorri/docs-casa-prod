@@ -2,12 +2,7 @@
 
 To remove Casa from your Gluu installation, do the following:
 
-1. Stop the Casa service, e.g: 
-
-    ```
-    service gluu-server-3.1.4 login
-    service casa stop    
-    ```
+1. Login to chroot.
 
 1. Run the cleanup utility. It will remove configurations added to your Gluu Server when Casa was installed, as well as data no  longer needed. In the chroot run:
 
