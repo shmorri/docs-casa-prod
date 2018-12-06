@@ -90,6 +90,15 @@ Casa is distributed as part of the Gluu Server extensions bundle. Follow the ins
 | Update/Clean Repo       | `# apt-get update`                         |
 | Install Gluu Server extension pack     | `# apt-get install gluu-casa-3.1.4`      |
 
+### Debian 9 (Stretch)
+
+| Command Description     |               Jessie Commands         |
+|-------------------------|---------------------------------------|
+| Add Gluu Repository     | `# echo "deb https://repo.gluu.org/debian/ stable main" > /etc/apt/sources.list.d/gluu-repo.list`|
+| Add Gluu GPG Key        | `# curl https://repo.gluu.org/debian/gluu-apt.key | apt-key add -` |
+| Update/Clean Repo       | `# apt-get update`                         |
+| Install Gluu Server extension pack     | `# apt-get install gluu-casa-3.1.4`      |
+
     
 ## Run the Setup Script
 
@@ -99,7 +108,7 @@ Log in to the Gluu Server chroot, as follows:
 
 `$ service gluu-server-3.1.4 login`
 
-Then `cd` to the setup scripts directory and run `setup_casa.py`: 
+(or `gluu-serverd-3.1.4 start` for systemd based distros). Then `cd` to the setup scripts directory and run `setup_casa.py`: 
 
 ```
 # cd /install/community-edition-setup
