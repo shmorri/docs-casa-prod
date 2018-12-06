@@ -88,8 +88,8 @@ Here are some tips for applying your customizations:
     - cust-link-button  
     - cust-delete-button  
     - cust-primary-button  
-    - cust-secondary-button  
-    - cust-tertiary-button  
+    - cust-cancel-button  
+    - cust-misc-button  
     - cust-text-input  
     - cust-progress-bar  
    
