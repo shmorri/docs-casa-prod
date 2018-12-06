@@ -20,7 +20,7 @@ Click on `Custom branding` in the admin console, and choose `Upload images and p
 
 Once you supply your files, color values, and footer text, click on `Save` and see the changes take immediately by navigating to a different page or opening a new browser tab. Repeat the process till you get the combination that best matches your organization's look and feel.
 
-With "Primary buttons" we refer to the vast majority of buttons that trigger some action such as saving, updating or accepting - whether in the user pages or the admin UI itself.  "Tertiary" covers undo, close or cancel, and "Secondary" for anything that does not fit any of the previous usages. 
+With "Primary buttons" we refer to the vast majority of buttons that trigger some action such as saving, updating or accepting - whether in the user pages or the admin UI itself. "Cancel" covers undo, close or cancel, while "Misc" is for anything not fitting any of the previous usages.
 
 You can choose "Use defaults" if you feel comfortable with the [Bootstrap-like](https://getbootstrap.com/docs/4.0/components/buttons/) colors offered in Gluu Casa.
 
