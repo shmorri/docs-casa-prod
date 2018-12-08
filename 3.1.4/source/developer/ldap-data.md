@@ -49,8 +49,8 @@ If you have ever used the Java Persistence API (JPA), the term "object/relationa
 
 The framework allows to express (via annotations) the logical rules to store a Java object into LDAP, and the conversion (retrieval) of an entry into a Java object.
 
-!!! Note: 
-    We highly encourage to visit the persistence framework [docs](https://docs.ldap.com/ldap-sdk/docs/persist/index.html) now. The framework is very small so it's a short reading. Ensure you read the examples shown.
+!!! Note
+    We highly encourage to visit the persistence framework [docs](https://docs.ldap.com/ldap-sdk/docs/persist/index.html) now. The framework is very small so it's a short reading. Ensure you read the examples shown.  
     
 Now that you have the grasp of the framework, let's proceed with an example. Here, we will generate a POJO with the tool for this purpose, minimize it to fit a particular need, and put it to work on real data.
 

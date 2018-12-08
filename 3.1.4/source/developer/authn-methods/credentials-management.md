@@ -82,8 +82,8 @@ public class MyAuthnMethod implements AuthnMethod {
 
 Please take a while to check the javadocs of `AuthnMethod`.
 
-!!! Note:
-    Methods supported by default in Casa (u2f, otp, etc.) already follow the pattern of extensions. You can make direct analogies with the existing classes found in package `org.gluu.casa.plugins.authnmethod` and the one you are creating. The patterns to structure the code and do credential management can also be used as inspiration for you.
+!!! Note
+    Methods supported by default in Casa (u2f, otp, etc.) already follow the pattern of extensions. You can make direct analogies with the existing classes found in package `org.gluu.casa.plugins.authnmethod` and the one you are creating. The patterns to structure the code and do credential management can also be used as inspiration for you.  
     
 ### UI-related methods
 
@@ -196,8 +196,8 @@ Open a separate browsing session (if user admin is not the testing user), and ac
 
 Make adjustments as needed. It is useful to drop some logging statements in your code, specially when starting, it can save you some time with continuous redeployments.
 
-!!! Note:
-    In "[Tips for plugin development](../tips-development.md#skipping-package-and-deployment-phases)" you can find tricks to make your development cycle more agile.
+!!! Note
+    In "[Tips for plugin development](../tips-development.md#skipping-package-and-deployment-phases)" you can find tricks to make your development cycle more agile.  
 
 ## Credentials retrieval - part 2
 

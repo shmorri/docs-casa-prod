@@ -21,8 +21,8 @@ where `path` is the value supplied in step 2.
 
 By default, all services are anonymously accessible. In case you want to protect your endpoints, Casa allows you to do so by means of an OAuth token, that is, clients of the service must pass in the Authorization header of HTTP requests a valid bearer token. It must be obtained via an OpenID client registered in the underlying Gluu Server.
 
-!!! Note:
-    Registering OpenID clients and getting access tokens is out of the scope of this document, but you can check [this](https://tools.ietf.org/html/rfc6750) for a quick start.
+!!! Note
+    Registering OpenID clients and getting access tokens is out of the scope of this document, but you can check [this](https://tools.ietf.org/html/rfc6750) for a quick start.  
 
 To make a method protected, simply add the annotation `org.gluu.casa.rest.ProtectedApi` to it.
 

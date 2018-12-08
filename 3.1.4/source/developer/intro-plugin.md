@@ -373,8 +373,8 @@ If you reached this part of the document, you already have the background requir
 The following is a generic suggested flow for developing plugins once the [requirements](#requirements-and-tools) presented in the beginning of this document are met. It is assumed the goals to fulfil with your development are already clear for you:
 
 <!-- TODO
-!!! Note:
-    You can leverage the [maven archetype](./tips-development.md#bootstrap-a-plugin-using-an-archetype) to bootstrap the creation your project
+!!! Note
+    You can leverage the [maven archetype](./tips-development.md#bootstrap-a-plugin-using-an-archetype) to bootstrap the creation your project  
 -->
 
 1. Create a simple project in your development environment. Include `casa-shared` dependency (this will give you access to UI and plugin framework as well as other utilities). Create an empty resource bundle (labels file).    

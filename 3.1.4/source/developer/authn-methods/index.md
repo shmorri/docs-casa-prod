@@ -6,8 +6,8 @@ This page summarizes the steps to follow when adding a new authentication method
 
 Supporting a new authentication method consists of two tasks: coding a custom interception script and creating a plugin that contributes an authentication method extension point. Let's elaborate a bit on this.
 
-!!! Note:
-    Overall acquaintance with the Gluu Server will result in a more straightforward development process. 
+!!! Note
+    Overall acquaintance with the Gluu Server will result in a more straightforward development process.  
     
 ### Coding custom interception scripts
 

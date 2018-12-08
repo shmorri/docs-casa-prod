@@ -32,8 +32,8 @@ Ideally, plugin pages should leverage the existing look and feel of the applicat
 
 In addition, due to class `org.gluu.casa.core.navigation.PageInitiator` used by this template, an error page will be shown in case there is no user currently logged in or the session has expired.
 
-!!! Note:
-    If you want some plugin page to be accessed anonymously, you will have to create your own skeleton template.
+!!! Note
+    If you want some plugin page to be accessed anonymously, you will have to create your own skeleton template.  
 
 Particularly, the template allows page coders to define three named content fragments:
 
