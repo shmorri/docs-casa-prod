@@ -13,7 +13,7 @@ The Casa custom script supports a flow with backtracking capabilities. If a user
 
 As mentioned in the [introductory page](./index.md#coding-custom-interception-scripts), to include a custom authentication method, you need a custom script. The method's workflow does not need to handle credential enrollment, it just needs to focus on authentication.
 
-Once you have a working custom script, ensure the following preconditions are met so that it integrates seamlessly within Casa flow :
+Once you have a working custom script, ensure the following preconditions are met so that it integrates seamlessly within Casa flow:
 
 - For step 1, `prepareForStep` must only return `True`  
 - For step 1, `getExtraParametersForStep` must only return `None`  
@@ -48,4 +48,3 @@ Once both the script is enabled and at least one plugin installed, a new row wil
 Once you do that, a link for the enrollment page will appear under "2FA credentials" of user's menu:
 
 ![menu item added](../../img/developer/authn-methods/menu-2fa.png)
-
