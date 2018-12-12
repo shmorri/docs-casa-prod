@@ -28,7 +28,7 @@ Out-of-the-box, Casa can be used to manage the following types of free or low-co
 - Mobile phone numbers that can receive OTPs via SMS  
 - Passwords (only if stored in the corresponding Gluu Server's local LDAP. Not supported if the passwords are stored in a backend LDAP like AD)      
 
-Additional types of credentials or authentication mechanisms, for instance national ID's or other smart cards, could be supported via custom plugins. 
+Additional types of credentials or authentication mechanisms, for instance national ID cards or other smart cards, could be supported via custom plugins. 
 
 ### Enrollment APIs
 
