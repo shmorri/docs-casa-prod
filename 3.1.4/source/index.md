@@ -2,7 +2,23 @@
 
 ## Overview
 
-Gluu Casa ("Casa") is a user-facing web application people can use to enroll, delete and manage their strong credentials in the [Gluu Server](https://gluu.org).
+Gluu Casa ("Casa") is a user-facing web application people can use to self-service specific personal data residing in the [Gluu Server](https://gluu.org/docs/ce) authentication and authorization system. 
+
+For instance, you may want to give people the ability to do things like:
+
+- Enroll, delete and manage their 2FA credentials, e.g. U2F keys, mobile apps, phone numbers and more;
+- Turn 2FA on and off
+- View and manage which apps have been authorized to access their personal data
+
+Casa provides a web portal for people to perform these functions and more. 
+
+## Plugin Oriented
+
+Casa is a plugin-oriented, java web application. Existing functionality can be extended, and new functionality and APIs can be introduced through plugins. 
+
+## Two-factor authentication
+
+The core use case for Casa is self-service management of two-factor authentication credentials. If people need to call the IT helpdesk every time they get a new phone or security key, rolling out strong authentication becomes prohibitively expensive. 
 
 Out-of-the-box, Casa can be used to manage the following types of free or low-cost authentication mechanisms:    
 
@@ -11,7 +27,22 @@ Out-of-the-box, Casa can be used to manage the following types of free or low-co
 - OTP mobile apps (like Google Authenticator, FreeOTP, etc.)    
 - Mobile phone numbers that can receive OTPs via SMS  
 - Passwords (only if stored in the corresponding Gluu Server's local LDAP. Not supported if the passwords are stored in a backend LDAP like AD)      
-  
+
+
+### Enrollment APIs
+
+Casa offers APIs for enrolling phone numbers, OTP apps, and Super Gluu devices. The APIs can be handy for embedding strong credential enrollment into account registration processes, or elsewhere in an application ecosystem where it might be preferable to enroll strong credentials. 
+
+## Other use cases
+
+As a user-facing portal, Casa is an ideal place to offer self-service functionalities for other AA-specific action items. In addition to authentication, Casa is a good place to offer people the ability to perform:
+
+- Account linking
+- Request client IDs and secret for application development
+- Request elevated scopes
+
+These are just a few places where Casa can be useful. 
+
 ## Gluu Server Integration
 Casa is tightly coupled with the [Gluu Server](https://gluu.org/docs/ce) authentication and authorization platform. A few important notes:
 
