@@ -86,7 +86,7 @@ Predefined 2FA policy options include:
 - Prompt for 2FA when users' device is unrecognized
 - Allow the user to set their own strong authentication policy
 
-The default policy is to enforce 2FA for every login attempt. If the admin opts to allow users to manager their own policy, a new widget will appear in the user-facing dashboard as described in the [user guide](../user-guide.md#2fa-settings-trusted-devices). 
+The default policy is to enforce 2FA for every login attempt. If the admin opts to allow users to manager their own policy, a new widget will appear in the user-facing dashboard as described in the [user guide](../user-guide.md#2fa-settings--trusted-devices). 
 
 ## Pass reset config
 
