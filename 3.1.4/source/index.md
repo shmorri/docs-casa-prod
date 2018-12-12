@@ -2,7 +2,7 @@
 
 ## Overview
 
-Gluu Casa ("Casa") is a user-facing web application people can use to self-service specific personal data residing in the [Gluu Server](https://gluu.org/docs/ce) authentication and authorization system. 
+Gluu Casa ("Casa") is a user-facing web application people can use to self-service specific personal data residing in the [Gluu Server](https://gluu.org/docs/ce) authentication and authorization (AA) system. 
 
 For instance, you may want to give people the ability to do things like:
 
