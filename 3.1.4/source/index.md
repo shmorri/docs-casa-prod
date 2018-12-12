@@ -52,5 +52,5 @@ Use the following links to get started with Casa:
 - [Home](./developer/index.md)
 
 ## License
-Gluu Casa is licensed under the free open source [MIT License](https://github.com/GluuFederation/casa/blob/master/LICENSE). 
+Gluu Casa is licensed under the commercial [Gluu License Agreement for Gluu Casa](https://github.com/GluuFederation/casa/blob/master/LICENSE.md). 
 
