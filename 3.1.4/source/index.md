@@ -2,9 +2,9 @@
 
 ## Overview
 
-Gluu Casa is a user-facing application people can use to enroll, delete and manage their strong credentials in the [Gluu Server](https://gluu.org).
+Casa is a user-facing application people can use to enroll, delete and manage their strong credentials in the [Gluu Server](https://gluu.org).
 
-Out-of-the-box, Gluu Casa supports the following free or low-cost authentication mechanisms:    
+Out-of-the-box, Casa can be used to manage the following types of free or low-cost authentication mechanisms:    
 
 - U2F security keys (like [Yubikeys](https://www.yubico.com/products/yubikey-hardware/))    
 - Gluu's free and secure U2F mobile app, [Super Gluu](https://super.gluu.org)   
