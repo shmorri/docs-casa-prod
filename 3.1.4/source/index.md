@@ -38,11 +38,11 @@ Casa offers APIs for enrolling phone numbers, OTP apps, and Super Gluu devices. 
 
 As a user-facing portal, Casa is an ideal place to offer self-service functionalities for other AA-specific information. For instance, Casa can be used to offer people the ability to perform:
 
-- Account linking
-- Request client IDs and secret for application development
-- Request elevated scopes
+- Account linking with external providers 
+- Request client IDs and secrets for application development
+- Request privileged scopes for specific client IDs
 
-These are just a few places where Casa can be used. 
+These are just a few types of solutions Casa can enable.
 
 ## Gluu Server Integration
 Casa is tightly coupled with the [Gluu Server](https://gluu.org/docs/ce). A few important notes:
