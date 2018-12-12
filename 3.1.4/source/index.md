@@ -28,20 +28,21 @@ Out-of-the-box, Casa can be used to manage the following types of free or low-co
 - Mobile phone numbers that can receive OTPs via SMS  
 - Passwords (only if stored in the corresponding Gluu Server's local LDAP. Not supported if the passwords are stored in a backend LDAP like AD)      
 
+Additional types of credentials or authentication mechanisms, for instance national ID's or other smart cards, could be supported via custom plugins. 
 
 ### Enrollment APIs
 
-Casa offers APIs for enrolling phone numbers, OTP apps, and Super Gluu devices. The APIs can be handy for embedding strong credential enrollment into account registration processes, or elsewhere in an application ecosystem where it might be preferable to prompt people to enroll strong credentials. 
+Casa offers APIs for enrolling phone numbers, OTP apps, and Super Gluu devices. The APIs can be handy for adding strong credential enrollment into account registration processes, or elsewhere in an application ecosystem where it might be preferable to prompt people to enroll strong credentials. 
 
 ## Other use cases
 
-As a user-facing portal, Casa is an ideal place to offer self-service functionalities for other AA-specific action items. In addition to authentication, Casa is a good place to offer people the ability to perform:
+As a user-facing portal, Casa is an ideal place to offer self-service functionalities for other AA-specific information. For instance, Casa can be used to offer people the ability to perform:
 
 - Account linking
 - Request client IDs and secret for application development
 - Request elevated scopes
 
-These are just a few places where Casa can be useful. 
+These are just a few places where Casa can be used. 
 
 ## Gluu Server Integration
 Casa is tightly coupled with the [Gluu Server](https://gluu.org/docs/ce). A few important notes:
@@ -50,7 +51,7 @@ Casa is tightly coupled with the [Gluu Server](https://gluu.org/docs/ce). A few 
 
 - **Authentication scripts**: The Gluu Server leverages "interception scripts" to implement the user authentication process. For each type of 2FA credential that should be manageable in Casa (e.g. U2F keys, OTP apps, etc.), the corresponding authentication script **must be** enabled in Gluu. 
 
-- **oxd**: Casa leverages the [oxd](https://oxd.gluu.org) OAuth 2.0 client software to leverage the Gluu Server for authentication. Casa can use an existing oxd server, or a new instance of oxd can be deployed during [Gluu Casa installation](./administration/installation.md). 
+- **oxd**: Casa uses the [oxd](https://oxd.gluu.org) OAuth 2.0 client software to leverage the Gluu Server for authentication. Casa can use an existing oxd server, or a new instance of oxd can be deployed during [Gluu Casa installation](./administration/installation.md). 
 
 More information is available in the Admin Guide, linked [below](#admin-guide).
 
