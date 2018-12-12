@@ -44,13 +44,15 @@ As a user-facing portal, Casa is an ideal place to offer self-service functional
 These are just a few places where Casa can be useful. 
 
 ## Gluu Server Integration
-Casa is tightly coupled with the [Gluu Server](https://gluu.org/docs/ce) authentication and authorization platform. A few important notes:
+Casa is tightly coupled with the [Gluu Server](https://gluu.org/docs/ce). A few important notes:
 
-- **Same host**: By default, Casa must be installed on the same server (host) as a Gluu Server. 
+- **Same host**: Casa must be installed on the same server (host) as its corresponding Gluu Server. For example, if your Gluu Server is deployed on `https://accounts.mydomain.com` , casa should reside on the same host, for instance at `https://accounts.mydomain.com/myaccount` 
 
-- **Authentication scripts**: Gluu leverages "interception scripts" to implement user authentication. For each type of 2FA credential that should be manageable in Casa (e.g. U2F keys, OTP apps, etc.), the corresponding authentication script **must be** enabled in Gluu. Learn more about how authentication happens in the [Gluu documentation](https://gluu.org/docs/ce/authn-guide/intro/).  
+- **Authentication scripts**: The Gluu Server leverages "interception scripts" to implement the user authentication process. For each type of 2FA credential that should be manageable in Casa (e.g. U2F keys, OTP apps, etc.), the corresponding authentication script **must be** enabled in Gluu. 
 
-- **oxd**: Casa leverages Gluu's OAuth 2.0 client software, [oxd](https://oxd.gluu.org), to integrate with the Gluu Server. Casa can leverage an existing oxd server, or a new instance of oxd can be deployed during [Gluu Casa installation](./administration/installation.md). 
+- **oxd**: Casa leverages the [oxd](https://oxd.gluu.org) OAuth 2.0 client software to leverage the Gluu Server for authentication. Casa can use an existing oxd server, or a new instance of oxd can be deployed during [Gluu Casa installation](./administration/installation.md). 
+
+More information is available in the Admin Guide, linked [below](#admin-guide).
 
 ## User Roles
 
