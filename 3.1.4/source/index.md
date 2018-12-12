@@ -2,7 +2,7 @@
 
 ## Overview
 
-Gluu Casa ("Casa") is a user-facing application people can use to enroll, delete and manage their strong credentials in the [Gluu Server](https://gluu.org).
+Gluu Casa ("Casa") is a user-facing web application people can use to enroll, delete and manage their strong credentials in the [Gluu Server](https://gluu.org).
 
 Out-of-the-box, Casa can be used to manage the following types of free or low-cost authentication mechanisms:    
 
