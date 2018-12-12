@@ -6,7 +6,7 @@ Gluu Casa ("Casa") is a user-facing web application people can use to self-servi
 
 For instance, you may want to give people the ability to do things like:
 
-- Enroll, delete and manage their two-factor authentication (2FA) credentials, e.g. U2F keys, mobile apps, phone numbers and more;
+- Enroll, delete and manage their two-factor authentication (2FA) credentials, e.g. U2F keys, mobile apps, phone numbers and more
 - Turn 2FA on and off
 - View and manage which apps have been authorized to access their personal data
 
