@@ -6,7 +6,7 @@ Gluu Casa ("Casa") is a user-facing web application people can use to self-servi
 
 For instance, you may want to give people the ability to do things like:
 
-- Enroll, delete and manage their 2FA credentials, e.g. U2F keys, mobile apps, phone numbers and more;
+- Enroll, delete and manage their two-factor authentication (2FA) credentials, e.g. U2F keys, mobile apps, phone numbers and more;
 - Turn 2FA on and off
 - View and manage which apps have been authorized to access their personal data
 
@@ -18,7 +18,7 @@ Casa is a plugin-oriented, java web application. Existing functionality can be e
 
 ## Two-factor authentication
 
-The core use case for Casa is self-service management of two-factor authentication credentials. If people need to call the IT helpdesk every time they get a new phone or security key, rolling out strong authentication becomes prohibitively expensive. 
+The core use case for Casa is self-service management of 2FA credentials. If people need to call the IT helpdesk every time they get a new phone or security key, rolling out strong authentication becomes prohibitively expensive. 
 
 Out-of-the-box, Casa can be used to manage the following types of free or low-cost authentication mechanisms:    
 
@@ -31,7 +31,7 @@ Out-of-the-box, Casa can be used to manage the following types of free or low-co
 
 ### Enrollment APIs
 
-Casa offers APIs for enrolling phone numbers, OTP apps, and Super Gluu devices. The APIs can be handy for embedding strong credential enrollment into account registration processes, or elsewhere in an application ecosystem where it might be preferable to enroll strong credentials. 
+Casa offers APIs for enrolling phone numbers, OTP apps, and Super Gluu devices. The APIs can be handy for embedding strong credential enrollment into account registration processes, or elsewhere in an application ecosystem where it might be preferable to prompt people to enroll strong credentials. 
 
 ## Other use cases
 
