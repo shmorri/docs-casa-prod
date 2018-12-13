@@ -60,10 +60,21 @@ To make each person's 2FA preference in Casa, the default authentication mechani
 
 Once the applicable interception scripts are enabled in Gluu, a Casa admin can enable 2FA mechanisms in the `Enable methods` interface. Check the box for each type of authentication method users should be able to self-service in Casa. You can assign the handler [plugin](#plugins) for each method. Choose "System" to use the default implementation provided by the application.
 
+The System handler plugin supports four authentication methods: 
+- OTP SMS
+- OTP (handling mobile apps and hard tokens)
+- security keys
+- Super Gluu. 
+
+Developers can provide their own custom handler plugins that add or override the authentication methods in the System plugin.
+
 ![enabled-2fa-methods](../img/admin-console/enabled-2FA-methods.png)
 
-In their home page, users will see widgets for every available method. These widgets are listed in decreasing order of level, that is, the first method shown will be that with the highest level assigned in its corresponding interception script.
+In their home page, users will see widgets for every available method. These widgets are listed in decreasing order of ACR level. That is, the first method shown will be that with the highest level assigned in its corresponding interception script, and therefore the most secure.
 
+!!! Important  
+    Once users have enrolled credentials for a specific authentication method (e.g. SMS OTP) in Casa, the administrator cannot deactivate that method.  
+    
 ### Testing 
 
 A recommended practice is to enable one script in the Gluu Server (like U2F), then enable the associated method in Casa. Test and confirm that enrollment and authentication is working as expected, then continue adding other desired 2FA methods. In an incognito browser, employ a user other than `admin` to test enrollments each time a new method is added. This will prevent the `admin` user from being accidentally locked out.
