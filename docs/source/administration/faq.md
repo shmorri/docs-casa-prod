@@ -82,24 +82,6 @@ Once fixed, please restart the application. You will have to see a "WEBAPP INITI
 
 Ensure the host provided is accessible from the server where Casa is installed. Check the port corresponding to the HTTPS port you have set in the `oxd-https.yml`. The SSL certificate used to "secure" the extension extension must be issued by a CA. If it is a self-signed one, you **have** to import it to the Java *cacerts* keystore of the Casa server.
 
-## Strong authentication methods
-
-### A previously enabled method is not available anymore
-
-If for some reason you disabled the custom script of an authentication method used by Casa, such method will not be available for enrollment or authentication until you enable both the custom script (in oxTrust) and the method (in Casa admin dashboard).
-
-### Authentication fails when using TOTP or HOTP with no apparent reason
-
-For Time-based OTP, ensure the time of your server is correctly synchronized (use NTP for instance). The time lag of the authentication device used (for instance, a mobile phone) with respect to server time should not be representative. 
-
-Big time differences can cause unsuccessful attempts to enroll TOTP credentials in Casa.
-
-For Event-based OTP (HOTP), ensure you are using a suitable value for `look ahead window` (we suggest at least 10). Check contents of file `/etc/certs/otp_configuration.json`. If you appy editions, it is recommended to press the "Update" button of the "Manage Custom Scripts" form in oxTrust and wait a couple of minutes before retrying.
-
-### What are the algorithms supported for TOTP?
-
-HmacSHA1, HmacSHA256, and HmacSHA512.
-
 ## oxd
 
 ### In case of lockout
@@ -125,6 +107,22 @@ In order to ensure authentication scripts are properly configured in Gluu, it is
 !!! Note  
     Learn more about how the Gluu Server handles authentication in the [user authentication intro](https://www.gluu.org/docs/ce/authn-guide/intro). In addition, to learn more about how custom interception scripts work, review the [custom script tutorial](https://www.gluu.org/docs/ce/admin-guide/custom-script).  
  
+
+### A previously enabled method is not available anymore
+
+If for some reason you disabled the custom script of an authentication method used by Casa, such method will not be available for enrollment or authentication until you enable both the custom script (in oxTrust) and the method (in Casa admin dashboard).
+
+### Authentication fails when using TOTP or HOTP with no apparent reason
+
+For Time-based OTP, ensure the time of your server is correctly synchronized (use NTP for instance). The time lag of the authentication device used (for instance, a mobile phone) with respect to server time should not be representative. 
+
+Big time differences can cause unsuccessful attempts to enroll TOTP credentials in Casa.
+
+For Event-based OTP (HOTP), ensure you are using a suitable value for `look ahead window` (we suggest at least 10). Check contents of file `/etc/certs/otp_configuration.json`. If you apply editions, it is recommended to press the "Update" button of the "Manage Custom Scripts" form in oxTrust and wait a couple of minutes before retrying.
+
+### What are the algorithms supported for TOTP?
+
+HmacSHA1, HmacSHA256, and HmacSHA512.
 
 ### U2F keys enrolling not working from within Casa
 
