@@ -47,7 +47,6 @@ To enable authentication methods in Gluu, open oxTrust and navigate to  `Configu
 
 To confirm script functionality, or if issues arise, check the [troubleshooting doc](./faq.md#troubleshooting-interception-scripts) in the FAQ.
 
-It is advisable to refresh the interception script of Casa every time new methods are enabled. This will help the script parse configurations of the accompanying scripts. For instance, you can disable and re-enable Casa script, or do some harmless edit to the script contents, such as adding a new line or white space at the end. 
 
 ### Set Default Authentication Method (Gluu)
 With the Casa authentication script enabled in the Gluu Server, OpenID Connect clients can now request Casa authentication (i.e. each user's 2FA preference) using the standard OpenID Connect `acr_value`. 
@@ -59,6 +58,9 @@ To make each person's 2FA preference in Casa, the default authentication mechani
 ### Configure Casa
 
 Once the applicable interception scripts are enabled in Gluu, a Casa admin can enable 2FA mechanisms in the `Enable methods` interface. Check the box for each type of authentication method users should be able to self-service in Casa. You can assign the handler [plugin](#plugins) for each method. Choose "System" to use the default implementation provided by the application.
+
+!!! Warning
+    It may take up to 2 minutes for a method to appear in the enabled methods list of Casa after its corresponding custom script has been activated in oxTrust. 
 
 The System handler plugin supports four authentication methods: 
 - OTP SMS
