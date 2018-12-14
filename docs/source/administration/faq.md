@@ -86,7 +86,7 @@ Ensure the host provided is accessible from the server where Casa is installed. 
 
 ### In case of lockout
 
-If for any reason an update to oxd settings results in lockout, do the following:
+If for any reason an update to oxd settings results in lockout, or if you provided wrong data during installation, do the following:
 
 * Navigate to `/etc/gluu/conf`
 * Edit the config file of the application `casa.json`. Provide the oxd details in under the "oxd_config" section. If you are not sure of what to provide for the "client" section, you can remove it entirely
