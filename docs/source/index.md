@@ -12,7 +12,7 @@ For example, people may need to do things like:
 
 ## Two-factor authentication
 
-The core use case for Casa is self-service management of 2FA credentials. If people need to call the helpdesk every time they get a new phone or security key, rolling out strong authentication becomes prohibitively expensive. 
+The core use case for Casa is self-service 2FA. If people need to call the helpdesk every time they get a new phone or security key, rolling out strong authentication becomes prohibitively expensive. 
 
 Out-of-the-box, Casa can be used to enroll and manage the following types of authenticators:    
 
