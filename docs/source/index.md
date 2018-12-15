@@ -49,11 +49,11 @@ Casa is tightly coupled with the [Gluu Server](https://gluu.org/docs/ce). A few 
 
 - **Same host**: Casa must be installed on the same server (host) as its corresponding Gluu Server. For example, if your Gluu Server is deployed on `https://accounts.mydomain.com` , casa should reside on the same host, for instance at `https://accounts.mydomain.com/signinoptions` 
 
-- **Authentication scripts**: The Gluu Server leverages "interception scripts" to implement the user authentication process. For each type of 2FA credential that should be manageable in Casa (e.g. U2F keys, OTP apps, etc.), the corresponding authentication script **must be** enabled in Gluu. 
+- **Authentication scripts**: The Gluu Server leverages "interception scripts" to implement the user authentication process. For each type of authenticator that is manageable in Casa (e.g. U2F keys, OTP apps, etc.), its corresponding authentication script **must be** enabled in Gluu. 
 
 - **oxd**: Casa uses the [oxd](https://oxd.gluu.org) OAuth 2.0 client software to leverage the Gluu Server for authentication. Casa can use an existing oxd server, or a new instance of oxd can be deployed during [Gluu Casa installation](./administration/installation.md). 
 
-More information is available in the Admin Guide, linked [below](#admin-guide).
+More detailed information is available in the Admin Guide, linked [below](#admin-guide).
 
 ## User roles
 
@@ -86,5 +86,5 @@ Use the following links to get started with Casa:
 - [Home](./developer/index.md)
 
 ## License
-Gluu Casa is licensed under the commercial [Gluu License Agreement for Gluu Casa](https://github.com/GluuFederation/casa/blob/master/LICENSE.md). 
+Gluu Casa is made available under the commercial [Gluu License Agreement for Gluu Casa](https://github.com/GluuFederation/casa/blob/master/LICENSE.md). 
 
