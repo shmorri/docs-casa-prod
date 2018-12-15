@@ -63,7 +63,7 @@ There are two types of users in Gluu Casa:
 
 - **Regular users**: Any user in the Gluu Server. 
 
-Admin users have access to the Casa [admin console](./administration/admin-console.md). All users can manage their 2FA credentials in Casa, as outlined in the [user guide](./user-guide.md)
+Admin users have access to the Casa [admin console](./administration/admin-console.md). All users can manage their 2FA credentials, as outlined in the [user guide](./user-guide.md).  
 
 ## Get started
 
