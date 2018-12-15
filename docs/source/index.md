@@ -2,7 +2,7 @@
 
 ## Overview
 
-Organizations deploy Gluu Casa ("Casa") to offer people a self-service portal for managing their data in the organization's [Gluu Server](https://gluu.org/docs/ce) authentication and authorization (AA) system. 
+Organizations deploy Gluu Casa ("Casa") to offer people a self-service portal for managing their data in the organization's [Gluu Server](https://gluu.org/docs/ce) authentication and authorization system. 
 
 For example, people may need to do things like:
 
