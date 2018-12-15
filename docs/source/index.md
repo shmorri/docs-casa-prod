@@ -18,7 +18,7 @@ Out-of-the-box, Casa can be used to enroll and manage the following types of aut
 
 - U2F security keys (like [Yubikeys](https://www.yubico.com/products/yubikey-hardware/))    
 - Gluu's U2F push-notification mobile app, [Super Gluu](https://super.gluu.org)   
-- OTP mobile apps like Google Authenticator, FreeOTP, etc.      
+- OTP cards and mobile apps like Google Authenticator, FreeOTP, etc.      
 - Mobile phone numbers able to receive OTPs via SMS   
 - Passwords (if stored in the corresponding Gluu Server's local LDAP, i.e. not a backend LDAP like AD)      
 
