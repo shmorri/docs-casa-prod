@@ -2,52 +2,52 @@
 
 ## Overview
 
-Gluu Casa ("Casa") is a user-facing web application people can use to self-service specific personal data residing in the [Gluu Server](https://gluu.org/docs/ce) authentication and authorization (AA) system. 
+Organizations deploy Gluu Casa ("Casa") to offer their people a self-service portal for managing specific personal data in the organization's [Gluu Server](https://gluu.org/docs/ce) authentication and authorization (AA) system. 
 
-For instance, you may want to give people the ability to do things like:
+For example, people may need to do things like:
 
-- Enroll, delete and manage their two-factor authentication (2FA) credentials, e.g. U2F keys, mobile apps, phone numbers and more
+- Enroll, delete and manage their two-factor authentication (2FA) credentials (e.g. U2F keys, mobile apps, phone numbers)
 - Turn 2FA on and off
-- View and manage which apps have been authorized to access what personal data
-
-Casa provides a web portal for people to perform these functions and more. 
-
-## Plugin Oriented
-
-Casa is a plugin-oriented, java web application. Existing functionality can be extended, and new functionality and APIs can be introduced through plugins. 
+- View and manage which apps are authorized to access what personal data
 
 ## Two-factor authentication
 
-The core use case for Casa is self-service management of 2FA credentials. If people need to call the IT helpdesk every time they get a new phone or security key, rolling out strong authentication becomes prohibitively expensive. 
+The core use case for Casa is self-service management of 2FA credentials. If people need to call the helpdesk every time they get a new phone or security key, rolling out strong authentication becomes prohibitively expensive. 
 
-Out-of-the-box, Casa can be used to manage the following types of free or low-cost authentication mechanisms:    
+Out-of-the-box, Casa can be used to manage the following types of authentication mechanisms:    
 
 - U2F security keys (like [Yubikeys](https://www.yubico.com/products/yubikey-hardware/))    
-- Gluu's free and secure U2F mobile app, [Super Gluu](https://super.gluu.org)   
-- OTP mobile apps (like Google Authenticator, FreeOTP, etc.)    
-- Mobile phone numbers that can receive OTPs via SMS  
-- Passwords (only if stored in the corresponding Gluu Server's local LDAP. Not supported if the passwords are stored in a backend LDAP like AD)      
+- Gluu's U2F push-notification mobile app, [Super Gluu](https://super.gluu.org)   
+- OTP mobile apps like Google Authenticator, FreeOTP, etc.      
+- Mobile phone numbers able to receive OTPs via SMS   
+- Passwords (if stored in the corresponding Gluu Server's local LDAP, i.e. not a backend LDAP like AD)      
 
-Additional types of credentials or authentication mechanisms, for instance national ID cards or other smart cards, could be supported via custom plugins. 
+Additional authentication mechanisms, for instance national ID cards, could be supported via [custom plugins](#plugin-oriented). 
 
 ### Enrollment APIs
 
-Casa offers APIs for enrolling phone numbers, OTP apps, and Super Gluu devices. The APIs can be handy for adding strong credential enrollment into account registration processes, or elsewhere in an application ecosystem where it might be preferable to prompt people to enroll strong credentials. 
+Casa offers APIs for enrolling phone numbers, OTP apps, and Super Gluu devices. APIs can be leveraged to build strong credential enrollment into an account registration process, or elsewhere in an application ecosystem where it might be more convenient for people to enroll their strong credentials. Learn more in the [developer guide](../developer/index.md#apis-for-credential-enrollment).  
 
-## Other use cases
+## Plugin oriented
 
-As a user-facing portal, Casa is an ideal place to offer self-service functionalities for other AA-specific information. For instance, Casa can be used to offer people the ability to perform:
+Casa is a plugin-oriented, java web application. Existing functionality can be extended and new functionality and APIs can be introduced through plugins. Learn more in the [developer guide](../developer/index.md).
 
-- Account linking with external providers 
-- Request client IDs and secrets for application development
-- Request privileged scopes for specific client IDs
+### Existing plugins
+Gluu has written a number of plugins to extend Casa, including plugins for:
 
-These are just a few types of solutions Casa can enable.
+- Consent management 
+- Custom branding  
+- 2FA settings  
+- Account linking 
+- Developer portal
 
-## Gluu Server Integration
+For a full list of plugins and more information on each, visit the [Casa website](https://casa.gluu.org/plugins). 
+
+## Gluu Server integration
+
 Casa is tightly coupled with the [Gluu Server](https://gluu.org/docs/ce). A few important notes:
 
-- **Same host**: Casa must be installed on the same server (host) as its corresponding Gluu Server. For example, if your Gluu Server is deployed on `https://accounts.mydomain.com` , casa should reside on the same host, for instance at `https://accounts.mydomain.com/myaccount` 
+- **Same host**: Casa must be installed on the same server (host) as its corresponding Gluu Server. For example, if your Gluu Server is deployed on `https://accounts.mydomain.com` , casa should reside on the same host, for instance at `https://accounts.mydomain.com/signinoptions` 
 
 - **Authentication scripts**: The Gluu Server leverages "interception scripts" to implement the user authentication process. For each type of 2FA credential that should be manageable in Casa (e.g. U2F keys, OTP apps, etc.), the corresponding authentication script **must be** enabled in Gluu. 
 
@@ -55,7 +55,7 @@ Casa is tightly coupled with the [Gluu Server](https://gluu.org/docs/ce). A few 
 
 More information is available in the Admin Guide, linked [below](#admin-guide).
 
-## User Roles
+## User roles
 
 There are two types of users in Gluu Casa:
 
@@ -65,7 +65,7 @@ There are two types of users in Gluu Casa:
 
 Admin users have access to the Casa [admin console](./administration/admin-console.md). All users can manage their 2FA credentials in Casa. 
 
-## Get Started
+## Get started
 
 Use the following links to get started with Casa:  
 
