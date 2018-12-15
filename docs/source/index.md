@@ -26,11 +26,11 @@ Additional authenticators, for instance national ID cards, could be supported vi
 
 ### Enrollment APIs
 
-Casa offers APIs for enrolling phone numbers, OTP apps, and Super Gluu devices. APIs can be leveraged to build strong credential enrollment into an account registration process or elsewhere in an application ecosystem. Learn more in the [developer guide](../developer/index.md#apis-for-credential-enrollment).  
+Casa offers APIs for enrolling phone numbers, OTP apps, and Super Gluu devices. APIs can be leveraged to build strong credential enrollment into an account registration process or elsewhere in an application ecosystem. Learn more in the [developer guide](./developer/index.md#apis-for-credential-enrollment).  
 
 ## Plugin oriented
 
-Casa is a plugin-oriented, java web application. Existing functionality can be extended and new functionality and APIs can be introduced through plugins. Learn more in the [developer guide](../developer/index.md).
+Casa is a plugin-oriented, java web application. Existing functionality can be extended and new functionality and APIs can be introduced through plugins. Learn more in the [developer guide](./developer/index.md).
 
 ### Existing plugins
 Gluu has written a number of plugins to extend Casa, including plugins for:
@@ -63,7 +63,7 @@ There are two types of users in Gluu Casa:
 
 - **Regular users**: Any user in the Gluu Server. 
 
-Admin users have access to the Casa [admin console](./administration/admin-console.md). All users can manage their 2FA credentials in Casa. 
+Admin users have access to the Casa [admin console](./administration/admin-console.md). All users can manage their 2FA credentials in Casa, as outlined in the [user guide](./user-guide.md)
 
 ## Get started
 
