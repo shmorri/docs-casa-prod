@@ -39,7 +39,7 @@ Gluu has written a number of plugins to extend Casa, including plugins for:
 - Custom branding  
 - 2FA settings  
 - Account linking 
-- Developer portal
+- Developer portal (coming soon!)
 
 For a full list of plugins and more information on each, visit the [Casa website](https://casa.gluu.org/plugins). 
 
