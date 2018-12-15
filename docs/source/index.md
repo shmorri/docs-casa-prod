@@ -41,7 +41,7 @@ Gluu has written a number of plugins to extend Casa, including plugins for:
 - Account linking 
 - Developer portal (*coming soon!*)
 
-For a full list of plugins and more information on each, visit the [Casa website](https://casa.gluu.org/plugins). 
+For a full list of plugins and information on each, visit the [Casa website](https://casa.gluu.org/plugins). 
 
 ## Gluu Server integration
 
