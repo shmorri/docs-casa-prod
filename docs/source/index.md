@@ -14,7 +14,7 @@ For example, people may need to do things like:
 
 The core use case for Casa is self-service management of 2FA credentials. If people need to call the helpdesk every time they get a new phone or security key, rolling out strong authentication becomes prohibitively expensive. 
 
-Out-of-the-box, Casa can be used to manage the following types of authentication mechanisms:    
+Out-of-the-box, Casa can be used to enroll and manage the following types of authenticators:    
 
 - U2F security keys (like [Yubikeys](https://www.yubico.com/products/yubikey-hardware/))    
 - Gluu's U2F push-notification mobile app, [Super Gluu](https://super.gluu.org)   
