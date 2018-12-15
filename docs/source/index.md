@@ -26,7 +26,7 @@ Additional authenticators, for instance national ID cards, could be supported vi
 
 ### Enrollment APIs
 
-Casa offers APIs for enrolling phone numbers, OTP apps, and Super Gluu devices. APIs can be leveraged to build strong credential enrollment into an account registration process, or elsewhere in an application ecosystem where it might be more convenient for people to enroll their strong credentials. Learn more in the [developer guide](../developer/index.md#apis-for-credential-enrollment).  
+Casa offers APIs for enrolling phone numbers, OTP apps, and Super Gluu devices. APIs can be leveraged to build strong credential enrollment into an account registration process, or elsewhere in an application ecosystem that might be more convenient for people to enroll strong credentials. Learn more in the [developer guide](../developer/index.md#apis-for-credential-enrollment).  
 
 ## Plugin oriented
 
