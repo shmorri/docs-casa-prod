@@ -22,7 +22,7 @@ Out-of-the-box, Casa can be used to enroll and manage the following types of aut
 - Mobile phone numbers able to receive OTPs via SMS   
 - Passwords (if stored in the corresponding Gluu Server's local LDAP, i.e. not a backend LDAP like AD)      
 
-Additional authentication mechanisms, for instance national ID cards, could be supported via [custom plugins](#plugin-oriented). 
+Additional authenticators, for instance national ID cards, could be supported via [custom plugins](#plugin-oriented). 
 
 ### Enrollment APIs
 
