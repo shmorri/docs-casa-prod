@@ -30,7 +30,7 @@ Casa offers APIs for enrolling phone numbers, OTP apps, and Super Gluu devices. 
 
 ## Plugin oriented
 
-Casa is a plugin-oriented, java web application. Existing functionality can be extended and new functionality and APIs can be introduced through plugins. Learn more in the [developer guide](./developer/index.md).
+Casa is a plugin-oriented, Java web application. Existing functionality can be extended and new functionality and APIs can be introduced through plugins. Learn more in the [developer guide](./developer/index.md).
 
 ### Existing plugins
 Gluu has written a number of plugins to extend Casa, including plugins for:
@@ -47,11 +47,11 @@ For a full list of plugins and information on each, visit the [Casa website](htt
 
 Casa is tightly coupled with the [Gluu Server](https://gluu.org/docs/ce). A few important notes:
 
-- **Same host**: Casa must be installed on the same server (host) as its corresponding Gluu Server. For example, if your Gluu Server is deployed on `https://accounts.mydomain.com` , casa should reside on the same host, for instance at `https://accounts.mydomain.com/signinoptions` 
+- **Same host**: Casa must be installed on the same server (host) as its corresponding Gluu Server. For example, if your Gluu Server is deployed on `https://accounts.mydomain.com` , Casa should reside on the same host, for instance at `https://accounts.mydomain.com/signinoptions` 
 
-- **Authentication scripts**: The Gluu Server leverages "interception scripts" to implement the user authentication process. For each type of authenticator that is manageable in Casa (e.g. U2F keys, OTP apps, etc.), its corresponding authentication script **must be** enabled in Gluu. 
+- **Authentication scripts**: The Gluu Server leverages "interception scripts" to implement the user authentication process. For each type of authenticator that is manageable in Casa (e.g. U2F keys, OTP apps, etc.), its corresponding authentication script **must be** enabled in Gluu  
 
-- **oxd**: Casa uses the [oxd](https://oxd.gluu.org) OAuth 2.0 client software to leverage the Gluu Server for authentication. Casa can use an existing oxd server, or a new instance of oxd can be deployed during [Gluu Casa installation](./administration/installation.md). 
+- **oxd**: Casa uses the [oxd](https://oxd.gluu.org) OAuth 2.0 client software to leverage the Gluu Server for authentication. Casa can use an existing oxd server, or a new instance of oxd can be deployed during [Gluu Casa installation](./administration/installation.md)  
 
 More detailed information is available in the Admin Guide, linked [below](#admin-guide).
 
@@ -59,9 +59,9 @@ More detailed information is available in the Admin Guide, linked [below](#admin
 
 There are two types of users in Gluu Casa:
 
-- **Admin users**: Any user in the `Managers Group` in the Gluu Server. 
+- **Admin users**: Any user in the `Managers Group` in the Gluu Server   
 
-- **Regular users**: Any user in the Gluu Server. 
+- **Regular users**: Any user in the Gluu Server  
 
 Admin users have access to the Casa [admin console](./administration/admin-console.md). All users can manage their 2FA credentials, as outlined in the [user guide](./user-guide.md).  
 
