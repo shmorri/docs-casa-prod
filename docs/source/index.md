@@ -28,22 +28,24 @@ Out-of-the-box, Casa can be used to enroll and manage the following authenticato
 
 Additional authenticators and use cases can be supported via [custom plugins](#plugin-oriented). 
 
-### Enrollment APIs
+## 2FA Enrollment APIs
 
-APIs are available for enrolling: 
+To facilitate strong credential enrollment during an account creation (registration) process or elsewhere in an application ecosystem, Casa exposes APIs for enrolling the following types of authenticators:   
 
 - Phone numbers   
 - OTP apps
 - OTP cards       
 - Super Gluu devices     
 
-APIs can be leveraged to build strong credential enrollment into an account registration process or elsewhere in an application ecosystem. Learn more in the [developer guide](./developer/index.md#apis-for-credential-enrollment).  
+Learn more in the [developer guide](./developer/index.md#apis-for-credential-enrollment).  
 
 ## Plugin oriented
 
-Casa is a plugin-oriented, Java web application. Existing functionality can be extended and new functionality and APIs can be introduced through plugins. Learn more in the [developer guide](./developer/index.md).
+Casa is a plugin-oriented, Java web application. Existing functionality can be extended and new functionality and APIs can be introduced through plugins. 
 
-### Existing plugins
+Learn more in the [developer guide](./developer/index.md).
+
+## Existing plugins
 Gluu has written a number of plugins to extend Casa, including plugins for:
 
 - Consent management 
