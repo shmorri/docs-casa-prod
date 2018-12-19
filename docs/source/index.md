@@ -9,6 +9,7 @@ For example, people may need to:
 - Enroll, delete and manage their two-factor authentication (2FA) credentials (e.g. U2F keys, mobile apps, phone numbers)
 - Turn 2FA on and off
 - View and manage which apps are authorized to access what personal data
+- View trusted devices   
 
 Casa provides a web portal for people to perform these functions and more. 
 
