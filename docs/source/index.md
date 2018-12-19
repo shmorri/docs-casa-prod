@@ -11,7 +11,7 @@ For example, people may need to:
 - View and manage which apps are authorized to access what personal data
 - View trusted devices   
 
-Casa provides a web portal for people to perform these functions and more. 
+Casa provides a portal for people to perform these functions and more. 
 
 ## Two-factor authentication
 
