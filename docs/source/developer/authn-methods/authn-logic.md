@@ -18,18 +18,18 @@ Once you have a working custom script, ensure the following preconditions are me
 - For step 1, `prepareForStep` must only return `True`  
 - For step 1, `getExtraParametersForStep` must only return `None`  
 - For step 1, the `authenticate` routine must check if there is already an authenticated user, and if so bypass validating the username and password. This is because a user may have previously attempted authentication with a different method
-- Add a `hasEnrollments` routine with a signature like:
-    ```def hasEnrollments(self, configurationAttributes, user):```  
+- Add a `hasEnrollments` routine with a signature like:  
+    `def hasEnrollments(self, configurationAttributes, user):`  
   where the `configurationAttributes` parameter is a `java.util.Map<String, org.xdi.model.SimpleCustomProperty>` with properties specified in `oxConfigurationProperty` attributes, and `user` is an instance belonging to `org.xdi.oxauth.model.common.User` (like the one obtained after a call to `authenticationService.authenticate`).
 - `hasEnrollments` must return `True` or `False`, describing whether `user` has one or more credentials enrolled for the type you are interested in  
 - Keep in mind that `getPageForStep` won't be called when `step=1` in your script. Casa takes charge of this specific step/method combination  
 - Finally, ensure that custom pages returned by `getPageForStep` for step 2 (or higher) include this footer:
 
-```
-<ui:include src="/casa/casa.xhtml">
-	<ui:param name="methods" value="${identity.getWorkingParameter('methods')}"/>
-</ui:include>
-```
+    ```
+    <ui:include src="/casa/casa.xhtml">
+         <ui:param name="methods" value="${identity.getWorkingParameter('methods')}"/>
+    </ui:include>
+    ```
 
   This will make the alternative backtracking feasible. This footer includes a set of buttons for the user to navigate to alternate 2FA pages.
 
@@ -37,11 +37,11 @@ Once you have a working custom script, ensure the following preconditions are me
 
 Once your script is enabled in the oxTrust UI, you can test it for authentication purposes. Casa application is agnostic about the flow itself, so there is no extra work to try your script than creating an authentication request passing `casa` as acr value.
 
-Obviously, you may have to create by hand some entries simulating enrolled credentials (unless you have your plugin for credentials enrollment ready). Actually, to code the plugin you need [such simulated data](./credentials-management.md#credentials-retrieval) at a very early stage of the development.
+Obviously, you may have to manually create some entries simulating enrolled credentials (unless you have your plugin for credentials enrollment ready). Actually, to code the plugin you need [such simulated data](./credentials-management.md#credentials-retrieval) at a very early stage of the development.
 
 ## Linking plugin and authentication method
 
-Despite the authentication method is enabled in the Gluu Server, it won't be shown in the "enabled methods" section of Gluu Casa [dashboard](../../administration/admin-console.md#enabled-methods). For it to appear there should be at least one plugin implementing enrollment logic for such method. Also, it may take a little while for the method to appear if it has been just enabled in the oxTrust UI.
+Although the authentication method is enabled in the Gluu Server, it won't be shown in the "enabled methods" section of Gluu Casa [dashboard](../../administration/admin-console.md#enabled-methods). For it to appear there should be at least one plugin implementing enrollment logic for such method. Also, it may take a little while for the method to appear if it has been just enabled in the oxTrust UI.
 
 Once both the script is enabled and at least one plugin installed, a new row will appear in the enabled methods page of admin dashboard showing the respective ACR. Tick the row and select the plugin you created in the selection list and finally hit `Save`. This means you can have several candidate plugins to handle enrollment.
 
