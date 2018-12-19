@@ -17,7 +17,7 @@ Casa provides a web portal for people to perform these functions and more.
 
 The core use case for Casa is self-service 2FA. If people need to call the helpdesk every time they get a new phone or security key, supporting strong authentication becomes prohibitively expensive. 
 
-Out-of-the-box, Casa can be used to enroll and manage the following types of authenticators:    
+Out-of-the-box, Casa can be used to enroll and manage the following authenticators:    
 
 - U2F security keys like [Yubikeys](https://www.yubico.com/products/yubikey-hardware/)       
 - Gluu's U2F push-notification mobile app, [Super Gluu](https://super.gluu.org)    
@@ -30,7 +30,7 @@ Additional authenticators and use cases can be supported via [custom plugins](#p
 
 ### Enrollment APIs
 
-Casa offers APIs for enrolling the following authenticators: 
+APIs are available for enrolling: 
 
 - Phone numbers   
 - OTP apps
