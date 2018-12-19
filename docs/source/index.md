@@ -56,7 +56,7 @@ For a more information about the existing plugins, visit the [Casa website](http
 
 ## Gluu Server integration
 
-Casa is tightly coupled with the [Gluu Server](https://gluu.org/docs/ce). A few important notes:
+Casa is tightly bundled with the [Gluu Server](https://gluu.org/docs/ce) identity and access management (IAM) platform. A few important notes:
 
 - **Same host**: Casa must be installed on the same server (host) as its corresponding Gluu Server. For example, if the Gluu Server is deployed on `https://accounts.mydomain.com` , Casa should reside on the same host, for instance at `https://accounts.mydomain.com/signinoptions` 
 
