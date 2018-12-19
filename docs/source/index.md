@@ -2,13 +2,15 @@
 
 ## Overview
 
-Organizations deploy Gluu Casa ("Casa") to offer people a self-service portal for managing their data in the organization's [Gluu Server](https://gluu.org/docs/ce) authentication and authorization system. 
+Gluu Casa ("Casa") is a self-service web portal for people to manage their authentication and authorization data in an organization's [Gluu Server](https://gluu.org/docs/ce). 
 
-For example, people may need to do things like:
+For example, people may need to:
 
 - Enroll, delete and manage their two-factor authentication (2FA) credentials (e.g. U2F keys, mobile apps, phone numbers)
 - Turn 2FA on and off
 - View and manage which apps are authorized to access what personal data
+
+Casa provides a web portal for people to perform these functions and more. 
 
 ## Two-factor authentication
 
@@ -16,17 +18,25 @@ The core use case for Casa is self-service 2FA. If people need to call the helpd
 
 Out-of-the-box, Casa can be used to enroll and manage the following types of authenticators:    
 
-- U2F security keys (like [Yubikeys](https://www.yubico.com/products/yubikey-hardware/))    
-- Gluu's U2F push-notification mobile app, [Super Gluu](https://super.gluu.org)   
-- OTP cards and mobile apps like Google Authenticator, FreeOTP, etc.      
+- U2F security keys like [Yubikeys](https://www.yubico.com/products/yubikey-hardware/)       
+- Gluu's U2F push-notification mobile app, [Super Gluu](https://super.gluu.org)    
+- OTP hardware cards like [these](https://www.ftsafe.com/products/OTP/Display_Card)    
+- OTP mobile apps like Google Authenticator, FreeOTP, etc.       
 - Mobile phone numbers able to receive OTPs via SMS   
 - Passwords (if stored in the corresponding Gluu Server's local LDAP, i.e. not a backend LDAP like AD)      
 
-Additional authenticators, for instance national ID cards, could be supported via [custom plugins](#plugin-oriented). 
+Additional authenticators and use cases can be supported via [custom plugins](#plugin-oriented). 
 
 ### Enrollment APIs
 
-Casa offers APIs for enrolling phone numbers, OTP apps, and Super Gluu devices. APIs can be leveraged to build strong credential enrollment into an account registration process or elsewhere in an application ecosystem. Learn more in the [developer guide](./developer/index.md#apis-for-credential-enrollment).  
+Casa offers APIs for enrolling the following authenticators: 
+
+- Phone numbers   
+- OTP apps
+- OTP cards       
+- Super Gluu devices     
+
+APIs can be leveraged to build strong credential enrollment into an account registration process or elsewhere in an application ecosystem. Learn more in the [developer guide](./developer/index.md#apis-for-credential-enrollment).  
 
 ## Plugin oriented
 
@@ -38,10 +48,10 @@ Gluu has written a number of plugins to extend Casa, including plugins for:
 - Consent management 
 - Custom branding  
 - 2FA settings  
-- Account linking 
-- Developer portal (*coming soon!*)
+- Account linking (*coming soon!*)   
+- Developer portal (*coming soon!*)     
 
-For a full list of plugins and information on each, visit the [Casa website](https://casa.gluu.org/plugins). 
+For a more information about the existing plugins, visit the [Casa website](https://casa.gluu.org/plugins). 
 
 ## Gluu Server integration
 
