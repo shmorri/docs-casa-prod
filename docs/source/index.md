@@ -34,7 +34,7 @@ To facilitate strong credential enrollment during an account registration proces
 
 - Phone numbers for SMS OTP   
 - OTP apps, cards or dongles        
-- Super Gluu devices (e.g. smartphones, tablets, etc.)           
+- Super Gluu Android and iOS devices        
 
 Learn more in the [developer guide](./developer/index.md#apis-for-credential-enrollment).  
 
