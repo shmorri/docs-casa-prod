@@ -2,16 +2,16 @@
 
 ## Overview
 
-Gluu Casa ("Casa") is a self-service web portal for people to manage their authentication and authorization data in an organization's [Gluu Server](https://gluu.org/docs/ce). 
+Gluu Casa ("Casa") is a self-service web portal for people to manage authentication and authorization data for their account in the [Gluu Server](https://gluu.org/docs/ce). 
 
 For example, people may need to:
 
-- Enroll, delete and manage their two-factor authentication (2FA) credentials (e.g. U2F keys, mobile apps, phone numbers)
+- Enroll, delete and manage their two-factor authentication (2FA) credentials (e.g. security keys (U2F), mobile apps, phone numbers, etc.)
 - Turn 2FA on and off
-- View and manage which apps are authorized to access what personal data
+- View and manage which apps have been authorized to access what personal data
 - View trusted devices   
 
-Casa provides a portal for people to perform these functions and more. 
+Casa provides a portal for people to perform these account security functions and more. 
 
 ## Two-factor authentication
 
@@ -21,7 +21,7 @@ Out-of-the-box, Casa can be used to enroll and manage the following authenticato
 
 - U2F security keys like [Yubikeys](https://www.yubico.com/products/yubikey-hardware/)       
 - Gluu's U2F push-notification mobile app, [Super Gluu](https://super.gluu.org)    
-- OTP hardware cards like [these](https://www.ftsafe.com/products/OTP/Display_Card)    
+- OTP hardware cards like [these](https://www.ftsafe.com/products/OTP/Display_Card) or dongles [like these](https://www.ftsafe.com/Products/OTP/Single_Button_OTP)      
 - OTP mobile apps like Google Authenticator, FreeOTP, etc.       
 - Mobile phone numbers able to receive OTPs via SMS   
 - Passwords (if stored in the corresponding Gluu Server's local LDAP, i.e. not a backend LDAP like AD)      
@@ -30,12 +30,11 @@ Additional authenticators and use cases can be supported via [custom plugins](#p
 
 ## 2FA Enrollment APIs
 
-To facilitate strong credential enrollment during an account creation (registration) process or elsewhere in an application ecosystem, Casa exposes APIs for enrolling the following types of authenticators:   
+To facilitate strong credential enrollment during an account registration process or elsewhere in an organization's application ecosystem, Casa exposes APIs for enrolling the following types of authenticators:   
 
-- Phone numbers   
-- OTP apps
-- OTP cards       
-- Super Gluu devices     
+- Phone numbers for SMS OTP   
+- OTP apps, cards or dongles        
+- Super Gluu devices (e.g. smartphones, tablets, etc.)           
 
 Learn more in the [developer guide](./developer/index.md#apis-for-credential-enrollment).  
 
