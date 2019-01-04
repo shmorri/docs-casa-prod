@@ -30,7 +30,7 @@ Additional authenticators and use cases can be supported via [custom plugins](#p
 
 ## 2FA Enrollment APIs
 
-To facilitate strong credential enrollment during an account registration process (or elsewhere in an organization's application ecosystem), Casa exposes APIs for enrolling the following types of authenticators:   
+To facilitate strong credential enrollment during an account registration process (or elsewhere in an application ecosystem), Casa exposes APIs for enrolling the following types of authenticators:   
 
 - Phone numbers for SMS OTP   
 - OTP apps, cards or dongles        
