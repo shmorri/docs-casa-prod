@@ -28,7 +28,7 @@ Out-of-the-box, Casa can be used to enroll and manage the following authenticato
 
 Additional authenticators and use cases can be supported via [custom plugins](#plugin-oriented). 
 
-## 2FA Enrollment APIs
+## 2FA enrollment APIs
 
 To facilitate strong credential enrollment during an account registration process (or elsewhere in an application ecosystem), Casa exposes APIs for enrolling the following types of authenticators:   
 
