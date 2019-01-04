@@ -2,7 +2,7 @@
 
 ## Requirements
     
-Casa must be installed on the same host as an operatonal Gluu Server 3.1.4 instance, with the following requirements satisifed:
+Casa must be installed on the same host as an operatonal Gluu Server 3.1.4 instance with the following requirements satisifed:
 
 - At least **1GB of additional RAM** on top of the [system requirements](https://gluu.org/docs/ce/3.1.4/installation-guide/#system-requirements) 
 
