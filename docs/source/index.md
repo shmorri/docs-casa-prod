@@ -2,7 +2,7 @@
 
 ## Overview
 
-Gluu Casa ("Casa") is a self-service web portal for end-users to manage their account authentication and authorization data in the [Gluu Server](https://gluu.org/docs/ce). 
+Gluu Casa ("Casa") is a self-service web portal for end-users to manage authentication and authorization data for their account in the [Gluu Server](https://gluu.org/docs/ce). 
 
 For example, people may need to:
 
