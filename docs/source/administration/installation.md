@@ -15,7 +15,7 @@ Casa must be installed on the same host as an operatonal Gluu Server 3.1.4 insta
 - Dynamic client registration enabled. To confirm, in oxTrust navigate to `Configuration` > `JSON Configuration` > `oxAuth configuration`, find the `dynamicRegistrationEnabled` property and set to `true`.
 
 !!! Note  
-    You can turn dynamic enrollment off after Casa installation, as needed. 
+    Dynamic client registration can be turned off after Casa installation, as needed. 
 
 !!! Note
     If your Gluu Server 3.1.4 was upgraded from 2.4.4, ensure the `uma_protection` scope is allowed for dynamic registration in oxTrust.
