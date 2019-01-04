@@ -6,11 +6,11 @@ Casa must be installed on the same host as an operatonal Gluu Server 3.1.4 insta
 
 - At least **1GB of additional RAM** on top of the [system requirements](https://gluu.org/docs/ce/3.1.4/installation-guide/#system-requirements) 
 
-- At least the following components installed: 
-   - Apache
-   - LDAP 
-   - oxAuth
-   - oxTrust. 
+- At least the following components installed:   
+    - Apache     
+    - LDAP    
+    - oxAuth   
+    - oxTrust   
 
 - Dynamic client registration enabled. To confirm, in oxTrust navigate to `Configuration` > `JSON Configuration` > `oxAuth configuration`, find the `dynamicRegistrationEnabled` property and set to true.
 
