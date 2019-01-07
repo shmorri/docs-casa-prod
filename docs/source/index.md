@@ -61,7 +61,7 @@ Casa is tightly bundled with the [Gluu Server](https://gluu.org/docs/ce) identit
 
 - **Same host**: Casa must be installed on the same server (host) as its corresponding Gluu Server. For example, if the Gluu Server is deployed on `https://accounts.mydomain.com` , Casa should reside on the same host, for instance at `https://accounts.mydomain.com/signinoptions` 
 
-- **Authentication scripts**: The Gluu Server leverages "interception scripts" to implement the user authentication process. For each type of authenticator that is manageable in Casa (e.g. U2F keys, OTP apps, etc.), its corresponding authentication script **must be** enabled in Gluu  
+- **Authentication scripts**: The Gluu Server relies on "interception scripts" to implement user authentication. Casa itself has an interecption script which defines authentication logic and routes authentications to specific 2FA mechanisms which also have their own scripts. All scripts must be enabled in the Gluu Server.        
 
 - **oxd**: Casa uses the [oxd](https://oxd.gluu.org) OAuth 2.0 client software to leverage the Gluu Server for authentication. Casa can use an existing oxd server, or a new instance of oxd can be deployed during [Gluu Casa installation](./administration/installation.md)  
 
