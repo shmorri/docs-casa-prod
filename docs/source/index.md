@@ -63,7 +63,7 @@ Casa is tightly bundled with the [Gluu Server](https://gluu.org/docs/ce) identit
 
 - **Authentication scripts**: The Gluu Server relies on "interception scripts" to implement user authentication. Casa itself has an interecption script which defines authentication logic and routes authentications to specific 2FA mechanisms which also have their own scripts. All scripts must be enabled in the Gluu Server.        
 
-- **oxd**: Casa uses the [oxd](https://oxd.gluu.org) OAuth 2.0 client software to leverage the Gluu Server for authentication. Casa can use an existing oxd server, or a new instance of oxd can be deployed during [Gluu Casa installation](./administration/installation.md)  
+- **oxd**: Casa uses the [oxd OAuth 2.0 client software](https://oxd.gluu.org) to leverage the Gluu Server for authentication, which can be deployed during Casa installation.  
 
 More detailed information is available in the Admin Guide, linked [below](#admin-guide).
 
