@@ -2,7 +2,7 @@
 
 ## Requirements
     
-Casa must be installed on the same host as an operatonal Gluu Server 3.1.5 instance with the following requirements satisifed:
+Casa must be installed on the same host as an operational Gluu Server 3.1.5 instance with the following requirements satisifed:
 
 - At least **1GB of additional RAM** on top of the [system requirements](https://gluu.org/docs/ce/3.1.5/installation-guide/#system-requirements) 
 
@@ -112,7 +112,7 @@ Log in to the Gluu Server chroot, as follows:
 
 `$ service gluu-server-3.1.5 login`
 
-(or `gluu-serverd-3.1.5 start` for systemd based distros). Then `cd` to the setup scripts directory and run `setup_casa.py`: 
+(or `gluu-serverd-3.1.5 start` for systemd-based distros). Then `cd` to the setup scripts directory and run `setup_casa.py`: 
 
 ```
 # cd /install/community-edition-setup
