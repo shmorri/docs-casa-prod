@@ -112,17 +112,17 @@ In order to ensure authentication scripts are properly configured in Gluu, it is
 
 If for some reason you disabled the custom script of an authentication method used by Casa, such method will not be available for enrollment or authentication until you enable both the custom script (in oxTrust) and the method (in Casa admin dashboard).
 
+### What kind of TOTP/HOTP devices are supported?
+
+Both soft (mobile apps) or hard tokens (keyfobs, cards, etc.) are supported. Supported algorithms are `HmacSHA1`, `HmacSHA256`, and `HmacSHA512`.
+
 ### Authentication fails when using TOTP or HOTP with no apparent reason
 
 For Time-based OTP, ensure the time of your server is correctly synchronized (use NTP for instance). The time lag of the authentication device used (for instance, a mobile phone) with respect to server time should not be representative. 
 
 Big time differences can cause unsuccessful attempts to enroll TOTP credentials in Casa.
 
-For Event-based OTP (HOTP), ensure you are using a suitable value for `look ahead window` (we suggest at least 10). Check contents of file `/etc/certs/otp_configuration.json`. If you apply editions, it is recommended to press the "Update" button of the "Manage Custom Scripts" form in oxTrust and wait a couple of minutes before retrying.
-
-### What are the algorithms supported for TOTP?
-
-HmacSHA1, HmacSHA256, and HmacSHA512.
+For Event-based OTP (HOTP), ensure you are using a suitable value for `look ahead window` (we suggest at least 10). Check contents of file `/etc/certs/otp_configuration.json`. If you apply editions, it is recommended to press the "Update" button of the "Manage Custom Scripts" form in oxTrust and wait a couple of minutes before retrying..
 
 ### U2F restrictions
 

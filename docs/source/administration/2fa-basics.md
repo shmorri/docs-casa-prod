@@ -6,7 +6,7 @@ By default, strong (two-factor) authentication will be available to users of Cas
 
 You can increase or even reduce this value at your discretion via the [admin console](admin-console.md#2fa-settings).
 
-There is no limit to the number of credentials a user can enroll, and credentials do not need to be of the same type: any combination is valid as long as one is OTP. If a user attempts to delete their only available OTP credential, a prompt will appear warning that doing so will disable 2FA, that is, resorting to password authentication.
+There is no limit to the number of credentials a user can enroll, and credentials do not need to be of the same type: any combination is valid. 
 
 ## Supported types of 2FA
 
@@ -30,3 +30,5 @@ To do so, just add a new configuration property named `2fa_requisite` to the cus
 You can flag more than one method as requisite. In this case users will be encouraged to enroll one credential associated to any of the flagged methods.
 
 If you are using an authentication method you added your own, just ensure the corresponding plugin implements the `mayBe2faActivationRequisite` method.
+
+If a user attempts to delete their only available credential matching the requisite method, a prompt will appear warning that doing so will disable 2FA, that is, resorting to password authentication.
