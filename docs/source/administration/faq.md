@@ -126,13 +126,13 @@ For Event-based OTP (HOTP), ensure you are using a suitable value for `look ahea
 
 ### U2F restrictions
 
-U2F keys (for enrollment or authentication) are supported in the following browsers only:
+U2F keys (for enrollment or authentication) are supported in the following desktop browsers only:
 
 - Chrome or Opera (versions greater than 40)
 - Firefox (version greater than 57), requires prior u2f activation. 
 - Firefox versions older than 57 need the [u2f add-on](https://addons.mozilla.org/en-US/firefox/addon/u2f-support-add-on/) installed.
 
-In all cases, the app interface will display appropriate messages about u2f support, and instructions in case action is needed to use the feature.
+In all cases, the app interface will display appropriate messages about u2f support, and instructions in case action is needed to use the feature. Currently Casa does not support adding U2F devices from mobile browsers.
 
 ### The user interface is not showing any means to enroll credentials
 
