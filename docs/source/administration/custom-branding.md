@@ -64,7 +64,7 @@ $ chown -R jetty:jetty /opt/gluu/jetty/casa/static/
 In the admin console, navigate to `Custom branding` > `Use Casa external assets directory`. From that point on, your installation is reading relevant files from the `static` directory.
 
 !!! Note  
-    In CSS, the rules' order of appearance is important. Keep in mind that for all Casa pages, Bootstrap is loaded first, then style.css, and finally tachyons.css. This means rules for Tachyons have higher priority overall unless `!important` is used, which is discouraged.  
+    In CSS, the rules' order of appearance is important. Keep in mind that for all Casa pages, Bootstrap is loaded first, then style.css, and finally tachyons.css. This means rules for Tachyons have higher priority overall unless `!important` is used.  
     
 The main stylesheet (`style.css`) is located at `/opt/gluu/jetty/casa/static/styles/gluu` if you have followed the instructions above.
 
@@ -96,8 +96,6 @@ Here are some tips for applying your customizations:
 ![Hints custom classes](../img/admin-console/branding/hint-cust-classes-1.png)
 
 ![Hints custom classes](../img/admin-console/branding/hint-cust-classes-2.png)
-
-- Refrain from using `!important` unless you have no other alternative.
 
 ### Viewing your changes
 
