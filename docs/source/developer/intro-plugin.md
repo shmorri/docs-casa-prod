@@ -98,7 +98,7 @@ For more background on these topics you may like checking this [website](https:/
 
 #### Reference docs
 
-Previous knowledge of the [ZK framework](https://www.zkoss.org) is not required but we advise to have some relevant docs at hand. From the list found [here](https://www.zkoss.org/documentation#References) we highlight:
+Previous knowledge of the [ZK framework 8.6](https://www.zkoss.org) is not required but we advise to have some relevant docs at hand. From the list found [here](https://www.zkoss.org/documentation#References) we highlight:
 
 * Get ZK Up and Running with MVVM (*glance at it now if possible*)
 * ZK MVVM Reference

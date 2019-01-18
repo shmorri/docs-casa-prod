@@ -33,7 +33,7 @@ You can choose "Use defaults" if you feel comfortable with the [Bootstrap-like](
 
 Casa's UI design is driven by one CSS stylesheet and a few images. Specifically, Casa leverages the following UI frameworks:
 
-* [ZK 8.5](http://books.zkoss.org/zk-mvvm-book/8.0/)
+* [ZK](http://books.zkoss.org/zk-mvvm-book/8.0/)
 * [Bootstrap 4.1](https://getbootstrap.com/docs/4.0/getting-started/introduction/#quick-start)
 * [Tachyons 4.11](http://tachyons.io)
 * [Font Awesome 5.2](https://fontawesome.com)
