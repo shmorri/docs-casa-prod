@@ -4,7 +4,7 @@
     
 Casa must be installed on the same host as an operational Gluu Server 3.1.5 instance with the following requirements satisifed:
 
-- At least **1GB of additional RAM** on top of the [system requirements](https://gluu.org/docs/ce/3.1.5/installation-guide/#system-requirements) 
+- At least **1GB of additional RAM** on top of [Gluu Server system requirements](https://gluu.org/docs/ce/3.1.5/installation-guide/#system-requirements) 
 
 - At least the following components installed:   
     - Apache     
