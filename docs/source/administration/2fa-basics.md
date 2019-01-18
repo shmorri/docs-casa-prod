@@ -10,9 +10,9 @@ There is no limit to the number of credentials a user can enroll, and credential
 
 ## Supported types of 2FA
 
-Users will only be able to add credentials with a type matching one of the already enabled authentication methods in the admin console. See the [Configuration page](./configuration.md) to learn more. Out of the box, all the following authentication methods are supported:
+Users will only be able to add credentials with a type matching one of the already enabled authentication methods in the admin console. See the [Admin console page](./admin-console.md/#enabled-methods) to learn more. Out of the box, all the following authentication methods are supported:
 
-- U2F security keys
+- U2F security keys ([browser restrictions](./faq.md#u2f-restrictions) may apply)
 - Super Gluu
 - HOTP/TOTP
 - OTP sent by SMS with the Twilio service
