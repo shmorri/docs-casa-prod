@@ -47,9 +47,9 @@ Learn more in the [developer guide](./developer/index.md).
 ## Existing plugins
 Gluu has written a number of plugins to extend Casa, including plugins for:
 
-- Consent management 
-- Custom branding  
-- 2FA settings  
+- [Consent management](./plugins/consent-management.md) 
+- [Custom branding](./plugins/custom-branding.md)  
+- [2FA settings](./plugins/2fa-settings.md)  
 - Account linking (*coming soon!*)   
 - Developer portal (*coming soon!*)     
 
