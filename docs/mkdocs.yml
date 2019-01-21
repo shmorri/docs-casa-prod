@@ -45,7 +45,7 @@ pages:
         - 'Plugin management internals': 'developer/plugin-management-internals.md'
         - 'FAQ': 'developer/faq.md'
 - User Guide : 'user-guide.md'
-- Default Plugins:
+- Available Plugins:
     - 'Strong Authentication Settings': 'plugins/2fa-settings.md'    
     - 'Consent Management': 'plugins/consent-management.md'
     - 'Custom Branding': 'plugins/custom-branding.md'
