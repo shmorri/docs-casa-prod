@@ -11,7 +11,7 @@ For example, as people interact with an organization's digital services, they ma
 - View and manage which external apps have been authorized to access what personal data
 - View trusted devices   
 
-Casa provides a web portal for people to perform these account security functions and more. 
+Casa provides a platform for people to perform these account security functions and more. 
 
 ## Two-factor authentication
 
