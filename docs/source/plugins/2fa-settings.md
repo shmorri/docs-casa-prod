@@ -23,14 +23,13 @@ A device/location is considered trustworthy when the user has presented a strong
 
 ## Requirements
 
-- Plugin jar file must match the version of your Casa (and Gluu Server) installation.
-
+- The plugin jar file must match the version of your Casa (and Gluu Server) installation.
     
 ## Installation
 
-1. Login to Casa using an administrator account
+1. Log in to Casa using an administrator account
 
-1. Visit `Administration console` > `Casa plugins`
+1. Navigate to `Administration console` > `Casa plugins`
 
 1. Click on `Add a plugin...` and select the plugin jar file
 
@@ -38,6 +37,10 @@ A device/location is considered trustworthy when the user has presented a strong
 
 ## How to use
 
-For administrators, a new link labeled "2FA settings" appears in the dashboard menu to access the functionalities.
+For administrators, a new link labeled "2FA settings" appears in the dashboard menu to access the function.
+
+![2fa-settings](../img/admin-console/2FA-settings.png)
 
 For regular users, proper details appear in the widget where preferred authentication mechanism is set. These will be visible only if an option other than "password only" has been selected.
+
+![2fa-settings](../img/admin-console/2FA-user-settings.png)
