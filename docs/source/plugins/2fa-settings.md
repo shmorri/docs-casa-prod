@@ -31,6 +31,8 @@ A device/location is considered trustworthy when the user has presented a strong
 
 1. Navigate to `Administration console` > `Casa plugins`
 
+    ![plugins page](../img/plugins/plugins314.png)
+
 1. Click on `Add a plugin...` and select the plugin jar file
 
 1. Click on `Add` 
