@@ -41,7 +41,7 @@ Casa uses the RESTEasy 3.0 library (an implementation of JAX-RS 2.0 specificatio
 When building client-side only applications (HTML+CSS), accessing services located in servers not in the same origin domain can be a big blocker. For this reasons, you can add your origin domain to the set of allowed origins of Casa to overcome the problem. For this, simply do the following:
 
 - Login to Gluu chroot
-- `cd` to /opt/gluu/jetty/casa`
+- `cd` to `/opt/gluu/jetty/casa`
 - `touch` file `casa-cors-domains`
 - Add the domains you want to grant access to, one per line, and then save. For example:
 
