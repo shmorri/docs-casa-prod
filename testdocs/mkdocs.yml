@@ -15,6 +15,7 @@ markdown_extensions:
 - pymdownx.superfences
 pages:
 - Home: 'index.md'    
+- Testpage: 'testpage.md'  
 - Administration Guide: 
     - 'Installation': '../../docs/source/administration/installation.md'
     - 'About two-factor authentication': '../../docs/source/administration/2fa-basics.md'
