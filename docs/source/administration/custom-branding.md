@@ -3,7 +3,7 @@
 In Casa, administrators can supply their own logo and favicon to better match the organization's look and feel. If you want to apply more advanced customizations, adding the custom branding plugin is the way to go (requires a valid license to operate).
 
 !!! Note  
-    This page covers customizations available through the custom branding plugin. It is assumed you have already added it to your Casa installation and started it.  
+    This page covers customizations available through the [custom branding plugin](../plugins/custom-branding.md). It is assumed you have already added it to your Casa installation and started it.  
 
 The plugin allows administrators to easily alter the appearance of applications. There are two ways to tweak the design: a quick point-and-click set of changes that you can preview immediately, or a lower-level approach that allows you to supply your own CSS file and images (this is known as external assets directory usage). 
 
@@ -33,7 +33,7 @@ You can choose "Use defaults" if you feel comfortable with the [Bootstrap-like](
 
 Casa's UI design is driven by one CSS stylesheet and a few images. Specifically, Casa leverages the following UI frameworks:
 
-* [ZK 8.5](http://books.zkoss.org/zk-mvvm-book/8.0/)
+* [ZK](http://books.zkoss.org/zk-mvvm-book/8.0/)
 * [Bootstrap 4.1](https://getbootstrap.com/docs/4.0/getting-started/introduction/#quick-start)
 * [Tachyons 4.11](http://tachyons.io)
 * [Font Awesome 5.2](https://fontawesome.com)
@@ -64,7 +64,7 @@ $ chown -R jetty:jetty /opt/gluu/jetty/casa/static/
 In the admin console, navigate to `Custom branding` > `Use Casa external assets directory`. From that point on, your installation is reading relevant files from the `static` directory.
 
 !!! Note  
-    In CSS, the rules' order of appearance is important. Keep in mind that for all Casa pages, Bootstrap is loaded first, then style.css, and finally tachyons.css. This means rules for Tachyons have higher priority overall unless `!important` is used, which is discouraged.  
+    In CSS, the rules' order of appearance is important. Keep in mind that for all Casa pages, Bootstrap is loaded first, then style.css, and finally tachyons.css. This means rules for Tachyons have higher priority overall unless `!important` is used.  
     
 The main stylesheet (`style.css`) is located at `/opt/gluu/jetty/casa/static/styles/gluu` if you have followed the instructions above.
 
@@ -96,8 +96,6 @@ Here are some tips for applying your customizations:
 ![Hints custom classes](../img/admin-console/branding/hint-cust-classes-1.png)
 
 ![Hints custom classes](../img/admin-console/branding/hint-cust-classes-2.png)
-
-- Refrain from using `!important` unless you have no other alternative.
 
 ### Viewing your changes
 

@@ -112,26 +112,27 @@ In order to ensure authentication scripts are properly configured in Gluu, it is
 
 If for some reason you disabled the custom script of an authentication method used by Casa, such method will not be available for enrollment or authentication until you enable both the custom script (in oxTrust) and the method (in Casa admin dashboard).
 
+### What kind of TOTP/HOTP devices are supported?
+
+Both soft (mobile apps) or hard tokens (keyfobs, cards, etc.) are supported. Supported algorithms are `HmacSHA1`, `HmacSHA256`, and `HmacSHA512`.
+
 ### Authentication fails when using TOTP or HOTP with no apparent reason
 
 For Time-based OTP, ensure the time of your server is correctly synchronized (use NTP for instance). The time lag of the authentication device used (for instance, a mobile phone) with respect to server time should not be representative. 
 
 Big time differences can cause unsuccessful attempts to enroll TOTP credentials in Casa.
 
-For Event-based OTP (HOTP), ensure you are using a suitable value for `look ahead window` (we suggest at least 10). Check contents of file `/etc/certs/otp_configuration.json`. If you apply editions, it is recommended to press the "Update" button of the "Manage Custom Scripts" form in oxTrust and wait a couple of minutes before retrying.
+For Event-based OTP (HOTP), ensure you are using a suitable value for `look ahead window` (we suggest at least 10). Check contents of file `/etc/certs/otp_configuration.json`. If you apply editions, it is recommended to press the "Update" button of the "Manage Custom Scripts" form in oxTrust and wait a couple of minutes before retrying..
 
-### What are the algorithms supported for TOTP?
+### U2F restrictions
 
-HmacSHA1, HmacSHA256, and HmacSHA512.
+U2F keys (for enrollment or authentication) are supported in the following desktop browsers only:
 
-### U2F keys enrolling not working from within Casa
+- Chrome or Opera (versions greater than 40)
+- Firefox (version greater than 57), requires prior u2f activation. 
+- Firefox versions older than 57 need the [u2f add-on](https://addons.mozilla.org/en-US/firefox/addon/u2f-support-add-on/) installed.
 
-To be able to enroll U2F keys, ensure all of the following are met:
-
-* You are accessing the application via https (this a requirement by design of FIDO standard)
-* Ensure the IDP URL matches the same host under which Casa is being served. Both FQDNs should match. 
-* Ensure you are using Chrome, Opera (version greater than 40), or Firefox (with the proper [u2f add-on](https://addons.mozilla.org/en-US/firefox/addon/u2f-support-add-on/) installed) and Javascript enabled. These are the only browsers supporting the FIDO U2F technology. Currently Casa does not support adding U2F devices from mobile browsers.
-* Make sure to plug in the security key before pressing the "ready" button: the enrolling process has a timeout period. Ensure you are pressing the key's button when your browser indicates to do so or when the key's button is blinking.
+In all cases, the app interface will display appropriate messages about u2f support, and instructions in case action is needed to use the feature. Currently Casa does not support adding U2F devices from mobile browsers.
 
 ### The user interface is not showing any means to enroll credentials
 

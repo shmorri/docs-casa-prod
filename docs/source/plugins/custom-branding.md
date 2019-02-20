@@ -4,7 +4,7 @@ This plugin allows admins to apply a design customization by choosing colors, fa
 
 ## Requirements
 
-- Plugin jar file must match the version of your Casa (and Gluu Server) installation.
+- The plugin jar file must match the version of your Casa (and Gluu Server) installation.
     
 ## Installation
 
@@ -12,10 +12,12 @@ This plugin allows admins to apply a design customization by choosing colors, fa
 
 1. Visit `Administration console` > `Casa plugins`
 
+    ![plugins page](../img/plugins/plugins314.png)
+
 1. Click on `Add a plugin...` and select the plugin jar file
 
 1. Click on `Add` 
 
 ## How to use
 
-For more information visit this [page](https://gluu.org/docs/casa/administration/custom-branding/).
+See the [custom branding page](https://gluu.org/docs/casa/administration/custom-branding/) for full instructions.

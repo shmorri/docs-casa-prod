@@ -1,4 +1,4 @@
-# Gluu Casa 3.1.4 Documentation
+# Gluu Casa 3.1.6 Documentation
 
 ## Overview
 
@@ -11,7 +11,7 @@ For example, as people interact with an organization's digital services, they ma
 - View and manage which external apps have been authorized to access what personal data
 - View trusted devices   
 
-Casa provides a web portal for people to perform these account security functions and more. 
+Casa provides a platform for people to perform these account security functions and more. 
 
 ## Two-factor authentication
 
@@ -47,9 +47,9 @@ Learn more in the [developer guide](./developer/index.md).
 ## Existing plugins
 Gluu has written a number of plugins to extend Casa, including plugins for:
 
-- Consent management 
-- Custom branding  
-- 2FA settings  
+- [Consent management](./plugins/consent-management.md) 
+- [Custom branding](./plugins/custom-branding.md)  
+- [2FA settings](./plugins/2fa-settings.md)  
 - Account linking (*coming soon!*)   
 - Developer portal (*coming soon!*)     
 

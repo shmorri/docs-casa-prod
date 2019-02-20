@@ -2,7 +2,7 @@
 
 To publish the application at a location other than `/casa`, do the following:
 
-1. Log into the Gluu Server chroot (e.g. `service gluu-server-3.1.4 login`)       
+1. Log into the Gluu Server chroot (e.g. `service gluu-server-3.1.6 login`)       
       
 1. Rename Casa's war file with the new path you want to use. For example, if you chose `/creds`, you would do the following:    
    

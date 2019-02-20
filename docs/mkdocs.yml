@@ -1,12 +1,12 @@
 site_name: Gluu Casa Docs
 site_description: Documentation for Gluu Casa
 site_favicon: 'favicon.ico'
-copyright: Copyright &copy; 2018, Gluu, Inc.
+copyright: Copyright &copy; 2019, Gluu, Inc.
 docs_dir: source
-repo_url: https://github.com/GluuFederation/docs-casa-prod/blob/3.1.4/docs
+repo_url: https://github.com/GluuFederation/docs-casa-prod/blob/3.1.6/docs
 theme_dir: theme/material
 extra:
-    version: '3.1.4'
+    version: '3.1.6'
     logo: 'gluu.png'
 markdown_extensions:
 - admonition
@@ -45,7 +45,8 @@ pages:
         - 'Plugin management internals': 'developer/plugin-management-internals.md'
         - 'FAQ': 'developer/faq.md'
 - User Guide : 'user-guide.md'
-- Default Plugins:
-    - 'Strong Authentication Settings': 'plugins/strong-authn.md'    
+- Available Plugins:
+    - '2FA Settings': 'plugins/2fa-settings.md'    
     - 'Consent Management': 'plugins/consent-management.md'
     - 'Custom Branding': 'plugins/custom-branding.md'
+    - 'Write your own plugin': 'plugins/writing-plugins.md'
