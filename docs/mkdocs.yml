@@ -49,4 +49,4 @@ pages:
     - '2FA Settings': 'plugins/2fa-settings.md'    
     - 'Consent Management': 'plugins/consent-management.md'
     - 'Custom Branding': 'plugins/custom-branding.md'
-    - 'Write your own plugin': 'developer/index.md'
+    - 'Write your own plugin': 'plugins/writing-plugins.md'
