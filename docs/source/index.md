@@ -98,5 +98,5 @@ Use the following links to get started with Casa:
 - [Home](./developer/index.md)
 
 ## License
-Gluu Casa is made available under the [Gluu License Agreement for Gluu Casa](https://github.com/GluuFederation/casa/blob/master/LICENSE.md). 
+Gluu Casa is made available under the [Gluu License Agreement for Gluu Casa](https://github.com/GluuFederation/casa/blob/master/LICENSE.md). To obtain a license, [schedule a call](https://gluu.org/booking).
 
