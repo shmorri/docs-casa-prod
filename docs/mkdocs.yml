@@ -24,6 +24,7 @@ pages:
     # - 'Configuration': 'administration/configuration.md'
     - 'URL path customization': 'administration/change-context-path.md'
     - 'Uninstallation and clean up': 'administration/uninstallation.md'
+    - 'Localization': 'administration/localization.md'
     - 'FAQ': 'administration/faq.md'
 - Developer Guide:
     - 'Intro': 'developer/index.md'
