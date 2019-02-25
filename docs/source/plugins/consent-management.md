@@ -4,7 +4,7 @@ This plugin allows users to view and revoke the authorizations they have issued 
 
 ## Requirements
 
-- Plugin jar file must match the version of your Casa (and Gluu Server) installation.
+- The plugin jar file must match the version of your Casa (and Gluu Server) installation.
 
 ## Installation
 
