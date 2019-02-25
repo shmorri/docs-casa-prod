@@ -48,7 +48,7 @@ pages:
 - User Guide : 'user-guide.md'
 - Available Plugins:
     - '2FA Settings': 'plugins/2fa-settings.md'    
+    - 'Accounts linking': 'plugins/account-linking.md'
     - 'Consent Management': 'plugins/consent-management.md'
     - 'Custom Branding': 'plugins/custom-branding.md'
-    - 'Accounts linking': 'plugins/account-linking.md'
     - 'Write your own plugin': 'plugins/writing-plugins.md'

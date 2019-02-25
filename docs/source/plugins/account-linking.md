@@ -6,9 +6,9 @@ This plugin allows users to link accounts used at third party sites with their l
 
 - A Gluu Server with passport component installed
 
-- The plugin jar file must match the version of your Casa (and Gluu Server) installation.
+- The plugin jar file that matches the version of your Casa (and Gluu Server) installation.
 
-- Configure Passport to support the external providers needed. Check passport docs to learn how to do so: [SAML IDPs](https://www.gluu.org/docs/ce/authn-guide/inbound-saml-passport/) or OAuth/OIDC [providers](https://www.gluu.org/docs/ce/authn-guide/passport/). Ensure you are visiting the version of docs that matches your Gluu Server version.
+- Passport configured to support external providers as needed. Check passport docs to learn how to do so: SAML [IDPs](https://www.gluu.org/docs/ce/authn-guide/inbound-saml-passport/) or OAuth/OIDC [providers](https://www.gluu.org/docs/ce/authn-guide/passport/). Ensure you are visiting the version of the docs matching your Gluu Server version.
 
 ## Installation
 
@@ -32,7 +32,7 @@ So far, users will be able to see an "Accounts linking" menu added. From there t
 
 These are the steps required so the Casa authentication flow does not require users to enter a username and password combination, but leverage the credentials already existing in an external provider.
 
-## Add custom parameters
+### Add custom parameters
 
 Add a custom parameter for authorization requests in your Gluu Server: 
 
@@ -46,13 +46,13 @@ Add a custom parameter for authorization requests in your Gluu Server:
 released from the external provider to oxAuth are updated in local LDAP. Attributes not received are flushed. If you don't
 want the update to take place, please also add a oxauth custom param with name `skipPassportProfileUpdate`
 
-## Activate the custom scripts needed
+### Activate the custom scripts needed
 
 While configuring Passport earlier, you enabled one or more authentication scripts (ie. `passport_social`/`passport_saml`). In oxTrust go to `Configuration` > `Manage custom scripts` and for every script you enabled, add a configuration parameter with name `authz_req_param_provider` and set its value to the custom authorization parameter created earlier (eg. custParamCasaPassport).
 
-## Update casa custom script
+### Update casa custom script
 
-Since the *standard* authentication flow will be different, the `casa` script contents must be updated. Expand the row corresponding to Casa script, back up the current script contents and then replace with those found [here](https://github.com/GluuFederation/casa-ee-plugins/raw/master/account-linking/extras/casa.py)
+Since the *standard* authentication flow will be different, the `casa` script contents must be updated. Expand the row corresponding to Casa script, back up the current script contents and then replace with those found [here](https://github.com/GluuFederation/casa-ee-plugins/raw/master/account-linking/extras/casa.py).
 
 Press the update button at the bottom of the page.
 
@@ -60,10 +60,10 @@ The login page must be updated so it dynamically loads the external providers in
 
 1. Login to chroot
 1. `cd` to `/opt/gluu/jetty/oxauth/custom/pages`
-1. Copy the file found [here](https://github.com/GluuFederation/casa-ee-plugins/raw/master/account-linking/extras/casa.xhtml).
+1. Copy the file found [here](https://github.com/GluuFederation/casa-ee-plugins/raw/master/account-linking/extras/casa.xhtml) into `pages` folder.
 
-## Test
+### Test
 
 Access casa in a web browser: `https://your-host.com/casa`. A list with the configured providers should be shown on the right pane. Clicking on an item will take you to the given provider authentication process, after this completes you will be taken back to Casa.
 
-Note that users with no (local) password don't have access to enroll credentials since the username + password combination is considered a prerequisite for multi factor authentication.
+Note that users without a local password set yet don't have access to enroll credentials because the username + password combination is  a prerequisite for multi factor authentication.
