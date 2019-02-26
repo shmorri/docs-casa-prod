@@ -1,5 +1,5 @@
 # Accounts Linking
-
+## Overview
 This plugin allows users to link accounts used at third party sites with their local Gluu account. You can offer popular social login providers such as Google, Facebook, etc., or even SAML identity providers (IDPs).
 
 ## Requirements
