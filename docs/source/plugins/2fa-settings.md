@@ -1,5 +1,6 @@
 # Strong Authentication Settings Plugin
 
+## Overview
 This plugin allows administrators to configure how and when 2FA is applied. Admins can:
 
 - Specify the minimum number of credentials users must enroll before they are able to turn on 2FA
