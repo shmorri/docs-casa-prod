@@ -16,7 +16,7 @@ Casa leverages [oxd](https://oxd.gluu.org) to faciliate user authentication agai
 
 ![oxd-settings](../img/admin-console/oxd-settings.png)
 
-To add license information manually, or in case of lockout, visit the [FAQ document](./faq.md#oxd).
+In case of lockout, visit the [FAQ document](./faq.md#oxd).
 
 ### oxd Settings
 The following settings can be adjusted or viewed via the Casa admin console:

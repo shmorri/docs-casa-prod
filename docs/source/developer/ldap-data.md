@@ -86,13 +86,15 @@ Most of the complexity in this tasks revolves around retrieving and updating cli
 (for Windows)
 
 ```
-tools\generate-source-from-schema.bat --hostname <hostname> --port 1636 --bindDN "cn=directory manager" --bindPassword <password> --structuralClass oxAuthClient --rdnAttribute inum --packageName <java-package> --className <java-class-name> --terse
+tools\generate-source-from-schema.bat --hostname <hostname> --port 1636 --bindDN "cn=directory manager" --bindPassword <password> \ 
+  --structuralClass oxAuthClient --rdnAttribute inum --packageName <java-package> --className <java-class-name> --terse
 ```
 
 (for UNIX-like systems)
 
 ```
-tools/generate-source-from-schema --hostname <hostname> --port 1636 --bindDN "cn=directory manager" --bindPassword <password> --structuralClass oxAuthClient --rdnAttribute inum --packageName <java-package> --className <java-class-name> --terse
+tools/generate-source-from-schema --hostname <hostname> --port 1636 --bindDN "cn=directory manager" --bindPassword <password> \ 
+  --structuralClass oxAuthClient --rdnAttribute inum --packageName <java-package> --className <java-class-name> --terse
 ```
 
 Replace content between angle brackets properly:
@@ -141,7 +143,8 @@ Here `ldapService` is the object you use to interface with Gluu LDAP (there is n
 **Test it!**: Override `start` method of your plugin class and instantiate `ClientService` in it, then call `getClients`. You can use a logging statement like the following to print the names of all Gluu Server clients registered so far:
 
 ```
-logger.info("{}", clientService.getClients().stream().map(Client::getDisplayName).collect(Collectors.toList()).toString())
+logger.info("{}", clientService.getClients().stream().map(Client::getDisplayName)
+    .collect(Collectors.toList()).toString())
 ```
 
 Compile, pack your plugin, and deploy it. You should be able to see the list printed in Casa log.
@@ -170,7 +173,8 @@ Since `find` method returns a `List`, in line 4 we try to retrieve just the firs
 **Test it!**: Add to your plugin's `start` method a call to `getClient` passing, for instance a harcoded `inum` value. You can print the client contents this way:
 
 ```
-logger.info("Client {} has owners {}", client.getDisplayName(), client.associatedPerson());
+logger.info("Client {} has owners {}", 
+    client.getDisplayName(), client.associatedPerson());
 ```
 
 `generate-source-from-schema` tool generates code that returns `null` in the case of empty arrays, so `null` is what you will see in the log if the chosen client has no "owners" assigned yet. you may like adding the following method to `Client` class:
@@ -178,7 +182,8 @@ logger.info("Client {} has owners {}", client.getDisplayName(), client.associate
 ```
 public List<DN> getAssociatedPersonAsList() {
     return Utils.isEmpty(associatedPerson) ? 
-              Collections.emptyList() : Arrays.asList(associatedPerson);
+              Collections.emptyList() : 
+              Arrays.asList(associatedPerson);
 }
 ```
 
@@ -197,7 +202,8 @@ Assuming `client` variable represents the instance you want to assing owners to,
 ```
 //People to co-own this client
 Stream<User> owners = Stream.of(larry, moe, curly... 
-DN[] peopleDNs = owners.map(User::getDn).collect(Collectors.toList()).toArray(new DN[0]);
+DN[] peopleDNs = owners.map(User::getDn).collect(Collectors.toList())
+                       .toArray(new DN[0]);
 client.setAssociatedPerson(peopleDNs);
 
 ldapService.modify(client, Client.class);
