@@ -1,5 +1,7 @@
 # About localization
- 
+
+## Overview
+
 Casa supports multilingual support through resource bundles. Administrators supply bundles as plaintext files ending with the `.properties` file extension.
  
 By default, Casa contains three bundles, each in a separate file as shown [here](https://github.com/GluuFederation/casa/tree/version_3.1.6/app/src/main/resources/labels). These bundles contain the internationalization labels in the English language, as displayed in a default Casa installation. For example, to add support for French, you would have to create the following files:
