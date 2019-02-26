@@ -1,5 +1,5 @@
 # Consent Management Plugin
-
+## Overview 
 This plugin allows users to view and revoke the authorizations they have issued to applications protected by Gluu Server.
 
 ## Requirements
