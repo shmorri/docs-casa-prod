@@ -94,6 +94,16 @@ If for any reason an update to oxd settings results in lockout, or if you provid
 * [Check the logs](#check-the-logs) and there should be a successful message regarding oxd registration
 * Log in to the application
 
+### Casa log shows "Setting oxd-server configs failed"
+
+If you configured Casa to use oxd-https-extension and your log also shows "javax.net.ssl.SSLPeerUnverifiedException: peer not authenticated", this is due to self-signed certificate usage (as is the case in a default oxd installation). You can configure oxd to use a production cert or  add the self-signed cert to the trusted Java certificates file. For the latter take the `.keystore` file referenced in the `oxd-https.yml` config file, and export the certificate (this file contains the password too). Then run a command like the following in the Gluu chroot:
+
+`keytool -import -trustcacerts -keystore /opt/jre/jre/lib/security/cacerts -storepass changeit -noprompt -alias mycert -file PATH_TO_CERT_FILE` 
+
+Finally, restart casa.
+
+, you have to 
+
 ## Miscellanenous
 
 ### Troubleshooting interception scripts
