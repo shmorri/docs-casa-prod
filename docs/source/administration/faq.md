@@ -78,10 +78,6 @@ This occurs whenever the application failed to start successfully and may be cau
 
 Once fixed, please restart the application. You will have to see a "WEBAPP INITIALIZED SUCCESSFULLY" message to know that it's working.
 
-### An error is shown in the admin UI when specifying oxd server with HTTPS extension
-
-Ensure the host provided is accessible from the server where Casa is installed. Check the port corresponding to the HTTPS port you have set in the `oxd-https.yml`. The SSL certificate used to "secure" the extension extension must be issued by a CA. If it is a self-signed one, you **have** to import it to the Java *cacerts* keystore of the Casa server.
-
 ## oxd
 
 ### In case of lockout
@@ -101,8 +97,6 @@ If you configured Casa to use oxd-https-extension and your log also shows "javax
 `keytool -import -trustcacerts -keystore /opt/jre/jre/lib/security/cacerts -storepass changeit -noprompt -alias mycert -file PATH_TO_CERT_FILE` 
 
 Finally, restart casa.
-
-, you have to 
 
 ## Miscellanenous
 
