@@ -34,7 +34,7 @@ Casa is distributed as part of the Gluu Server extensions bundle. Follow the ins
 | Add Gluu Repository | `# echo "deb https://repo.gluu.org/ubuntu/ trusty main" > /etc/apt/sources.list.d/gluu-repo.list` |
 | Add Gluu GPG Key                      | `# curl https://repo.gluu.org/ubuntu/gluu-apt.key | apt-key add -` |
 | Update/Clean Repo                     | `# apt-get update`                    |
-| Install Gluu Server extension pack    | `# apt-get install gluu-casa-3.1.6` |
+| Install Gluu Server extension pack    | `# apt-get install gluu-casa` |
  
 ### Ubuntu 16.04 (xenial)
       
@@ -43,7 +43,7 @@ Casa is distributed as part of the Gluu Server extensions bundle. Follow the ins
 | Add Gluu Repository     | `# echo "deb https://repo.gluu.org/ubuntu/ xenial main" > /etc/apt/sources.list.d/gluu-repo.list` |
 | Add Gluu GPG Key        | `# curl https://repo.gluu.org/ubuntu/gluu-apt.key | apt-key add -` |
 | Update/Clean Repo       | `# apt-get update`                         |
-| Install Gluu Server extension pack     | `# apt-get install gluu-casa-3.1.6`      |
+| Install Gluu Server extension pack     | `# apt-get install gluu-casa`      |
  
 ### CentOS 6
       
@@ -53,7 +53,7 @@ Casa is distributed as part of the Gluu Server extensions bundle. Follow the ins
 | Add Gluu GPG Key        | `# wget https://repo.gluu.org/centos/RPM-GPG-KEY-GLUU -O /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU`|
 | Import GPG Key          | `# rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU`|
 | Update/Clean Repo       | `# yum clean all`                          |
-| Install Gluu Server extension pack    | `# yum install gluu-casa-3.1.6`          |
+| Install Gluu Server extension pack    | `# yum install gluu-casa`          |
 
 ### CentOS 7
      
@@ -63,7 +63,7 @@ Casa is distributed as part of the Gluu Server extensions bundle. Follow the ins
 | Add Gluu GPG Key        | `# wget https://repo.gluu.org/centos/RPM-GPG-KEY-GLUU -O /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU`|
 | Import GPG Key          | `# rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU` |
 | Update/Clean Repo       | `# yum clean all`                          |
-| Install Gluu Server extension pack     | `# yum install gluu-casa-3.1.6`          |
+| Install Gluu Server extension pack     | `# yum install gluu-casa`          |
 
 ### RHEL 6
      
@@ -73,7 +73,7 @@ Casa is distributed as part of the Gluu Server extensions bundle. Follow the ins
 | Add Gluu GPG Key        | `# wget https://repo.gluu.org/centos/RPM-GPG-KEY-GLUU -O /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU`|
 | Import GPG Key          | `# rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU` |
 | Update/Clean Repo       | `# yum clean all`                          |
-| Install Gluu Server extension pack     | `# yum install gluu-casa-3.1.6`          |
+| Install Gluu Server extension pack     | `# yum install gluu-casa`          |
 
 ### RHEL 7
      
@@ -83,7 +83,7 @@ Casa is distributed as part of the Gluu Server extensions bundle. Follow the ins
 | Add Gluu GPG Key        | `# wget https://repo.gluu.org/rhel/RPM-GPG-KEY-GLUU -O /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU`|
 | Import GPG Key          | `# rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU` |
 | Update/Clean Repo       | `# yum clean all`                          |
-| Install Gluu Server extension pack     | `# yum install gluu-casa-3.1.6`          |
+| Install Gluu Server extension pack     | `# yum install gluu-casa`          |
 
 ### Debian 8 (Jessie)
 
@@ -92,7 +92,7 @@ Casa is distributed as part of the Gluu Server extensions bundle. Follow the ins
 | Add Gluu Repository     | `# echo "deb https://repo.gluu.org/debian/ stable main" > /etc/apt/sources.list.d/gluu-repo.list`|
 | Add Gluu GPG Key        | `# curl https://repo.gluu.org/debian/gluu-apt.key | apt-key add -` |
 | Update/Clean Repo       | `# apt-get update`                         |
-| Install Gluu Server extension pack     | `# apt-get install gluu-casa-3.1.6`      |
+| Install Gluu Server extension pack     | `# apt-get install gluu-casa`      |
 
 ### Debian 9 (Stretch)
 
@@ -101,7 +101,7 @@ Casa is distributed as part of the Gluu Server extensions bundle. Follow the ins
 | Add Gluu Repository     | `# echo "deb https://repo.gluu.org/debian/ stable main" > /etc/apt/sources.list.d/gluu-repo.list`|
 | Add Gluu GPG Key        | `# curl https://repo.gluu.org/debian/gluu-apt.key | apt-key add -` |
 | Update/Clean Repo       | `# apt-get update`                         |
-| Install Gluu Server extension pack     | `# apt-get install gluu-casa-3.1.6`      |
+| Install Gluu Server extension pack     | `# apt-get install gluu-casa`      |
 
     
 ## Run the Setup Script
