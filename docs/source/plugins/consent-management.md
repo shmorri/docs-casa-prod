@@ -18,8 +18,10 @@ This plugin allows users to view and revoke the authorizations they have issued 
 
 1. Click on `Add` 
 
-## How to use
+## User guide
 
-A new "Consent management" link will appear in regular users' navigation menu. From there, they can see and revoke authorizations to apps.
+A new "Consent management" link will appear in regular users' navigation menu. 
+
+New entries are added automatically when the user first accesses an app protected by the Gluu Server where Casa is installed. Once an app is entered, the user can see and revoke authorization in this screen.
 
 ![image](https://user-images.githubusercontent.com/5271048/53795147-f5e7d900-3ef6-11e9-9907-ee4c2be2516f.png)
