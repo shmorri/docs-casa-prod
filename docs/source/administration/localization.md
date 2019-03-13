@@ -37,7 +37,7 @@ As an example, if the browser was configured to use U.S. English, the locale wil
 
 ## Localization in plugins
 
-Plugins also support localization through the "labels" bundle. Check [here](../developer/intro-plugin.md#anatomy-of-a-plugin) for more information. This is useful for plugins developed by your organization. If you have installed plugins developed by Gluu, they will only contain a single default English file.
+Plugins also support localization through the "zk-label" bundle. Check [here](../developer/intro-plugin.md#anatomy-of-a-plugin) for more information. This is useful for plugins developed by your organization. If you have installed plugins developed by Gluu, they will only contain a single default English file.
 
 To add your own translation for plugin texts, proceed as follows:
 
