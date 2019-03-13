@@ -52,7 +52,7 @@ While configuring Passport earlier, you enabled one or more authentication scrip
 
 ### Update Casa custom script
 
-Since the *standard* authentication flow will be different, the `casa` script contents must be updated. Expand the row corresponding to Casa script, back up the current script contents and then replace with those found [here](https://github.com/GluuFederation/casa-ee-plugins/raw/master/account-linking/extras/casa.py).
+Since the *standard* authentication flow will be different, the `casa` script contents must be updated. Expand the row corresponding to Casa script, back up the current script contents and then replace with those found [here](https://github.com/GluuFederation/casa-ee-plugins/raw/version_3.1.6/account-linking/extras/casa.py).
 
 Press the update button at the bottom of the page.
 
@@ -60,7 +60,7 @@ The login page must be updated so it dynamically loads the external providers in
 
 1. Log in to the chroot
 1. `cd` to `/opt/gluu/jetty/oxauth/custom/pages`
-1. Copy the file found [here](https://github.com/GluuFederation/casa-ee-plugins/raw/master/account-linking/extras/casa.xhtml) into `pages` folder.
+1. Copy the file found [here](https://github.com/GluuFederation/casa-ee-plugins/raw/version_3.1.6/account-linking/extras/casa.xhtml) into `pages` folder.
 
 ## User guide
 
