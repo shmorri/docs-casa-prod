@@ -108,7 +108,7 @@ Previous knowledge of the [ZK framework 8.6](https://www.zkoss.org) is not requi
 
 The [api-docs](https://www.zkoss.org/documentation#API) are also a good source of low-level details.
 
-There is no need to get into the installation details of ZK since plugins will just leverage the ZK 8.5 libraries available in Gluu Casa at runtime. 
+There is no need to get into the installation details of ZK since plugins will just leverage the ZK 8.6 libraries available in Gluu Casa at runtime. 
 
 #### Key concepts
 
@@ -160,9 +160,9 @@ You include `casa-shared` in plugins by adding the following to your maven proje
         </dependency>
 ```
 
-You can find the physical artifact [here](https://ox.gluu.org/maven/org/xdi/casa-shared/) and the Java api-docs for it [here](???).
+You can find the physical artifact [here](https://ox.gluu.org/maven/org/xdi/casa-shared/).
 
-Note that "provided" scope is used due to the fact that classes of this library are available at runtime in Gluu Casa already, thus you don't have to make them part of your plugin jar.
+Note that "provided" scope is used because classes of this library are available at runtime in Gluu Casa already, thus you don't have to make them part of your plugin jar.
 
 #### Extension points for Gluu Casa
 
