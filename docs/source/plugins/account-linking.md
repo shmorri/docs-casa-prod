@@ -84,4 +84,4 @@ This presents the option to link new accounts, or edit existing linked accounts.
 
 Once an account is linked, it can be disabled or removed by pressing the appropriate button.
 
-![disable or remove linked account](../img/plugins/account-linking-disable-remove.png)
+![disable or remove linked account](../img/plugins/account-linking-remove.png)
