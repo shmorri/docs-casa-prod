@@ -17,6 +17,12 @@ pages:
 - Home: 'index.md'    
 - Administration Guide: 
     - 'Installation': 'administration/installation.md'
+    - 'Plugins':
+        - '2FA Settings': 'plugins/2fa-settings.md'    
+        - 'Accounts linking': 'plugins/account-linking.md'
+        - 'Consent Management': 'plugins/consent-management.md'
+        - 'Custom Branding': 'plugins/custom-branding.md'
+        - 'Write your own plugin': 'plugins/writing-plugins.md'
     - 'About two-factor authentication': 'administration/2fa-basics.md'
     - 'Admin console': 'administration/admin-console.md'   
     - 'Credentials storage': 'administration/credentials-stored.md'
@@ -46,9 +52,3 @@ pages:
         - 'Plugin management internals': 'developer/plugin-management-internals.md'
         - 'FAQ': 'developer/faq.md'
 - User Guide : 'user-guide.md'
-- Available Plugins:
-    - '2FA Settings': 'plugins/2fa-settings.md'    
-    - 'Accounts linking': 'plugins/account-linking.md'
-    - 'Consent Management': 'plugins/consent-management.md'
-    - 'Custom Branding': 'plugins/custom-branding.md'
-    - 'Write your own plugin': 'plugins/writing-plugins.md'
