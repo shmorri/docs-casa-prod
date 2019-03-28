@@ -1,6 +1,6 @@
 # Consent Management Plugin
 ## Overview 
-This plugin allows users to view and revoke the authorizations they have issued to applications protected by Gluu Server.
+The Consent Management plugin gives end-users the ability to view and revoke previously granted authorizations provided to applications accessed with their account in a Gluu Server. 
 
 ## Requirements
 
@@ -20,8 +20,12 @@ This plugin allows users to view and revoke the authorizations they have issued 
 
 ## User guide
 
-A new "Consent management" link will appear in regular users' navigation menu. 
+Once the plugin is activated, a new "Consent management" link will appear in the lefthand navigation menu for all users. 
 
-New entries are added automatically when the user first accesses an app protected by the Gluu Server where Casa is installed. Once an app is entered, the user can see and revoke authorization in this screen.
+New entries are added automatically whenever the user is prompted for, and authorizes the release of their personal data to an application accessed using their Gluu account.   
 
 ![image](https://user-images.githubusercontent.com/5271048/53795147-f5e7d900-3ef6-11e9-9907-ee4c2be2516f.png)
+
+### Revoking consent
+When a previously granted consent decision is revoked, the user will be re-prompted to authorize release of their data if/when they attempt to access the application again. 
+
