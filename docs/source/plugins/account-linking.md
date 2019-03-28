@@ -10,8 +10,8 @@ The Accounts Linking plugin allows users to link and delink their local account 
 
 - Passport configured to support your target external authentication providers, e.g. GitHub, Google, etc. Check the Gluu Server docs for instructions (make sure the docs version matches your Gluu version):
 
-  - Passport for external [SAML IDPs](https://www.gluu.org/docs/ce/authn-guide/inbound-saml-passport/)    
-  - Passport for external [OAuth/OIDC providers](https://www.gluu.org/docs/ce/authn-guide/passport/)   
+    - Passport for external [SAML IDPs](https://www.gluu.org/docs/ce/authn-guide/inbound-saml-passport/)    
+    - Passport for external [OAuth/OIDC providers](https://www.gluu.org/docs/ce/authn-guide/passport/)   
   
 ## Installation
 
