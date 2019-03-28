@@ -1,18 +1,21 @@
 # Accounts Linking
 ## Overview
-This plugin allows users to link accounts used at third-party sites with their local Gluu account. Offer popular social login providers such as Google, Facebook, etc., or even SAML identity providers (IDPs).
+The Accounts Linking plugin allows users to link and delink their local account with an existing account at third-party social providers like GitHub, Facebook, and Google, or even external customer or partner SAML IDPs. 
 
 ## Requirements
 
-- A Gluu Server with the Passport component installed
+- A Gluu Server with Passport.js installed. [Install Gluu](https://gluu.org/docs/ce/installation-guide) 
 
-- The plugin jar file that matches the version of your Casa (and Gluu Server) installation.
+- The plugin jar file that matches the version of your Casa and Gluu Server installation.
 
-- Passport configured to support external providers as needed. Check the Passport docs to learn how to do so: SAML [IDPs](https://www.gluu.org/docs/ce/authn-guide/inbound-saml-passport/) or OAuth/OIDC [providers](https://www.gluu.org/docs/ce/authn-guide/passport/). Make sure to use the version of the docs matching your Gluu Server version.
+- Passport configured to support your target external authentication providers, e.g. GitHub, Google, etc. Check the Gluu Server docs for instructions (make sure the docs version matches your Gluu version):
 
+  - Passport for external [SAML IDPs](https://www.gluu.org/docs/ce/authn-guide/inbound-saml-passport/)    
+  - Passport for external [OAuth/OIDC providers](https://www.gluu.org/docs/ce/authn-guide/passport/)   
+  
 ## Installation
 
-Once you have tested the integration with external providers, you can install the plugin by following the steps below:
+Once you have configured and tested the integration(s) with the target external providers, install the Accounts Linking plugin by following the steps below:
 
 1. Log in to Casa using an administrator account
 
