@@ -1,18 +1,22 @@
 # Installation
+Casa is a value-added application for the Gluu Server IAM platform, and **must be** installed on the same server or VM  as a functional Gluu Server installation. 
 
-## Requirements
-    
-Casa must be installed on the same host as an operational Gluu Server 3.1.6 instance with the following requirements satisifed:
+## Pre-requirements
 
-- At least **1GB of additional RAM** on top of [Gluu Server system requirements](https://gluu.org/docs/ce/3.1.6/installation-guide/#system-requirements) 
+- An operational Gluu Server 3.1.6 instance. [Install Gluu](https://gluu.org/docs/ce/installation-guide/)
 
-- At least the following components installed:   
+- At least **1GB of additional RAM** on the server or VM in addition to [Gluu Server system requirements](https://gluu.org/docs/ce/3.1.6/installation-guide/#system-requirements) 
+
+### Gluu Server Configurations
+
+- At least the following components should be installed in the target Gluu Server:  
+
     - Apache     
     - LDAP    
     - oxAuth   
-    - oxTrust   
+    - oxTrust       
 
-- Dynamic client registration enabled. To confirm, in oxTrust navigate to `Configuration` > `JSON Configuration` > `oxAuth configuration`, find the `dynamicRegistrationEnabled` property and set to `true`.
+- Enable dynamic client registration. In oxTrust, navigate to `Configuration` > `JSON Configuration` > `oxAuth configuration`, find the `dynamicRegistrationEnabled` property and confirm it is set to `true`.
 
 !!! Note  
     Dynamic client registration can be turned off after Casa installation, as needed. 
@@ -106,13 +110,15 @@ Casa is distributed as part of the Gluu Server extensions bundle. Follow the ins
     
 ## Run the Setup Script
 
-The Casa setup script, `setup_casa.py`, adds the application to Gluu Server, imports required data to LDAP, and applies a number of required configurations in Gluu Server chroot.
+The Casa setup script, `setup_casa.py`, adds the application to the Gluu Server, imports required data to LDAP, and applies a number of required configurations in the Gluu Server chroot.
 
 Log in to the Gluu Server chroot, as follows:
 
 `$ service gluu-server-3.1.6 login`
 
-(or `gluu-serverd-3.1.6 start` for systemd-based distros). Then `cd` to the setup scripts directory and run `setup_casa.py`: 
+(Or `gluu-serverd-3.1.6 start` for systemd-based distros). 
+
+Then `cd` to the setup scripts directory and run `setup_casa.py`: 
 
 ```
 # cd /install/community-edition-setup
@@ -122,7 +128,7 @@ Log in to the Gluu Server chroot, as follows:
 Answer the setup questions as prompted. Hit Enter to accept the default value specified in square brackets, if appropriate. 
 
 ### Finish setup
-After answering the setup script questions, the selections will be displayed with a prompt to finish installation. If everything looks good, hit Y to finish.
+After answering the setup questions, your selections will be displayed with a prompt to finish installation. If everything looks good, hit Y to finish.
 
 Upon successful installation, a confirmation message will appear that says: "Casa installation successful! Point your browser to `https://<host>/casa`".
 
