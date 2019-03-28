@@ -1,5 +1,5 @@
 # Installation
-Casa is a value-added application for the Gluu Server IAM platform, and **must be** installed on the same server or VM  as a functional Gluu Server installation. 
+Casa is a value-added application for the [Gluu Server](https://gluu.org/docs/ce), and **must be** installed on the same server or VM  as a functional Gluu Server installation. 
 
 ## Pre-requirements
 
