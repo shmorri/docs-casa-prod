@@ -125,7 +125,7 @@ Then `cd` to the setup scripts directory and run `setup_casa.py`:
 
 Answer the setup questions as prompted. Hit Enter to accept the default value specified in square brackets, if appropriate. 
 
-### Finish setup
+## Finish setup
 After answering the setup questions, your selections will be displayed with a prompt to finish installation. If everything looks good, hit Y to finish.
 
 Upon successful installation, a confirmation message will appear that says: "Casa installation successful! Point your browser to `https://<host>/casa`".
