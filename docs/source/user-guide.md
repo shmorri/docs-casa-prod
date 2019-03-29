@@ -19,7 +19,9 @@ The credential dashboard displays widgets for each type of supported 2FA credent
 
 ![cred-dashboard](./img/dashboard-no-creds-enrolled.png)
 
-Click the button to view additional details and enroll new credentials.   
+
+To manage existing credentials and enroll new credentials, click the Add/change button: 
+
 
 ![cred-focused](./img/manage-highlighted.png)
 
