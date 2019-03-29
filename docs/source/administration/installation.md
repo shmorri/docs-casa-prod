@@ -133,5 +133,5 @@ Upon successful installation, a confirmation message will appear that says: "Cas
 Wait a couple of minutes, then visit the URL and authenticate against Gluu to access Casa. 
 
 !!! Note 
-    To change the default URL path for Casa follow the steps listed [here](change-context-path.md). However, it is advisable to apply this customization **before** credentials are enrolled. 
+    To change the default URL path for Casa follow the steps listed [here](change-context-path.md). It is advisable to apply this customization **before** credentials are enrolled. 
    
