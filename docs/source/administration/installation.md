@@ -1,24 +1,25 @@
-# Installation
-Casa is a value-added application for the [Gluu Server](https://gluu.org/docs/ce), and **must be** installed on the same server or VM. Follow the instructions below to spin up your own instance of Casa to offer end-users self-service 2FA and more. 
+# Installation 
+Thanks for your interest in Casa! Follow the instructions below to spin up an instance of Casa to offer end-users self-service 2FA and more. 
 
-## Pre-requirements
+## Gluu Server pre-requirements
 
-- An operational Gluu Server 3.1.6 instance. [Install Gluu](https://gluu.org/docs/ce/installation-guide/)
+Casa must be installed on the same server or VM as an operational Gluu Server 3.1.6 instance with at least the following components installed:  
 
-- At least **1GB of additional RAM** on the server or VM in addition to [Gluu Server system requirements](https://gluu.org/docs/ce/3.1.6/installation-guide/#system-requirements) 
-
-### Gluu Server Configurations
-
-- At least the following components should be installed in the target Gluu Server:  
     - Apache     
     - LDAP    
     - oxAuth   
     - oxTrust     
 
-- In oxTrust, enable Dynamic Client Registration by navigating to `Configuration` > `JSON Configuration` > `oxAuth configuration`. Find the `dynamicRegistrationEnabled` property and confirm it is set to `true`.
+**[Install Gluu 3.1.6](https://gluu.org/docs/ce/3.1.6/installation-guide/)**
 
-!!! Note  
-    Dynamic client registration can be turned off after Casa installation, as needed. 
+In addition, make sure your instance meets the following requirements: 
+
+- At least **1GB of additional RAM** on the server or VM in addition to [Gluu Server system requirements](https://gluu.org/docs/ce/3.1.6/installation-guide/#system-requirements) 
+
+- Enable Dynamic Client Registration: in your Gluu Server admin UI ("oxTrust"), navigate to `Configuration` > `JSON Configuration` > `oxAuth configuration`, find the `dynamicRegistrationEnabled` property, and confirm it is set to `true`.
+
+    !!! Note  
+        Dynamic client registration can be turned off after Casa installation, as needed. 
 
 - If your Gluu Server 3.1.6 was upgraded from 2.4.4, ensure the `uma_protection` scope is allowed for dynamic registration in oxTrust.
     
