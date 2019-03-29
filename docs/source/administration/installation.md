@@ -1,5 +1,5 @@
 # Installation
-Casa is a value-added application for the [Gluu Server](https://gluu.org/docs/ce), and **must be** installed on the same server or VM  as a functional Gluu Server installation. 
+Casa is a value-added application for the [Gluu Server](https://gluu.org/docs/ce), and **must be** installed on the same server or VM. Follow the instructions below to spin up your own instance of Casa to offer end-users self-service 2FA and more. 
 
 ## Pre-requirements
 
@@ -10,19 +10,17 @@ Casa is a value-added application for the [Gluu Server](https://gluu.org/docs/ce
 ### Gluu Server Configurations
 
 - At least the following components should be installed in the target Gluu Server:  
-
     - Apache     
     - LDAP    
     - oxAuth   
-    - oxTrust       
+    - oxTrust     
 
-- Enable dynamic client registration. In oxTrust, navigate to `Configuration` > `JSON Configuration` > `oxAuth configuration`, find the `dynamicRegistrationEnabled` property and confirm it is set to `true`.
+- In oxTrust, enable Dynamic Client Registration by navigating to `Configuration` > `JSON Configuration` > `oxAuth configuration`. Find the `dynamicRegistrationEnabled` property and confirm it is set to `true`.
 
 !!! Note  
     Dynamic client registration can be turned off after Casa installation, as needed. 
 
-!!! Note
-    If your Gluu Server 3.1.6 was upgraded from 2.4.4, ensure the `uma_protection` scope is allowed for dynamic registration in oxTrust.
+- If your Gluu Server 3.1.6 was upgraded from 2.4.4, ensure the `uma_protection` scope is allowed for dynamic registration in oxTrust.
     
 ## Installation via Linux Packages 
 
