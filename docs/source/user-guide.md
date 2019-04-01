@@ -13,6 +13,22 @@ Gluu Casa ("Casa") provides an interface for enrolling and managing a variety of
 !!! Note
     Supported credentials are determined by the system administrator.
 
+## Logging in for the first time
+
+To log in to Casa, navigate to `https://<yourdomain>/casa`.
+
+![Login with linked account](./img/plugins/account-linking-login.png)
+
+If you already have an account in the corresponding Gluu Server, log in to Casa by entering the username and password here. 
+
+### Signing in with a linked account
+
+If the administrator has enabled the Account Linking plugin, a list with the configured providers will be displayed on the right panel. Click on an entry to access the given provider's authentication process. After this is finished, you will be taken back to Casa.
+
+Note that users without a local password set yet don't have access to enroll credentials because the username + password combination is  a prerequisite for multi-factor authentication. The user will be prompted to create a new password.
+
+![Login with linked account](./img/plugins/account-linking-need-password.png)
+
 ## Credential Dashboard
 
 The credential dashboard displays widgets for each type of supported 2FA credential (e.g. U2F keys, OTP apps, etc.). Each widget includes summary details of enrolled credentials and a button to add / change credentials.
@@ -22,11 +38,11 @@ The credential dashboard displays widgets for each type of supported 2FA credent
 
 To manage existing credentials and enroll new credentials, click the Add/change button: 
 
-
 ![cred-focused](./img/manage-highlighted.png)
 
+## 2FA
 
-## Turn 2FA on/off
+### Turn 2FA on/off
 
 After the minimum number of credentials have been enrolled (as specified by the system admin), 2FA can be turned on by clicking the pencil icon in the preferred credential widget: 
 
@@ -44,7 +60,7 @@ The context of an authentication attempt can determine which type of credental i
 
 To turn off 2FA, set the preferred credential back to password. 
 
-## 2FA settings & trusted devices
+### 2FA settings & trusted devices
 If enabled by the system administrator, people can set their own policies for when they should be prompted for 2FA. To manage your settings, after enrolling and turning 2FA on, click the `Manage your 2FA settings` button in the Preferred Authentication Mechanism widget. 
 
 ![2fa-settings](./img/user-facing-2fa-settings.png)
@@ -59,11 +75,35 @@ If you opt for 2FA based on location, device, or both, a new widget will appear 
 
 ![2fa-settings-and-trusted-devices](./img/2fa-settings-trusted-devices.png)
 
-## Credential Details & Enrollment
+### Credential Details & Enrollment
 
 The details page provides additional details about each enrolled credential, for instance last used, mobile operating system, and device name. Nicknames can be edited, credentials can be deleted and new credentials can be enrolled and nicknamed. 
 
-Follow the prompts to enroll, nickname and add new 2FA credentials.
+To add a new U2F credential, navigate to `2FA credentials` > `U2F Security Keys`. Insert the U2F key and click `Ready`. Casa will prompt to press the button on the U2F key.
+
+![add-u2f](./img/add-2fa-casa.png)
+
+Add a nickname and click `Add`.
+
+![nickname-u2f](./img/nickname-2fa-casa.png)
+
+Once it's added, the new device will appear in a list on the same page. Click the pencil to edit the device's nickname or the trashcan to delete the device.
+
+![added-u2f](./img/view-2fa-casa.png
 
 !!! Warning  
-    Deleting credentials cannot be undone. Deleting credentials may result in 2FA being turned off. 
+    When a credential is deleted, it cannot be recovered. Deleting credentials may result in 2FA being turned off. 
+    
+## Managing linked accounts
+
+To manage accounts linked to outside sources, navigate to `Account Linking` on the left-hand menu.
+
+![Nav Bar with Account Linking active](./img/plugins/account-linking-nav-bar.png)
+
+This presents the option to link new accounts, or edit existing linked accounts.
+
+![Options for linked accounts](./img/plugins/account-linking-options.png)
+
+Once an account is linked, it can be removed when necessary.
+
+![disable or remove linked account](./img/plugins/account-linking-remove.png)
