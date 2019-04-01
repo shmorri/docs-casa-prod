@@ -35,8 +35,7 @@ The credential dashboard displays widgets for each type of supported 2FA credent
 
 ![cred-dashboard](./img/dashboard-no-creds-enrolled.png)
 
-
-To manage existing credentials and enroll new credentials, click the Add/change button: 
+To manage existing credentials and enroll new credentials, click the `Manage` button: 
 
 ![cred-focused](./img/manage-highlighted.png)
 
@@ -79,6 +78,8 @@ If you opt for 2FA based on location, device, or both, a new widget will appear 
 
 The details page provides additional details about each enrolled credential, for instance last used, mobile operating system, and device name. Nicknames can be edited, credentials can be deleted and new credentials can be enrolled and nicknamed. 
 
+#### U2F Keys
+
 To add a new U2F credential, navigate to `2FA credentials` > `U2F Security Keys`. Insert the U2F key and click `Ready`. Casa will prompt to press the button on the U2F key.
 
 ![add-u2f](./img/add-2fa-casa.png)
@@ -89,10 +90,63 @@ Add a nickname and click `Add`.
 
 Once it's added, the new device will appear in a list on the same page. Click the pencil to edit the device's nickname or the trashcan to delete the device.
 
-![added-u2f](./img/view-2fa-casa.png
+![added-u2f](./img/view-2fa-casa.png)
 
 !!! Warning  
     When a credential is deleted, it cannot be recovered. Deleting credentials may result in 2FA being turned off. 
+    
+#### Super Gluu Devices
+
+To add a new Super Gluu device, navigate to `2FA credentials` > `Super Gluu Devices`.
+
+![add-supergluu-casa](./img/add-supergluu-casa.png)
+
+The Super Gluu enrollment QR code will pop up. Scan it in the Super Gluu app and approve the enrollment.
+
+![enroll-supergluu-casa](./img/enroll-supergluu-casa.png)
+
+Add a nickname for the device and click `Add`.
+
+![nickname-supergluu-casa](./img/nickname-supergluu-casa.png)
+
+Once it's added, the new device will appear in a list on the same page. Click the pencil to edit the device's nickname or the trashcan to delete the device.
+
+![view-supergluu-casa](./img/view-supergluu-casa.png)
+
+!!! Warning  
+    When a credential is deleted, it cannot be recovered. Deleting credentials may result in 2FA being turned off. 
+    
+#### OTP Tokens
+
+To add a new OTP token, navigate to `2FA credentials` > `OTP Tokens`.
+
+![add-otp-casa](./img/add-otp-casa.png)
+
+To add a soft OTP token, choose the `Soft token` option and follow the same steps as [Super Gluu](#super-gluu-devices).
+
+For a hard token, choose the `Hard Token` option.
+
+![enroll-otp-casa](./img/enroll-otp-casa.png)
+
+Add the key associated with the device and the 6 digit code. Add a nickname for the device and click `Add`.
+
+Once it's added, the new device will appear in a list on the same page. Click the pencil to edit the device's nickname or the trashcan to delete the device.
+
+!!! Warning  
+    When a credential is deleted, it cannot be recovered. Deleting credentials may result in 2FA being turned off.
+    
+#### Mobile Phone Numbers
+
+To add a new mobile phone number for one-time passcodes, navigate to `2FA credentials` > `Mobile Phone Numbers`.
+
+![add-mobile-casa](./img/add-mobile-casa.png)
+
+Enter a phone number and click 'Send SMS' to get the passcode. Enter the code received, nickname the mobile number, and click `Add`.
+
+Once it's added, the new mobile number will appear in a list on the same page. Click the pencil to edit the mobile number's nickname or the trashcan to delete the mobile number.
+
+!!! Warning  
+    When a credential is deleted, it cannot be recovered. Deleting credentials may result in 2FA being turned off.
     
 ## Managing linked accounts
 
