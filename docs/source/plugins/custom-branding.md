@@ -8,6 +8,8 @@ This plugin allows admins to apply a design customization by choosing colors, fa
     
 ## Installation
 
+1. [Download the plugin](https://casa.gluu.org/wp-content/uploads/2019/04/custom-branding-3.1.6.Final_.jar)
+
 1. Login to Casa using an administrator account
 
 1. Visit `Administration console` > `Casa plugins`
