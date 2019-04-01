@@ -69,24 +69,4 @@ The login page must be updated so it dynamically loads the external providers in
 
 ## User guide
 
-Access Casa in a web browser: `https://your-host.com/casa`. A list with the configured providers should be shown on the right panel.
-
-![Login with linked account](../img/plugins/account-linking-login.png)
-
-Clicking on an item will take you to the given provider's authentication process. After this is finished, you will be taken back to Casa.
-
-Note that users without a local password set yet don't have access to enroll credentials because the username + password combination is  a prerequisite for multi-factor authentication. The user will be prompted to create a new password.
-
-![Login with linked account](../img/plugins/account-linking-need-password.png)
-
-Alternatively, if a user is already logged in, they can navigate to Account Linking on the left-hand menu.
-
-![Nav Bar with Account Linking active](../img/plugins/account-linking-nav-bar.png)
-
-This presents the option to link new accounts, or edit existing linked accounts.
-
-![Options for linked accounts](../img/plugins/account-linking-options.png)
-
-Once an account is linked, it can be removed when necessary.
-
-![disable or remove linked account](../img/plugins/account-linking-remove.png)
+For information on how to use the plugin, see the [User Guide](../user-guide.md)
