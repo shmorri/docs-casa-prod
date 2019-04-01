@@ -148,6 +148,14 @@ Once it's added, the new mobile number will appear in a list on the same page. C
 !!! Warning  
     When a credential is deleted, it cannot be recovered. Deleting credentials may result in 2FA being turned off.
     
+## Password Reset
+
+To change your password, navigate to `Password Reset`.
+
+Enter your current and new passwords, then click `Change password`.
+
+![change-password](./img/password-reset-casa.png)
+    
 ## Managing linked accounts
 
 To manage accounts linked to outside sources, navigate to `Account Linking` on the left-hand menu.
@@ -161,3 +169,14 @@ This presents the option to link new accounts, or edit existing linked accounts.
 Once an account is linked, it can be removed when necessary.
 
 ![disable or remove linked account](./img/plugins/account-linking-remove.png)
+
+## Consent Management
+
+If the administrator has enabled the `Consent Management` plugin, it will appear in the navigation menu for all users. 
+
+New entries are added automatically whenever the user is prompted for, and authorizes the release of their personal data to an application accessed using their Gluu account.   
+
+![image](https://user-images.githubusercontent.com/5271048/53795147-f5e7d900-3ef6-11e9-9907-ee4c2be2516f.png)
+
+### Revoking consent
+When a previously granted consent decision is revoked, the user will be re-prompted to authorize release of their data if/when they attempt to access the application again. 
