@@ -21,7 +21,7 @@ To log in to Casa, navigate to `https://<yourdomain>/casa`.
 
 ![Login with linked account](./img/plugins/account-linking-login.png)
 
-Sign in with your standard username and password. 
+If you have an existing account, sign in with your standard username and password. If you do not have an account, and social login is enabled, you can create a local account via social login. 
 
 ## Credential Dashboard
 
