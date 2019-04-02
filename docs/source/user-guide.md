@@ -2,32 +2,26 @@
 
 ## Overview
 
-Gluu Casa ("Casa") provides an interface for enrolling and managing a variety of free or low-cost two-factor authentication (2FA) credentials, including:
+Gluu Casa ("Casa") is a self-service web portal for managing account security preferences. The primary use-case for Casa is self-service 2FA. 
+
+Casa can be used to enroll and manage a variety of two-factor authentication (2FA) credentials to secure an account, including:
    
 - U2F security keys (like [Yubikeys](https://www.yubico.com/products/yubikey-hardware/), or any [U2F key on Amazon](https://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=u2f))   
 - Gluu's free and secure U2F mobile app, [Super Gluu](https://super.gluu.org)   
 - OTP mobile apps (like Google Authenticator, FreeOTP, etc.)
+- Mobile phone numbers for SMS OTP
 - Physical OTP tokens (keyfobs, OTP cards)
-- Mobile phone numbers that can receive OTPs via SMS
 
 !!! Note
     Supported credentials are determined by the system administrator.
 
-## Logging in for the first time
+## Sign in for the first time
 
 To log in to Casa, navigate to `https://<yourdomain>/casa`.
 
 ![Login with linked account](./img/plugins/account-linking-login.png)
 
-If you already have an account in the corresponding Gluu Server, log in to Casa by entering the username and password here. 
-
-### Signing in with a linked account
-
-If the administrator has enabled the Account Linking plugin, a list with the configured providers will be displayed on the right panel. Click on an entry to access the given provider's authentication process. After this is finished, you will be taken back to Casa.
-
-Note that users without a local password set yet don't have access to enroll credentials because the username + password combination is  a prerequisite for multi-factor authentication. The user will be prompted to create a new password.
-
-![Login with linked account](./img/plugins/account-linking-need-password.png)
+Sign in with your standard username and password. 
 
 ## Credential Dashboard
 
@@ -39,7 +33,7 @@ To manage existing credentials and enroll new credentials, click the `Manage` bu
 
 ![cred-focused](./img/manage-highlighted.png)
 
-## 2FA
+## 2FA overview
 
 ### Turn 2FA on/off
 
@@ -55,9 +49,13 @@ When prompted for 2FA, the preferred credential will be requested _first_. If th
 
 ![u2f-auth-plus-options](./img/gluu-u2f-authentication.png) 
 
-The context of an authentication attempt can determine which type of credental is most convenient to use. For instance, U2F keys are not compatible with mobile phones or non-Chrome browsers. **To reduce the chance of account lockout, we recommend having at least two different _types_ of 2FA credentials enrolled and accessible at all times** --e.g. one U2F token _and_ one OTP app, or one OTP app _and_ one SMS phone number. 
-
 To turn off 2FA, set the preferred credential back to password. 
+
+### 2FA best practices
+
+The context of an authentication attempt can determine which type of credental is most convenient to use. For instance, U2F keys are not compatible with mobile phones or non-Chrome browsers. 
+
+**To reduce the chance of account lockout, enroll at least two different _types_ of 2FA credentials** -- e.g. one U2F token _and_ one OTP app, or one OTP app _and_ one SMS phone number. 
 
 ### 2FA settings & trusted devices
 If enabled by the system administrator, people can set their own policies for when they should be prompted for 2FA. To manage your settings, after enrolling and turning 2FA on, click the `Manage your 2FA settings` button in the Preferred Authentication Mechanism widget. 
@@ -74,11 +72,11 @@ If you opt for 2FA based on location, device, or both, a new widget will appear 
 
 ![2fa-settings-and-trusted-devices](./img/2fa-settings-trusted-devices.png)
 
-### Credential Details & Enrollment
+## 2FA credential details & enrollment
 
 The details page provides additional details about each enrolled credential, for instance last used, mobile operating system, and device name. Nicknames can be edited, credentials can be deleted and new credentials can be enrolled and nicknamed. 
 
-#### U2F Keys
+### U2F security keys
 
 To add a new U2F credential, navigate to `2FA credentials` > `U2F Security Keys`. Insert the U2F key and click `Ready`. Casa will prompt to press the button on the U2F key.
 
@@ -95,7 +93,7 @@ Once it's added, the new device will appear in a list on the same page. Click th
 !!! Warning  
     When a credential is deleted, it cannot be recovered. Deleting credentials may result in 2FA being turned off. 
     
-#### Super Gluu Devices
+### Super Gluu Devices
 
 To add a new Super Gluu device, navigate to `2FA credentials` > `Super Gluu Devices`.
 
@@ -116,7 +114,7 @@ Once it's added, the new device will appear in a list on the same page. Click th
 !!! Warning  
     When a credential is deleted, it cannot be recovered. Deleting credentials may result in 2FA being turned off. 
     
-#### OTP Tokens
+### OTP Tokens
 
 To add a new OTP token, navigate to `2FA credentials` > `OTP Tokens`.
 
@@ -135,7 +133,7 @@ Once it's added, the new device will appear in a list on the same page. Click th
 !!! Warning  
     When a credential is deleted, it cannot be recovered. Deleting credentials may result in 2FA being turned off.
     
-#### Mobile Phone Numbers
+### Mobile Phone Numbers
 
 To add a new mobile phone number for one-time passcodes, navigate to `2FA credentials` > `Mobile Phone Numbers`.
 
@@ -150,13 +148,13 @@ Once it's added, the new mobile number will appear in a list on the same page. C
     
 ## Password Reset
 
-To change your password, navigate to `Password Reset`.
+If enabled by the system administrator, Casa can also be used to change your password. 
 
-Enter your current and new passwords, then click `Change password`.
+Navigate to the `Password Reset` widget. Enter your current and new passwords, then click `Change password`.
 
 ![change-password](./img/password-reset-casa.png)
     
-## Managing linked accounts
+## Account linking
 
 To manage accounts linked to outside sources, navigate to `Account Linking` on the left-hand menu.
 
@@ -169,6 +167,15 @@ This presents the option to link new accounts, or edit existing linked accounts.
 Once an account is linked, it can be removed when necessary.
 
 ![disable or remove linked account](./img/plugins/account-linking-remove.png)
+
+
+### Sign in with a linked account
+
+If the administrator has enabled the Account Linking plugin, a list with the configured providers will be displayed on the right panel. Click on an entry to access the given provider's authentication process. After this is finished, you will be taken back to Casa.
+
+Note that users without a local password set yet don't have access to enroll credentials because the username + password combination is  a prerequisite for multi-factor authentication. The user will be prompted to create a new password.
+
+![Login with linked account](./img/plugins/account-linking-need-password.png)
 
 ## Consent Management
 
