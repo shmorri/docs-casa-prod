@@ -31,12 +31,12 @@ To remove Casa from your Gluu installation, do the following:
     For deb based systems:
     
     ```
-    apt remove gluu-casa-3.1.6
+    apt remove gluu-casa
     ```
 
     For rpm based systems:
 
     ```
-    yum remove gluu-casa-3.1.6
+    yum remove gluu-casa
     ```
     
