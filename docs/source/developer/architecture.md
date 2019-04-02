@@ -46,7 +46,7 @@ Managed beans are injected into UI controller classes (ZK ViewModels) by means o
 
 #### Logging
 
-Casa uses "Simple Logging Facade for Java" (SLF4J) with the Log4j2 binding. Log files are located in `/opt/gluu/jetty/casa/logs` of Gluu Server chroot container. To get more information on loggers and appenders, check the `log4j2.xml` file found in `/WEB-INF/classes` of the application war. Alternatively, you can check the file online in [Github](https://github.com/GluuFederation/casa/blob/version_3.1.6/app/src/main/resources/log4j2.xml) (point to the branch that corresponds to your Casa version).
+Casa uses "Simple Logging Facade for Java" (SLF4J) with the Log4j2 binding. Log files are located in `/opt/gluu/jetty/casa/logs` of Gluu Server chroot container. To get more information on loggers and appenders, check the `log4j2.xml` file found in `/WEB-INF/classes` of the application war. Alternatively, you can check the file online in [Github](https://github.com/GluuFederation/casa/blob/version_4.0/app/src/main/resources/log4j2.xml) (point to the branch that corresponds to your Casa version).
 
 #### Async timers
 
