@@ -40,12 +40,6 @@ When prompted for 2FA, the preferred credential will be requested _first_. If th
 
 To turn off 2FA, set the preferred credential back to password. 
 
-### 2FA best practices
-
-The context of an authentication attempt can determine which type of credental is most convenient to use. For instance, U2F keys are not compatible with mobile phones or non-Chrome browsers. 
-
-**To reduce the chance of account lockout, enroll at least two different _types_ of 2FA credentials** -- e.g. one U2F token _and_ one OTP app, or one OTP app _and_ one SMS phone number. 
-
 ### 2FA settings & trusted devices
 If enabled by the system administrator, people can set their own policies for when they should be prompted for 2FA. To manage your settings, after enrolling and turning 2FA on, click the `Manage your 2FA settings` button in the Preferred Authentication Mechanism widget. 
 
@@ -60,6 +54,13 @@ You will be able to choose from a few options for when 2FA is presented:
 If you opt for 2FA based on location, device, or both, a new widget will appear to display your trusted devices. 
 
 ![2fa-settings-and-trusted-devices](./img/2fa-settings-trusted-devices.png)
+
+### 2FA best practices
+
+The context of an authentication attempt can determine which type of credental is most convenient to use. For instance, U2F keys are not compatible with mobile phones or non-Chrome browsers. 
+
+**To reduce the chance of account lockout**, enroll at least two different _types_ of 2FA credentials -- e.g. one U2F token and one OTP app; or one OTP app and one SMS phone number, etc. This way, regardless which device you're using to access a protected resource, you will have a usable option for passing strong authentication. 
+
 
 ## 2FA credential details & enrollment
 
