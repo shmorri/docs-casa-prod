@@ -5,25 +5,25 @@ View screenshots in the [User Guide](../user-guide.md).
 
 ## Gluu Server pre-requirements
 
-Casa must be installed on the same server or VM as an operational Gluu Server 3.1.6 instance with at least the following components:  
+Casa must be installed on the same server or VM as an operational Gluu Server 4.0 instance with at least the following components:  
 
 - Apache     
 - LDAP    
 - oxAuth   
 - oxTrust     
 
-**[Install Gluu 3.1.6](https://gluu.org/docs/ce/3.1.6/installation-guide/)**
+**[Install Gluu 4.0](https://gluu.org/docs/ce/4.0/installation-guide/)**
 
 In addition, make sure your instance meets the following requirements: 
 
-- At least **1GB of additional RAM** on the server or VM in addition to [Gluu Server system requirements](https://gluu.org/docs/ce/3.1.6/installation-guide/#system-requirements) 
+- At least **1GB of additional RAM** on the server or VM in addition to [Gluu Server system requirements](https://gluu.org/docs/ce/4.0/installation-guide/#system-requirements) 
 
 - Enable Dynamic Client Registration: in your Gluu Server admin UI ("oxTrust"), navigate to `Configuration` > `JSON Configuration` > `oxAuth configuration`, find the `dynamicRegistrationEnabled` property, and confirm it is set to `true`.
 
     !!! Note  
         Dynamic client registration can be turned off after Casa installation, as needed. 
 
-- If your Gluu Server 3.1.6 was upgraded from 2.4.4, ensure the `uma_protection` scope is allowed for dynamic registration in oxTrust.
+- If your Gluu Server 4.0 was upgraded from 2.4.4, ensure the `uma_protection` scope is allowed for dynamic registration in oxTrust.
     
 ## Installation via Linux Packages 
 
@@ -115,9 +115,9 @@ The Casa setup script, `setup_casa.py`, adds the application to the Gluu Server,
 
 Log in to the Gluu Server chroot, as follows:
 
-`$ service gluu-server-3.1.6 login`
+`$ service gluu-server login`
 
-(Or `gluu-serverd-3.1.6 start` for systemd-based distros). 
+(Or `gluu-serverd start` for systemd-based distros). 
 
 Then `cd` to the setup scripts directory and run `setup_casa.py`: 
 
