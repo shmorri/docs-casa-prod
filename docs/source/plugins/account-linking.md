@@ -17,7 +17,7 @@ The Accounts Linking plugin allows users to link and delink their local account 
 
 Once you have configured and tested the integration(s) with the target external providers, install the Accounts Linking plugin by following the steps below:
 
-1. [Download the plugin](https://casa.gluu.org/wp-content/uploads/2019/04/account-linking-3.1.6.Final_.jar)
+1. [Download the plugin](https://casa.gluu.org/wp-content/uploads/2019/04/account-linking-4.0.Final_.jar)
 
 1. Log in to Casa using an administrator account
 
@@ -57,7 +57,7 @@ While configuring Passport earlier, you enabled one or more authentication scrip
 
 ### Update Casa custom script
 
-Since the *standard* authentication flow will be different, the `casa` script contents must be updated. Expand the row corresponding to Casa script, back up the current script contents and then replace with those found [here](https://github.com/GluuFederation/casa-ee-plugins/raw/version_3.1.6/account-linking/extras/casa.py).
+Since the *standard* authentication flow will be different, the `casa` script contents must be updated. Expand the row corresponding to Casa script, back up the current script contents and then replace with those found [here](https://github.com/GluuFederation/casa-ee-plugins/raw/version_4.0/account-linking/extras/casa.py).
 
 Press the update button at the bottom of the page.
 
@@ -65,7 +65,7 @@ The login page must be updated so it dynamically loads the external providers in
 
 1. Log in to the chroot
 1. `cd` to `/opt/gluu/jetty/oxauth/custom/pages`
-1. Copy the file found [here](https://github.com/GluuFederation/casa-ee-plugins/raw/version_3.1.6/account-linking/extras/casa.xhtml) into `pages` folder.
+1. Copy the file found [here](https://github.com/GluuFederation/casa-ee-plugins/raw/version_4.0/account-linking/extras/casa.xhtml) into `pages` folder.
 
 ## User guide
 
