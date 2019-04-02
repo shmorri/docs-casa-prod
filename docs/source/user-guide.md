@@ -2,18 +2,7 @@
 
 ## Overview
 
-Gluu Casa ("Casa") is a self-service web portal for managing account security preferences. The primary use-case for Casa is self-service 2FA. 
-
-Casa can be used to enroll and manage a variety of two-factor authentication (2FA) credentials to secure an account, including:
-   
-- U2F security keys (like [Yubikeys](https://www.yubico.com/products/yubikey-hardware/), or any [U2F key on Amazon](https://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=u2f))   
-- Gluu's free and secure U2F mobile app, [Super Gluu](https://super.gluu.org)   
-- OTP mobile apps (like Google Authenticator, FreeOTP, etc.)
-- Mobile phone numbers for SMS OTP
-- Physical OTP tokens (keyfobs, OTP cards)
-
-!!! Note
-    Supported credentials are determined by the system administrator.
+Gluu Casa ("Casa") is a self-service web portal for managing account security preferences. The primary use-case for Casa is self-service 2FA, but other use cases and functionalities can be supported via Casa plugins. The options displayed in the user portal will always depend upon which settings have been enabled by the administrator. 
 
 ## Sign in for the first time
 
