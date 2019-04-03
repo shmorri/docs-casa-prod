@@ -13,6 +13,8 @@ markdown_extensions:
 - toc:
      permalink: '#'
 - pymdownx.superfences
+- pymdownx.snippets:
+    base_path: docs/_snippets
 pages:
 - Home: 'index.md'    
 - Administration Guide: 
