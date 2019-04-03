@@ -110,6 +110,6 @@ C->>D: Open arrow
 D-->>A: Dashed open arrow
 ```
 
---8<-- 
-uml.txt
---8<-- 
+--8<--  
+uml.txt  
+--8<--   
