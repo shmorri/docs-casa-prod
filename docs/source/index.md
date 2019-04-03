@@ -100,3 +100,16 @@ Use the following links to get started with Casa:
 ## License
 Gluu Casa is made available under the [Gluu License Agreement for Gluu Casa](https://github.com/GluuFederation/casa/blob/master/LICENSE.md). 
 
+<!-- I'm testing superfences, I'll remove this soon -->
+
+```sequence
+Title: Here is a title
+A->B: Normal line
+B-->C: Dashed line
+C->>D: Open arrow
+D-->>A: Dashed open arrow
+```
+
+--8<-- 
+uml.txt
+--8<-- 
