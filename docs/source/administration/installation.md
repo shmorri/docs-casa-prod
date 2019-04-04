@@ -1,5 +1,5 @@
 # Installation 
-Thanks for your interest in Casa! Follow the instructions below to spin up an instance of Casa to offer end-users self-service 2FA and more for their account(s) in your Gluu Server.
+Thanks for your interest in Casa! Follow the instructions below to spin up an instance of Casa to offer end-users a self-service portal to manage their account security.
 
 View screenshots in the [User Guide](../user-guide.md).
 
