@@ -28,7 +28,7 @@ Out-of-the-box, Casa can be used to enroll and manage the following authenticato
 
 ## 2FA enrollment APIs
 
-To facilitate 2FA enrollment during account registration, or elsewhere in an application ecosystem, Casa exposes APIs for enrolling the following types of authenticators:   
+To facilitate 2FA enrollment during account registration or elsewhere in an application ecosystem, Casa exposes APIs for enrolling the following types of authenticators:   
 
 - Phone numbers for SMS OTP   
 - OTP apps, cards or dongles        
