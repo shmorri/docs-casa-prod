@@ -1,5 +1,5 @@
 # Installation 
-Thanks for your interest in Casa! Follow the instructions below to spin up an instance of Casa to offer end-users a self-service portal to manage their account security.
+Thanks for your interest in Casa! Follow the instructions below to deploy an instance of Casa to offer end-users a self-service portal to manage their account security.  
 
 View screenshots in the [User Guide](../user-guide.md).
 
@@ -14,19 +14,25 @@ Casa must be installed on the same server or VM as an operational Gluu Server 3.
 
 **[Install Gluu 3.1.6](https://gluu.org/docs/ce/3.1.6/installation-guide/)**
 
-In addition, make sure your instance meets the following requirements: 
+### VM requirments
+Make sure your VM or server has at least **1GB of additional RAM** on top of the [Gluu Server system requirements](https://gluu.org/docs/ce/3.1.6/installation-guide/#system-requirements) 
 
-- At least **1GB of additional RAM** on the server or VM in addition to [Gluu Server system requirements](https://gluu.org/docs/ce/3.1.6/installation-guide/#system-requirements) 
+### Configuration requirements
 
-- Enable Dynamic Client Registration: in your Gluu Server admin UI ("oxTrust"), navigate to `Configuration` > `JSON Configuration` > `oxAuth configuration`, find the `dynamicRegistrationEnabled` property, and confirm it is set to `true`.
+- Dynamic client registration should be enabled in your Gluu Server before proceeding with Casa installation. After installation, dynamic client registration can be turned off as needed. [Read the docs](https://gluu.org/docs/ce/admin-guide/openid-connect/#dynamic-client-registration).
 
-    !!! Note  
-        Dynamic client registration can be turned off after Casa installation, as needed. 
+- If your Gluu Server 3.1.6 was upgraded from 2.4.4, ensure the `uma_protection` scope is allowed for dynamic registration in oxTrust. 
 
-- If your Gluu Server 3.1.6 was upgraded from 2.4.4, ensure the `uma_protection` scope is allowed for dynamic registration in oxTrust.
-    
+### User requirements
+Casa shares the Gluu Server's data, so any user with an account in the Gluu Server will have an account in Casa. There are two types of users in Gluu Casa:
+
+- **Admin users**: Any user in the `Managers Group` in the corresponding Gluu Server. Admin users have access to the Casa [admin console](./administration/admin-console.md).   
+
+- **Regular users**: Any other user in the Gluu Server. All users can manage their 2FA credentials, as outlined in the [user guide](./user-guide.md).  
+
+Make sure you have an admin user before proceeding with Casa installation. 
+
 ## Installation via Linux Packages 
-
 Casa is distributed as part of the Gluu Server extensions bundle. Follow the instructions according to your underlying OS.
 
 !!! Warning 
@@ -135,6 +141,9 @@ Upon successful installation, a confirmation message will appear that says: "Cas
 
 Wait a couple of minutes, then visit the URL and authenticate against Gluu to access Casa. 
 
-!!! Note 
-    To change the default URL path for Casa follow the steps listed [here](change-context-path.md). It is advisable to apply this customization **before** credentials are enrolled. 
+!!! Note
+    As noted [above](#user-roles), make sure to sign in to Casa with a user that is included in the `Managers Group` in the Gluu Server. 
+
+## Changing the URL path
+To change the default URL path for Casa, follow the steps listed [here](change-context-path.md). It is advisable to apply this customization **before** credentials are enrolled. 
    
