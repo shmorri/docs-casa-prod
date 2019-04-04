@@ -7,10 +7,10 @@ View screenshots in the [User Guide](../user-guide.md).
 
 Casa must be installed on the same server or VM as an operational Gluu Server 3.1.6 instance with at least the following components:  
 
+- oxAuth OAuth2 Server        
+- oxTrust GUI   
+- Gluu LDAP  
 - Apache     
-- LDAP    
-- oxAuth   
-- oxTrust     
 
 **[Install Gluu 3.1.6](https://gluu.org/docs/ce/3.1.6/installation-guide/)**
 
