@@ -26,11 +26,9 @@ Out-of-the-box, Casa can be used to enroll and manage the following authenticato
 - Mobile phone numbers able to receive OTPs via SMS   
 - Passwords (if stored in the corresponding Gluu Server's local LDAP, i.e. not a backend LDAP like AD)      
 
-Additional authenticators and use cases can be supported via [custom plugins](#plugin-oriented). 
-
 ## 2FA enrollment APIs
 
-To facilitate 2FA device enrollment during account registration, or elsewhere in an application ecosystem, Casa exposes APIs for enrolling the following types of authenticators:   
+To facilitate 2FA enrollment during account registration, or elsewhere in an application ecosystem, Casa exposes APIs for enrolling the following types of authenticators:   
 
 - Phone numbers for SMS OTP   
 - OTP apps, cards or dongles        
@@ -38,44 +36,19 @@ To facilitate 2FA device enrollment during account registration, or elsewhere in
 
 Learn more in the [developer guide](./developer/index.md#apis-for-credential-enrollment).  
 
-## Plugin oriented
+## Plugins
 
 Casa is a plugin-oriented, Java web application. Existing functionality can be extended and new functionality and APIs can be introduced through plugins. 
 
-Learn more in the [developer guide](./developer/index.md).
+Gluu has written multiple plugins to extend Casa to solve use-cases such as:
 
-## Existing plugins
-Gluu has written a number of plugins to extend Casa, including plugins for:
-
-- [Consent management](./plugins/consent-management.md) 
-- [Custom branding](./plugins/custom-branding.md)  
-- [2FA settings](./plugins/2fa-settings.md)  
 - [Account linking](./plugins/account-linking.md)  
+- [Consent management](./plugins/consent-management.md) 
+- [2FA settings](./plugins/2fa-settings.md)  
+- [Custom branding](./plugins/custom-branding.md)  
 - Developer portal (*coming soon!*)     
 
-For more information visit the [Casa website](https://casa.gluu.org/plugins). 
-
-## Gluu Server integration
-
-Casa is tightly bundled with the [Gluu Server](https://gluu.org/docs/ce) identity and access management (IAM) platform. A few important notes:
-
-- **Same host**: Casa must be installed on the same server (host) as its corresponding Gluu Server. For example, if the Gluu Server is deployed on `https://accounts.mydomain.com` , Casa should reside on the same host, for instance at `https://accounts.mydomain.com/signinoptions` 
-
-- **Authentication scripts**: The Gluu Server relies on "interception scripts" to implement user authentication. Casa itself has an interecption script which defines authentication logic and routes authentications to specific 2FA mechanisms which also have their own scripts. All scripts must be enabled in the Gluu Server.        
-
-- **oxd**: Casa uses the [oxd OAuth 2.0 client software](https://oxd.gluu.org) to leverage the Gluu Server for authentication. oxd can be deployed during Casa installation.  
-
-More detailed information is available in the Admin Guide, linked [below](#admin-guide).
-
-## User roles
-
-There are two types of users in Gluu Casa:
-
-- **Admin users**: Any user in the `Managers Group` in the Gluu Server   
-
-- **Regular users**: Any user in the Gluu Server  
-
-Admin users have access to the Casa [admin console](./administration/admin-console.md). All users can manage their 2FA credentials, as outlined in the [user guide](./user-guide.md).  
+To extend Casa to meet your own custom requirements, learn more about writing plugins in the [developer guide](./developer/index.md).
 
 ## Get started
 
@@ -98,5 +71,5 @@ Use the following links to get started with Casa:
 - [Home](./developer/index.md)
 
 ## License
-Gluu Casa is made available under the [Gluu License Agreement for Gluu Casa](https://github.com/GluuFederation/casa/blob/master/LICENSE.md). 
+Gluu Casa is made available under the [Gluu License Agreement for Gluu Casa](https://github.com/GluuFederation/casa/blob/master/LICENSE.md). To obtain a license grant, [contact us](https://gluu.org/contact). 
 
