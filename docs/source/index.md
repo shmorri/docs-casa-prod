@@ -6,7 +6,7 @@ Gluu Casa ("Casa") is a self-service web portal for end-users to manage security
 
 For example, as people interact with an organization's digital services, they may need to:
 
-- Add and remove two-factor authentication (2FA) credentials (e.g. FIDO keys, authenticator apps, phone numbers, etc.)
+- Add and remove two-factor authentication (2FA) credentials
 - Turn 2FA on and off
 - View which external apps have access to their personal data
 - Manage trusted devices   
