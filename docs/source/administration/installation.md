@@ -26,11 +26,11 @@ Make sure your VM or server has at least **1GB of additional RAM** on top of the
 ### User requirements
 Casa shares the Gluu Server's data, so any user with an account in the Gluu Server will have an account in Casa. There are two types of users in Gluu Casa:
 
-- **Admin users**: Any user in the `Managers Group` in the corresponding Gluu Server. Admin users have access to the Casa [admin console](./administration/admin-console.md).   
+- **Admin users**: Admin users have access to the Casa [admin console](./administration/admin-console.md). Any user in the `Managers Group` in the corresponding Gluu Server will be an Admin in Casa. 
 
-- **Regular users**: Any other user in the Gluu Server. All users can manage their 2FA credentials, as outlined in the [user guide](./user-guide.md).  
+- **Regular users**: Any other user in the Gluu Server is a "regular user" in Casa, and can use Casa to manage their account security preferences as outlined in the [user guide](./user-guide.md).  
 
-Make sure you have an admin user before proceeding with Casa installation. 
+Make sure you have an Admin user before proceeding with Casa installation. 
 
 ## Installation via Linux Packages 
 Casa is distributed as part of the Gluu Server extensions bundle. Follow the instructions according to your underlying OS.
