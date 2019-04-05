@@ -1,6 +1,6 @@
 # Consent Management Plugin
 ## Overview 
-The Consent Management plugin gives end-users the ability to view and revoke previously granted authorizations provided to applications accessed with their account in a Gluu Server. 
+The Consent Management plugin gives end-users the ability to view and revoke OAuth2 authorizations they previously granted to applications accessed using their account in a Gluu Server. 
 
 ## Requirements
 
