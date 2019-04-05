@@ -38,11 +38,11 @@ Now users will see an "Accounts linking" menu item added in their navigation whe
 
 ## Social login enrollment 
 
-If you want to support inbound identity for new user enrollment, the following instructions apply. 
+To support inbound identity for new user enrollment, the following instructions apply. 
 
-When a user logs in for the first time through an external provider, a new user entry (local account) is created in the Gluu Server linked to the provider. A user won't be able to de-link the account they used to sign up until they either:
+When a new user signs in to your service for the first time via an external provider, a local account is created in the Gluu Server linked to the provider. The user won't be able to de-link the account they used to sign up until they either:
 
-1. Set a local password: the plugin bundles a form that allows users to perform this action;  
+1. Set a local password -- the plugin bundles a form that allows users to perform this action;  
 1. Link an additional external account.  
 
 Follow the instructions below to configure your Gluu and Casa instances to support inbound identity for new user registration.
