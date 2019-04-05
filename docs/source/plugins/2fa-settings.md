@@ -1,7 +1,7 @@
 # 2FA Settings Plugin
 
 ## Overview
-The 2FA Settings plugin offers administrators the ability to configure how and when 2FA is applied. 
+The 2FA Settings plugin offers administrators the ability to configure how and when 2FA is enforced. 
 
 Admins can:
 
