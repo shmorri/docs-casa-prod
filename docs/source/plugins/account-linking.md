@@ -1,6 +1,6 @@
-# Accounts Linking
+# Account Linking Plugin
 ## Overview
-The Accounts Linking plugin allows users to link and delink their local account with an existing account at third-party social providers like GitHub, Facebook, and Google, or even external customer or partner SAML IDPs. 
+The Account Linking plugin allows users to link and delink their local account in the Gluu Server with an existing account at third-party social providers like GitHub, Facebook, and Google, or any other pre-configured external SAML or OpenID Connect Provider. 
 
 ## Requirements
 
@@ -10,8 +10,8 @@ The Accounts Linking plugin allows users to link and delink their local account 
 
 - Passport configured to support your target external authentication providers, e.g. GitHub, Google, etc. Check the Gluu Server docs for instructions (make sure the docs version matches your Gluu version):
 
-    - Passport for external [SAML IDPs](https://www.gluu.org/docs/ce/authn-guide/inbound-saml-passport/)    
-    - Passport for external [OAuth/OIDC providers](https://www.gluu.org/docs/ce/authn-guide/passport/)   
+    - Passport for external [SAML IDPs](https://www.gluu.org/docs/ce/3.1.6/authn-guide/inbound-saml-passport/)    
+    - Passport for external [OAuth/OIDC providers](https://www.gluu.org/docs/ce/3.1.6/authn-guide/passport/)   
   
 ## Installation
 
