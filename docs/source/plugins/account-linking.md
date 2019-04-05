@@ -3,9 +3,9 @@
 The Account Linking plugin allows users to link and delink their local account in the Gluu Server with an existing account at third-party social providers like GitHub, Facebook, and Google, or any other pre-configured external SAML or OpenID Connect Provider. 
 
 ## Workflows
-Depending on how you have your Gluu authentication service configured, users can either use an external account to sign up for your service, and / or they can link an external account post-registration. 
+Depending on how your authentication service is configured, users can either sign up for your service using an external account, or they can create a local account, then link another external account post-registration. 
 
-If a user signs up for your service using an external account, and then later wants to "de-link" that account, before removing the account Casa will prompt the user to set a new password that is stored locally in your Gluu Server. 
+If a user signs up for your service using an external account, and later wants to "de-link" that account, before removing the account Casa will prompt the user to set a local password in your Gluu Server. Alternatively, the user can link another external account and then de-link the original account. 
 
 ## Requirements
 
