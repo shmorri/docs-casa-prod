@@ -3,7 +3,7 @@
 ## Overview
 The 2FA Settings plugin offers administrators the ability to configure how and when 2FA is enforced. 
 
-Admins can:
+Using this plugin, admins can:
 
 - Specify a minimum number of credentials users *must* enroll before they are able to turn on 2FA
 
