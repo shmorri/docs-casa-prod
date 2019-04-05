@@ -15,8 +15,8 @@ If a user signs up for your service using an external account, and later wants t
 
 - Passport configured to support your target external authentication providers, e.g. GitHub, Google, etc. Check the Gluu Server docs for instructions (make sure the docs version matches your Gluu version):
 
-    - Passport for external [SAML IDPs](https://www.gluu.org/docs/ce/3.1.6/authn-guide/inbound-saml-passport/)    
-    - Passport for external [OAuth/OIDC providers](https://www.gluu.org/docs/ce/3.1.6/authn-guide/passport/)   
+    - [Inbound SAML](https://www.gluu.org/docs/ce/3.1.6/authn-guide/inbound-saml-passport/)    
+    - [Inbound OAuth/OIDC](https://www.gluu.org/docs/ce/3.1.6/authn-guide/passport/)   
   
 ## Installation
 
@@ -34,18 +34,22 @@ Once you have configured and tested the integration(s) with the target external 
 
 1. Click on `Add` 
 
-So far, users will be able to see an "Accounts linking" menu added. From there they can link and unlink accounts while staying inside Casa. The following section describes how to allow users to choose an external provider to log in to Casa and create an account in the Gluu Server (inbound identity).
+Now users will see an "Accounts linking" menu item added in their navigation where they can link and unlink their local account with pre-configured external authentication providers. 
 
-!!! Note
-    When a user logs in for the first time through an external provider, a new user entry is created in the Gluu Server (AKA a local account) linked to the provider. A user won't be able to unlink an account until he sets a password: the plugin bundles a form that allows users to perform this action.
+## Social login "enrollment" 
 
-## Alter the authentication flow
+If you want to support inbound identity for new user enrollment, the following instructions apply. 
 
-These are the steps required so the Casa authentication flow does not require users to enter a username and password combination, but leverages the credentials already existing in an external provider.
+When a user logs in for the first time through an external provider, a new user entry (local account) is created in the Gluu Server linked to the provider. A user won't be able to de-link the account they used to sign up until they either:
+
+1. Set a local password: the plugin bundles a form that allows users to perform this action;  
+1. Link an additional external account.  
+
+Follow the instructions below to configure your Gluu and Casa instances to leverage existing user credentials at external providers.
 
 ### Add custom parameters
 
-Add a custom parameter for authorization requests in your Gluu Server: 
+In your Gluu Server, add a custom parameter for authorization requests: 
 
 1. In oxTrust go to `Configuration` > `JSON Configuration` > `oxAuth Configuration`
 
@@ -58,7 +62,9 @@ Add a custom parameter for authorization requests in your Gluu Server:
 
 ### Activate the custom scripts needed
 
-While configuring Passport earlier, you enabled one or more authentication scripts (ie. `passport_social`/`passport_saml`). In oxTrust, navigate to `Configuration` > `Manage custom scripts` and for every script you enabled, add a configuration parameter with name `authz_req_param_provider` and set its value to the custom authorization parameter created earlier (eg. `custParamCasaPassport`).
+While configuring Passport earlier, you enabled one or more authentication scripts (ie. `passport_social`/`passport_saml`). 
+
+In oxTrust, navigate to `Configuration` > `Manage custom scripts` and for every script you enabled, add a configuration parameter with name `authz_req_param_provider` and set its value to the custom authorization parameter created earlier (e.g. `custParamCasaPassport`).
 
 ### Update Casa custom script
 
