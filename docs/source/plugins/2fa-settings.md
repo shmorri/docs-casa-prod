@@ -1,26 +1,27 @@
-# Strong Authentication Settings Plugin
+# 2FA Settings Plugin
 
 ## Overview
-This plugin allows administrators to configure how and when 2FA is applied. Admins can:
+The 2FA Settings plugin offers administrators the ability to configure how and when 2FA is applied. 
 
-- Specify the minimum number of credentials users must enroll before they are able to turn on 2FA
+Admins can:
 
-- Choose from a set of predefined policies for when 2FA should be prompted:
+- Specify a minimum number of credentials users *must* enroll before they are able to turn on 2FA
+
+- Choose from the following predefined policies for when 2FA should be enforced:
  
-    - Always (at every login attempt)
+    - Always (every login attempt)
     - When user's location is unrecognized
     - When user's device is unrecognized
-    - Users can define their own policy (based on the above)
+    - Users can define their own policy (using the above options)
   
-- Set how long a location or device can be deemed as recognized
+- Set how long a location or device is deemed "recognized"
     
-Additionally, when administrators allow users to set their own strong authentication policy, users can:
+When admins allow users to set their own 2FA policy, users can additionally:
 
-- View the list of physical devices they have used to login (e.g. PC, tablet, phone)
-- View the time and location (city) associated to the last login event
-- Remove a device from the list (eg. when it should not be considered trustworthy anymore)
+- View and remove "trusted devices" they have used to login (e.g. PC, tablet, phone)
+- View time and location (city) details associated with previous login events
 
-A device/location is considered trustworthy when the user has presented a strong credential in order to login to Casa with it. Subsequent login attempts from trustworthy (recognized) device/locations will not require them to present a second factor.
+A device/location is considered trusted once the user has passed 2FA. Subsequent login attempts from trusted devices / locations will not require 2FA.
 
 ## Requirements
 
