@@ -18,7 +18,7 @@ Using this plugin, admins can:
     
 When admins allow users to set their own 2FA policy, users can additionally:
 
-- View and remove "trusted devices" they have used to login (e.g. PC, tablet, phone)
+- View and remove their "trusted devices" (e.g. PC, tablet, phone)
 - View time and location (city) details associated with previous login events
 
 A device/location is considered trusted once the user has passed 2FA. Subsequent login attempts from trusted devices / locations will not require 2FA.
