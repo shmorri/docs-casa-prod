@@ -17,7 +17,7 @@ The Accounts Linking plugin allows users to link and delink their local account 
 
 Once you have configured and tested the integration(s) with the target external providers, install the Accounts Linking plugin by following the steps below:
 
-1. [Download the plugin](https://casa.gluu.org/wp-content/uploads/2019/04/account-linking-3.1.6.Final_.jar)
+1. [Download the plugin](https://gluu.co/account-linking-plugin)
 
 1. Log in to Casa using an administrator account
 
