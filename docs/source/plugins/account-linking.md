@@ -58,13 +58,13 @@ In your Gluu Server, add a custom parameter for authorization requests:
 1. Press the save button at the bottom of the page
 
 !!! Note
-    By default every time a user logs in via a external provider, an update takes place in his profile: all attributes released from the external provider to oxAuth are updated in local LDAP. Attributes not received are flushed. If you don't want the update to take place, please also add a oxAuth custom param with name `skipPassportProfileUpdate`.
+    By default every time a user logs in via an external provider, an update takes place in their local account: all attributes released from the external provider are updated in the local LDAP. Attributes not received are flushed. If you don't want the update to take place, also add a custom param with name `skipPassportProfileUpdate`.
 
 ### Activate the custom scripts needed
 
-While configuring Passport earlier, you enabled one or more authentication scripts (ie. `passport_social`/`passport_saml`). 
+While configuring Passport earlier, you enabled one or more authentication scripts (ie. `passport_social` , `passport_saml`). 
 
-In oxTrust, navigate to `Configuration` > `Manage custom scripts` and for every script you enabled, add a configuration parameter with name `authz_req_param_provider` and set its value to the custom authorization parameter created earlier (e.g. `custParamCasaPassport`).
+In oxTrust, navigate to `Configuration` > `Manage custom scripts` and for every script you enabled, add a configuration parameter with name `authz_req_param_provider`. Set its value to the custom authorization parameter created earlier (e.g. `custParamCasaPassport`).
 
 ### Update Casa custom script
 
@@ -72,11 +72,11 @@ Since the *standard* authentication flow will be different, the `casa` script co
 
 Press the update button at the bottom of the page.
 
-The login page must be updated so it dynamically loads the external providers in a way that users can choose a provider to log in/create an account:
+The login page must be updated so it dynamically loads the external providers in a way that users can choose a provider to sign in:   
 
-1. Log in to the chroot
-1. `cd` to `/opt/gluu/jetty/oxauth/custom/pages`
-1. Copy the file found [here](https://github.com/GluuFederation/casa-ee-plugins/raw/version_3.1.6/account-linking/extras/casa.xhtml) into `pages` folder.
+1. Log in to the chroot    
+1. `cd` to `/opt/gluu/jetty/oxauth/custom/pages`      
+1. Copy the file found [here](https://github.com/GluuFederation/casa-ee-plugins/raw/version_3.1.6/account-linking/extras/casa.xhtml) into `pages` folder.     
 
 ## User guide
 
