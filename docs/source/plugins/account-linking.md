@@ -45,7 +45,7 @@ When a user logs in for the first time through an external provider, a new user 
 1. Set a local password: the plugin bundles a form that allows users to perform this action;  
 1. Link an additional external account.  
 
-Follow the instructions below to configure your Gluu and Casa instances to leverage existing user credentials at external providers.
+Follow the instructions below to configure your Gluu and Casa instances to support inbound identity for new user registration.
 
 ### Add custom parameters
 
