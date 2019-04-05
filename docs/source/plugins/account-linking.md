@@ -5,7 +5,7 @@ The Account Linking plugin allows users to link and delink their local account i
 ## Workflows
 Depending on how your authentication service is configured, users can either sign up for your service using an external account, or they can create a local account and link an external account post-registration. 
 
-If a user signs up for your service using an external account, and later wants to "de-link" that account, before removing the account Casa will prompt the user to set a local password in your Gluu Server. Alternatively, the user can link another external account and then de-link the original account. 
+If a user signs up for your service using an external account, and later wants to "de-link" that account, before removing the account Casa will prompt the user to set a local password in your Gluu Server. Alternatively, the user can link another external account and then de-link the original account. More details [below](#social-login-enrollment).   
 
 ## Requirements
 
@@ -36,7 +36,7 @@ Once you have configured and tested the integration(s) with the target external 
 
 Now users will see an "Accounts linking" menu item added in their navigation where they can link and unlink their local account with pre-configured external authentication providers. 
 
-## Social login "enrollment" 
+## Social login enrollment 
 
 If you want to support inbound identity for new user enrollment, the following instructions apply. 
 
