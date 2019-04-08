@@ -15,7 +15,7 @@ markdown_extensions:
 - pymdownx.superfences
 - pymdownx.snippets:
     base_path: docs/_snippets
-pages:
+nav:
 - Home: 'index.md'    
 - Administration Guide: 
     - 'Installation': 'administration/installation.md'
