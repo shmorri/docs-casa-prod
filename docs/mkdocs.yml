@@ -7,6 +7,9 @@ repo_name: GluuFederation/docs-casa-prod
 repo_url: https://github.com/GluuFederation/docs-casa-prod/blob/3.1.6/docs
 theme: 
     name: 'material'
+    pallette:
+        primary: 'green'
+        accent: 'green'
     logo: 'gluu.png'
 extra:
     version: '3.1.6'
