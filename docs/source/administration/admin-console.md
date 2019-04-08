@@ -131,7 +131,7 @@ If a user is locked out for any reason (e.g. lost device, etc.), an admin can na
 
 ## Plugins
 
-Plugins are vehicles to augment the functionalities available by default in Gluu Casa. To learn more about plugins, visit the [developer guide](..\developer\index.md#plugins).
+Plugins are vehicles to augment the functionalities available by default in Gluu Casa. To learn more about plugins, visit the [developer guide](../developer/index.md#plugins).
 
 In this section of the console, the current list of active and dormant plugins is shown. Once an element in the list is selected, a summary of the relevant plugin's metadata is visualized. You can manage the state of plugins as well as remove them.
 
