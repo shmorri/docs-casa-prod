@@ -116,7 +116,7 @@ In ZK, you use ZUML (ZK User Interface Markup Language) which is an XML-formatte
 
 ZK provides many ready-to-use UI components, but it also allows to use pure HTML code which is universally known by designers and developers in the field of web applications.
 
-You can use any of the resources listed above to get an idea of how typical zul files look. Additionally you may check the code of [Gluu Casa project](https://github.com/GluuFederation/casa/tree/version_3.1.6/app/src/main/webapp) where you'll find many zul files. In the [Writing your first plugin](first-plugin.md) page you will have the opportunity to view and edit a .zul file your own.
+You can use any of the resources listed above to get an idea of how typical zul files look. Additionally you may check the code of [Gluu Casa project](https://github.com/GluuFederation/casa/tree/version_3.1.6/app/src/main/webapp) where you'll find many zul files. In the [Writing your first plugin](writing-first.md) page you will have the opportunity to view and edit a .zul file your own.
 
 Particularly in Gluu Casa code, the amount of zul components used is very small to favor plain HTML5 tags. This allows to reduce the time it takes to incorporate a UI design handed by a third party into a project. Additionally it helps reducing the time to learn ZK by focusing only on the relevant components that make the interaction with the backend possible.
 
@@ -124,7 +124,7 @@ Besides ZUML, ViewModels are an important concept. *ZK MVVM Reference* contains 
 
 ZK framework takes charge of handling the communication and state synchronization between the *View* and its associate *ViewModel*. While you don't normally reference UI components in *ViewModels*, if you need to manipulate those in your POJO, account that there is a Java class in the framework for every possible ZK component (e.g. Button, CheckBox, etc.) and they reside in package `org.zkoss.zul`. 
 
-The process of synchronizing data between the *View* and *ViewModel* is called binding. ZK uses a set of Java-like annotations to drive this mechanism. We will see some of those when [Writing our first plugin](first-plugin.md). ZK binder is also responsible for hooking up a UI component's event such as a button's onClick to a method defined in a *ViewModel*. In this case Java annotations are used.
+The process of synchronizing data between the *View* and *ViewModel* is called binding. ZK uses a set of Java-like annotations to drive this mechanism. We will see some of those when [Writing our first plugin](writing-first.md). ZK binder is also responsible for hooking up a UI component's event such as a button's onClick to a method defined in a *ViewModel*. In this case Java annotations are used.
 
 ### Plugin framework
 
