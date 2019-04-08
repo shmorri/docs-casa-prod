@@ -5,7 +5,7 @@ docs_dir: source
 repo_name: GluuFederation/docs-casa-prod
 repo_url: https://github.com/GluuFederation/docs-casa-prod/
 theme:
-    name: material
+    name: `material`
 extra:
     version: '4.0'
     logo: 'gluu.png'
